@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import { findDOMNode } from 'react-dom';
+import MainNavigation from "../navigationComponent/mainNavigation";
+import Cursor from "../cursorComponent/cursor";
+
+
 
 class LandingPage extends Component {
 
@@ -116,16 +120,16 @@ TxtRotate.prototype.tick = function () {
     var words = fullTxt.toString();
     if (words.includes("code")) {
 
-        $('#blurred').css("background-image", "url(../images/img_6.jpg)");
+        $('#blurred').css("background-image", "url(/../../../Assets/images/img_2.jpg)");
         // $(".txt-rotate").css("color", "white");
         // $("#line").css("background", "white");
 
     } else if (words.includes("ux")) {
-        $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)");
+        $('#blurred').css("background-image", "url(./../images/img_6.jpg)");
 
 
     } else if (words.includes("design")) {
-        $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)");
+        $('#blurred').css("background-image", "url(./../images/img_4)");
         $(".txt-rotate").css("color", "#fff");
         $("#line").css("background", "#fff");
 
@@ -268,9 +272,9 @@ setInterval(updateGradient, 10);
         return(
 
         <div className="mainNavigation_container">
-
+        <Cursor/>
+        <MainNavigation/>
           
-  <div id="cursor"><span className="lnr lnr-menu"></span></div>
   <div id="log"></div>
   <div id="element"></div>
   <div id="gradient"></div>

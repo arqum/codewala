@@ -209,25 +209,6 @@ function map(num, in_min, in_max, out_min, out_max) {
 
 
 
-    $('a').hover(function () {
-        $('#cursor').css({
-            'width': '60px',
-            'height': "60px",
-            'background-color': "rgba(135, 227, 221, 0.3)",
-
-
-
-
-        });
-    });
-    $('a').mouseleave(function () {
-        $('#cursor').css({
-            'width': '20px',
-            'height': "20px",
-            'background-color': "rgba(255, 255, 255, 0.5)"
-
-        });
-    });
 
 
     //calculate distance
@@ -254,16 +235,7 @@ function map(num, in_min, in_max, out_min, out_max) {
         $distance.text(distance);
 
         //cursor ball
-        mX = e.pageX;
-        mY = e.pageY;
-        $(document).bind('mousemove', function (e) {
-            $('#cursor').css({
-                left: e.pageX + 20,
-                top: e.pageY
-            });
-
-
-        });
+  
 
         //blur
         var windowWidth = $(window).width();
@@ -400,71 +372,6 @@ function map(num, in_min, in_max, out_min, out_max) {
         css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
         document.body.appendChild(css);
     };
-
-
-
-// GRADIENT TRANSITION
-
-(function () {
-    var colors = new Array(
-        [148,152,163],[44, 51, 67], [171,175,183], [76, 150, 109], [66, 196, 124], [126, 178, 81],[128, 214, 55],[164, 189, 62],[200, 233, 69]);
-
-    var step = 0;
-    //color table indices for: 
-    // current color left
-    // next color left
-    // current color right
-    // next color right
-    var colorIndices = [0, 1, 2, 3,4,5,6,7,8];
-
-    //transition speed
-    var gradientSpeed = 0.003;
-
-    function updateGradient() {
-
-        if ($ === undefined) return;
-
-        var c0_0 = colors[colorIndices[0]];
-        var c0_1 = colors[colorIndices[1]];
-        var c1_0 = colors[colorIndices[2]];
-        var c1_1 = colors[colorIndices[3]];
-
-        var istep = 1 - step;
-        var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
-        var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
-        var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
-        var color1 = "rgb(" + r1 + "," + g1 + "," + b1 + ")";
-
-        var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
-        var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
-        var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
-        var color2 = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
-
-        $('#gradient').css({
-            // background: "-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))"
-            background: "linear-gradient(to bottom," + color1 + "," + color2 + ")"
-        }).css({
-            background: "-moz-linear-gradient(to bottom, " + color1 + " 0%, " + color2 + " 100%)"
-        });
-
-        step += gradientSpeed;
-        if (step >= 1) {
-            step %= 1;
-            colorIndices[0] = colorIndices[1];
-            colorIndices[2] = colorIndices[3];
-
-            //pick two new target color indices
-            //do not pick the same as the current one
-            colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
-            colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
-
-        }
-    }
-
-    setInterval(updateGradient, 10);
-})();
-
-
     }
 
     
@@ -476,20 +383,6 @@ function map(num, in_min, in_max, out_min, out_max) {
         <div className="mainNavigation_container">
 
           
-  <div id="cursor"><span className="lnr lnr-menu"></span></div>
-  <div id="element"></div>
-  <div id="gradient"></div>
-  <div id="blurred"></div>
-  <div id="centerLogo"></div>
-  <i className="fa-fw select-all fas"></i>
- 
-  <h1 className="txt-rotate">
-    <span className="codewalatext">
-
-      <strong>&lt;code</strong>wala/&gt; is
-      <span className="txt" data-period="2000" data-rotate='[ "code.", "ux.", "design.", "mobile.", "fun!" ]'></span>
-      </span>
-  </h1>
  
   <div id="menu-button" data-toggle="off">
   <div className="logo-head">
