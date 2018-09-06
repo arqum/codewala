@@ -125,11 +125,11 @@ TxtRotate.prototype.tick = function () {
         // $("#line").css("background", "white");
 
     } else if (words.includes("ux")) {
-        $('#blurred').css("background-image", "url(./../images/img_6.jpg)");
+        $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)");
 
 
     } else if (words.includes("design")) {
-        $('#blurred').css("background-image", "url(./../images/img_4)");
+        $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)");
         $(".txt-rotate").css("color", "#fff");
         $("#line").css("background", "#fff");
 
@@ -286,7 +286,7 @@ setInterval(updateGradient, 10);
     <span className="codewalatext">
 
       <strong>&lt;code</strong>wala/&gt; is
-      <span className="txt" data-period="2000" data-rotate='[ "code.", "ux.", "design.", "mobile.", "fun!" ]'></span>
+      <span className="txt" data-period="2000" data-rotate='[ " code.", " ux.", " design.", " mobile.", " fun!" ]'></span>
       </span>
   </h1>
   
