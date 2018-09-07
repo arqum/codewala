@@ -150,7 +150,7 @@ TxtRotate.prototype.tick = function () {
     } else if (words.includes("mobile")) {
         $('#blurred').css("background-image", "url(/../../../Assets/images/img_3.jpg)");
         $('.codewalaText_description')
-        .html("if 't be true th're is a website on the web of the w'rld which is wide, th're shouldst beest an app as well.");
+        .html("if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.");
         $( ".codewalaText_description" ).fadeTo( "slow" , 1);
       
 
