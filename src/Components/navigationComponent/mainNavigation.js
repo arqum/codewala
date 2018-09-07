@@ -234,40 +234,6 @@ function map(num, in_min, in_max, out_min, out_max) {
         distance = calculateDistance($element, mX, mY);
         $distance.text(distance);
 
-        //cursor ball
-  
-
-        //blur
-        var windowWidth = $(window).width();
-        var windowHeight = $(window).height();
-        var filterAfterMap = map(distance, 100, windowWidth, 2, 50);
-        var filterStrength = filterAfterMap;
-
-        if (distance < 400) {
-            $('#blurred').css({
-                filter: "blur(" + (filterAfterMap) + "px)"
-                //  '-webkit-transform': 'scale(' + scaleAfterMap + ')'
-
-            });
-
-           $('#gradient').fadeOut(3000);
-            $('.txt-rotate').css('color', '#2c3343');
-            $("#line").css("background", "#2c3343");
-
-
-        } else {
-
-            $('#blurred').css({
-                filter: "blur(" + (filterStrength) + "px)"
-                //  '-webkit-transform': 'scale(' + scaleAfterMap + ')'
-            });
-
-            $('#gradient').fadeIn(3000);
-            $('.txt-rotate').css('color', '#ffff');
-            $("#line").css("background", "#ffff");
-
-        }
-
     });
 
     
@@ -382,8 +348,7 @@ function map(num, in_min, in_max, out_min, out_max) {
 
         <div className="mainNavigation_container">
 
-          
- 
+    
   <div id="menu-button" data-toggle="off">
   <div className="logo-head">
 
