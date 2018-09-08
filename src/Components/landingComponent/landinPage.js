@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
-import { findDOMNode } from 'react-dom';
 import MainNavigation from "../navigationComponent/mainNavigation";
 import Cursor from "../cursorComponent/cursor";
 
 
-
 class LandingPage extends Component {
+
+ 
 
     componentDidMount = ()=>{
 
@@ -63,6 +63,7 @@ $(document).mousemove(function (e) {
     });
 
     //blur
+
     var windowWidth = $(window).width();
     var windowHeight = $(window).height();
     var filterAfterMap = map(distance, 100, windowWidth, 2, 50);
@@ -74,8 +75,7 @@ $(document).mousemove(function (e) {
             //  '-webkit-transform': 'scale(' + scaleAfterMap + ')'
 
         });
-
-        $('#gradient').fadeOut(3000);
+       $('#gradient').fadeOut(3000);
         $('.txt-rotate').css('color', '#2c3343');
         $("#line").css("background", "#2c3343");
 
@@ -94,7 +94,6 @@ $(document).mousemove(function (e) {
     }
 
 });
-
 
 
 //Text Rotation
@@ -316,10 +315,7 @@ setInterval(updateGradient, 10);
 
         return(
 
-        <div className="mainNavigation_container">
-        <Cursor/>
-        <MainNavigation/>
-          
+        <div className="custom_container">
   <div id="log"></div>
   <div id="element"></div>
   <div id="gradient"></div>
@@ -338,6 +334,7 @@ setInterval(updateGradient, 10);
       </p>
       
   </h1>
+
   
  </div>
 

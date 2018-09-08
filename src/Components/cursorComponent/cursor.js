@@ -5,36 +5,48 @@ import { findDOMNode } from 'react-dom';
 class Cursor extends Component {
 
     componentDidMount = ()=>{
-// make cursor bigger on links
-$('a').hover(function () {
-    $('#cursor').css({
-        'width': '60px',
-        'height': "60px",
-        'background-color': "rgba(135, 227, 221, 0.3)",
 
+        $(document).mousemove(function (e) {
 
-
-
-    });
-});
-$('a').mouseleave(function () {
-    $('#cursor').css({
-        'width': '20px',
-        'height': "20px",
-        'background-color': "rgba(255, 255, 255, 0.5)"
+        //cursor ball
+        var mX = e.pageX;
+        var mY = e.pageY;
+        $(document).bind('mousemove', function (e) {
+            $('#cursor').css({
+                left: e.pageX + 20,
+                top: e.pageY
+            });
+        });
 
     });
-});
+
+    
+    $('.navlinks').hover(function () {
+        $('#cursor').css({
+            'width': '60px',
+            'height': "60px",
+            'background-color': "rgba(135, 227, 221, 0.3)",
 
 
 
+
+        });
+    });
+    $('.navlinks').mouseleave(function () {
+        $('#cursor').css({
+            'width': '20px',
+            'height': "20px",
+            'background-color': "rgba(255, 255, 255, 0.5)"
+
+        });
+    });
 
     }
 
     render() {
 
         return(
-        <div>
+        <div className="custom_container">
              <div id="cursor"><span className="lnr lnr-menu"></span></div>
         </div>
     

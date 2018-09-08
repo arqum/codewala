@@ -1,29 +1,15 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import { findDOMNode } from 'react-dom';
+import Cursor from "../cursorComponent/cursor";
+import {NavLink} from 'react-router-dom';
+
 
 class MainNavigation extends Component {
 
+
     componentDidMount = ()=>{
    
-
-
-//map function from large values to small
-function map(num, in_min, in_max, out_min, out_max) {
-    return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
-
-
-    var opened = 0;
-   var  filterStrength = 0;
-
-
-    var movementStrength = 25;
-    var height = movementStrength / $(window).height();
-    var width = movementStrength / $(window).width();
-    var mX, mY, distance,
-        $distance = $('#distance span'),
-        $element = $('#element');
 
     //menu animation
     $('#menu-button').on('click', function () {
@@ -207,137 +193,7 @@ function map(num, in_min, in_max, out_min, out_max) {
 
     });
 
-
-
-
-
-    //calculate distance
-    function calculateDistance(elem, mouseX, mouseY) {
-        return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left + (elem.width() / 2)), 2) + Math.pow(mouseY - (elem.offset().top + (elem.height() / 2)), 2)));
-    }
-
-    $(document).mousemove(function (e) {
-
-
-        $('#blurred').css("background-position", newvalueX + "px     " + newvalueY + "px");
-
-
-        //image move with mouse
-        var pageX = e.pageX - ($(window).width() / 2);
-        var pageY = e.pageY - ($(window).height() / 2);
-        var newvalueX = width * pageX * -1 - 35;
-        var newvalueY = height * pageY * -1 - 50;
-        $('#blurred').css("background-position", newvalueX + "px     " + newvalueY + "px");
-
-
-        //distance from element
-        distance = calculateDistance($element, mX, mY);
-        $distance.text(distance);
-
-    });
-
-    
-
-    //Text Rotation
-    var TxtRotate = function (el, toRotate, period) {
-        this.toRotate = toRotate;
-        this.el = el;
-        this.loopNum = 0;
-        this.period = parseInt(period, 13) || 2000;
-        this.txt = '';
-        this.tick();
-        this.isDeleting = false;
-    };
-
-
-
-    TxtRotate.prototype.tick = function () {
-        var i = this.loopNum % this.toRotate.length;
-        var fullTxt = this.toRotate[i];
-
-
-
-        //imageChanger
-        var words = fullTxt.toString();
-        if (words.includes("code")) {
-
-            $('#blurred').css("background-image", "url(../images/img_6.jpg)");
-            // $(".txt-rotate").css("color", "white");
-            // $("#line").css("background", "white");
-
-        } else if (words.includes("ux")) {
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)");
-
-
-        } else if (words.includes("design")) {
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)");
-            $(".txt-rotate").css("color", "#fff");
-            $("#line").css("background", "#fff");
-
-
-
-        } else if (words.includes("fun")) {
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)");
-
-        } else if (words.includes("mobile")) {
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_3.jpg)");
-            $(".txt-rotate").css("color", "#2c3343");
-            $("#line").css("background", "#fff");
-
-
-        }
-
-        if (this.isDeleting) {
-            this.txt = fullTxt.substring(0, this.txt.length - 1);
-        } else {
-            this.txt = fullTxt.substring(0, this.txt.length + 1);
-        }
-
-        this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-
-        var that = this;
-        var delta = 200 - Math.random() * 100;
-
-        if (this.isDeleting) {
-            delta /= 2;
-        }
-
-        if (!this.isDeleting && this.txt === fullTxt) {
-            delta = this.period;
-            this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
-            this.isDeleting = false;
-            this.loopNum++;
-            delta = 500;
-        }
-
-        setTimeout(function () {
-            that.tick();
-        }, delta);
-    };
-
-    // END TXT ROTATION
-
-    window.onload = function () {
-
-        var elements = document.getElementsByClassName('txt');
-        for (var i = 0; i < elements.length; i++) {
-            var toRotate = elements[i].getAttribute('data-rotate');
-            var period = elements[i].getAttribute('data-period');
-
-            if (toRotate) {
-                new TxtRotate(elements[i], JSON.parse(toRotate), period);
-
-            }
-        }
-
-
-        // INJECT CSS
-        var css = document.createElement("style");
-        css.type = "text/css";
-        css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
-        document.body.appendChild(css);
-    };
+       
     }
 
     
@@ -346,7 +202,8 @@ function map(num, in_min, in_max, out_min, out_max) {
 
         return(
 
-        <div className="mainNavigation_container">
+        <div className="custom_container">
+        <Cursor/>
 
     
   <div id="menu-button" data-toggle="off">
@@ -361,19 +218,27 @@ function map(num, in_min, in_max, out_min, out_max) {
  
   </div>
   <div id="menu-nav">
-<ul id="nav-items">
-  <li id="nav_item_1"><a href="#">
-    <span className="nav-items">01</span>About
-  </a></li>
-  <li id="nav_item_1"><a href="#">
-    <span className="nav-items">02</span>Work
-  </a></li>
-  <li id="nav_item_1"><a href="#">
-    <span className="nav-items">03</span>Philosophy
-  </a></li>
-  <li id="nav_item_1"><a href="#">
-    <span className="nav-items">04</span> Hire Us!
-  </a></li>
+    <ul id="nav-items">
+     <li id="nav_item_1">
+         <span className="nav-items">01</span>
+             <NavLink className="navlinks" to="/" activeClassName="selected"  exact>Home </NavLink>
+    </li>
+      <li id="nav_item_2">
+         <span className="nav-items">02</span>
+             <NavLink className="navlinks" to="/about"  activeClassName="selected">About</NavLink>
+     </li>
+     <li id="nav_item_3">
+         <span className="nav-items">03</span>
+             <NavLink className="navlinks" to="/work" activeClassName="selected">Work</NavLink>
+     </li>
+     <li id="nav_item_4">
+         <span className="nav-items">04</span>
+             <NavLink className="navlinks" to="/philosophy" activeClassName="selected">Philosophy</NavLink>
+     </li>
+     <li id="nav_item_5">
+         <span className="nav-items">05</span>
+             <NavLink className="navlinks" to="/hire" activeClassName="selected">Hire Us!</NavLink>
+     </li>
 </ul>
 </div>
 
