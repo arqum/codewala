@@ -102,7 +102,7 @@ var TxtRotate = function (el, toRotate, period) {
     this.toRotate = toRotate;
     this.el = el;
     this.loopNum = 0;
-    this.period = parseInt(period, 18) || 2000;
+    this.period = parseInt(period, 15) || 3000;
     this.txt = '';
     this.tick();
     this.isDeleting = false;
@@ -123,39 +123,68 @@ TxtRotate.prototype.tick = function () {
         $('#blurred').css("background-image", "url(/../../../Assets/images/img_2.jpg)");
         $('.codewalaText_description')
         .html("Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?");
-        $( ".codewalaText_description" ).fadeTo( "slow" , 1);
+       // $('#centerlogo').addClass("centerLogoCode", 6000 ).removeClass( "centerLogoFun", 6000 );
 
-   
+        $("#centerlogo").removeClass('centerLogoFun').delay(80).queue(
+            function (next) {
+                $(this).addClass('centerLogoCode');
+                next();
+            }
+        );
 
     } else if (words.includes("ux")) {
         $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)");
         $('.codewalaText_description')
-        .html("We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!");
-        $( ".codewalaText_description" ).fadeTo( "slow" , 1);
+        .html("We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!");       // $('#centerlogo').addClass("centerLogoUX", 6000).removeClass( "centerLogoCode", 6000);
+       $("#centerlogo").removeClass('centerLogoCode').delay(80).queue(
+        function (next) {
+            $(this).addClass('centerLogoUX');
+            next();
+        }
+    );
 
     } else if (words.includes("design")) {
         $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)");
         // $(".txt-rotate").css("color", "#fff");
         // $("#line").css("background", "#fff");
         $('.codewalaText_description')
-        .html("Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.");
-        $( ".codewalaText_description" ).fadeTo( "slow" , 1);
+        .html("Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.");       // $('#centerlogo').addClass("centerLogoDesign", 6000).removeClass( "centerLogoUX", 6000);
 
-    } else if (words.includes("fun")) {
-        $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)");
-        $('.codewalaText_description')
-        .html("It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.");
-        $( ".codewalaText_description" ).fadeTo( "slow" , 1);
+       $("#centerlogo").removeClass('centerLogoUX').delay(80).queue(
+        function (next) {
+            $(this).addClass('centerLogoDesign');
+            next();
+        }
+    );
 
     } else if (words.includes("mobile")) {
         $('#blurred').css("background-image", "url(/../../../Assets/images/img_3.jpg)");
         $('.codewalaText_description')
-        .html("if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.");
-        $( ".codewalaText_description" ).fadeTo( "slow" , 1);
-      
+        .html("if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.");       // $('#centerlogo').addClass("centerLogoMobile", 6000 ).removeClass( "centerLogoDesign", 6000);
 
+       $("#centerlogo").removeClass('centerLogoDesign').delay(80).queue(
+        function (next) {
+            $(this).addClass('centerLogoMobile');
+            next();
+        }
+    );
+
+    
+
+    } else if (words.includes("fun")) {
+        $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)");
+        $('.codewalaText_description')
+        .html("It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.");        //$('#centerlogo').addClass("centerLogoFun", 6000 ).removeClass( "centerLogoMobile", 6000);
+
+        $("#centerlogo").removeClass('centerLogoMobile').delay(80).queue(
+            function (next) {
+                $(this).addClass('centerLogoFun');
+                next();
+            }
+        );
 
     }
+
 
     if (this.isDeleting) {
         this.txt = fullTxt.substring(0, this.txt.length - 1);
@@ -255,6 +284,11 @@ function updateGradient() {
         background: "-moz-linear-gradient(to bottom, " + color1 + " 0%, " + color2 + " 100%)"
     });
 
+    $('#centerlogo').hover(function(){
+
+
+    });
+
     step += gradientSpeed;
     if (step >= 1) {
         step %= 1;
@@ -290,7 +324,7 @@ setInterval(updateGradient, 10);
   <div id="element"></div>
   <div id="gradient"></div>
   <div id="blurred"></div>
-  <div id="centerLogo"></div>
+  <div  id="centerlogo"></div>
   <i className="fa-fw select-all fas"></i>
  
   <h1 className="txt-rotate">

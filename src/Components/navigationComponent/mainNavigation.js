@@ -362,16 +362,16 @@ function map(num, in_min, in_max, out_min, out_max) {
   </div>
   <div id="menu-nav">
 <ul id="nav-items">
-  <li><a href="#">
+  <li id="nav_item_1"><a href="#">
     <span className="nav-items">01</span>About
   </a></li>
-  <li><a href="#">
+  <li id="nav_item_1"><a href="#">
     <span className="nav-items">02</span>Work
   </a></li>
-  <li><a href="#">
+  <li id="nav_item_1"><a href="#">
     <span className="nav-items">03</span>Philosophy
   </a></li>
-  <li><a href="#">
+  <li id="nav_item_1"><a href="#">
     <span className="nav-items">04</span> Hire Us!
   </a></li>
 </ul>
