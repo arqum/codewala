@@ -1,15 +1,27 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
-import { findDOMNode } from 'react-dom';
 import Cursor from "../cursorComponent/cursor";
 import {NavLink} from 'react-router-dom';
+import Loading from 'react-loading-bar';
+import 'react-loading-bar/dist/index.css';
+import LandingPage from '../landingComponent/landinPage';
 
 
 class MainNavigation extends Component {
 
 
+    constructor(){
+        super()
+        this.state = ({show:true})
+    }
+
+    componentWillMount() {
+        this.setState({show: true})
+    }
+ 
+
     componentDidMount = ()=>{
-   
+        this.setState({show: false})
 
     //menu animation
     $('#menu-button').on('click', function () {
@@ -17,14 +29,17 @@ class MainNavigation extends Component {
         if ($(this)[0].hasAttribute("data-toggle")) {
 
             $(this).removeAttr('data-toggle');
+
+            //open nav overlay
             $('#menu-nav').css({
                 'opacity': 0.8,
                 'visibility': 'visible',
                 'height': '100%'
-            });
+            }).delay(6000);
 
+            // //display nav links
             $('#nav-items').css({
-                'opacity': 0.98,
+                'opacity': 0.9,
                 'visibility': "visible",
             }).delay(6000);
 
@@ -203,9 +218,12 @@ class MainNavigation extends Component {
         return(
 
         <div className="custom_container">
-        <Cursor/>
-
-    
+        <Loading className="loading"
+          show={this.state.show}
+          color="#54d5cd"
+          showSpinner={false}
+        />
+    <Cursor/>
   <div id="menu-button" data-toggle="off">
   <div className="logo-head">
 
@@ -221,7 +239,7 @@ class MainNavigation extends Component {
     <ul id="nav-items">
      <li id="nav_item_1">
          <span className="nav-items">01</span>
-             <NavLink className="navlinks" to="/" activeClassName="selected"  exact>Home </NavLink>
+             <NavLink className="navlinks" to="/" activeClassName="selected"  exact>Home</NavLink>
     </li>
       <li id="nav_item_2">
          <span className="nav-items">02</span>

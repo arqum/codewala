@@ -13,25 +13,13 @@ class AboutPage extends Component {
         this.state = ({show:true})
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.setState({show: true})
     }
-
-
-
-
-    // state = {
-    //     show: false
-    //   }
-    
-    //   onShow = ()=> {
-    //     this.setState({ show: true })
-    //   }
-    
-    //   onHide = ()=> {
-    //     this.setState({ show: false })
-    //   }
-    
+    componentDidMount() {
+        $('body').css('background','white');
+        this.setState({show: true})
+    }
     
     render() {
         return(
@@ -46,20 +34,6 @@ class AboutPage extends Component {
           color="#54d5cd"
           showSpinner={false}
         />
-
-        <button
-          type="button"
-          onClick={this.onShow}>
-          show
-        </button>
-
-        <button
-          type="button"
-          onClick={this.onHide}>
-          hide
-        </button>
-    
-
 
     </div>
     

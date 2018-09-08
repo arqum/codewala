@@ -2,24 +2,35 @@ import React, {Component} from 'react';
 import $ from 'jquery';
 import MainNavigation from "../navigationComponent/mainNavigation";
 import Cursor from "../cursorComponent/cursor";
+import Loading from 'react-loading-bar';
+import 'react-loading-bar/dist/index.css';
 
 
 class LandingPage extends Component {
 
+    constructor(){
+        super()
+        this.state = ({show:true})
+    }
+
+    componentWillMount() {
+        this.setState({show: true})
+
+        
+    }
  
-
     componentDidMount = ()=>{
+        this.setState({show: true})
 
+        $('body').css('background','#2c3343');
         //map function from large values to small
-function map(num, in_min, in_max, out_min, out_max) {
-    return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
-
+    function map(num, in_min, in_max, out_min, out_max)
+     {
+         return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    }
 
     var opened = 0;
-   var  filterStrength = 0;
-
-
+    var  filterStrength = 0;
     var movementStrength = 25;
     var height = movementStrength / $(window).height();
     var width = movementStrength / $(window).width();
@@ -28,11 +39,12 @@ function map(num, in_min, in_max, out_min, out_max) {
         $element = $('#element');
 
  //calculate distance
- function calculateDistance(elem, mouseX, mouseY) {
+    function calculateDistance(elem, mouseX, mouseY) 
+    {
     return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left + (elem.width() / 2)), 2) + Math.pow(mouseY - (elem.offset().top + (elem.height() / 2)), 2)));
-}
+    }
 
-$(document).mousemove(function (e) {
+    $(document).mousemove(function (e) {
 
 
     $('#blurred').css("background-position", newvalueX + "px     " + newvalueY + "px");
@@ -63,7 +75,6 @@ $(document).mousemove(function (e) {
     });
 
     //blur
-
     var windowWidth = $(window).width();
     var windowHeight = $(window).height();
     var filterAfterMap = map(distance, 100, windowWidth, 2, 50);
@@ -93,11 +104,11 @@ $(document).mousemove(function (e) {
 
     }
 
-});
+    });
 
 
-//Text Rotation
-var TxtRotate = function (el, toRotate, period) {
+    //Text Rotation
+    var TxtRotate = function (el, toRotate, period) {
     this.toRotate = toRotate;
     this.el = el;
     this.loopNum = 0;
@@ -105,11 +116,11 @@ var TxtRotate = function (el, toRotate, period) {
     this.txt = '';
     this.tick();
     this.isDeleting = false;
-};
+    };
 
 
 
-TxtRotate.prototype.tick = function () {
+    TxtRotate.prototype.tick = function () {
     var i = this.loopNum % this.toRotate.length;
     var fullTxt = this.toRotate[i];
 
@@ -144,7 +155,6 @@ TxtRotate.prototype.tick = function () {
 
     } else if (words.includes("design")) {
         $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)");
-        // $(".txt-rotate").css("color", "#fff");
         // $("#line").css("background", "#fff");
         $('.codewalaText_description')
         .html("Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.");       // $('#centerlogo').addClass("centerLogoDesign", 6000).removeClass( "centerLogoUX", 6000);
@@ -212,11 +222,11 @@ TxtRotate.prototype.tick = function () {
     setTimeout(function () {
         that.tick();
     }, delta);
-};
+    };
 
 // END TXT ROTATION
 
-window.onload = function () {
+    window.onload = function () {
 
     var elements = document.getElementsByClassName('txt');
     for (var i = 0; i < elements.length; i++) {
@@ -235,28 +245,28 @@ window.onload = function () {
     css.type = "text/css";
     css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
     document.body.appendChild(css);
-};
+    };
 
 
 
-// GRADIENT TRANSITION
+    // GRADIENT TRANSITION
 
-(function () {
-var colors = new Array(
+    (function () {
+    var colors = new Array(
     [148,152,163],[44, 51, 67], [171,175,183], [76, 150, 109], [66, 196, 124], [126, 178, 81],[128, 214, 55],[164, 189, 62],[200, 233, 69]);
 
-var step = 0;
-//color table indices for: 
-// current color left
-// next color left
-// current color right
-// next color right
-var colorIndices = [0, 1, 2, 3,4,5,6,7,8];
+    var step = 0;
+    //color table indices for: 
+    // current color left
+    // next color left
+    // current color right
+    // next color right
+    var colorIndices = [0, 1, 2, 3,4,5,6,7,8];
 
-//transition speed
-var gradientSpeed = 0.003;
+    //transition speed
+    var gradientSpeed = 0.003;
 
-function updateGradient() {
+    function updateGradient() {
 
     if ($ === undefined) return;
 
@@ -299,11 +309,11 @@ function updateGradient() {
         colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
         colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
 
+        }
     }
-}
 
-setInterval(updateGradient, 10);
-})();
+    setInterval(updateGradient, 10);
+    })();
 
  
 
@@ -316,6 +326,11 @@ setInterval(updateGradient, 10);
         return(
 
         <div className="custom_container">
+        <Loading className="loading"
+          show={this.state.show}
+          color="#FCEE21"
+          showSpinner={false}
+        />
   <div id="log"></div>
   <div id="element"></div>
   <div id="gradient"></div>
@@ -323,7 +338,7 @@ setInterval(updateGradient, 10);
   <div  id="centerlogo"></div>
   <i className="fa-fw select-all fas"></i>
  
-  <h1 className="txt-rotate">
+  <div className="txt-rotate">
     <span className="codewalatext">
 
       <strong>&lt;code</strong>wala/&gt; is
@@ -333,7 +348,7 @@ setInterval(updateGradient, 10);
       
       </p>
       
-  </h1>
+  </div>
 
   
  </div>

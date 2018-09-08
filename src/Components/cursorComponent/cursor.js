@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
-import { findDOMNode } from 'react-dom';
+
 
 class Cursor extends Component {
 
