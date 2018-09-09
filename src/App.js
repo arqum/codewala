@@ -23,7 +23,6 @@ class App extends Component {
      <BrowserRouter>
      <div>
      <MainNavigation/>
-     <LandingPage/>
      <Switch>
      <Route path="/" component={LandingPage} exact />
      <Route path="/about" component={AboutPage} />
