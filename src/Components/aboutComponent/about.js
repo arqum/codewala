@@ -21,9 +21,7 @@ class AboutPage extends Component {
     componentDidMount() {
         $('body').css('background', 'white');
 
-        this.setState({
-            show: true
-        })
+      
 
         let interval = 1;
         let x;
@@ -34,10 +32,7 @@ class AboutPage extends Component {
             interval += 1;
             if (interval == 2) {
                 this.setState({
-                    show: false
-
-                    
-                    
+                    show: false                    
                 })
                   
                 clearInterval(x);
