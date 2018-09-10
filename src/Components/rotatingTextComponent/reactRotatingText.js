@@ -36,23 +36,23 @@ class ReactRotatingText extends React.Component {
 
   _type(text, callback) {
     const { output } = this.state;
-    const { typingInterval } = this.props;
+    const { typingInterval, currentValue } = this.props;
     const loopingFunc = this._type.bind(this, text, callback);
-
     // set the string one character longer
     this.setState({output: text.substr(0, output.length + 1)});
 
     // if we're still not done, recursively loop again
     if (output.length < text.length) {
-      this._loop(loopingFunc, typingInterval);
+      this._loop(loopingFunc, typingInterval); 
     } else {
+      currentValue(text); 
       callback();
     }
   }
 
   _erase(callback) {
     const { output } = this.state;
-    const { deletingInterval } = this.props;
+    const { deletingInterval , currentValue} = this.props;
     const loopingFunc = this._erase.bind(this, callback);
 
     // set the string one character shorter
@@ -68,7 +68,7 @@ class ReactRotatingText extends React.Component {
 
   _overwrite(text, callback) {
     const { output, substrLength } = this.state;
-    const { deletingInterval } = this.props;
+    const { deletingInterval , currentValue} = this.props;
     const loopingFunc = this._overwrite.bind(this, text, callback);
 
     this.setState({
@@ -141,6 +141,7 @@ ReactRotatingText.propTypes = {
   items: PropTypes.array,
   pause: PropTypes.number,
   typingInterval: PropTypes.number,
+  currentValue:PropTypes.callback
 };
 
 ReactRotatingText.defaultProps = {

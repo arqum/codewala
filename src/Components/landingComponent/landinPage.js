@@ -345,7 +345,9 @@ class LandingPage extends Component {
 
     }
  
-
+    currentValue=(value)=>{
+        console.log(value);
+    }
 
     render() {
 
@@ -372,7 +374,7 @@ class LandingPage extends Component {
     <span className="codewalatext">
 
       <strong>&lt;code</strong>wala/&gt; is 
-      <ReactRotatingText items={[ " code.", " ux.", " design.", " mobile.", " fun!" ]} typingInterval="200"  deletingInterval="80" pause="3000" />
+      <ReactRotatingText currentValue={this.currentValue} items={[ " code.", " ux.", " design.", " mobile.", " fun!" ]} typingInterval={200}  deletingInterval={80} pause={3000} />
 
       <br/>
       <p className="codewalaText_description" >
