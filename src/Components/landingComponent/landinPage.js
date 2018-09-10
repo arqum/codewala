@@ -346,6 +346,86 @@ class LandingPage extends Component {
     }
  
     currentValue=(value)=>{
+
+        if (value.includes("code")) {
+
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_2.jpg)");
+            $('.codewalaText_description')
+                .html("Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?");
+        
+            $("#centerlogo").removeClass('centerLogoFun').delay(60).queue(
+                function (next) {
+                    $(this).addClass('centerLogoCode');
+                    next();
+
+                   }
+                
+            );
+
+        } else if (value.includes("ux")) {
+           
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)");
+            $('.codewalaText_description')
+            .html("We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!");
+        
+            $("#centerlogo").removeClass('centerLogoCode').delay(60).queue(
+                function (next) {
+                    $(this).addClass('centerLogoUX');
+                    next();
+
+                   }
+            );
+
+        } else if (value.includes("design")) {
+           
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)");
+            $('.codewalaText_description')
+            .html("Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it."); // $('#centerlogo').addClass("centerLogoDesign", 6000).removeClass( "centerLogoUX", 6000);
+
+            $("#centerlogo").removeClass('centerLogoUX').delay(60).queue(
+                function (next) {
+                    $(this).addClass('centerLogoDesign');
+                    next();
+
+                   
+                }
+            );
+
+        } else if (value.includes("mobile")) {
+          
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_3.jpg)");
+            $('.codewalaText_description')
+            .html("if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well."); // $('#centerlogo').addClass("centerLogoMobile", 6000 ).removeClass( "centerLogoDesign", 6000);
+
+            $("#centerlogo").removeClass('centerLogoDesign').delay(60).queue(
+                function (next) {
+                    $(this).addClass('centerLogoMobile');
+                    next();
+
+                   
+                }
+            );
+
+
+
+        } else if (value.includes("fun")) {
+           
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)");
+                    $('.codewalaText_description')
+                    .html("It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream."); //$('#centerlogo').addClass("centerLogoFun", 6000 ).removeClass( "centerLogoMobile", 6000);
+    
+            $("#centerlogo").removeClass('centerLogoMobile').delay(60).queue(
+                function (next) {
+                    $(this).addClass('centerLogoFun');
+                    next();
+
+                    
+                }
+            );
+
+        }
+
+
         console.log(value);
     }
 
@@ -374,12 +454,10 @@ class LandingPage extends Component {
     <span className="codewalatext">
 
       <strong>&lt;code</strong>wala/&gt; is 
-      <ReactRotatingText currentValue={this.currentValue} items={[ " code.", " ux.", " design.", " mobile.", " fun!" ]} typingInterval={200}  deletingInterval={80} pause={3000} />
+      <ReactRotatingText currentValue={this.currentValue} items={[ " code.", " ux.", " design.", " mobile.", " fun!" ]} typingInterval={200}  deletingInterval={80} pause={5000} />
 
       <br/>
-      <p className="codewalaText_description" >
-      
-      </p>
+    
       
   </span> 
   </span> 
@@ -387,9 +465,7 @@ class LandingPage extends Component {
    {/* <div className="txt-rotate">
     <span className="codewalatext">
 
-      <strong>&lt;code</strong>wala/&gt; is
-      <span className="txt" data-period="2000" data-rotate='[ " code.", " ux.", " design.", " mobile.", " fun!" ]'></span>
-      </span><br/>
+      
       <p className="codewalaText_description" >
       
       </p>
