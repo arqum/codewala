@@ -118,7 +118,8 @@
   
   #blurred {
     filter: blur(50px);
-    background:url('/assets/images/img_6.jpg') no-repeat;
+   // background:url('/assets/images/img_6.jpg') no-repeat;
+    background-repeat: no-repeat !important;
     position: fixed;
     top: 0;
     opacity: 0.6;

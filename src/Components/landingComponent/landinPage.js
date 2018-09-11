@@ -25,7 +25,7 @@ class LandingPage extends Component {
         super()
         this.state = ({
             show: true,
-            codeText:{title:'', img:'', description:'', classname:''}
+            codeText:{title:'', img:'', description:'', classname:'', landingBgImage:''}
         })
     }
     
@@ -209,9 +209,11 @@ class LandingPage extends Component {
     currentValue=(value)=>{
 
         if (value.includes("code")) {
+
             this.setState({codeText:{title:value, img:'/assets/images/logo.png',
             description:"Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
-            classname:'centerLogoCode'}});
+            classname:'centerLogoCode',
+            landingBgImage:'/assets/images/img_2.jpg'}});
            
             // $('#blurred').css("background-image", "url(/../../../Assets/images/img_2.jpg)");
             //  $('.codewalaText_description')
@@ -229,8 +231,10 @@ class LandingPage extends Component {
 
         } else if (value.includes("ux")) {
            
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)");
-            
+            // $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)");
+            this.setState({codeText:{title:value, img:'/assets/images/img_6.jpg',
+            description:"Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
+            classname:'centerLogoCode'}});
         
             $("#centerlogo").removeClass('centerLogoCode').delay(60).queue(
                 function (next) {
@@ -308,7 +312,7 @@ class LandingPage extends Component {
   <div id="log"></div>
   <div id="element"></div>
   <div id="gradient"></div>
-  <div id="blurred"></div>
+  <div id="blurred" style={{background:`url(${this.state.codeText.landingBgImage})`}}></div>
   <div  id="centerlogo" style={{background:`url(${this.state.codeText.img})`}}></div>
   <i className="fa-fw select-all fas"></i>
 
