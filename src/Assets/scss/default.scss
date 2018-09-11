@@ -41,12 +41,14 @@
   .App {
       height: 100%;
       margin: -4px;
+      opacity: 1;
+      background: white;
 
   }
   
-  #page-fader{
+  .faderDiv{
     background-color: white;
-    filter: blur(2px);
+    display: none
   }
   
   a  {
@@ -117,24 +119,19 @@
   }
   
   #blurred {
-    filter: blur(50px);
-   // background:url('/assets/images/img_6.jpg') no-repeat;
-    background-repeat: no-repeat !important;
-    position: fixed;
-    top: 0;
-    opacity: 0.6;
-    bottom: 0;
-    width: 100%;
-    z-index: 0;
-    height: 100%;
-    background-size: cover;
-    transform: scale(1.1);
-    animation: nav-links-blur 2s;
-    animation-timing-function:all 3000ms linear;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-
-      /* ease-out */
+  
+  filter: blur(50px);
+  background:url("/assets/images/img_2.jpg") no-repeat;
+  position: fixed;
+  top: 0;
+  opacity: 0.6;
+  bottom: 0;
+  width: 100%;
+  z-index: 0;
+  height: 100%;
+  background-size: cover;
+  transform: scale(1.1);
+  transition: all 500ms cubic-bezier(0, 0, 0.58, 1);
   }
   
   
@@ -161,7 +158,6 @@
     position: absolute;
     border-radius: 100px;
     background-blend-mode: lighten ;
-
     z-index: 100;
     transition: all 400ms cubic-bezier(0, 0.87, 1, 0.645);
   }
@@ -191,7 +187,7 @@
   }
   
   .centerLogoCode {
-    //background: url('/assets/images/logo.png') no-repeat;
+    background: url('/assets/images/logo.png') no-repeat;
     -webkit-background-size: 100%;
     background-repeat: no-repeat !important;
     background-size: 60% !important;
@@ -203,13 +199,8 @@
     margin-left: -150px;
     margin-top: -150px;
     z-index: 3;
-    animation: nav-links-blur 0.6s;
-    animation-timing-function:all 400ms cubic-bezier(0, 0.87, 1, 0.645);
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-
-
-
+    animation: center-logo-blur .2s;
+  
   }
 
   .centerLogoMobile {
@@ -224,12 +215,7 @@
     margin-left: -150px;
     margin-top: -150px;
     z-index: 3;
-    animation: nav-links-blur 0.6s;
-    animation-timing-function:all 400ms cubic-bezier(0, 0.87, 1, 0.645);
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-
-
+    animation: center-logo-blur .2s;
   }
 
   .centerLogoUX {
@@ -244,12 +230,7 @@
     margin-left: -150px;
     margin-top: -150px;
     z-index: 3;
-    animation: nav-links-blur 0.6s;
-    animation-timing-function:all 400ms cubic-bezier(0, 0.87, 1, 0.645);
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-
-
+    animation: center-logo-blur .2s;
   }
 
   .centerLogoDesign {
@@ -264,15 +245,11 @@
     margin-left: -150px;
     margin-top: -150px;
     z-index: 3;
-    animation: nav-links-blur 0.6s;
-    animation-timing-function:all 400ms cubic-bezier(0, 0.87, 1, 0.645);
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-
+    animation: center-logo-blur .2s;
   }
 
   .centerLogoFun {
-    //background: url('/assets/images/logo_fun.png') no-repeat;
+    background: url('/assets/images/logo_fun.png') no-repeat;
     -webkit-background-size: 100%;
     background-size: 60%;
     width: 240px;
@@ -283,11 +260,7 @@
     margin-left: -150px;
     margin-top: -150px;
     z-index: 3;
-    animation: nav-links-blur 0.6s;
-    animation-timing-function:all 400ms cubic-bezier(0, 0.87, 1, 0.645);
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-
+    animation: center-logo-blur .2s;
   }
   
   
@@ -343,11 +316,22 @@
   .codewalaText_description {
     font-family: Open-sans-light;
     width: 45%;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 400;
-    animation: nav-links-blur 0.6s;
+    opacity: 1;
+    -webkit-transition: opacity 2.0s ease-in;
+    -moz-transition: opacity 2.0s ease-in;
+    -o-transition: opacity 2.0s ease-in;
   }
-  
+
+  .fade-enter {
+    opacity: 0;
+  }
+  .fade-enter-active {
+    opacity: 1;
+    transition: .5s ease-in all;
+
+  }
   
   .line-container {
     position: absolute;
@@ -396,6 +380,25 @@
       filter: blur(0px);
   
     }
+  }
+
+
+  @keyframes center-logo-blur {
+    0% {
+  filter: blur(0px);
+  
+    }
+  
+    100%{
+      filter: blur(4px);
+  
+    }
+
+  
+    0%{
+      filter: blur(0px);
+    }
+
   }
   
   @keyframes line-animation {

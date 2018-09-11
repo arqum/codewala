@@ -7,32 +7,34 @@ import Cursor from "../cursorComponent/cursor";
 import Loading from 'react-loading-bar';
 import 'react-loading-bar/dist/index.css';
 import ReactRotatingText from '../rotatingTextComponent/reactRotatingText'; 
+import {Motion, spring, TransitionMotion } from 'react-motion';
+
 
 let intervelll;
 let period;
-let textRevealer = [
-    "Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
-    "We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
-    "Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
-    "if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
-    "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream."
-  ];
+
 
 
 class LandingPage extends Component {
 
     constructor() {
         super()
+
+        this.onRest = this.onRest.bind(this);
         this.state = ({
             show: true,
-            codeText:{title:'', img:'', description:'', classname:'', landingBgImage:''}
+            codeText:{title:'', description:'', classname:''},
+            animating:false,
         })
+
+        
     }
-    
+
+   
+
     componentDidMount() {
 
         $('body').css('background', '#2c3343');
-     
         let interval = 1;
         let x;
         x = setInterval(() => {
@@ -111,7 +113,10 @@ class LandingPage extends Component {
                     filter: "blur(" + (filterAfterMap) + "px)"
                     //  '-webkit-transform': 'scale(' + scaleAfterMap + ')'
 
+                   
+
                 });
+                console.log("inside blur mouse move");
                 $('#gradient').fadeOut(3000);
                 $('.txt-rotate').css('color', '#2c3343');
                 $("#line").css("background", "#2c3343");
@@ -210,86 +215,98 @@ class LandingPage extends Component {
 
         if (value.includes("code")) {
 
-            this.setState({codeText:{title:value, img:'/assets/images/logo.png',
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_2.jpg)");
+            this.setState({codeText:{title:value, 
             description:"Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
-            classname:'centerLogoCode',
-            landingBgImage:'/assets/images/img_2.jpg'}});
+            classname:'centerLogoCode'}});
+
+        
            
-            // $('#blurred').css("background-image", "url(/../../../Assets/images/img_2.jpg)");
             //  $('.codewalaText_description')
             // .html("Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?");
 
                
-            $("#centerlogo").removeClass('centerLogoFun').delay(60).queue(
-                function (next) {
-                    $(this).addClass('centerLogoCode');
-                    next();
+            // $("#centerlogo").removeClass('centerLogoFun').delay(60).queue(
+            //     function (next) {
+            //         $(this).addClass('centerLogoCode');
+            //         next();
 
-                   }
+            //        }
                 
-            );
+            // );
 
         } else if (value.includes("ux")) {
            
-            // $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)");
-            this.setState({codeText:{title:value, img:'/assets/images/img_6.jpg',
-            description:"Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
-            classname:'centerLogoCode'}});
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)");
+            this.setState({codeText:{title:value,
+            description:"We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
+            classname:'centerLogoUX'}});
         
-            $("#centerlogo").removeClass('centerLogoCode').delay(60).queue(
-                function (next) {
-                    $(this).addClass('centerLogoUX');
-                    next();
+            // $("#centerlogo").removeClass('centerLogoCode').delay(60).queue(
+            //     function (next) {
+            //         $(this).addClass('centerLogoUX');""
+            //         next();
 
-                   }
-            );
+            //        }
+            // );
 
         } else if (value.includes("design")) {
            
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)");
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)");            
+            this.setState({codeText:{title:value,
+            description:"Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
+            classname:'centerLogoDesign'}});
             // $('.codewalaText_description')
             // .html("Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it."); // $('#centerlogo').addClass("centerLogoDesign", 6000).removeClass( "centerLogoUX", 6000);
 
-            $("#centerlogo").removeClass('centerLogoUX').delay(60).queue(
-                function (next) {
-                    $(this).addClass('centerLogoDesign');
-                    next(); 
+            // $("#centerlogo").removeClass('centerLogoUX').delay(60).queue(
+            //     function (next) {
+            //         $(this).addClass('centerLogoDesign');
+            //         next(); 
 
                    
-                }
-            );
+            //     }
+            // );
 
         } else if (value.includes("mobile")) {
           
             $('#blurred').css("background-image", "url(/../../../Assets/images/img_3.jpg)");
+
+            this.setState({codeText:{title:value,
+            description:"if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
+            classname:'centerLogoMobile'}});
             // $('.codewalaText_description')
             // .html("if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well."); // $('#centerlogo').addClass("centerLogoMobile", 6000 ).removeClass( "centerLogoDesign", 6000);
 
-            $("#centerlogo").removeClass('centerLogoDesign').delay(60).queue(
-                function (next) {
-                    $(this).addClass('centerLogoMobile');
-                    next();
+            // $("#centerlogo").removeClass('centerLogoDesign').delay(60).queue(
+            //     function (next) {
+            //         $(this).addClass('centerLogoMobile');
+            //         next();
 
                    
-                }
-            );
+            //     }
+            // );
 
 
 
         } else if (value.includes("fun")) {
            
             $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)");
+
+            this.setState({codeText:{title:value,
+            description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
+            classname:'centerLogoFun'}});
                     // $('.codewalaText_description')
                     // .html("It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream."); //$('#centerlogo').addClass("centerLogoFun", 6000 ).removeClass( "centerLogoMobile", 6000);
     
-            $("#centerlogo").removeClass('centerLogoMobile').delay(60).queue(
-                function (next) {
-                    $(this).addClass('centerLogoFun');
-                    next();
+            // $("#centerlogo").removeClass('centerLogoMobile').delay(60).queue(
+            //     function (next) {
+            //         $(this).addClass('centerLogoFun');
+            //         next();
 
                     
-                }
-            );
+            //     }
+            // );
 
         }
 
@@ -297,7 +314,12 @@ class LandingPage extends Component {
         console.log(value);
     }
 
+    onRest() {
+        this.setState({ animating: false });
+      }
+
     render() {
+        
 
         return(
 
@@ -309,65 +331,47 @@ class LandingPage extends Component {
           showSpinner={false}
         />
 
-  <div id="log"></div>
-  <div id="element"></div>
-  <div id="gradient"></div>
-  <div id="blurred" style={{background:`url(${this.state.codeText.landingBgImage})`}}></div>
-  <div  id="centerlogo" style={{background:`url(${this.state.codeText.img})`}}></div>
-  <i className="fa-fw select-all fas"></i>
+        <div id="log"></div>
+        <div id="element"></div>
+        <div id="gradient"></div>
+        <div id="blurred"></div>
+        <div  id="centerlogo" className={this.state.codeText.classname}></div>
+        <i className="fa-fw select-all fas"></i>
+        <div className="txt-rotate">
+        </div> 
 
- 
- <div className="txt-rotate">
-  </div> 
-  
-   <span className={`txt-rotate ${this.state.codeText.classname}`}>
-    <span className="codewalatext">
+        <span className="txt-rotate" >
+         <span className="codewalatext">
 
-      <strong>&lt;code</strong>wala/&gt; is 
-      <ReactRotatingText currentValue={this.currentValue} items={[ " code.", " ux.", " design.", " mobile.", " fun!" ]} typingInterval={200}  deletingInterval={80} pause={7000} />
-      <br/>
-      </span>
-           {/* <p>
-
-<ReactRotatingText currentValue={this.currentValue} items={
-                [
-                    "Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
-                    "We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
-                    "Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
-                    "if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
-                    "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream."
-                  ]
-            
-            
-            } typingInterval={5}  deletingInterval={1} pause={6000} cursor={false} className="codewalaText_description" />
-
-           
-           
-               
-    
-           </p> */}
-           
-      < div className="codewalaText_description" >
-      <p>{this.state.codeText.description}</p>
-      </ div>
+         <strong>&lt;code</strong>wala/&gt; is 
+         <ReactRotatingText currentValue={this.currentValue} items={[ " code.", " ux.", " design.", " mobile.", " fun!" ]} typingInterval={200}  deletingInterval={80} pause={7000} />
+         <br/>
+         </span>    
 
       
-    
-      
-  
-  </span> 
 
-   {/* <div className="txt-rotate">
-    <span className="codewalatext">
+        <Motion 
+         defaultStyle={{opacity:0}} 
+         style={{opacity: spring(1)}}
+         onRest={this.onRest}
+         >
 
-      
-      
-      
-  </div>  */}
+        {(style) =>(
 
-  
- </div>
+        <p className="codewalaText_description" style={{opacity: style.opacity}}>{this.state.codeText.description}</p>
 
+        )}
+         </Motion>
+
+     {/* <VelocityTransitionGroup enter={{animation: "slideDown"}} leave={{animation: "slideUp"}}>
+    {this.state.renderSubComponent ? 
+        <p className="codewalaText_description">{this.state.codeText.description}</p>
+        : undefined}
+  </VelocityTransitionGroup> */}
+
+        </span> 
+
+        </div>
 
 
         );
