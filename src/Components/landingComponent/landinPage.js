@@ -1,6 +1,4 @@
-import React, {
-    Component
-} from 'react';
+import React, {Component} from 'react';
 import $ from 'jquery';
 import MainNavigation from "../navigationComponent/mainNavigation";
 import Cursor from "../cursorComponent/cursor";
@@ -8,6 +6,8 @@ import Loading from 'react-loading-bar';
 import 'react-loading-bar/dist/index.css';
 import ReactRotatingText from '../rotatingTextComponent/reactRotatingText'; 
 import {Motion, spring, TransitionMotion } from 'react-motion';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 let intervelll;
@@ -331,25 +331,19 @@ class LandingPage extends Component {
           showSpinner={false}
         />
 
-        <div id="log"></div>
         <div id="element"></div>
         <div id="gradient"></div>
         <div id="blurred"></div>
-        <div  id="centerlogo" className={this.state.codeText.classname}></div>
-        <i className="fa-fw select-all fas"></i>
-        <div className="txt-rotate">
-        </div> 
 
+        <div className="row">
+        <div  id="centerlogo" className={this.state.codeText.classname} ></div>
+        <i className="fa-fw select-all fas"></i>
         <span className="txt-rotate" >
          <span className="codewalatext">
-
          <strong>&lt;code</strong>wala/&gt; is 
          <ReactRotatingText currentValue={this.currentValue} items={[ " code.", " ux.", " design.", " mobile.", " fun!" ]} typingInterval={200}  deletingInterval={80} pause={7000} />
          <br/>
          </span>    
-
-      
-
         <Motion 
          defaultStyle={{opacity:0}} 
          style={{opacity: spring(1)}}
@@ -363,13 +357,9 @@ class LandingPage extends Component {
         )}
          </Motion>
 
-     {/* <VelocityTransitionGroup enter={{animation: "slideDown"}} leave={{animation: "slideUp"}}>
-    {this.state.renderSubComponent ? 
-        <p className="codewalaText_description">{this.state.codeText.description}</p>
-        : undefined}
-  </VelocityTransitionGroup> */}
-
         </span> 
+        </div>
+    
 
         </div>
 

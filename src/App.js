@@ -10,6 +10,8 @@ import MainNavigation from './Components/navigationComponent/mainNavigation';
 import LandingPage from './Components/landingComponent/landinPage';
 import AboutPage from './Components/aboutComponent/about';
 import ErrorPage from './Components/ErrorComponent/errorPage';
+import PhilosophyPage from './Components/philosophyComponent/philosophy';
+
 
 
 
@@ -26,6 +28,7 @@ class App extends Component {
      <Switch>
      <Route path="/" component={LandingPage} exact />
      <Route path="/about" component={AboutPage} />
+     <Route path="/philosophy" component={PhilosophyPage} />
      <Route component={ErrorPage} /> 
      </Switch>
      
