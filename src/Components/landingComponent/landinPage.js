@@ -20,21 +20,28 @@ class LandingPage extends Component {
     constructor() {
         super()
 
-        this.onRest = this.onRest.bind(this);
         this.state = ({
             show: true,
             codeText:{title:'', description:'', classname:''},
             animating:false,
+        
         })
 
         
     }
 
-   
+    componentWillMount(){
+
+        this.setState({
+            menu: 'false'
+            
+        })
+    }
 
     componentDidMount() {
 
-        $('body').css('background', '#2c3343');
+
+       // $('body').css('background', '#2c3343');
         let interval = 1;
         let x;
         x = setInterval(() => {
@@ -42,16 +49,17 @@ class LandingPage extends Component {
                 show: true
             })
             interval += 1;
-            if (interval == 2) {
+            if (interval == 3) {
                 this.setState({
                     show: false
    
                 })
                   
                 clearInterval(x);            
-    
+                this.closeMenuAnimation();
+
             }
-        }, 600)
+        }, 600);
       
         //map function from large values to small
         function map(num, in_min, in_max, out_min, out_max) {
@@ -145,11 +153,7 @@ class LandingPage extends Component {
                 [148, 152, 163], [44, 51, 67], [171, 175, 183], [76, 150, 109], [66, 196, 124], [126, 178, 81], [128, 214, 55], [164, 189, 62], [200, 233, 69]);
 
             var step = 0;
-            //color table indices for: 
-            // current color left
-            // next color left
-            // current color right
-            // next color right
+
             var colorIndices = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
             //transition speed
@@ -220,8 +224,6 @@ class LandingPage extends Component {
             description:"Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
             classname:'centerLogoCode'}});
 
-        
-           
             //  $('.codewalaText_description')
             // .html("Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?");
 
@@ -242,13 +244,6 @@ class LandingPage extends Component {
             description:"We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
             classname:'centerLogoUX'}});
         
-            // $("#centerlogo").removeClass('centerLogoCode').delay(60).queue(
-            //     function (next) {
-            //         $(this).addClass('centerLogoUX');""
-            //         next();
-
-            //        }
-            // );
 
         } else if (value.includes("design")) {
            
@@ -256,17 +251,7 @@ class LandingPage extends Component {
             this.setState({codeText:{title:value,
             description:"Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
             classname:'centerLogoDesign'}});
-            // $('.codewalaText_description')
-            // .html("Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it."); // $('#centerlogo').addClass("centerLogoDesign", 6000).removeClass( "centerLogoUX", 6000);
-
-            // $("#centerlogo").removeClass('centerLogoUX').delay(60).queue(
-            //     function (next) {
-            //         $(this).addClass('centerLogoDesign');
-            //         next(); 
-
-                   
-            //     }
-            // );
+        
 
         } else if (value.includes("mobile")) {
           
@@ -275,19 +260,7 @@ class LandingPage extends Component {
             this.setState({codeText:{title:value,
             description:"if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
             classname:'centerLogoMobile'}});
-            // $('.codewalaText_description')
-            // .html("if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well."); // $('#centerlogo').addClass("centerLogoMobile", 6000 ).removeClass( "centerLogoDesign", 6000);
-
-            // $("#centerlogo").removeClass('centerLogoDesign').delay(60).queue(
-            //     function (next) {
-            //         $(this).addClass('centerLogoMobile');
-            //         next();
-
-                   
-            //     }
-            // );
-
-
+    
 
         } else if (value.includes("fun")) {
            
@@ -296,27 +269,57 @@ class LandingPage extends Component {
             this.setState({codeText:{title:value,
             description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
             classname:'centerLogoFun'}});
-                    // $('.codewalaText_description')
-                    // .html("It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream."); //$('#centerlogo').addClass("centerLogoFun", 6000 ).removeClass( "centerLogoMobile", 6000);
-    
-            // $("#centerlogo").removeClass('centerLogoMobile').delay(60).queue(
-            //     function (next) {
-            //         $(this).addClass('centerLogoFun');
-            //         next();
-
-                    
-            //     }
-            // );
-
+  
         }
 
 
         console.log(value);
     }
 
-    onRest() {
-        this.setState({ animating: false });
-      }
+ 
+    closeMenuAnimation=()=>{
+        console.log("inside close animation...............");
+
+        if(this.state.menu ==='false'){
+
+            console.log("inside close animation IFFFFFFFFFFFFFFF");
+
+         $('#menu-nav').css({
+             'opacity': 0,
+             'visibility': 'hidden',
+             'height': '0%'
+         });
+         $('#nav-items').css({
+             'opacity': 0,
+             'visibility': "hidden",
+         }).delay(6000);
+
+         $('#menu-button').css({
+             'height': '80px',
+             'background': '#2c3343'
+         });
+         $('#menu-button-text').css({
+             'top': '40%',
+             'color': 'white'
+         });
+
+         $('.lnr-cross').css({
+             'visibility': 'hidden'
+         });
+
+         //hide the menu logo 
+         $('.logo-head').css({
+             'visibility': 'hidden',
+             'opacity': 0,
+             'margin': '-120px 0px 0px 17px',
+             'transition': 'all 100ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
+         });
+
+         $('#menu-button').attr('data-toggle', 'off')
+        }
+
+
+    }
 
     render() {
         
