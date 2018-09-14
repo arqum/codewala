@@ -174,7 +174,7 @@ componentWillMount(){
 
     render() {
             return (
-                <div className="fader" id="container_fade">
+                <div className="animated zoomIn" id="container_fade">
 
 
  <Loading className="loading"

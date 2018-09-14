@@ -198,9 +198,8 @@
     width: 50px;
     z-index: -1;
   }
-  
-  .centerLogoCode {
-    background: url('/assets/images/logo.png') no-repeat;
+
+  #centerlogo {
     -webkit-background-size: 100%;
     background-repeat: no-repeat !important;
     background-size: 60% !important;
@@ -213,67 +212,26 @@
     margin-top: -150px;
     z-index: 3;
     animation: center-logo-blur .2s;
+  }
   
+  .centerLogoCode {
+    background: url('/assets/images/logo.png') no-repeat;
   }
 
   .centerLogoMobile {
     background: url('/assets/images/logo_mob.png') no-repeat;
-    -webkit-background-size: 100%;
-    background-size: 60%;
-    width: 240px;
-    height: 240px;
-    position: absolute;
-    left: 43%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -150px;
-    z-index: 3;
-    animation: center-logo-blur .2s;
   }
 
   .centerLogoUX {
     background: url('/assets/images/logo_ux.png') no-repeat;
-    -webkit-background-size: 100%;
-    background-size: 60%;
-    width: 240px;
-    height: 240px;
-    position: absolute;
-    left: 43%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -150px;
-    z-index: 3;
-    animation: center-logo-blur .2s;
   }
 
   .centerLogoDesign {
     background: url('/assets/images/logo_design.png') no-repeat;
-    -webkit-background-size: 100%;
-    background-size: 60%;
-    width: 240px;
-    height: 240px;
-    position: absolute;
-    left: 43%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -150px;
-    z-index: 3;
-    animation: center-logo-blur .2s;
   }
 
   .centerLogoFun {
     background: url('/assets/images/logo_fun.png') no-repeat;
-    -webkit-background-size: 100%;
-    background-size: 60%;
-    width: 240px;
-    height: 240px;
-    position: absolute;
-    left: 43%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -150px;
-    z-index: 3;
-    animation: center-logo-blur .2s;
   }
   
   
@@ -292,6 +250,8 @@
     animation: nav-links-blur .3s ;
     
   } 
+
+  
   
   
   
@@ -830,3 +790,19 @@ background-color: #ececec;
     background-size: 55%;
 
 }
+
+@media(min-width:320px) and (max-width:480px) {
+  #centerlogo{
+    top:40%;
+  }
+
+  .txt-rotate {
+    left:43%;
+    top:calc(40% + 220px);
+    text-align: center;
+  }
+
+  .codewalaText_description{
+    width: 100%;
+  }
+} 
