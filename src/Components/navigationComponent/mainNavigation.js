@@ -28,7 +28,7 @@ class MainNavigation extends Component {
 
             //open nav overlay
             $('#menu-nav').css({
-                'opacity': 0.95,
+                'opacity': 0.96,
                 'visibility': 'visible',
                 'height': '100%'
             }).delay(6000);

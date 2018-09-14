@@ -12,7 +12,7 @@ import {Motion, spring, TransitionMotion } from 'react-motion';
 let intervelll;
 
 
-class AboutPage extends Component {
+class HirePage extends Component {
 
     constructor() {
         super()
@@ -32,12 +32,11 @@ componentWillMount(){
         menu: 'false'
         
     })
-
 }
 
     componentDidMount() {
         
-
+    
                let interval = 1;
        let x;
        x = setInterval(() => {
@@ -64,7 +63,7 @@ componentWillMount(){
 
    (function () {
     var colors = new Array(
-        [237, 237, 237], [249, 247, 245], [211, 211, 211], [247, 247, 247]);
+        [228, 245, 203], [222, 249, 183], [197, 220, 163], [207, 246, 150]);
 
     var step = 0;
     var colorIndices = [0, 1, 2, 3];
@@ -92,7 +91,7 @@ componentWillMount(){
         var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
         var color2 = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
 
-        $('#ab_gradient').css({
+        $('#hr_gradient').css({
             // background: "-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))"
             background: "linear-gradient(to bottom," + color1 + "," + color2 + ")"
         }).css({
@@ -174,25 +173,25 @@ componentWillMount(){
 
     render() {
             return (
-                <div className="fader" id="container_fade">
+    <div className="custom_container">
+ 
 
-
- <Loading className="loading"
-    show={this.state.show}
-    color="#54d5cd"
-    showSpinner={false}
-  />
+       <Loading className="loading"
+          show={this.state.show}
+          color="#54d5cd"
+          showSpinner={false}
+        />
 
 <div className="row">
-<div className="col-md-4 col-sm-12 cw_img" >
+<div className="col-md-4 col-sm-12 hr_img" >
 
 </div>
 
-<div className="col-md-8 col-sm-12 cw_txt" id="ab_gradient">
+<div className="col-md-8 col-sm-12 cw_txt" id="hr_gradient">
 <h1 className="inner-h1">
-About<span className="inner-h1-span">
-Codewala
-</span>
+    Hire<span className="inner-h1-span">
+    Codewala
+    </span>
 </h1>
 
 <p className="inner-paragraph">
@@ -201,10 +200,15 @@ There are many variations of passages of Lorem Ipsum available, but the majority
 </div>
 
 </div>
+<div className="row">
+<div className="col-md-12 hr_form">
 
 
 </div>
-    
+</div>
+
+
+    </div>
     
        
         );
@@ -213,4 +217,4 @@ There are many variations of passages of Lorem Ipsum available, but the majority
 
 }
 
-export default AboutPage;
+export default HirePage;
