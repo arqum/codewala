@@ -24,6 +24,7 @@ class LandingPage extends Component {
             show: true,
             codeText:{title:'', description:'', classname:''},
             animating:false,
+            centerlogoimageURL: ""
         
         })
 
@@ -33,7 +34,7 @@ class LandingPage extends Component {
     componentWillMount(){
 
         this.setState({
-            menu: 'false'
+            menu: 'false',
             
         })
     }
@@ -51,7 +52,7 @@ class LandingPage extends Component {
             interval += 1;
             if (interval == 3) {
                 this.setState({
-                    show: false
+                    show: false,
    
                 })
                   
@@ -220,55 +221,51 @@ class LandingPage extends Component {
         if (value.includes("code")) {
 
             $('#blurred').css("background-image", "url(/../../../Assets/images/img_2.jpg)");
-            this.setState({codeText:{title:value, 
-            description:"Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
-            classname:'centerLogoCode'}});
-
-            //  $('.codewalaText_description')
-            // .html("Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?");
-
-               
-            // $("#centerlogo").removeClass('centerLogoFun').delay(60).queue(
-            //     function (next) {
-            //         $(this).addClass('centerLogoCode');
-            //         next();
-
-            //        }
-                
-            // );
+            
+            this.setState({
+                codeText:{title:value, 
+                    description:"Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
+                    classname: 'animated fadeInUp faster'},
+                    centerlogoimageURL:"url('/assets/images/logo.png')"
+            });
 
         } else if (value.includes("ux")) {
            
             $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)").addClass('animated');
-            this.setState({codeText:{title:value,
-            description:"We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
-            classname:'centerLogoUX'}});
-        
+            this.setState({
+                codeText:{title:value, 
+                    description:"We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
+                    classname: 'animated fadeInUp faster'},
+                    centerlogoimageURL:"url('/assets/images/logo_ux.png')"
+            });
 
         } else if (value.includes("design")) {
            
             $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)").addClass('animated');            
-            this.setState({codeText:{title:value,
-            description:"Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
-            classname:'centerLogoDesign'}});
+            this.setState({
+                codeText:{title:value,
+                description:"Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
+                classname:'animated fadeInUp faster'},
+                centerlogoimageURL:"url('/assets/images/logo_design.png')"
+            });
         
-
         } else if (value.includes("mobile")) {
           
             $('#blurred').css("background-image", "url(/../../../Assets/images/img_3.jpg)").addClass('animated');
-
             this.setState({codeText:{title:value,
-            description:"if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
-            classname:'centerLogoMobile'}});
+                description:"if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
+                classname:'animated fadeInUp faster'},
+                centerlogoimageURL:"url('/assets/images/logo_mob.png')"
+             });
     
-
         } else if (value.includes("fun")) {
            
             $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)").addClass('animated');
-
             this.setState({codeText:{title:value,
-            description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
-            classname:'centerLogoFun'}});
+                description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
+                classname:'centerLogoFun'},
+                centerlogoimageURL:"url('/assets/images/logo_fun.png')"
+            });
   
         }
 
@@ -277,53 +274,35 @@ class LandingPage extends Component {
     }
 
  
-    // closeMenuAnimation=()=>{
-    //     console.log("inside close animation...............");
-
-    //     if(this.state.menu ==='false'){
-
-    //         console.log("inside close animation IFFFFFFFFFFFFFFF");
-
-    //      $('#menu-nav').css({
-    //          'opacity': 0,
-    //          'visibility': 'hidden',
-    //          'height': '0%'
-    //      });
-    //      $('#nav-items').css({
-    //          'opacity': 0,
-    //          'visibility': "hidden",
-    //      }).delay(6000);
-
-    //      $('#menu-button').css({
-    //          'height': '80px',
-    //          'background': '#2c3343'
-    //      });
-    //      $('#menu-button-text').css({
-    //          'top': '40%',
-    //          'color': 'white'
-    //      });
-
-    //      $('.lnr-cross').css({
-    //          'visibility': 'hidden'
-    //      });
-
-    //      //hide the menu logo 
-    //      $('.logo-head').css({
-    //          'visibility': 'hidden',
-    //          'opacity': 0,
-    //          'margin': '-120px 0px 0px 17px',
-    //          'transition': 'all 100ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
-    //      });
-
-    //      $('#menu-button').attr('data-toggle', 'off')
-    //     }
-
-
-    // }
-
     render() {
-        
+        const centerlogo = {
 
+            backgroundSize: "65%",
+            backgroundRepeat: "no-repeat",
+            width: "240px",
+            height: "240px",
+            position: "absolute",
+            left: "43%",
+            top: "50%",
+            opacity: "0",
+            marginLeft: "-150px",
+            marginTop: "-150px",
+            zIndex: "3",
+            backgroundImage: this.state.centerlogoimageURL
+
+            
+
+        }
+
+        const centerlogoimage = {
+            // backgroundImage: "url('/assets/images/logo.png')",
+            backgroundImage: this.state.centerlogoimageURL
+
+
+        }
+
+
+        console.log(centerlogo);
         return(
 
         <div className="animated fadeIn">
@@ -336,10 +315,10 @@ class LandingPage extends Component {
 
         <div id="element"></div>
         <div id="gradient"></div>
-        <div id="blurred" className=" animated fadeIn faster"></div>
+        <div id="blurred" className="animated fadeIn faster"></div>
 
         <div className="row">
-        <div  id="centerlogo" className={`animated fadeInUp faster ` +this.state.codeText.classname} ></div>
+        <div className={this.state.codeText.classname} style={centerlogo}></div>
         <i className="fa-fw select-all fas"></i>
         <span className="txt-rotate animated fadeInUp" >
          <span className="codewalatext">

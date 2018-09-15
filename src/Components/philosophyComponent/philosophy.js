@@ -117,49 +117,7 @@ componentWillUnmount() {
 
 }
 
-closeMenuAnimation=()=>{
-    console.log("inside close animation...............");
 
-    if(this.state.menu ==='false'){
-
-        console.log("inside close animation IFFFFFFFFFFFFFFF");
-
-     $('#menu-nav').css({
-         'opacity': 0,
-         'visibility': 'hidden',
-         'height': '0%'
-     });
-     $('#nav-items').css({
-         'opacity': 0,
-         'visibility': "hidden",
-     }).delay(6000);
-
-     $('#menu-button').css({
-         'height': '80px',
-         'background': '#2c3343'
-     });
-     $('#menu-button-text').css({
-         'top': '40%',
-         'color': 'white'
-     });
-
-     $('.lnr-cross').css({
-         'visibility': 'hidden'
-     });
-
-     //hide the menu logo 
-     $('.logo-head').css({
-         'visibility': 'hidden',
-         'opacity': 0,
-         'margin': '-120px 0px 0px 17px',
-         'transition': 'all 100ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
-     });
-
-     $('#menu-button').attr('data-toggle', 'off')
-    }
-
-
-}
 render() {
         return (
 <div className="animated fadeIn">

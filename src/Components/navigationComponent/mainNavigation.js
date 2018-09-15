@@ -35,11 +35,27 @@ class MainNavigation extends Component {
         this.menuButtonClick = this.menuButtonClick.bind(this);
         this.menuButtonHover = this.menuButtonHover.bind(this);
         this.menuButtonLeave = this.menuButtonLeave.bind(this);
+        this.navButtonClick = this.navButtonClick.bind(this);
+        
 
 
     }
 
-   
+    navButtonClick (){
+        this.setState({
+            menuOpen: 'closed',
+            blue_div:'fadeOutUp',
+            green_div:'fadeOutUp',
+            yellow_div:'fadeOutUp',
+            menu_div:'fadeOutUp',
+            visibility:'hidden'
+        });
+        $('.lnr-cross').css({
+            'visibility': 'hidden'
+        });
+
+    }
+
     menuButtonClick () {
         // if ($('#menu-button')[0].hasAttribute("data-toggle")) {
 
@@ -387,23 +403,23 @@ class MainNavigation extends Component {
     <ul style={nav_links}>
      <li>
          <span className="nav-items">01</span>
-             <NavLink className="navlinks" to="/" activeClassName="selected"  exact>Home</NavLink>
+             <NavLink className="navlinks" to="/" activeClassName="selected"  exact onClick={this.navButtonClick}>Home</NavLink>
     </li>
       <li>
          <span className="nav-items">02</span>
-             <NavLink className="navlinks" to="/about"  activeClassName="selected">About</NavLink>
+             <NavLink className="navlinks" to="/about"  activeClassName="selected" onClick={this.navButtonClick}>About</NavLink>
      </li>
      <li>
          <span className="nav-items">03</span>
-             <NavLink className="navlinks" to="/work" activeClassName="selected">Work</NavLink>
+             <NavLink className="navlinks" to="/work" activeClassName="selected" onClick={this.navButtonClick}>Work</NavLink>
      </li>
      <li>
          <span className="nav-items">04</span>
-             <NavLink className="navlinks" to="/philosophy" activeClassName="selected">Philosophy</NavLink>
+             <NavLink className="navlinks" to="/philosophy" activeClassName="selected" onClick={this.navButtonClick}>Philosophy</NavLink>
      </li>
      <li>
          <span className="nav-items">05</span>
-             <NavLink className="navlinks" to="/hire" activeClassName="selected">Hire Us!</NavLink>
+             <NavLink className="navlinks" to="/hire" activeClassName="selected" onClick={this.navButtonClick}>Hire Us!</NavLink>
      </li>
 </ul>
 </div>
