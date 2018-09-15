@@ -3573,6 +3573,12 @@
   animation-delay: 1s;
 }
 
+
+.animated.delay-ms {
+  -webkit-animation-delay: 500ms;
+  animation-delay: 500ms;
+}
+
 .animated.delay-2s {
   -webkit-animation-delay: 2s;
   animation-delay: 2s;

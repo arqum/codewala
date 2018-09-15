@@ -35,7 +35,8 @@ componentWillMount(){
 }
 
     componentDidMount() {
-        
+        // this.closeMenuAnimation();
+
     
                let interval = 1;
        let x;
@@ -51,7 +52,6 @@ componentWillMount(){
                })
                  
                clearInterval(x);            
-               this.closeMenuAnimation();
 
            }
        },600);
@@ -173,22 +173,20 @@ componentWillMount(){
 
     render() {
             return (
-    <div className="custom_container">
- 
-
-       <Loading className="loading"
+    <div className="animated fadeIn">
+ <Loading className="loading"
           show={this.state.show}
           color="#54d5cd"
           showSpinner={false}
         />
 
 <div className="row">
-<div className="col-md-4 col-sm-12 hr_img" >
+<div className="col-md-4 col-sm-12 hr_img animated fadeInUp" >
 
 </div>
 
-<div className="col-md-8 col-sm-12 cw_txt" id="hr_gradient">
-<h1 className="inner-h1">
+<div className="col-md-8 col-sm-12 cw_txt animated fadeInRight" id="hr_gradient">
+<h1 className="inner-h1 ">
     Hire<span className="inner-h1-span">
     Codewala
     </span>

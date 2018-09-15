@@ -36,7 +36,8 @@ componentWillMount(){
 }
 
     componentDidMount() {
-        
+        // this.closeMenuAnimation();
+
 
                let interval = 1;
        let x;
@@ -52,7 +53,6 @@ componentWillMount(){
                })
                  
                clearInterval(x);            
-               this.closeMenuAnimation();
 
            }
        },600);
@@ -174,7 +174,7 @@ componentWillMount(){
 
     render() {
             return (
-                <div className="animated zoomIn" id="container_fade">
+                <div className="animated fadeIn" id="container_fade delay-2s">
 
 
  <Loading className="loading"
@@ -184,11 +184,11 @@ componentWillMount(){
   />
 
 <div className="row">
-<div className="col-md-4 col-sm-12 cw_img" >
+<div className="col-md-4 col-sm-12 cw_img animated fadeInLeft" >
 
 </div>
 
-<div className="col-md-8 col-sm-12 cw_txt" id="ab_gradient">
+<div className="col-md-8 col-sm-12 cw_txt animated fadeInRight" id="ab_gradient">
 <h1 className="inner-h1">
 About<span className="inner-h1-span">
 Codewala

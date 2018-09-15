@@ -5,6 +5,13 @@ import {NavLink} from 'react-router-dom';
 import Loading from 'react-loading-bar';
 import 'react-loading-bar/dist/index.css';
 import LandingPage from '../landingComponent/landinPage';
+import { findDOMNode, ReactDOM } from 'react-dom';
+import styled from 'styled-components';
+
+
+
+
+
 
 
 class MainNavigation extends Component {
@@ -12,7 +19,19 @@ class MainNavigation extends Component {
 
     constructor(){
         super()
-        this.state = ({show:true})
+        this.state = (
+            {
+                show:true,
+                menuOpen: 'closed',
+                blue_div:'style_menu_blue_div_hidden',
+                green_div:'',
+                yellow_div:'',
+                menu_div:'',
+                visibility:'hidden'
+            
+            }
+        
+        )
         this.menuButtonClick = this.menuButtonClick.bind(this);
         this.menuButtonHover = this.menuButtonHover.bind(this);
         this.menuButtonLeave = this.menuButtonLeave.bind(this);
@@ -20,81 +39,134 @@ class MainNavigation extends Component {
 
     }
 
-
+   
     menuButtonClick () {
-        if ($('#menu-button')[0].hasAttribute("data-toggle")) {
+        // if ($('#menu-button')[0].hasAttribute("data-toggle")) {
 
-            $('#menu-button').removeAttr('data-toggle');
+            if (this.state.menuOpen=='closed') {
+            console.log("Menu is now open");
+            console.log(this.state);
 
-            //open nav overlay
-            $('#menu-nav').css({
-                'opacity': 0.96,
-                'visibility': 'visible',
-                'height': '100%'
-            }).delay(6000);
-
-            // //display nav links
-            $('#nav-items').css({
-                'opacity': 0.9,
-                'visibility': "visible",
-            }).delay(6000);
-
-            $('#menu-button').css({
-                'height': '140px',
-                'background': 'white'
-            });
-            $('#menu-button-text').css({
-                'top': '70%',
-                'color': '#2c3343'
+            this.setState({
+                show:false,
+                menuOpen: 'opened',
+                blue_div:'fadeInDown',
+                green_div:'fadeInDown',
+                yellow_div:'fadeInDown',
+                menu_div:'fadeInDown',
+                visibility:'visible'
             });
 
-            $('#menu-gradient-lines').css({
-                'height': '20px',
-                'opacity': '0.7'
-            });
+             
+
+            //     $('#menu-nav_blue').css({
+            //     'opacity': '1',
+            //     'visibility': 'visible',
+            //     'height': '100%'
+           
+            // });
+
+            //    $('#menu-nav_green').css({
+            //     'opacity': '1',
+            //     'visibility': 'visible',
+            //     'height': '97%'
+            // });           
+            
+            
+            //   $('#menu-nav_yellow').css({
+            //     'opacity': '1',
+            //     'visibility': 'visible',
+            //     'height': '95%'
+
+            // });
+           
+
+            // $('#menu-nav').css({
+            //     'opacity': '0.95',
+            //     'visibility': 'visible',
+            //     'height': '93%'
+            // });
+            
+           
 
 
-        } else {
+            // // //display nav links
 
-            $('#menu-nav').css({
-                'opacity': 0,
-                'visibility': 'hidden',
-                'height': '0%'
-            });
-            $('#nav-items').css({
-                'opacity': 0,
-                'visibility': "hidden",
-            }).delay(6000);
+            //     $('#nav-items').css({
+            //         'opacity': 0.9,
+            //         'visibility': "visible",
+            //     });
+                
+              
 
-            $('#menu-button').css({
-                'height': '80px',
-                'background': '#2c3343'
+            // $('#menu-button').css({
+            //     'height': '140px',
+            //     'background': 'white'
+            // });
+            // $('#menu-button-text').css({
+            //     'top': '70%',
+            //     'color': '#2c3343'
+            // });
+
+            // $('#menu-gradient-lines').css({
+            //     'height': '20px',
+            //     'opacity': '0.7'
+            // });
+
+
+         
+        } else if(this.state.menuOpen == 'opened') {
+
+            console.log("Menu is now closed");
+            console.log(this.state);
+
+
+            this.setState({
+                menuOpen: 'closed',
+                blue_div:'fadeOutUp',
+                green_div:'fadeOutUp',
+                yellow_div:'fadeOutUp',
+                menu_div:'fadeOutUp',
+                visibility:'hidden'
             });
-            $('#menu-button-text').css({
-                'top': '40%',
-                'color': 'white'
-            });
+
+            // $('#menu-nav_blue', '#menu-nav_yellow', '#menu-nav_green', '#menu-nav', '#nav-items', '.nav-items').css(
+            //     'height','0%',
+            //     'opacity', '0',
+            //     'visibility', 'hidden',
+            // );
+             
+            // $('#menu-button').css({
+            //     'height': '80px',
+            //     'background': '#2c3343'
+            // });
+            // $('#menu-button-text').css({
+            //     'top': '40%',
+            //     'color': 'white'
+            // });
 
             $('.lnr-cross').css({
                 'visibility': 'hidden'
             });
 
-            //hide the menu logo 
-            $('.logo-head').css({
-                'visibility': 'hidden',
-                'opacity': 0,
-                'margin': '-120px 0px 0px 17px',
-                'transition': 'all 100ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
-            });
+            // //hide the menu logo 
+            // $('.logo-head').css({
+            //     'visibility': 'hidden',
+            //     'opacity': 0,
+            //     'margin': '-120px 0px 0px 17px',
+            //     'transition': 'all 100ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
+            // });
 
-            $('#menu-button').attr('data-toggle', 'off')
+         
         }
 
     }
 
     menuButtonHover () {
-        if ($('#menu-button')[0].hasAttribute("data-toggle")) {
+        // if ($('#menu-button')[0].hasAttribute("data-toggle")) {
+            if (this.state.menuOpen =='closed') {
 
+                // console.log('inside hover if');
             $('.lnr-cross').toggleClass('lnr-cross lnr-menu');
 
             $('#menu-button').css({
@@ -123,6 +195,7 @@ class MainNavigation extends Component {
 
 
         } else {
+            // console.log('inside hover else');
 
             $('#cursor').css({
                             'width': '60px',
@@ -139,7 +212,8 @@ class MainNavigation extends Component {
     }
 
     menuButtonLeave () {
-        if ($('#menu-button')[0].hasAttribute("data-toggle")) {
+        // if ($('#menu-button')[0].hasAttribute("data-toggle")) {
+            if (this.state.menuOpen =='closed') {
 
            //  hide main gradient
            $('#menu-gradient-lines').css({
@@ -205,13 +279,81 @@ class MainNavigation extends Component {
  
 
     componentDidMount = ()=>{
-        this.setState({show: false})
+        this.state = (
+            {
+                show:false,
+                menuOpen: 'closed',
+                blue_div:'style_menu_blue_div_hidden',
+                green_div:'',
+                yellow_div:'',
+                menu_div:'',
+                visibility:'hidden'
+            
+            }
+        
+        )
  
     }
 
     
 
     render() {
+        const style_menu_blue_div = {
+
+            position: "absolute",
+            background: "#b5e6e3",
+            height: "100%",
+            width: "100%",
+            zIndex: "10",
+            top: "0",
+            left: "0",
+            opacity: "0",
+            visibility: this.state.visibility,
+        }
+        
+        const style_menu_green_div = {
+        
+            position: "absolute",
+            background: "#deeec7",
+            height: "96%",
+            width: "100%",
+            zIndex: "10",
+            top: "0",
+            left: "0",
+            opacity: "0",
+            visibility: this.state.visibility,
+        }
+        const style_menu_yellow_div = {
+        
+            position: "absolute",
+            background: "#fefabf",
+            height: "92%",
+            width: "100%",
+            zIndex: "10",
+            top: "0",
+            left: "0",
+            opacity: "0",
+            visibility: this.state.visibility,
+        }
+        
+        const style_menu_div = {
+        
+            position: "absolute",
+            background: "white",
+            height: "90%",
+            width: "100%",
+            zIndex: "10",
+            top: "0",
+            left: "0",
+            opacity: "0",
+            visibility: this.state.visibility,
+        }
+
+        const nav_links = {
+            opacity: "0.8",
+            visibility: this.state.visibility,
+        }
+
 
         return(
 
@@ -222,7 +364,7 @@ class MainNavigation extends Component {
           showSpinner={false}
         />
     <Cursor/>
-  <div id="menu-button" data-toggle="off" ref="menu-button" onClick={this.menuButtonClick} onMouseEnter={this.menuButtonHover} onMouseLeave={this.menuButtonLeave}>
+  <div className="animated fadeInDown" id="menu-button" ref="menu-button" onClick={this.menuButtonClick} onMouseEnter={this.menuButtonHover} onMouseLeave={this.menuButtonLeave}>
   <div className="logo-head">
 
   </div>
@@ -233,25 +375,33 @@ class MainNavigation extends Component {
    </div>
  
   </div>
-  <div id="menu-nav">
-    <ul id="nav-items">
-     <li id="nav_item_1">
+ 
+
+
+
+  <div id="menu-nav_blue"   style={style_menu_blue_div}   className={`animated faster ` +this.state.blue_div} ></div>
+  <div id="menu-nav_green"   style={style_menu_green_div} className={`animated faster ` +this.state.green_div}></div>
+  <div id="menu-nav_yellow"  style={style_menu_yellow_div} className={`animated fast ` +this.state.yellow_div}></div>
+
+  <div id="menu-nav" className={`animated ` +this.state.menu_div} style={style_menu_div}>
+    <ul style={nav_links}>
+     <li>
          <span className="nav-items">01</span>
              <NavLink className="navlinks" to="/" activeClassName="selected"  exact>Home</NavLink>
     </li>
-      <li id="nav_item_2">
+      <li>
          <span className="nav-items">02</span>
              <NavLink className="navlinks" to="/about"  activeClassName="selected">About</NavLink>
      </li>
-     <li id="nav_item_3">
+     <li>
          <span className="nav-items">03</span>
              <NavLink className="navlinks" to="/work" activeClassName="selected">Work</NavLink>
      </li>
-     <li id="nav_item_4">
+     <li>
          <span className="nav-items">04</span>
              <NavLink className="navlinks" to="/philosophy" activeClassName="selected">Philosophy</NavLink>
      </li>
-     <li id="nav_item_5">
+     <li>
          <span className="nav-items">05</span>
              <NavLink className="navlinks" to="/hire" activeClassName="selected">Hire Us!</NavLink>
      </li>

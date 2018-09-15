@@ -29,6 +29,7 @@ class PhilosophyPage extends Component {
     }
 
 componentDidMount() {
+    // this.closeMenuAnimation();
 
     $('body').css('background', 'white');
 
@@ -45,7 +46,6 @@ componentDidMount() {
             })
 
             clearInterval(x);
-            this.closeMenuAnimation();
 
         }
     }, 600);
@@ -162,7 +162,7 @@ closeMenuAnimation=()=>{
 }
 render() {
         return (
-<div className="custom_container">
+<div className="animated fadeIn">
    
         <Loading className="loading"
       show={this.state.show}
@@ -171,7 +171,7 @@ render() {
     />
 
 <div className="row">
-<div className="col-md-8 col-sm-12 cw_txt_ph" id="ph_gradient">
+<div className="col-md-8 col-sm-12 cw_txt_ph animated fadeInLeft" id="ph_gradient">
 <h1 className="inner-h1">
 The Codewala   
 <span className="inner-h1-span">
@@ -183,7 +183,7 @@ There are many variations of passages of Lorem Ipsum available, but the majority
 </p>
 </div>
 
-<div className="col-md-4 col-sm-12 cw_img_ph">
+<div className="col-md-4 col-sm-12 cw_img_ph animated fadeInDown">
 
 
 

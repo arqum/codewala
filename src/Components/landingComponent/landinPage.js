@@ -40,7 +40,7 @@ class LandingPage extends Component {
 
     componentDidMount() {
 
-
+        // this.closeMenuAnimation();
        // $('body').css('background', '#2c3343');
         let interval = 1;
         let x;
@@ -56,7 +56,7 @@ class LandingPage extends Component {
                 })
                   
                 clearInterval(x);            
-                this.closeMenuAnimation();
+              
 
             }
         }, 600);
@@ -239,7 +239,7 @@ class LandingPage extends Component {
 
         } else if (value.includes("ux")) {
            
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)");
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_6.jpg)").addClass('animated');
             this.setState({codeText:{title:value,
             description:"We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
             classname:'centerLogoUX'}});
@@ -247,7 +247,7 @@ class LandingPage extends Component {
 
         } else if (value.includes("design")) {
            
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)");            
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)").addClass('animated');            
             this.setState({codeText:{title:value,
             description:"Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
             classname:'centerLogoDesign'}});
@@ -255,7 +255,7 @@ class LandingPage extends Component {
 
         } else if (value.includes("mobile")) {
           
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_3.jpg)");
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_3.jpg)").addClass('animated');
 
             this.setState({codeText:{title:value,
             description:"if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
@@ -264,7 +264,7 @@ class LandingPage extends Component {
 
         } else if (value.includes("fun")) {
            
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)");
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)").addClass('animated');
 
             this.setState({codeText:{title:value,
             description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
@@ -277,56 +277,56 @@ class LandingPage extends Component {
     }
 
  
-    closeMenuAnimation=()=>{
-        console.log("inside close animation...............");
+    // closeMenuAnimation=()=>{
+    //     console.log("inside close animation...............");
 
-        if(this.state.menu ==='false'){
+    //     if(this.state.menu ==='false'){
 
-            console.log("inside close animation IFFFFFFFFFFFFFFF");
+    //         console.log("inside close animation IFFFFFFFFFFFFFFF");
 
-         $('#menu-nav').css({
-             'opacity': 0,
-             'visibility': 'hidden',
-             'height': '0%'
-         });
-         $('#nav-items').css({
-             'opacity': 0,
-             'visibility': "hidden",
-         }).delay(6000);
+    //      $('#menu-nav').css({
+    //          'opacity': 0,
+    //          'visibility': 'hidden',
+    //          'height': '0%'
+    //      });
+    //      $('#nav-items').css({
+    //          'opacity': 0,
+    //          'visibility': "hidden",
+    //      }).delay(6000);
 
-         $('#menu-button').css({
-             'height': '80px',
-             'background': '#2c3343'
-         });
-         $('#menu-button-text').css({
-             'top': '40%',
-             'color': 'white'
-         });
+    //      $('#menu-button').css({
+    //          'height': '80px',
+    //          'background': '#2c3343'
+    //      });
+    //      $('#menu-button-text').css({
+    //          'top': '40%',
+    //          'color': 'white'
+    //      });
 
-         $('.lnr-cross').css({
-             'visibility': 'hidden'
-         });
+    //      $('.lnr-cross').css({
+    //          'visibility': 'hidden'
+    //      });
 
-         //hide the menu logo 
-         $('.logo-head').css({
-             'visibility': 'hidden',
-             'opacity': 0,
-             'margin': '-120px 0px 0px 17px',
-             'transition': 'all 100ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
-         });
+    //      //hide the menu logo 
+    //      $('.logo-head').css({
+    //          'visibility': 'hidden',
+    //          'opacity': 0,
+    //          'margin': '-120px 0px 0px 17px',
+    //          'transition': 'all 100ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
+    //      });
 
-         $('#menu-button').attr('data-toggle', 'off')
-        }
+    //      $('#menu-button').attr('data-toggle', 'off')
+    //     }
 
 
-    }
+    // }
 
     render() {
         
 
         return(
 
-        <div className="custom_container">
+        <div className="animated fadeIn">
        
        <Loading className="loading"
           show={this.state.show}
@@ -336,29 +336,29 @@ class LandingPage extends Component {
 
         <div id="element"></div>
         <div id="gradient"></div>
-        <div id="blurred"></div>
+        <div id="blurred" className=" animated fadeIn faster"></div>
 
         <div className="row">
-        <div  id="centerlogo" className={this.state.codeText.classname} ></div>
+        <div  id="centerlogo" className={`animated fadeInUp faster ` +this.state.codeText.classname} ></div>
         <i className="fa-fw select-all fas"></i>
-        <span className="txt-rotate" >
+        <span className="txt-rotate animated fadeInUp" >
          <span className="codewalatext">
          <strong>&lt;code</strong>wala/&gt; is 
          <ReactRotatingText currentValue={this.currentValue} items={[ " code.", " ux.", " design.", " mobile.", " fun!" ]} typingInterval={200}  deletingInterval={80} pause={7000} />
          <br/>
          </span>    
-        <Motion 
+        {/* <Motion 
          defaultStyle={{opacity:0}} 
          style={{opacity: spring(1)}}
          onRest={this.onRest}
          >
 
-        {(style) =>(
+        {(style) =>( */}
 
-        <p className="codewalaText_description" style={{opacity: style.opacity}}>{this.state.codeText.description}</p>
+        <div className="codewalaText_description animated fadeIn faster">{this.state.codeText.description}</div>
 
-        )}
-         </Motion>
+        {/* )}
+         </Motion> */}
 
         </span> 
         </div>
