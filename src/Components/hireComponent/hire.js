@@ -131,7 +131,7 @@ componentWillMount(){
 
     render() {
             return (
-    <div className="animated fadeIn">
+    <div className="animated fadeIn delay-1s">
  <Loading className="loading"
           show={this.state.show}
           color="#54d5cd"
@@ -139,11 +139,11 @@ componentWillMount(){
         />
 
 <div className="row">
-<div className="col-md-4 col-sm-12 hr_img animated fadeInUp fast" >
+<div className="col-md-4 col-sm-12 hr_img animated fadeInUp delay-1s" >
 
 </div>
 
-<div className="col-md-8 col-sm-12 cw_txt animated fadeInRight fast" id="hr_gradient">
+<div className="col-md-8 col-sm-12 cw_txt animated fadeInRight delay-1s" id="hr_gradient">
 <h1 className="inner-h1 animated bounceInDown delay-1s">
     Hire<span className="inner-h1-span">
     Codewala

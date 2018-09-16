@@ -125,7 +125,7 @@ class LandingPage extends Component {
                    
 
                 });
-                console.log("inside blur mouse move");
+               // console.log("inside blur mouse move");
                 $('#gradient').fadeOut(3000);
                 $('.txt-rotate').css('color', '#2c3343');
                 $("#line").css("background", "#2c3343");
@@ -226,7 +226,7 @@ class LandingPage extends Component {
                 codeText:{title:value, 
                     description:"Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
                     classname: 'animated fadeInUp faster'},
-                    centerlogoimageURL:"url('/assets/images/logo.png')"
+                    centerlogoimageURL:"url('/assets/images/logo.svg')"
             });
 
         } else if (value.includes("ux")) {
@@ -236,7 +236,7 @@ class LandingPage extends Component {
                 codeText:{title:value, 
                     description:"We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
                     classname: 'animated fadeInUp faster'},
-                    centerlogoimageURL:"url('/assets/images/logo_ux.png')"
+                    centerlogoimageURL:"url('/assets/images/logo_ux.svg')"
             });
 
         } else if (value.includes("design")) {
@@ -246,7 +246,7 @@ class LandingPage extends Component {
                 codeText:{title:value,
                 description:"Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
                 classname:'animated fadeInUp faster'},
-                centerlogoimageURL:"url('/assets/images/logo_design.png')"
+                centerlogoimageURL:"url('/assets/images/logo_design.svg')"
             });
         
         } else if (value.includes("mobile")) {
@@ -255,7 +255,7 @@ class LandingPage extends Component {
             this.setState({codeText:{title:value,
                 description:"if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
                 classname:'animated fadeInUp faster'},
-                centerlogoimageURL:"url('/assets/images/logo_mob.png')"
+                centerlogoimageURL:"url('/assets/images/logo_mobile.svg')"
              });
     
         } else if (value.includes("fun")) {
@@ -263,14 +263,14 @@ class LandingPage extends Component {
             $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)").addClass('animated');
             this.setState({codeText:{title:value,
                 description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
-                classname:'centerLogoFun'},
-                centerlogoimageURL:"url('/assets/images/logo_fun.png')"
+                classname:'animated fadeInUp faster'},
+                centerlogoimageURL:"url('/assets/images/logo_fun.svg')"
             });
   
         }
 
 
-        console.log(value);
+        // console.log(value);
     }
 
  
@@ -302,10 +302,10 @@ class LandingPage extends Component {
         }
 
 
-        console.log(centerlogo);
+       // console.log(centerlogo);
         return(
 
-        <div className="animated fadeIn">
+        <div className="animated fadeIn delay-1s">
        
        <Loading className="loading"
           show={this.state.show}

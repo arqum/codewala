@@ -120,7 +120,7 @@ componentWillUnmount() {
 
 render() {
         return (
-<div className="animated fadeIn">
+<div className="animated fadeIn delay-1s">
    
         <Loading className="loading"
       show={this.state.show}
@@ -129,7 +129,7 @@ render() {
     />
 
 <div className="row">
-<div className="col-md-8 col-sm-12 cw_txt_ph animated fadeInLeft fast" id="ph_gradient">
+<div className="col-md-8 col-sm-12 cw_txt_ph animated fadeInLeft delay-1s" id="ph_gradient">
 <h1 className="inner-h1 animated bounceInDown delay-1s">
 The Codewala   
 <span className="inner-h1-span">
