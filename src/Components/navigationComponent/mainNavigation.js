@@ -6,7 +6,6 @@ import Loading from 'react-loading-bar';
 import 'react-loading-bar/dist/index.css';
 import LandingPage from '../landingComponent/landinPage';
 import { findDOMNode, ReactDOM } from 'react-dom';
-import styled from 'styled-components';
 
 
 
@@ -146,32 +145,27 @@ class MainNavigation extends Component {
                 visibility:'hidden'
             });
 
-            // $('#menu-nav_blue', '#menu-nav_yellow', '#menu-nav_green', '#menu-nav', '#nav-items', '.nav-items').css(
-            //     'height','0%',
-            //     'opacity', '0',
-            //     'visibility', 'hidden',
-            // );
-             
-            // $('#menu-button').css({
-            //     'height': '80px',
-            //     'background': '#2c3343'
-            // });
-            // $('#menu-button-text').css({
-            //     'top': '40%',
-            //     'color': 'white'
-            // });
+    
+            $('#menu-button').css({
+                'height': '80px',
+                'background': '#2c3343'
+            });
+            $('#menu-button-text').css({
+                'top': '40%',
+                'color': 'white'
+            });
 
             $('.lnr-cross').css({
                 'visibility': 'hidden'
             });
 
-            // //hide the menu logo 
-            // $('.logo-head').css({
-            //     'visibility': 'hidden',
-            //     'opacity': 0,
-            //     'margin': '-120px 0px 0px 17px',
-            //     'transition': 'all 100ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
-            // });
+            //hide the menu logo 
+            $('.logo-head').css({
+                'visibility': 'hidden',
+                'opacity': 0,
+                'margin': '-120px 0px 0px 17px',
+                'transition': 'all 100ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
+            });
 
          
         }
