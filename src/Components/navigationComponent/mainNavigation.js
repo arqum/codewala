@@ -9,10 +9,6 @@ import { findDOMNode, ReactDOM } from 'react-dom';
 
 
 
-
-
-
-
 class MainNavigation extends Component {
 
 
@@ -31,10 +27,10 @@ class MainNavigation extends Component {
            
             menuButton: {
                 menuButtonHeight:'80px',
-                menuButtonColor:'#2c3343'
+                menuButtonColor:"#2c3343"
             },
            
-        });
+        })
 
 
 
@@ -67,27 +63,17 @@ class MainNavigation extends Component {
     }
 
     navButtonClick (){
-        this.setState({
-            menuOpen: 'closed',
-            blue_div:'fadeOutUp',
-            green_div:'fadeOutUp',
-            yellow_div:'fadeOutUp',
-            menu_div:'fadeOutUp',
-            visibility:'hidden',
-            menuButtonHeight: "80px",
-            menuButtonColor: "#2c3343",
-
-        });
+        
         $('.lnr-cross').css({
             'visibility': 'hidden'
         });
 
     }
 
-    menuButtonClick () {
-
+    menuButtonClick(){
+            console.log(this.state);
             if (this.state.menu.menuOpen=='closed') {
-            console.log(this.state.menu)
+            console.log(this.state)
 
             this.setState({
                 show:false,
@@ -157,9 +143,22 @@ class MainNavigation extends Component {
 
     }
 
+    // this.setState(prevState=>({
+    //     ...prevState,
+    //     menu:{
+    //         ...prevState.menu,
+    //         menuOpen: 'closed',
+                
+
+    //         },
+    //     }
+    // }))
+
+
+
     menuButtonHover () {
         // if ($('#menu-button')[0].hasAttribute("data-toggle")) {
-            if (this.state.menuOpen =='closed') {
+            if (this.state.menu.menuOpen =='closed') {
 
                 // console.log('inside hover if');
             $('.lnr-cross').toggleClass('lnr-cross lnr-menu');
@@ -208,7 +207,7 @@ class MainNavigation extends Component {
 
     menuButtonLeave () {
         // if ($('#menu-button')[0].hasAttribute("data-toggle")) {
-            if (this.state.menuOpen =='closed') {
+            if (this.state.menu.menuOpen =='closed') {
 
            //  hide main gradient
            $('#menu-gradient-lines').css({
@@ -271,42 +270,17 @@ class MainNavigation extends Component {
     componentWillMount() {
         this.setState({show: true})
     }
- 
-
-    componentDidMount = ()=>{
-
-        this.setState = (
-         {
-            //     show:false,
-            //     menuOpen: 'closed'
-       
-
-            show:false,
-            menu: {
-                menuOpen: 'closed',
-
-            },
-            menuButton: {
-                menuButtonHeight:"80px",
-                menuButtonColor:"#2c334",
-            }
-            
-            
-
-            }
-
-        )
-
-
-
-
-       
+    componentDidUpdate(){
+        console.log(this.state, 'ssssss');
+    }
+    componentDidMount(){
  
     }
 
     
 
     render() {
+        console.log(this.state, 'render');
         const style_menu_blue_div = {
 
             position: "absolute",
