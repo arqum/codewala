@@ -27,46 +27,59 @@ class MainNavigation extends Component {
            
             menuButton: {
                 menuButtonHeight:'80px',
-                menuButtonColor:"#2c3343"
+                menuButtonColor:"#2c3343",
+                menuButtonTextColor: "white",
+                menuButtonTextTop:"40%",
+                menuButtonLogoVisibility: "hidden",
+                menuButtonLogoOpacity: "0",
+                menuButtonLogoClass: "",
+                menuButtonDabLogoClass:""
             },
            
         })
-
-
-
-
-
-
-        // this.state = (
-        //     {
-        //         show:true,
-        //         menuOpen: 'closed',
-        //         blue_div:'style_menu_blue_div_hidden',
-        //         green_div:'',
-        //         yellow_div:'',
-        //         menu_div:'',
-        //         visibility:'hidden',
-        //         menuButtonHeight: "80px",
-        //         menuButtonColor: "#2c3343",
-            
-        //     }
-        
-        // )
 
         this.menuButtonClick = this.menuButtonClick.bind(this);
         this.menuButtonHover = this.menuButtonHover.bind(this);
         this.menuButtonLeave = this.menuButtonLeave.bind(this);
         this.navButtonClick = this.navButtonClick.bind(this);
         
-
-
     }
 
     navButtonClick (){
         
+        this.setState({
+            show:false,
+            menu: {
+                menuOpen: 'closed',
+                blue_div:'fadeOutUp',
+                green_div:'fadeOutUp',
+                yellow_div:'fadeOutUp',
+                menu_div:'fadeOutUp',
+                visibility:'hidden',
+            },
+           
+            menuButton: {
+                menuButtonHeight:'80px',
+                menuButtonColor:"#2c3343",
+                menuButtonTextColor: "white",
+                menuButtonTextTop:"40%",
+                menuButtonLogoVisibility: "hidden",
+                menuButtonLogoOpacity: "0",
+                menuButtonLogoMargin: "-100px 0px 0px 17px",
+
+            },
+           
+        });
+
+        $('#menu-button-text').css({
+            'top': '40%',
+            'color': 'white'
+        });
+
         $('.lnr-cross').css({
             'visibility': 'hidden'
         });
+        
 
     }
 
@@ -84,17 +97,21 @@ class MainNavigation extends Component {
                     yellow_div:'fadeInDown',
                     menu_div:'fadeInDown',
                     visibility:'visible',
-
                 },
                
                 menuButton: {
-                    menuButtonHeight: "140px",
-                    menuButtonColor: "white",
+                
+
+                    menuButtonHeight:'140px',
+                    menuButtonColor:'white',
+                    menuButtonTextColor: "#2c3343",
+                    menuButtonTextTop:"74%",
+                    menuButtonLogoVisibility: "visible",
+                    menuButtonLogoOpacity: "1",
+                    menuButtonLogoClass: "animated fadeInDown fast",
+                    menuButtonDabLogoClass:"animated slideInDown"
                 },
             })
-
-
-         
         } else if(this.state.menu.menuOpen == 'opened') {
 
             // console.log("Menu is now closed");
@@ -113,14 +130,17 @@ class MainNavigation extends Component {
                
                 menuButton: {
                     menuButtonHeight:'80px',
-                    menuButtonColor:'#2c3343'
+                    menuButtonColor:"#2c3343",
+                    menuButtonTextColor: "white",
+                    menuButtonTextTop:"40%",
+                    menuButtonLogoVisibility: "hidden",
+                    menuButtonLogoOpacity: "0",
+                    menuButtonLogoMargin: "-100px 0px 0px 17px",
+
                 },
                
             });
 
-
-
-    
             $('#menu-button-text').css({
                 'top': '40%',
                 'color': 'white'
@@ -130,15 +150,6 @@ class MainNavigation extends Component {
                 'visibility': 'hidden'
             });
 
-            //hide the menu logo 
-            $('.logo-head').css({
-                'visibility': 'hidden',
-                'opacity': 0,
-                'margin': '-120px 0px 0px 17px',
-                'transition': 'all 100ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
-            });
-
-         
         }
 
     }
@@ -154,13 +165,9 @@ class MainNavigation extends Component {
     //     }
     // }))
 
-
-
     menuButtonHover () {
         // if ($('#menu-button')[0].hasAttribute("data-toggle")) {
             if (this.state.menu.menuOpen =='closed') {
-
-
 
                 this.setState({
                     show:false,
@@ -175,14 +182,19 @@ class MainNavigation extends Component {
                    
                     menuButton: {
                         menuButtonHeight:'140px',
-                        menuButtonColor:'white'
+                        menuButtonColor:'white',
+                        menuButtonTextColor: "#2c3343",
+                        menuButtonTextTop:"74%",
+                        menuButtonLogoVisibility: "visible",
+                        menuButtonLogoOpacity: "1",
+                        menuButtonLogoClass: "animated fadeInDown fast",
+                        menuButtonDabLogoClass:"animated slideInDown"
+
                     },
                    
                 });
                 // console.log('inside hover if');
             $('.lnr-cross').toggleClass('lnr-cross lnr-menu');
-
-         
 
             $('#cursor').css({
                 'width': '60px',
@@ -192,30 +204,19 @@ class MainNavigation extends Component {
             $('.lnr-menu').css({
                 'visibility': 'visible'
             });
-            $('#menu-button-text').css({
-                'top': '70%',
-                'color': '#2c3343'
-            });
-            $('.logo-head').css({
-                'visibility': 'visible',
-                'opacity': 1,
-                'margin': '-10px 0px 0px 17px',
-                'transition': 'all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
-            });
-
 
         } else {
             // console.log('inside hover else');
 
             $('#cursor').css({
-                            'width': '60px',
-                            'height': "60px",
-                        });
-                        $('.lnr-menu').toggleClass('lnr-menu lnr-cross');
-            
-                        $('.lnr-cross').css({
-                            'visibility': 'visible'
-                        });
+                'width': '60px',
+                'height': "60px",
+            });
+            $('.lnr-menu').toggleClass('lnr-menu lnr-cross');
+
+            $('.lnr-cross').css({
+            'visibility': 'visible'
+            });
 
        }
 
@@ -225,11 +226,42 @@ class MainNavigation extends Component {
         // if ($('#menu-button')[0].hasAttribute("data-toggle")) {
             if (this.state.menu.menuOpen =='closed') {
 
+                this.setState({
+                    show:false,
+                    menu: {
+                        menuOpen: 'closed',
+                        blue_div:'fadeOutUp',
+                        green_div:'fadeOutUp',
+                        yellow_div:'fadeOutUp',
+                        menu_div:'fadeOutUp',
+                        visibility:'hidden',
+                    },
+                   
+                    menuButton: {
+                        menuButtonHeight:'80px',
+                        menuButtonColor:'#2c3343',
+                        menuButtonTextColor: "white",
+                        menuButtonTextTop:"40%",
+                        menuButtonLogoVisibility: "hidden",
+                        menuButtonLogoOpacity: "0",
+                        menuButtonLogoClass: "animated fadeUpDownBig faster",
+                        menuButtonDabLogoClass:"animated slideOutUp"
+
+                    },
+                   
+                });
+
+
+
+
+
+
+
            //  hide main gradient
-           $('#menu-gradient-lines').css({
-            'height': '0px',
-            'opacity': '0'
-        });
+        //    $('#menu-gradient-lines').css({
+        //     'height': '0px',
+        //     'opacity': '0'
+        // });
 
         //hide the menu icon from cursor
         $('.lnr-menu').css({
@@ -242,26 +274,7 @@ class MainNavigation extends Component {
             'height': "20px"
         });
 
-        //make menu button blue and small again
-        $('#menu-button').css({
-            'height': '80px',
-            'background': '#2c3343'
-        });
-
-        //change the menu text to white again
-        $('#menu-button-text').css({
-            'top': '40%',
-            'color': 'white'
-        });
-
-        //hide the menu logo 
-        $('.logo-head').css({
-            'visibility': 'hidden',
-            'opacity': 0,
-            'margin': '-120px 0px 0px 17px',
-            'transition': 'all 100ms cubic-bezier(0.420, 0.000, 1.000, 1.000)'
-        });
-
+   
 
         } else {
 
@@ -367,23 +380,49 @@ class MainNavigation extends Component {
 
         const menu_button_txt = {
 
-            color: "white",
+            color: this.state.menuButton.menuButtonTextColor,
             fontSize: "20px",
             textAlign: "center",
             position: "absolute",
-            top: "40%",
+            top: this.state.menuButton.menuButtonTextTop,
             left: "15px",
             alignContent: "center",
             zIndex: "23",
-            transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
+           // transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
         }
 
-        const logo_head = {
-            backgroundImage: "url('/assets/images/logo_fun.svg')",
+        const logo_lines = {
+            backgroundImage: "url('/assets/images/logo_dab.svg')",
+            opacity:this.state.menuButton.menuButtonLogoOpacity,
             backgroundRepeat: "no-repeat",
-            visibility: "hidden",
+            width: "100px",
+            height: "130px",
+            textAlign: "center",
+            zIndex: "20",
+            position: "relative",
+            backgroundSize: "45%",
+            margin: "-1px 0px 0px 18px",
+            transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
+            backgroundImage: "url('/assets/images/lines.svg')",
+
         }
 
+        const logo_dab = {
+            backgroundImage: "url('/assets/images/logo_dab_guy.svg')",
+            opacity:this.state.menuButton.menuButtonLogoOpacity,
+            backgroundRepeat: "no-repeat",
+            width: "100px",
+            height: "130px",
+            textAlign: "center",
+            zIndex: "20",
+            position: "absolute",
+            backgroundSize: "55%",
+            margin: "30px 0px 0px 3px",
+           // transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
+            backgroundImage: "url('/assets/images/logo_dab_guy.svg')",
+
+        }
+ 
         const colors = {
             blue: "#2c334"
         }
@@ -399,11 +438,13 @@ class MainNavigation extends Component {
         />
     <Cursor/>
   <div style={menu_button} className="animated fadeInDown"  onClick={this.menuButtonClick} onMouseEnter={this.menuButtonHover} onMouseLeave={this.menuButtonLeave}>
-  <div style={logo_head}>
+  <div style={logo_lines} className={this.state.menuButton.menuButtonLogoClass}>
+  <div style={logo_dab} className={this.state.menuButton.menuButtonDabLogoClass}></div>
+
 
   </div>
  
-   <div id="menu-button-text" style={menu_button_txt}>
+   <div id="menu-button-text" style={menu_button_txt} className="animate fadeInDown faster">
     <strong>&lt;cw/&gt;</strong>
 
    </div>
