@@ -160,13 +160,29 @@ class MainNavigation extends Component {
         // if ($('#menu-button')[0].hasAttribute("data-toggle")) {
             if (this.state.menu.menuOpen =='closed') {
 
+
+
+                this.setState({
+                    show:false,
+                    menu: {
+                        menuOpen: 'closed',
+                        blue_div:'fadeOutUp',
+                        green_div:'fadeOutUp',
+                        yellow_div:'fadeOutUp',
+                        menu_div:'fadeOutUp',
+                        visibility:'hidden',
+                    },
+                   
+                    menuButton: {
+                        menuButtonHeight:'140px',
+                        menuButtonColor:'white'
+                    },
+                   
+                });
                 // console.log('inside hover if');
             $('.lnr-cross').toggleClass('lnr-cross lnr-menu');
 
-            $('#menu-button').css({
-                'height': '140px',
-                'background': 'white'
-            });
+         
 
             $('#cursor').css({
                 'width': '60px',
@@ -333,7 +349,7 @@ class MainNavigation extends Component {
         }
 
         const nav_links = {
-            opacity: "0.8",
+            opacity: "0.9",
             visibility: this.state.menu.visibility,
         }
 
@@ -397,11 +413,11 @@ class MainNavigation extends Component {
 
 
 
-  <div id="menu-nav_blue"   style={style_menu_blue_div}   className={`animated faster ` +this.state.blue_div} ></div>
-  <div id="menu-nav_green"   style={style_menu_green_div} className={`animated faster ` +this.state.green_div}></div>
-  <div id="menu-nav_yellow"  style={style_menu_yellow_div} className={`animated fast ` +this.state.yellow_div}></div>
+  <div id="menu-nav_blue"   style={style_menu_blue_div}   className={`animated faster ` +this.state.menu.blue_div} ></div>
+  <div id="menu-nav_green"   style={style_menu_green_div} className={`animated faster ` +this.state.menu.green_div}></div>
+  <div id="menu-nav_yellow"  style={style_menu_yellow_div} className={`animated fast ` +this.state.menu.yellow_div}></div>
 
-  <div id="menu-nav" className={`animated ` +this.state.menu_div} style={style_menu_div}>
+  <div id="menu-nav" className={`animated ` +this.state.menu.menu_div} style={style_menu_div}>
     <ul style={nav_links}>
      <li>
          <span className="nav-items">01</span>
