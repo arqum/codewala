@@ -23,6 +23,7 @@ class MainNavigation extends Component {
                 yellow_div:'',
                 menu_div:'',
                 visibility:'hidden',
+                cursorColor:"",
             },
            
             menuButton: {
@@ -111,7 +112,10 @@ class MainNavigation extends Component {
                     menuButtonLogoClass: "animated fadeInDown fast",
                     menuButtonDabLogoClass:"animated slideInDown"
                 },
+                
             })
+
+      
         } else if(this.state.menu.menuOpen == 'opened') {
 
             // console.log("Menu is now closed");
@@ -148,6 +152,16 @@ class MainNavigation extends Component {
 
             $('.lnr-cross').css({
                 'visibility': 'hidden'
+            });
+       
+            $('#cursor').css({
+                'width': '60px',
+                'height': "60px",
+                'background-color': "rgba(135, 227, 221, 0.3)",
+    
+    
+    
+    
             });
 
         }
@@ -339,7 +353,7 @@ class MainNavigation extends Component {
         
             position: "absolute",
             background: "#fefabf",
-            height: "94%",
+            height: "96%",
             width: "100%",
             zIndex: "10",
             top: "0",
@@ -352,7 +366,7 @@ class MainNavigation extends Component {
         
             position: "absolute",
             background: "white",
-            height: "90%",
+            height: "95%",
             width: "100%",
             zIndex: "10",
             top: "0",
@@ -488,15 +502,22 @@ class MainNavigation extends Component {
 </ul>
   </div>
  
-  <div className="col-md-6 nav-social-section" >
+  <div className="col-md-6 nav-social-section" style={{alignSelf: "center"}} >
   <div className="row">
-  <div className="col-md-6 ">
-  <h2>
+  <div className="col-md-6 " style={{paddingTop:"28%"}}>
+  <h4 className="small-text">
       Want to ask us something? Email us now at 
-  </h2>
+  </h4><br/>
+  <div className="links">
+  <span className="lnr lnr-envelope icons-dark"></span>
+  inquiries@codewala.co
+  </div>
+
+<i className="la la-bullhorn"></i>
+
   </div>
   <div className="col-md-6 nav-social-section">
-  
+
   </div>
   </div>
   </div>

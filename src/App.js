@@ -7,6 +7,7 @@ import './Components/landingComponent/landinPage';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import "./Assets/scss/animate.css";
 
+
 import MainNavigation from './Components/navigationComponent/mainNavigation';
 import LandingPage from './Components/landingComponent/landinPage';
 import AboutPage from './Components/aboutComponent/about';
