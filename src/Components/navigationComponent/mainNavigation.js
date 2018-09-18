@@ -327,7 +327,7 @@ class MainNavigation extends Component {
         
             position: "absolute",
             background: "#deeec7",
-            height: "96%",
+            height: "98%",
             width: "100%",
             zIndex: "10",
             top: "0",
@@ -339,7 +339,7 @@ class MainNavigation extends Component {
         
             position: "absolute",
             background: "#fefabf",
-            height: "92%",
+            height: "94%",
             width: "100%",
             zIndex: "10",
             top: "0",
@@ -491,7 +491,9 @@ class MainNavigation extends Component {
   <div className="col-md-6 nav-social-section" >
   <div className="row">
   <div className="col-md-6 ">
-  
+  <h2>
+      Want to ask us something? Email us now at 
+  </h2>
   </div>
   <div className="col-md-6 nav-social-section">
   
