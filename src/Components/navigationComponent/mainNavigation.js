@@ -364,6 +364,8 @@ class MainNavigation extends Component {
         const nav_links = {
             opacity: "0.9",
             visibility: this.state.menu.visibility,
+            top: "15%",
+            position: "relative",
         }
 
         const menu_button = {
@@ -376,6 +378,7 @@ class MainNavigation extends Component {
             left: "0",
             cursor: "pointer",
             transition: "all 200ms cubic-bezier(0, 0.87, 1, 0.645)",
+            overflow: "hidden"
         }
 
         const menu_button_txt = {
@@ -459,7 +462,9 @@ class MainNavigation extends Component {
   <div id="menu-nav_yellow"  style={style_menu_yellow_div} className={`animated fast ` +this.state.menu.yellow_div}></div>
 
   <div id="menu-nav" className={`animated ` +this.state.menu.menu_div} style={style_menu_div}>
-    <ul style={nav_links}>
+  <div className="row">
+  <div className="col-md-6">
+  <ul style={nav_links}>
      <li>
          <span className="nav-items">01</span>
              <NavLink className="navlinks" to="/" activeClassName="selected"  exact onClick={this.navButtonClick}>Home</NavLink>
@@ -481,6 +486,20 @@ class MainNavigation extends Component {
              <NavLink className="navlinks" to="/hire" activeClassName="selected" onClick={this.navButtonClick}>Hire Us!</NavLink>
      </li>
 </ul>
+  </div>
+ 
+  <div className="col-md-6 nav-social-section" >
+  <div className="row">
+  <div className="col-md-6 ">
+  
+  </div>
+  <div className="col-md-6 nav-social-section">
+  
+  </div>
+  </div>
+  </div>
+  </div>
+  
 </div>
 
  
