@@ -8,10 +8,10 @@
 ]>
 <svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-	 x="0px" y="0px" width="230px" height="478px" viewBox="0 0 230 478" xml:space="preserve">
+	 x="0px" y="0px" width="50px" height="103px" viewBox="0 0 50 103" xml:space="preserve">
 <g>
-	<polyline fill="#B5E6E3" points="115,0 1,0 1,478 115,478 115,0 	"/>
-	<polyline fill="#DEEEC7" points="190,0 115,0 115,478 190,478 190,0 	"/>
-	<polyline fill="#FEFABF" points="230,0 190,0 190,478 230,478 230,0 	"/>
+	<polyline fill="#B5E6E3" points="24.393,0.721 0,0.721 0,103 24.393,103 24.393,0.721 	"/>
+	<polyline fill="#DEEEC7" points="40.441,0.721 24.393,0.721 24.393,103 40.441,103 40.441,0.721 	"/>
+	<polyline fill="#FEFABF" points="49,0.721 40.441,0.721 40.441,103 49,103 49,0.721 	"/>
 </g>
 </svg>

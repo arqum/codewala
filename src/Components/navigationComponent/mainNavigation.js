@@ -402,7 +402,7 @@ class MainNavigation extends Component {
             position: "relative",
             backgroundSize: "45%",
             margin: "-1px 0px 0px 18px",
-            transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
+            // transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
             backgroundImage: "url('/assets/images/lines.svg')",
 
         }
@@ -440,9 +440,9 @@ class MainNavigation extends Component {
   <div style={menu_button} className="animated fadeInDown"  onClick={this.menuButtonClick} onMouseEnter={this.menuButtonHover} onMouseLeave={this.menuButtonLeave}>
   <div style={logo_lines} className={this.state.menuButton.menuButtonLogoClass}>
   <div style={logo_dab} className={this.state.menuButton.menuButtonDabLogoClass}></div>
-
-
   </div>
+
+  
  
    <div id="menu-button-text" style={menu_button_txt} className="animate fadeInDown faster">
     <strong>&lt;cw/&gt;</strong>
