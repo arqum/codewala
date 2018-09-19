@@ -23,7 +23,7 @@ class MainNavigation extends Component {
                 yellow_div:'',
                 menu_div:'',
                 visibility:'hidden',
-                cursorColor:"",
+                cursorColor:"rgba(135, 227, 221, 0.3)",
             },
            
             menuButton: {
@@ -51,6 +51,7 @@ class MainNavigation extends Component {
         this.setState({
             show:false,
             menu: {
+                ...this.state.menu,
                 menuOpen: 'closed',
                 blue_div:'fadeOutUp',
                 green_div:'fadeOutUp',
@@ -93,10 +94,10 @@ class MainNavigation extends Component {
                 show:false,
                 menu: {
                     menuOpen: 'opened',
-                    blue_div:'fadeInDown',
-                    green_div:'fadeInDown',
+                    blue_div:'fadeInDown faster',
+                    green_div:'fadeInDown fast',
                     yellow_div:'fadeInDown',
-                    menu_div:'fadeInDown',
+                    menu_div:'fadeInDown slow',
                     visibility:'visible',
                 },
                
@@ -125,11 +126,12 @@ class MainNavigation extends Component {
                 show:false,
                 menu: {
                     menuOpen: 'closed',
-                    blue_div:'fadeOutUp',
+                    blue_div:'fadeOutUp slow',
                     green_div:'fadeOutUp',
-                    yellow_div:'fadeOutUp',
-                    menu_div:'fadeOutUp',
+                    yellow_div:'fadeOutUp fast',
+                    menu_div:'fadeOutUp faster',
                     visibility:'hidden',
+                    cursorColor: 'rgba(255, 255, 255, 0.5)'
                 },
                
                 menuButton: {
@@ -157,7 +159,7 @@ class MainNavigation extends Component {
             $('#cursor').css({
                 'width': '60px',
                 'height': "60px",
-                'background-color': "rgba(135, 227, 221, 0.3)",
+                'background-color': "rgba(255, 255, 255, 0.5)",
     
     
     
@@ -341,7 +343,7 @@ class MainNavigation extends Component {
         
             position: "absolute",
             background: "#deeec7",
-            height: "98%",
+            height: "100%",
             width: "100%",
             zIndex: "10",
             top: "0",
@@ -353,7 +355,7 @@ class MainNavigation extends Component {
         
             position: "absolute",
             background: "#fefabf",
-            height: "96%",
+            height: "100%",
             width: "100%",
             zIndex: "10",
             top: "0",
@@ -366,7 +368,7 @@ class MainNavigation extends Component {
         
             position: "absolute",
             background: "white",
-            height: "95%",
+            height: "100%",
             width: "100%",
             zIndex: "10",
             top: "0",
@@ -471,9 +473,9 @@ class MainNavigation extends Component {
 
 
 
-  <div id="menu-nav_blue"   style={style_menu_blue_div}   className={`animated faster ` +this.state.menu.blue_div} ></div>
-  <div id="menu-nav_green"   style={style_menu_green_div} className={`animated faster ` +this.state.menu.green_div}></div>
-  <div id="menu-nav_yellow"  style={style_menu_yellow_div} className={`animated fast ` +this.state.menu.yellow_div}></div>
+  <div id="menu-nav_blue"   style={style_menu_blue_div}   className={`animated ` +this.state.menu.blue_div} ></div>
+  <div id="menu-nav_green"   style={style_menu_green_div} className={`animated ` +this.state.menu.green_div}></div>
+  <div id="menu-nav_yellow"  style={style_menu_yellow_div} className={`animated ` +this.state.menu.yellow_div}></div>
 
   <div id="menu-nav" className={`animated ` +this.state.menu.menu_div} style={style_menu_div}>
   <div className="row">

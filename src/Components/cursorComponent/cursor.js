@@ -4,10 +4,16 @@ import $ from 'jquery';
 
 class Cursor extends Component {
 
+    constructor(props){
+        super(props);
+    }
+
     componentDidMount = ()=>{
+        const {cursorColor} = this.props;
+    
 
         $(document).mousemove(function (e) {
-
+        
         //cursor ball
         var mX = e.pageX;
         var mY = e.pageY;
@@ -26,9 +32,6 @@ class Cursor extends Component {
             'width': '60px',
             'height': "60px",
             'background-color': "rgba(135, 227, 221, 0.3)",
-
-
-
 
         });
     });
