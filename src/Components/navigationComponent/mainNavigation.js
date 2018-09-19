@@ -24,6 +24,7 @@ class MainNavigation extends Component {
                 menu_div:'',
                 visibility:'hidden',
                 cursorColor:"rgba(135, 227, 221, 0.3)",
+                logoHeadClass:""
             },
            
             menuButton: {
@@ -58,6 +59,7 @@ class MainNavigation extends Component {
                 yellow_div:'fadeOutUp',
                 menu_div:'fadeOutUp',
                 visibility:'hidden',
+                logoHeadClass:"fadeInDown delay-3s"
             },
            
             menuButton: {
@@ -96,9 +98,11 @@ class MainNavigation extends Component {
                     menuOpen: 'opened',
                     blue_div:'fadeInDown faster',
                     green_div:'fadeInDown fast',
-                    yellow_div:'fadeInDown',
-                    menu_div:'fadeInDown slow',
+                    yellow_div:'fadeInDown ',
+                    menu_div:'fadeInDown',
                     visibility:'visible',
+                    logoHeadClass:"fadeOutDown"
+
                 },
                
                 menuButton: {
@@ -479,12 +483,13 @@ class MainNavigation extends Component {
 
   <div id="menu-nav" className={`animated ` +this.state.menu.menu_div} style={style_menu_div}>
   <div className="row">
-  <div className="col-md-6">
+  <div className="col-md-6 col-lg-6">
   <ul style={nav_links}>
      <li>
          <span className="nav-items">01</span>
              <NavLink className="navlinks" to="/" activeClassName="selected"  exact onClick={this.navButtonClick}>Home</NavLink>
     </li>
+    <i className="flaticon-airplane49"></i> 
       <li>
          <span className="nav-items">02</span>
              <NavLink className="navlinks" to="/about"  activeClassName="selected" onClick={this.navButtonClick}>About</NavLink>
@@ -504,22 +509,38 @@ class MainNavigation extends Component {
 </ul>
   </div>
  
-  <div className="col-md-6 nav-social-section" style={{alignSelf: "center"}} >
+  <div className="col-md-6 col-lg-6 nav-social-section " style={{alignSelf: "center"}} >
   <div className="row">
-  <div className="col-md-6 " style={{paddingTop:"28%"}}>
+  <div className="col-md-6 col-lg-6 " style={{paddingTop:"76%"}}>
   <h4 className="small-text">
       Want to ask us something? Email us now at 
   </h4><br/>
   <div className="links">
   <span className="lnr lnr-envelope icons-dark"></span>
   inquiries@codewala.co
+<div className="menu-logo-head">
+</div>
   </div>
 
-<i className="la la-bullhorn"></i>
-
   </div>
-  <div className="col-md-6 nav-social-section">
-
+  <div className="col-md-6 col-lg-6 nav-social-section">
+  <div className="row row-pattern" style={{paddingTop:"88%"}}>
+  <div className="col-md-4 col-lg-4">
+  <div className="social-icons facebook">
+  
+  </div>
+  </div>
+  <div className="col-md-4 col-lg-4">
+  <div className="social-icons twitter">
+  
+  </div>
+  </div>
+  <div className="col-md-4 col-lg-4">
+  <div className="social-icons linkedIn">
+  
+  </div>
+  </div>
+  </div>
   </div>
   </div>
   </div>

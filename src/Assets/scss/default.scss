@@ -721,8 +721,55 @@ visibility: visible;
 
 
   
-  .nav-social {}
+ .social-icons {
+  height: 100%;
+  width: 80%;
+  background-size: 60%!important;
+  margin: 20%;
+  overflow: hidden;
+ }
 
+ .facebook {
+  background: url('/assets/images/facebook.svg') no-repeat;
+
+
+ }
+
+ .twitter {
+  background: url('/assets/images/twitter.svg') no-repeat;
+
+
+ }
+
+ .linkedIn {
+  background: url('/assets/images/linkedIn.svg') no-repeat;
+
+
+ }
+
+ .menu-logo-head{
+  background: url(/assets/images/logoHead.svg) no-repeat;
+  height: 301px;
+  width: 97%;
+  background-size: 25%!important;
+  margin: 5%;
+
+ }
+
+
+
+ .menu-logohead{
+  background: url(/assets/images/logoHead.svg) no-repeat;
+  height: 301px;
+  width: 97%;
+  background-size: 80%!important;
+  margin: 5%;
+ }
+
+ .row-pattern{
+   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQYV2NkQANv3334z4gsBhIQFhJghAvCBECKwILIAmBBdAGQIAAGJRPQtcv+AQAAAABJRU5ErkJggg==) repeat;
+
+ }
   
   .animate-menu {
     animation: nav-animation 0.6s;
