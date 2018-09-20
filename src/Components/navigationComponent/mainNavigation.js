@@ -101,7 +101,7 @@ class MainNavigation extends Component {
                     yellow_div:'fadeInDown ',
                     menu_div:'fadeInDown',
                     visibility:'visible',
-                    logoHeadClass:"fadeOutDown"
+                    logoHeadClass:""
 
                 },
                
@@ -114,13 +114,32 @@ class MainNavigation extends Component {
                     menuButtonTextTop:"74%",
                     menuButtonLogoVisibility: "visible",
                     menuButtonLogoOpacity: "1",
-                    menuButtonLogoClass: "animated fadeInDown fast",
-                    menuButtonDabLogoClass:"animated slideInDown"
+                    menuButtonLogoClass: "animated fadeInDown slow",
+                    menuButtonDabLogoClass:"animated fadeInDown fast"
                 },
                 
             })
 
-      
+            let interval = 1;
+        let x;
+        x = setInterval(() => {
+           
+            interval += 1;
+            if (interval == 4) {
+                this.setState({
+                    menu: {...this.state.menu,
+                        logoHeadClass:"fadeInUp ",
+                    }
+
+   
+                })
+                  
+                clearInterval(x);   
+                console.log("intervel" +this.state.menu.logoHeadClass)         
+              
+
+            }
+        }, 500);
         } else if(this.state.menu.menuOpen == 'opened') {
 
             // console.log("Menu is now closed");
@@ -207,8 +226,8 @@ class MainNavigation extends Component {
                         menuButtonTextTop:"74%",
                         menuButtonLogoVisibility: "visible",
                         menuButtonLogoOpacity: "1",
-                        menuButtonLogoClass: "animated fadeInDown fast",
-                        menuButtonDabLogoClass:"animated slideInDown"
+                        menuButtonLogoClass: "animated fadeInDown slow",
+                        menuButtonDabLogoClass:"animated fadeInDown fast"
 
                     },
                    
@@ -422,7 +441,7 @@ class MainNavigation extends Component {
             height: "130px",
             textAlign: "center",
             zIndex: "20",
-            position: "relative",
+            position: "absolute",
             backgroundSize: "45%",
             margin: "-1px 0px 0px 18px",
             // transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
@@ -438,9 +457,9 @@ class MainNavigation extends Component {
             height: "130px",
             textAlign: "center",
             zIndex: "20",
-            position: "absolute",
+            position: "relative",
             backgroundSize: "55%",
-            margin: "30px 0px 0px 3px",
+            margin: "30px 0px 0px 20px",
            // transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
             backgroundImage: "url('/assets/images/logo_dab_guy.svg')",
 
@@ -461,9 +480,9 @@ class MainNavigation extends Component {
         />
     <Cursor/>
   <div style={menu_button} className="animated fadeInDown"  onClick={this.menuButtonClick} onMouseEnter={this.menuButtonHover} onMouseLeave={this.menuButtonLeave}>
-  <div style={logo_lines} className={this.state.menuButton.menuButtonLogoClass}>
+  <div style={logo_lines} className={this.state.menuButton.menuButtonLogoClass}>  </div>
   <div style={logo_dab} className={this.state.menuButton.menuButtonDabLogoClass}></div>
-  </div>
+
 
   
  
@@ -509,10 +528,10 @@ class MainNavigation extends Component {
 </ul>
   </div>
  
-  <div className="col-md-6 col-lg-6 nav-social-section " style={{alignSelf: "center"}} >
+  <div className="col-md-6 col-lg-6 nav-social-section " >
   <div className="row">
   <div className="col-md-6 col-lg-6 " style={{bottom:"0px"}}>
-  <div className="logoheadSection">
+  <div  className="logoheadSection">
   
   <h4 className="small-text">
       Want to ask us something? Email us now at 
@@ -520,7 +539,7 @@ class MainNavigation extends Component {
   <div className="links-2">
   <span className="lnr lnr-envelope icons-dark"></span>
   inquiries@codewala.co
-<div className="menu-logo-head">
+<div className={`animated menu-logo-head ` +this.state.menu.logoHeadClass}>
 </div>
   </div>
   </div>
@@ -528,18 +547,19 @@ class MainNavigation extends Component {
   </div>
   <div className="col-md-6 col-lg-6 nav-social-section">
   <div className="row row-pattern" style={{paddingTop:"88%"}}>
-  <div className="col-md-4 col-lg-4">
+  <div className="col-md-4 col-lg-4 navlinks">
   <div className="social-icons facebook">
   
   </div>
   </div>
   <div className="col-md-4 col-lg-4">
-  <div className="social-icons twitter">
+  <div className="social-icons twitter navlinks">
   
   </div>
   </div>
   <div className="col-md-4 col-lg-4">
-  <div className="social-icons linkedIn">
+  <div className="social-icons linkedIn navlinks">
+
   
   </div>
   </div>

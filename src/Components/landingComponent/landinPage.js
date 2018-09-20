@@ -121,7 +121,6 @@ class LandingPage extends Component {
                 $('#blurred').css({
                     filter: "blur(" + (filterAfterMap) + "px)"
                     //  '-webkit-transform': 'scale(' + scaleAfterMap + ')'
-
                    
 
                 });
@@ -129,6 +128,8 @@ class LandingPage extends Component {
                 $('#gradient').fadeOut(3000);
                 $('.txt-rotate').css('color', '#2c3343');
                 $("#line").css("background", "#2c3343");
+               // $(".grain").css ('opacity', filterAfterMap - 10);
+                console.log("filter after map value" +filterAfterMap/2);
 
 
             } else {
@@ -312,9 +313,10 @@ class LandingPage extends Component {
           color="#54d5cd"
           showSpinner={false}
         />
-
         <div id="element"></div>
         <div id="gradient"></div>
+        {/* <div className="grain"></div> */}
+
         <div id="blurred" className="animated fadeIn faster"></div>
 
         <div className="row">
