@@ -667,6 +667,20 @@
     margin-top: -30px;
   }
 
+  .links-2 {
+    font-size: 2.2vw;
+    font-family: inherit;
+    color: #54d5cd;
+    /* margin-right: 20px; */
+    font-weight: 400;
+    margin-top: -30px;
+  }
+.logoheadSection {
+  bottom: 0px;
+  position: absolute;
+}
+
+
   .small-text {
     font-size: 1vw;
     color: #8a8e98;
@@ -684,12 +698,12 @@
     
   #nav-items {
    opacity: 0;
-visibility: hidden;
+   visibility: hidden;
   }
 
   #nav_item_1{
     transition: all 600ms ease-in;
-visibility: visible;
+    visibility: visible;
     opacity: 1;
   }
 
@@ -749,10 +763,10 @@ visibility: visible;
 
  .menu-logo-head{
   background: url(/assets/images/logoHead.svg) no-repeat;
-  height: 301px;
-  width: 97%;
+  height: 62px;
+  width: 100%;
   background-size: 25%!important;
-  margin: 5%;
+  margin-top: 5%;
 
  }
 

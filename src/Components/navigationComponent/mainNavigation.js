@@ -511,15 +511,18 @@ class MainNavigation extends Component {
  
   <div className="col-md-6 col-lg-6 nav-social-section " style={{alignSelf: "center"}} >
   <div className="row">
-  <div className="col-md-6 col-lg-6 " style={{paddingTop:"76%"}}>
+  <div className="col-md-6 col-lg-6 " style={{bottom:"0px"}}>
+  <div className="logoheadSection">
+  
   <h4 className="small-text">
       Want to ask us something? Email us now at 
   </h4><br/>
-  <div className="links">
+  <div className="links-2">
   <span className="lnr lnr-envelope icons-dark"></span>
   inquiries@codewala.co
 <div className="menu-logo-head">
 </div>
+  </div>
   </div>
 
   </div>
