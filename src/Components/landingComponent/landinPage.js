@@ -310,8 +310,16 @@ class LandingPage extends Component {
         return(
 
         <div className="animated fadeIn delay-1s">
+<div className="gridOverlay">
+<div className="row">
+<div className="col-md-3 column_1">C</div>
+<div className="col-md-3 column_2">O</div>
+<div className="col-md-3 column_3">D</div>
+<div className="col-md-3 column_4">E</div>
 
 
+</div>
+</div>
        <Loading className="loading"
           show={this.state.show}
           color="#54d5cd"
