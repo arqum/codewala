@@ -286,7 +286,7 @@ class LandingPage extends Component {
             width: "240px",
             height: "250px",
             position: "absolute",
-            left: "43%",
+            left: "34%",
             top: "50%",
             opacity: "0",
             marginLeft: "-150px",

@@ -268,7 +268,7 @@
   
   .txt-rotate {
     position: absolute;
-    left: 52%;
+    left: 43.5%;
     top: 50%;
     margin-left: -150px;
     margin-top: -150px;
@@ -937,6 +937,14 @@ opacity: 0;
   font-size: 40em;
   color: white;
   overflow: hidden;
+
+
+}
+
+column_1:hover{
+  opacity: 0.5;
+  transition: all 200ms cubic-bezier(0, 0.87, 1, 0.645);
+
 }
 
 
@@ -1022,7 +1030,7 @@ color: white;
   }
 
   .txt-rotate {
-    left:43%;
+    left:44%;
     top:calc(40% + 220px);
     text-align: center;
   }
