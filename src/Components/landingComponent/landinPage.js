@@ -129,7 +129,7 @@ class LandingPage extends Component {
                 $('.txt-rotate').css('color', '#2c3343');
                 $("#line").css("background", "#2c3343");
                // $(".grain").css ('opacity', filterAfterMap - 10);
-                console.log("filter after map value" +filterAfterMap/2);
+                console.log("filter after map value" +filterAfterMap);
 
 
             } else {
@@ -138,10 +138,13 @@ class LandingPage extends Component {
                     filter: "blur(" + (filterStrength) + "px)"
                     //  '-webkit-transform': 'scale(' + scaleAfterMap + ')'
                 });
-
+                var filterAfterMapGrain = filterAfterMap - 10;
+                // $('.grain').css ('opacity', filterAfterMapGrain);
                 $('#gradient').fadeIn(3000);
                 $('.txt-rotate').css('color', '#ffff');
                 $("#line").css("background", "#ffff");
+                console.log("filter after map value grain " +filterAfterMapGrain);
+
 
             }
 
@@ -278,17 +281,17 @@ class LandingPage extends Component {
     render() {
         const centerlogo = {
 
-            backgroundSize: "65%",
+            backgroundSize: "70%",
             backgroundRepeat: "no-repeat",
             width: "240px",
-            height: "240px",
+            height: "250px",
             position: "absolute",
             left: "43%",
             top: "50%",
             opacity: "0",
             marginLeft: "-150px",
             marginTop: "-150px",
-            zIndex: "3",
+            zIndex: "13",
             backgroundImage: this.state.centerlogoimageURL
 
             
@@ -307,7 +310,8 @@ class LandingPage extends Component {
         return(
 
         <div className="animated fadeIn delay-1s">
-       
+
+
        <Loading className="loading"
           show={this.state.show}
           color="#54d5cd"
@@ -315,11 +319,10 @@ class LandingPage extends Component {
         />
         <div id="element"></div>
         <div id="gradient"></div>
-        {/* <div className="grain"></div> */}
+        <div className="grain"></div> 
 
         <div id="blurred" className="animated fadeIn faster"></div>
-
-        <div className="row">
+        <div className="row ontop">
         <div className={this.state.codeText.classname} style={centerlogo}></div>
         <i className="fa-fw select-all fas"></i>
         <span className="txt-rotate animated fadeInUp" >
