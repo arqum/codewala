@@ -376,6 +376,7 @@ class LandingPage extends Component {
       />
     </div>
         <div className="grain"></div> 
+
      
  
         <div id="blurred" className="animated fadeIn faster"></div>
