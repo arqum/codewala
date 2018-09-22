@@ -12,7 +12,7 @@ var  changed = require('gulp-changed');
 
 var SCSS_SRC = './src/Assets/scss/**/*.scss';
 var SCSS_SRC_ANIMATE = './src/Assets/scss/**/*.scss';
-// var SCSS_DEST = './src/Assets/css';
+var SCSS_DEST = './src/Assets/css';
 
 //compile SCSS
 gulp.task('compile_scss', function(){
