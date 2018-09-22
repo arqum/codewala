@@ -64,7 +64,7 @@ componentWillMount(){
 
    (function () {
     var colors = new Array(
-        [237, 237, 237], [249, 247, 245], [211, 211, 211], [247, 247, 247]);
+        [44, 51, 67], [40, 47, 64], [45, 54, 72], [44, 47, 61]);
 
     var step = 0;
     var colorIndices = [0, 1, 2, 3];
@@ -140,24 +140,70 @@ componentWillMount(){
     showSpinner={false}
   />
 
+
+
 <div className="row">
-<div className="col-md-4 col-sm-12 cw_img animated fadeInLeft delay-1s" >
+<div className="col-md-3 col-sm-12 animated row-pattern fadeInLeft delay-1s" style={{overflow: "hidden"}}>
 
 </div>
 
-<div className="leftBorder col-md-6 col-sm-12 cw_txt animated fadeInRight delay-1s" id="ab_gradient">
+<div className="col-md-3 col-sm-12 leftBorder row-pattern-faded rightBorder top-10 animated fadeInRight delay-1s" id="" style={{overflow: "hidden"}}>
 <h1 className="inner-h1 animated bounceInDown delay-1s">
 About<span className="inner-h1-span">
 Codewala
 </span>
 </h1>
 
+<p className="inner-paragraph-upper animated fadeIn delay-1s  ">
+There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
+</p>
+<div className="inner-upper-icons-container">
+
+<div className="inner-upper-icons inner-upper-desktop">
+</div>
+<div className="inner-upper-icons inner-upper-mobile">
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+<div className="  col-md-3 col-sm-12 animated fadeInLeft delay-1s rightBorder">
+<div className="inner-upper-icons-container">
+<div className="inner-upper-icons inner-upper-creative">
+</div>
+
+<div className="inner-upper-icons inner-upper-analysis">
+</div>
+
+</div>
+
+
+
+</div>
+<div className=" row-pattern col-md-3 col-sm-12 animated fadeIn delay-1s"></div>
+
+</div>
+
+<div className="row">
+<div className="col-md-3 col-sm-12 row-pattern animated fadeInLeft delay-1s" >
+
+</div>
+
+<div className="leftBorder col-md-3 col-sm-12 cw_txt animated fadeInRight delay-1s" id="ab_gradient">
+
+
 <p className="inner-paragraph animated fadeIn delay-1s">
 There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
 </p>
 </div>
 
-<div className=" row-pattern col-md-2 col-sm-12 animated fadeIn delay-1s"></div>
+<div className=" cw_img col-md-3 col-sm-12 animated fadeIn delay-1s rightBorder"></div>
+<div className="  col-md-3 col-sm-12 animated fadeIn delay-1s rightBorder row-pattern"></div>
 
 </div>
 

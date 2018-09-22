@@ -349,10 +349,10 @@ class LandingPage extends Component {
         <div className="animated fadeIn delay-1s">
 <div className="gridOverlay">
 <div className="row">
-<div className="col-md-3 column_1"><div className="animated fadeInLeft delay-1s">C</div></div>
-<div className="col-md-3 column_2"><div className="animated fadeInLeft delay-1s">O</div></div>
-<div className="col-md-3 column_3"><div className="animated fadeInLeft delay-1s">D</div></div>
-<div className="col-md-3 column_4"><div className="animated fadeInLeft delay-1s">E</div></div>
+<div className="col-md-3 column_1 "><div className="animated fadeInLeft delay-1s columns_font">C</div></div>
+<div className="col-md-3 column_2"><div className="animated fadeInLeft delay-1s columns_font">O</div></div>
+<div className="col-md-3 column_3"><div className="animated fadeInLeft delay-1s columns_font">D</div></div>
+<div className="col-md-3 column_4"><div className="animated fadeInLeft delay-1s columns_font">E</div></div>
 
 
 </div>

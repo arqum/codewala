@@ -794,9 +794,15 @@ opacity: 0;
 
  }
 
- .row-pattern-about{
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHElEQVQYV2N88/r1fxFRUUYGKIAzMARgKjFUAABjBQgF3uYJdQAAAABJRU5ErkJggg==) repeat;
+ .row-pattern-faded{
+  // background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHElEQVQYV2N88/r1fxFRUUYGKIAzMARgKjFUAABjBQgF3uYJdQAAAABJRU5ErkJggg==) repeat;
+     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHElEQVQYV2P89Pnrfz5ebkYGKIAzMARgKjFUAABjxQgFZ71gqQAAAABJRU5ErkJggg==) repeat;
 
+opacity: 0.5;
+}
+
+.top-10 {
+  padding-top: 10%;
 }
  
 
@@ -909,9 +915,8 @@ opacity: 0;
     background: url('/assets/images/about_img.svg') no-repeat;
     background-repeat: no-repeat;
     position: absolute;
-    top: 10%;
-    left: 5%;
-    background-size: 55%;
+    background-size: 62%;
+    background-position-x: center;
   
   }
 
@@ -927,46 +932,53 @@ opacity: 0;
   border-left: #ecebeb thin solid;}
 
 .rightBorder {
-  border-right: white thin solid;
-  opacity: 0.2;
+  border-right: #ecebeb thin solid;
+
+}
+
+
+.columns_font {
+
 }
 
 .column_1 {
-  border-right: #2d3343 thin solid;
-  opacity: 0.2;
-  font-size: 40em;
-  color: white;
-  overflow: hidden;
-
+  border-right: #252c3e thin solid;
+  opacity: 0.5;
+  background-color: rgba(44, 51, 67, 0.3);
+padding: 0px 0px 0px 0px;
 
 }
 
 
 
 .column_2 {
-  border-right: #2d3343 thin solid;
-  opacity: 0.2;
-  font-size: 40em;
-color: white;
-  overflow: hidden;
+  border-right: #252c3e thin solid;
+  opacity: 0.5;
+  background-color: rgba(44, 51, 67, 0.2);
+  padding: 0px 0px 0px 0px;
+
+
 
 }
 
+
+
 .column_3 {
-  border-right: #2d3343 thin solid;
-  opacity: 0.2;
-  font-size: 40em;
-  color: white;
-  overflow: hidden;
+  border-right: #252c3e thin solid;
+  opacity: 0.5;
+  background-color: rgba(44, 51, 67, 0.3);
+  padding: 0px 0px 0px 0px;
+
+
 
 }
 
 .column_4 {
-  border-right: #2d3343 thin solid;
-  opacity: 0.2;
-  font-size: 40em;
-  color: white;
-  overflow: hidden;
+  border-right: #252c3e thin solid;
+  opacity: 0.5;
+  background-color: rgba(44, 51, 67, 0.4);
+  padding: 0px 0px 0px 0px;
+
 
 }
 
@@ -982,26 +994,100 @@ color: white;
   position: absolute;
   top: 60%;
   left: 5%;
-  background-size: 55%;
+  background-size: 62%;
+  background-position-x: center;
 }
 
 .inner-h1 {
   text-transform: uppercase;
   font-weight: 600;
   padding: 4% 3% 3% 3%;
+  color: #54d5cd;
 }
 
 .inner-h1-span{
   font-weight: 300;
+  color: #252c3e;
 }
 
 .inner-paragraph{
-  font-weight: 300;
+  font-weight: 100;
   padding: 1% 3% 0% 3%;
-  font-size: 1.2em;
+  font-size: 1em;
   font-family: Open-sans-light;
-  color: #838996;
+  color:#f2f4f7;
 }
+
+.inner-paragraph-upper {
+  font-weight: 100;
+  padding: 1% 3% 0% 3%;
+  font-size: 1em;
+  font-family: Open-sans-light;
+  color:#252c3e;
+}
+
+.inner-upper-icons-container {
+
+height: auto;
+}
+
+
+.inner-upper-icons {
+  position: absolute;
+  top: 60%;
+ 
+}
+
+.inner-upper-desktop {
+  background: url(/assets/images/apps_icon.svg) no-repeat;
+  background-size: 40%;
+  width: 60%;
+  height: 14%;
+  left: 20%;
+  background-position-x: left;
+  overflow: hidden;
+
+
+}
+
+.inner-upper-mobile {
+  background: url(/assets/images/mob_icon.svg) no-repeat;
+    background-size: 40%;
+    width: 60%;
+    height: 14%;
+    left: 20%;
+    background-position-x: right;
+    overflow: hidden;
+
+
+}
+
+.inner-upper-creative {
+  background: url(/assets/images/creative_icon.svg) no-repeat;
+    background-size: 40%;
+    width: 60%;
+    height: 14%;
+    left: 20%;
+    background-position-x: left;
+    overflow: hidden;
+
+
+}
+
+.inner-upper-analysis {
+  background: url(/assets/images/analysis_icon.svg) no-repeat;
+  background-size: 40%;
+  width: 60%;
+  height: 14%;
+  left: 20%;
+  background-position-x: right;
+  overflow: hidden;
+
+
+}
+
+
+
 
 .cw_txt_ph {
   background-color: #eaf7f6;
@@ -1052,7 +1138,7 @@ color: white;
   flex-flow: column;
   
   height: 100vh;
-  opacity: 1;
+  opacity: 0.9;
  // width: 100vh;
   
  // background: #2c3343;
@@ -1070,7 +1156,7 @@ color: white;
       width: 100%;
       height: 100%;
       
-      background: url('/assets/images/noise.png');
+      background: url('/assets/images/img-noise.png');
       
       animation: 1s infinite noise;
       
