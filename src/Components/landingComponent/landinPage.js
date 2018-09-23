@@ -140,7 +140,6 @@ class LandingPage extends Component {
                 $('.txt-rotate').css('color', '#2c3343');
                 $("#line").css("background", "#2c3343");
                // $(".grain").css ('opacity', filterAfterMap - 10);
-                console.log("filter after map value" +filterAfterMap);
 
 
             } else {
