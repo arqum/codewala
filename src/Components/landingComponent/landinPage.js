@@ -230,7 +230,7 @@ class LandingPage extends Component {
 
         if (value.includes("code")) {
 
-            // $('#blurred').css("background-image", "url(/../../../Assets/images/img_2.jpg)");
+            $('#blurred').css("background-image", "");
             
             this.setState({
                 codeText:{title:value, 
@@ -265,7 +265,7 @@ class LandingPage extends Component {
         
         } else if (value.includes("mobile")) {
           
-            // $('#blurred').css("background-image", "url(/../../../Assets/images/img_3.jpg)").addClass('animated');
+            $('#blurred').css("background-image", "");
             this.setState({codeText:{title:value,
                 description:"if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
                 classname:'animated fadeInUp faster'},
@@ -276,7 +276,8 @@ class LandingPage extends Component {
     
         } else if (value.includes("fun")) {
            
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)").addClass('animated');
+            $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)").addClass('animated');            
+            
             this.setState({codeText:{title:value,
                 description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
                 classname:'animated fadeInUp faster'},
@@ -287,7 +288,7 @@ class LandingPage extends Component {
   
         }
         else if (value.includes("life")) {
-           
+            $('#blurred').css("background-image", "");
             this.setState({codeText:{title:value,
                 description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
                 classname:'animated fadeInUp faster'},

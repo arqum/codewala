@@ -9,6 +9,8 @@ import 'react-loading-bar/dist/index.css';
 import {Motion, spring, TransitionMotion } from 'react-motion';
 import scrollToComponent from 'react-scroll-to-component';
 import ScrollAnimation from 'react-animate-on-scroll';
+import ReactRotatingText from '../rotatingTextComponent/reactRotatingText'; 
+
 
 
 
@@ -77,14 +79,17 @@ componentWillMount(){
        },600);
     }
 
-     
-
-
-
     componentWillUnmount() {
         clearInterval(intervelll);
 
     }
+
+    currentValue=(value)=>{
+
+        if (value.includes("code")) {
+
+         
+        }}
 
     handleIconHover () {
 
@@ -117,11 +122,13 @@ componentWillMount(){
 
         // }
     }
+
+
    
 
     render() {
 
-        const that = this;
+       
             return (
                 <div className="animated fadeIn delay-1s" id="container_fade" onWheel={this.handleScroll}>
 
@@ -147,8 +154,7 @@ Codewala
 </h1>
 
 <p className="inner-paragraph-upper animated fadeIn delay-1s  ">
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
-</p>
+Codewala is a one man endevour to provide small and medium businesses a premium digital presense. It is also an effort to demonstrate my capabilities and the services I can offer. I envision a world where code means something and design appeals to the senses.</p>
 <div className="inner-upper-icons-container">
 
 
@@ -197,8 +203,39 @@ There are many variations of passages of Lorem Ipsum available, but the majority
 <ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutDown' duration={1}>
 <div className="cw_txt" id="ab_gradient" >
 <p className="inner-paragraph">
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+Hello there. I am Arqum. A 
+<span className="txt-rotate animated fadeInUp" >
+         <span className="codewalatext">
+         Hello there. I am Arqum. A 
+         <ReactRotatingText currentValue={this.currentValue} items={[ " code.", " mobile.", " design.", " ux.", " fun!", " life" ]} typingInterval={200}  deletingInterval={80} pause={7000} />
+         <br/>
+         </span>    
+        {/* <Motion 
+         defaultStyle={{opacity:0}} 
+         style={{opacity: spring(1)}}
+         onRest={this.onRest}
+         >
+
+        {(style) =>( */}
+
+        <div className="codewalaText_description animated fadeIn faster"></div>
+
+        {/* )}
+         </Motion> */}
+
+        </span> 
+ with a decade of experience in many, many digital and creative "things". Long before specialization became a requirement for the
+present, there were Polymaths. People who did not believe in resctricting human capabilities to one or a couple of distint disciplines, instead they did what they liked, when they liked. 
+They did it because they loved it and nobody could tell them they couldn't do everything. They did everything because they thought they could. Before the left-brain right-brain enlightenment came to make us 
+robust, one dimensional, stay-in-the-box human machines, people wrote poetry AND made weapons. Painted and invented theorems. 
+People of the brave new world, why can't we try to loosen up a bit and do what we love? 
+
+<p className="inner-para-highlight">So, I offer my services. All that I do. From writing code to designing logos. Analyzing business problems to architecting information. Identifying psychological biases, their implications and human emotions and decision making.
+A 360 degree digital solution provider. 
 </p>
+</p>
+
+
 </div>
 
 </ScrollAnimation>
