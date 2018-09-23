@@ -110,7 +110,6 @@ class LandingPage extends Component {
             distance = calculateDistance($element, mX, mY);
             $distance.text(distance);
 
-            //cursor ball
             mX = e.pageX;
             mY = e.pageY;
             $(document).bind('mousemove', function (e) {
@@ -148,12 +147,9 @@ class LandingPage extends Component {
                     filter: "blur(" + (filterStrength) + "px)"
                     //  '-webkit-transform': 'scale(' + scaleAfterMap + ')'
                 });
-                var filterAfterMapGrain = filterAfterMap - 10;
                 // $('.grain').css ('opacity', filterAfterMapGrain);
                 $('#gradient').fadeIn(3000);
                 $('.txt-rotate').css('color', '#ffff');
-                $("#line").css("background", "#ffff");
-                console.log("filter after map value grain " +filterAfterMapGrain);
 
 
             }
@@ -378,7 +374,7 @@ class LandingPage extends Component {
 
      
  
-        <div id="blurred" className="animated fadeIn faster"></div>
+        <div id="blurred" className=""></div>
 
  
         <div className="row ontop">

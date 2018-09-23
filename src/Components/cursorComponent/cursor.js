@@ -19,7 +19,7 @@ class Cursor extends Component {
         var mY = e.pageY;
         $(document).bind('mousemove', function (e) {
             $('#cursor').css({
-                left: e.pageX + 20,
+                left: e.pageX + 1,
                 top: e.pageY
             });
         });
@@ -31,7 +31,8 @@ class Cursor extends Component {
         $('#cursor').css({
             'width': '60px',
             'height': "60px",
-            'background-color': "rgba(135, 227, 221, 0.3)",
+            'background-color': "rgba(84, 213, 205, 0.4)",
+            
 
         });
     });
@@ -39,7 +40,8 @@ class Cursor extends Component {
         $('#cursor').css({
             'width': '20px',
             'height': "20px",
-            'background-color': "rgba(255, 255, 255, 0.5)"
+            'background-color': "rgba(84, 213, 205, 0.4)",
+
 
         });
     });

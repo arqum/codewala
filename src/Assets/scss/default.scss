@@ -32,14 +32,19 @@
     html {
       overflow: scroll;
       overflow-x: hidden;
+      //cursor: none;
   }
   ::-webkit-scrollbar {
       width: 0px;  /* remove scrollbar space */
       background: transparent;  /* optional: just make scrollbar invisible */
+      //cursor: none;
+
   }
   /* optional: show position indicator in red */
   ::-webkit-scrollbar-thumb {
       background: #FF0000;
+      cursor: none;
+
   }
   
   body
@@ -91,6 +96,7 @@
     /* filter: blur(1px); */
     transition: all 200ms cubic-bezier(0, 0.87, 1, 0.645);
     text-decoration: none;
+    cursor: none;
   }
   
   a:hover {
@@ -103,6 +109,7 @@
     animation: nav-links-blur 0.5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+    cursor: none;
   }
 
   .navlinks{
@@ -192,7 +199,7 @@
     height: 20px;
    text-align: center;
    left: 0px;
-   background-color: rgba(255, 255, 255, 0.4);
+   background-color: rgba(84, 213, 205, 0.4);
 
     position: absolute;
     border-radius: 100px;

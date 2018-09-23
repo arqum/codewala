@@ -23,7 +23,7 @@ class MainNavigation extends Component {
                 yellow_div:'',
                 menu_div:'',
                 visibility:'hidden',
-                cursorColor:"rgba(135, 227, 221, 0.3)",
+                cursorColor:"rgba(84, 213, 205, 0.4)",
                 logoHeadClass:""
             },
            
@@ -154,7 +154,7 @@ class MainNavigation extends Component {
                     yellow_div:'fadeOutUp fast',
                     menu_div:'fadeOutUp faster',
                     visibility:'hidden',
-                    cursorColor: 'rgba(255, 255, 255, 0.5)'
+                    cursorColor: 'rgba(84, 213, 205, 0.4)'
                 },
                
                 menuButton: {
@@ -182,7 +182,7 @@ class MainNavigation extends Component {
             $('#cursor').css({
                 'width': '60px',
                 'height': "60px",
-                'background-color': "rgba(255, 255, 255, 0.5)",
+                'background-color': "rgba(84, 213, 205, 0.4)",
     
     
     
@@ -240,9 +240,9 @@ class MainNavigation extends Component {
                 'height': "60px"
             });
 
-            $('.lnr-menu').css({
-                'visibility': 'visible'
-            });
+            // $('.lnr-menu').css({
+            //     'visibility': 'visible'
+            // });
 
         } else {
             // console.log('inside hover else');
@@ -250,12 +250,14 @@ class MainNavigation extends Component {
             $('#cursor').css({
                 'width': '60px',
                 'height': "60px",
-            });
-            $('.lnr-menu').toggleClass('lnr-menu lnr-cross');
+                'background-color': "rgba(213, 84, 84, 0.4)",
 
-            $('.lnr-cross').css({
-            'visibility': 'visible'
             });
+            // $('.lnr-menu').toggleClass('lnr-menu lnr-cross');
+
+            // $('.lnr-cross').css({
+            // 'visibility': 'visible'
+            // });
 
        }
 
@@ -303,14 +305,16 @@ class MainNavigation extends Component {
         // });
 
         //hide the menu icon from cursor
-        $('.lnr-menu').css({
-            'visibility': 'hidden'
-        });
+        // $('.lnr-menu').css({
+        //     'visibility': 'hidden'
+        // });
 
         //make cursor small again
         $('#cursor').css({
             'width': '20px',
-            'height': "20px"
+            'height': "20px",
+            'background-color': "rgba(84, 213, 205, 0.4)",
+
         });
 
    
@@ -329,7 +333,9 @@ class MainNavigation extends Component {
         //make cursor small again
         $('#cursor').css({
             'width': '20px',
-            'height': "20px"
+            'height': "20px",
+            'background-color': "rgba(84, 213, 205, 0.4)",
+
         });
 
     }
