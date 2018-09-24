@@ -40,7 +40,6 @@ class AboutPage extends Component {
     }
 
 
-
 componentWillMount(){
 
     this.setState({
@@ -202,38 +201,29 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 
 <ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutDown' duration={1}>
 <div className="cw_txt" id="ab_gradient" >
+
+<ScrollAnimation animateIn='fadeInDown' animateOut='fadeOutDown' duration={1} delay={1000}>
+
 <p className="inner-paragraph">
-Hello there. I am Arqum. A 
-<span className="txt-rotate animated fadeInUp" >
-         <span className="codewalatext">
+
+        
          Hello there. I am Arqum. A 
-         <ReactRotatingText currentValue={this.currentValue} items={[ " code.", " mobile.", " design.", " ux.", " fun!", " life" ]} typingInterval={200}  deletingInterval={80} pause={7000} />
-         <br/>
-         </span>    
-        {/* <Motion 
-         defaultStyle={{opacity:0}} 
-         style={{opacity: spring(1)}}
-         onRest={this.onRest}
-         >
-
-        {(style) =>( */}
-
-        <div className="codewalaText_description animated fadeIn faster"></div>
-
-        {/* )}
-         </Motion> */}
-
-        </span> 
- with a decade of experience in many, many digital and creative "things". Long before specialization became a requirement for the
+         <ReactRotatingText className="about-rotator-style" currentValue={this.currentValue} items={[ " Web Developer. ", " Business Analyst. ", " Software Engineer. ", " UX/UI Designer. ", "n Information Architect. ", "n aspiring Polymath. ", " Writer.", " Photographer. " ]} typingInterval={100}  deletingInterval={40} pause={2000} />
+        
+   <br/>    
+I have with me a decade of experience in a plethora of skills. Long before specialization became a requirement for the
 present, there were Polymaths. People who did not believe in resctricting human capabilities to one or a couple of distint disciplines, instead they did what they liked, when they liked. 
-They did it because they loved it and nobody could tell them they couldn't do everything. They did everything because they thought they could. Before the left-brain right-brain enlightenment came to make us 
-robust, one dimensional, stay-in-the-box human machines, people wrote poetry AND made weapons. Painted and invented theorems. 
-People of the brave new world, why can't we try to loosen up a bit and do what we love? 
+They did it because they loved it and nobody could tell them they couldn't do everything. Before the left-brain right-brain "enlightenment" came to make us 
+robust, one dimensional, stay-in-the-box human machines, people wrote poetry and made weapons. Painted and invented theorems. 
+So, People of the brave new world, why can't we try to loosen up a bit and do what we love? 
+<br/>
+<br/>
 
-<p className="inner-para-highlight">So, I offer my services. All that I do. From writing code to designing logos. Analyzing business problems to architecting information. Identifying psychological biases, their implications and human emotions and decision making.
-A 360 degree digital solution provider. 
+
 </p>
-</p>
+</ScrollAnimation>
+
+<div className="grain" style={{position:"unset", opacity:1}}></div> 
 
 
 </div>
@@ -248,6 +238,16 @@ A 360 degree digital solution provider.
 <ScrollAnimation animateIn='fadeIn'>
 <div className="cw_img" ref="bottom"></div>
 </ScrollAnimation>
+
+<ScrollAnimation animateIn='fadeInRight'>
+
+<p className="inner-para-highlight">
+So, I offer my services. From writing code to designing logos.
+ Analyzing business problems to architecting information. Identifying psychological biases, their implications and human emotions and decision making.
+A complete digital solution provider. I have been doing this, I am here to demonstrate that we can do it all and do it good!
+</p>
+</ScrollAnimation>
+
 
 
 </div>

@@ -8,6 +8,8 @@ import ReactRotatingText from '../rotatingTextComponent/reactRotatingText';
 import {Motion, spring, TransitionMotion } from 'react-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VideoCover from 'react-video-cover';
+import ScrollAnimation from 'react-animate-on-scroll';
+
 
 
 
@@ -33,7 +35,9 @@ class LandingPage extends Component {
             codeText:{title:'', description:'', classname:''},
             animating:false,
             centerlogoimageURL: "",
-            videoOptions: "/assets/images/code_video.mp4"
+            videoOptions: "/assets/images/code_video.mp4",
+            blurredBg: "",
+            blurredClass: "zoomIn"
 
         
         })
@@ -235,7 +239,7 @@ class LandingPage extends Component {
             this.setState({
                 codeText:{title:value, 
                     description:"Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
-                    classname: 'animated fadeInUp faster'},
+                    classname: 'fadeInUp faster'},
                     centerlogoimageURL:"url('/assets/images/logo.svg')",
                     videoOptions: "/assets/images/code_video.mp4"
             });
@@ -246,20 +250,22 @@ class LandingPage extends Component {
             this.setState({
                 codeText:{title:value, 
                     description:"We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
-                    classname: 'animated fadeInUp faster'},
+                    classname: 'fadeInUp faster'},
                     centerlogoimageURL:"url('/assets/images/logo_ux.svg')",
                     videoOptions: "/assets/images/ux_video.mp4"
             });
 
         } else if (value.includes("design")) {
            
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)").addClass('animated');            
+            // $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)").addClass('animated');            
             this.setState({
                 codeText:{title:value,
                 description:"Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
-                classname:'animated fadeInUp faster'},
+                classname:'fadeInUp faster'},
                 centerlogoimageURL:"url('/assets/images/logo_design.svg')",
-                videoOptions: ""
+                videoOptions: "",
+                blurredBg: "url(/../../../Assets/images/img_2.jpg)",
+                blurredClass: "zoomIn"
 
             });
         
@@ -282,7 +288,9 @@ class LandingPage extends Component {
                 description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
                 classname:'animated fadeInUp faster'},
                 centerlogoimageURL:"url('/assets/images/logo_fun.svg')",
-                videoOptions: ""
+                videoOptions: "",
+                blurredBg: "url(/../../../Assets/images/img_1.jpg)",
+                blurredClass: "zoomIn"
 
             });
   
@@ -305,11 +313,30 @@ class LandingPage extends Component {
 
  
     render() {
+        const Blurred = {
+            filter: "blur(50px)",
+            backgroundImage: this.state.blurredBg,
+            backgroundRepeat: "no-repeat",
+            position: "fixed",
+            top: "0",
+            opacity: "1",
+            bottom: "0",
+            width: "100%",
+            zIndex: "-2",
+            height: "100%",
+            backgroundSize: "cover",
+            transform: "scale(1.2)",
+            transition: "all 300ms linear",
+
+        }
+
 
         const videoOptions = {
             src: this.state.videoOptions,
             autoPlay: true,
             loop: true,
+           
+
           };
 
         const centerlogo = {
@@ -325,7 +352,9 @@ class LandingPage extends Component {
             marginLeft: "-150px",
             marginTop: "-150px",
             zIndex: "13",
-            backgroundImage: this.state.centerlogoimageURL
+            backgroundImage: this.state.centerlogoimageURL,
+            transition: "all 300ms linear",
+
 
             
 
@@ -338,9 +367,17 @@ class LandingPage extends Component {
 
         }
 
+        const vidStyle= {
+            filter: "blur(20px)",
+            transition: "all 300ms linear",
+            objectFit:"cover",
+        }
+
 
        // console.log(centerlogo);
         return(
+
+
 
         <div className="animated fadeIn delay-1s">
 <div className="gridOverlay">
@@ -373,13 +410,10 @@ class LandingPage extends Component {
     </div>
         <div className="grain"></div> 
 
-     
- 
-        <div id="blurred" className=""></div>
-
+        <div id="blurred" className={`animated ` +this.state.blurredClass} style={Blurred}></div>
  
         <div className="row ontop">
-        <div className={this.state.codeText.classname} style={centerlogo}></div>
+        <div className={`animated `+this.state.codeText.classname} style={centerlogo}></div>
         <i className="fa-fw select-all fas"></i>
         <span className="txt-rotate animated fadeInUp" >
          <span className="codewalatext">
