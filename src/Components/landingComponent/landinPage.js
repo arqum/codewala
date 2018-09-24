@@ -96,24 +96,20 @@ class LandingPage extends Component {
             return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left + (elem.width() / 2)), 2) + Math.pow(mouseY - (elem.offset().top + (elem.height() / 2)), 2)));
         }
 
+
+
         $(document).mousemove(function (e) {
-
-
-            $('#blurred').css("background-position", newvalueX + "px     " + newvalueY + "px");
-
-
+            $('#blurred, videoCover').css("background-position", newvalueX + "px     " + newvalueY + "px");
             //image move with mouse
             var pageX = e.pageX - ($(window).width() / 2);
             var pageY = e.pageY - ($(window).height() / 2);
             var newvalueX = width * pageX * -1 - 35;
             var newvalueY = height * pageY * -1 - 50;
-            $('#blurred').css("background-position", newvalueX + "px     " + newvalueY + "px");
-
+            $('#blurred, videoCover').css("background-position", newvalueX + "px     " + newvalueY + "px");
 
             //distance from element
             distance = calculateDistance($element, mX, mY);
             $distance.text(distance);
-
             mX = e.pageX;
             mY = e.pageY;
             $(document).bind('mousemove', function (e) {
@@ -121,8 +117,6 @@ class LandingPage extends Component {
                     left: e.pageX + 20,
                     top: e.pageY
                 });
-
-
             });
 
             //blur
@@ -132,18 +126,15 @@ class LandingPage extends Component {
             var filterStrength = filterAfterMap;
 
             if (distance < 400) {
-                $('#blurred').css({
-                    filter: "blur(" + (filterAfterMap) + "px)"
-                    //  '-webkit-transform': 'scale(' + scaleAfterMap + ')'
-                   
-
+                $('#blurred, .videoCover').css({
+                    filter: "blur(" + (filterAfterMap) + "px)",                  
                 });
-               // console.log("inside blur mouse move");
-                $('#gradient').fadeOut(3000);
-                $('.txt-rotate').css('color', '#2c3343');
-                $("#line").css("background", "#2c3343");
-               // $(".grain").css ('opacity', filterAfterMap - 10);
 
+               
+
+               // console.log("inside blur mouse move");
+                $('#gradient').fadeOut(1000);
+                $('.txt-rotate').css('color', '#2c3343');
 
             } else {
 
@@ -152,7 +143,7 @@ class LandingPage extends Component {
                     //  '-webkit-transform': 'scale(' + scaleAfterMap + ')'
                 });
                 // $('.grain').css ('opacity', filterAfterMapGrain);
-                $('#gradient').fadeIn(3000);
+                $('#gradient').fadeIn(1000);
                 $('.txt-rotate').css('color', '#ffff');
 
 
@@ -264,7 +255,7 @@ class LandingPage extends Component {
                 classname:'fadeInUp faster'},
                 centerlogoimageURL:"url('/assets/images/logo_design.svg')",
                 videoOptions: "",
-                blurredBg: "url(/../../../Assets/images/img_2.jpg)",
+                blurredBg: "url(/../../../Assets/images/img_4.jpg)",
                 blurredClass: "zoomIn"
 
             });
@@ -404,7 +395,7 @@ class LandingPage extends Component {
         <div style={Videostyle
        
     }>
-      <VideoCover
+      <VideoCover className="videoCover"
         videoOptions={videoOptions}
       />
     </div>
@@ -421,19 +412,8 @@ class LandingPage extends Component {
          <ReactRotatingText currentValue={this.currentValue} items={[ " code.", " mobile.", " design.", " ux.", " fun!", " life" ]} typingInterval={200}  deletingInterval={80} pause={7000} />
          <br/>
          </span>    
-        {/* <Motion 
-         defaultStyle={{opacity:0}} 
-         style={{opacity: spring(1)}}
-         onRest={this.onRest}
-         >
-
-        {(style) =>( */}
-
+     
         <div className="codewalaText_description animated fadeIn faster">{this.state.codeText.description}</div>
-
-        {/* )}
-         </Motion> */}
-
         </span> 
         </div>
     
