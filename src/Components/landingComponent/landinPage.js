@@ -33,7 +33,7 @@ class LandingPage extends Component {
         this.state = ({
             show: true,
             codeText:{title:'', description:'', classname:''},
-            animating:false,
+            centerLogoClass:'',
             centerlogoimageURL: "",
             videoOptions: "/assets/images/code_video.mp4",
             blurredBg: "",
@@ -99,13 +99,13 @@ class LandingPage extends Component {
 
 
         $(document).mousemove(function (e) {
-            $('#blurred, videoCover').css("background-position", newvalueX + "px     " + newvalueY + "px");
+            $('#blurred').css("background-position", newvalueX + "px     " + newvalueY + "px");
             //image move with mouse
             var pageX = e.pageX - ($(window).width() / 2);
             var pageY = e.pageY - ($(window).height() / 2);
             var newvalueX = width * pageX * -1 - 35;
             var newvalueY = height * pageY * -1 - 50;
-            $('#blurred, videoCover').css("background-position", newvalueX + "px     " + newvalueY + "px");
+            $('#blurred').css("background-position", newvalueX + "px     " + newvalueY + "px");
 
             //distance from element
             distance = calculateDistance($element, mX, mY);
@@ -125,7 +125,7 @@ class LandingPage extends Component {
             var filterAfterMap = map(distance, 100, windowWidth, 2, 50);
             var filterStrength = filterAfterMap;
 
-            if (distance < 400) {
+            if (distance < 550) {
                 $('#blurred, .videoCover').css({
                     filter: "blur(" + (filterAfterMap) + "px)",                  
                 });
@@ -230,9 +230,12 @@ class LandingPage extends Component {
             this.setState({
                 codeText:{title:value, 
                     description:"Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
-                    classname: 'fadeInUp faster'},
+                    classname: 'codewalaText_description fade-in-top'},
+                    centerLogoClass:'slide-in-blurred-top',
                     centerlogoimageURL:"url('/assets/images/logo.svg')",
-                    videoOptions: "/assets/images/code_video.mp4"
+                    videoOptions: "/assets/images/code_video.mp4",
+                    blurredBg: "",
+                    blurredClass: "zoomIn"
             });
 
         } else if (value.includes("ux")) {
@@ -241,9 +244,12 @@ class LandingPage extends Component {
             this.setState({
                 codeText:{title:value, 
                     description:"We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
-                    classname: 'fadeInUp faster'},
+                    classname: 'codewalaText_description fade-in-top'},
+                    centerLogoClass:'slide-in-blurred-top',
                     centerlogoimageURL:"url('/assets/images/logo_ux.svg')",
-                    videoOptions: "/assets/images/ux_video.mp4"
+                    videoOptions: "/assets/images/ux_video.mp4",
+                    blurredBg: "",
+                    blurredClass: "zoomIn",
             });
 
         } else if (value.includes("design")) {
@@ -252,11 +258,13 @@ class LandingPage extends Component {
             this.setState({
                 codeText:{title:value,
                 description:"Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
-                classname:'fadeInUp faster'},
+                classname: 'codewalaText_description fade-in-top'},
+                centerLogoClass:'slide-in-blurred-top',
                 centerlogoimageURL:"url('/assets/images/logo_design.svg')",
                 videoOptions: "",
                 blurredBg: "url(/../../../Assets/images/img_4.jpg)",
-                blurredClass: "zoomIn"
+                blurredClass: "zoomIn",
+              
 
             });
         
@@ -265,10 +273,12 @@ class LandingPage extends Component {
             $('#blurred').css("background-image", "");
             this.setState({codeText:{title:value,
                 description:"if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
-                classname:'animated fadeInUp faster'},
+                classname: 'codewalaText_description fade-in-top'},
+                centerLogoClass:'slide-in-blurred-top',
                 centerlogoimageURL:"url('/assets/images/logo_mobile.svg')",
-                videoOptions: "/assets/images/mobile_video.mp4"
-
+                videoOptions: "/assets/images/mobile_video.mp4",
+                blurredBg: "",
+                blurredClass: "zoomIn",
              });
     
         } else if (value.includes("fun")) {
@@ -277,11 +287,13 @@ class LandingPage extends Component {
             
             this.setState({codeText:{title:value,
                 description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
-                classname:'animated fadeInUp faster'},
+                classname: 'codewalaText_description fade-in-top'},
+                centerLogoClass:'slide-in-blurred-top',
                 centerlogoimageURL:"url('/assets/images/logo_fun.svg')",
                 videoOptions: "",
                 blurredBg: "url(/../../../Assets/images/img_1.jpg)",
                 blurredClass: "zoomIn"
+
 
             });
   
@@ -290,9 +302,12 @@ class LandingPage extends Component {
             $('#blurred').css("background-image", "");
             this.setState({codeText:{title:value,
                 description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
-                classname:'animated fadeInUp faster'},
+                classname: 'codewalaText_description fade-in-top'},
+                centerLogoClass:'slide-in-blurred-top',
                 centerlogoimageURL:"url('/assets/images/logo_fun.svg')",
-                videoOptions: "/assets/images/life_video.mp4"
+                videoOptions: "/assets/images/life_video.mp4",
+                blurredBg: "url(/../../../Assets/images/img_1.jpg)",
+                blurredClass: "zoomIn"
 
             });
   
@@ -371,12 +386,35 @@ class LandingPage extends Component {
 
 
         <div className="animated fadeIn delay-1s">
+        <div class="scroll-downs-home" style={{zIndex:100}}>
+  <div class="mousey animated fadeInUp">
+    <div class="scroller"></div>
+  </div>
+</div>
+<div className="circle-container">
+
+<div className="hollow-circle">
+</div>
+<div className="hollow-circle">
+</div>
+<div className="hollow-circle">
+</div>
+<div className="hollow-circle">
+</div>
+<div className="hollow-circle">
+</div>
+<div className="hollow-circle">
+</div>
+</div>
 <div className="gridOverlay">
 <div className="row">
-<div className="col-md-3 column_1 "><div className="animated fadeInLeft delay-1s columns_font">C</div></div>
-<div className="col-md-3 column_2"><div className="animated fadeInLeft delay-1s columns_font">O</div></div>
-<div className="col-md-3 column_3"><div className="animated fadeInLeft delay-1s columns_font">D</div></div>
-<div className="col-md-3 column_4"><div className="animated fadeInLeft delay-1s columns_font">E</div></div>
+<div className="col-md-3 column_1 "><div className="animated fadeInLeft delay-1s columns_font"></div></div>
+<div className="col-md-3 column_2"><div className="animated fadeInLeft delay-1s columns_font"></div></div>
+<div className="col-md-3 column_3"><div className="animated fadeInLeft delay-1s columns_font"></div></div>
+<div className="col-md-3 column_4"><div className="animated fadeInLeft delay-1s columns_font"></div>
+
+
+</div>
 
 
 </div>
@@ -399,12 +437,12 @@ class LandingPage extends Component {
         videoOptions={videoOptions}
       />
     </div>
-        <div className="grain"></div> 
+        <div className="grain animated fadeIn"></div> 
 
-        <div id="blurred" className={`animated ` +this.state.blurredClass} style={Blurred}></div>
+        <div id="blurred" className={this.state.blurredClass} style={Blurred}></div>
  
         <div className="row ontop">
-        <div className={`animated `+this.state.codeText.classname} style={centerlogo}></div>
+        <div className={this.state.codeText.classname} style={centerlogo}></div>
         <i className="fa-fw select-all fas"></i>
         <span className="txt-rotate animated fadeInUp" >
          <span className="codewalatext">
@@ -413,7 +451,7 @@ class LandingPage extends Component {
          <br/>
          </span>    
      
-        <div className="codewalaText_description animated fadeIn faster">{this.state.codeText.description}</div>
+        <div className={this.state.codeText.classname}>{this.state.codeText.description}</div>
         </span> 
         </div>
     

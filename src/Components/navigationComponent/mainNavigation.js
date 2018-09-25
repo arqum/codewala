@@ -98,8 +98,8 @@ class MainNavigation extends Component {
                     menuOpen: 'opened',
                     blue_div:'fadeInDown faster',
                     green_div:'fadeInDown fast',
-                    yellow_div:'fadeInDown ',
-                    menu_div:'fadeInDown',
+                    yellow_div:'fadeInDown',
+                    menu_div:'fadeInDown delay-ms',
                     visibility:'visible',
                     logoHeadClass:""
 
@@ -149,7 +149,7 @@ class MainNavigation extends Component {
                 show:false,
                 menu: {
                     menuOpen: 'closed',
-                    blue_div:'fadeOutUp slow',
+                    blue_div:'fadeOutUp delay-ms',
                     green_div:'fadeOutUp',
                     yellow_div:'fadeOutUp fast',
                     menu_div:'fadeOutUp faster',
