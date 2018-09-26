@@ -1,0 +1,13 @@
+[ignore]
+<PROJECT_ROOT>/build
+<PROJECT_ROOT>/test
+[include]
+
+[libs]
+flow-typed
+[lints]
+all = warn
+[options]
+;module.file_ext=.scss
+;module.name_mapper.extension='scss' -> 'empty/object'
+[strict]

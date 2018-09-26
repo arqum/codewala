@@ -4,13 +4,11 @@ import MainNavigation from "../navigationComponent/mainNavigation";
 import Cursor from "../cursorComponent/cursor";
 import Loading from 'react-loading-bar';
 import 'react-loading-bar/dist/index.css';
-import ReactRotatingText from '../rotatingTextComponent/reactRotatingText'; 
-import {Motion, spring, TransitionMotion } from 'react-motion';
+import ReactRotatingText from '../rotatingTextComponent/reactRotatingText';
+import {Motion, spring, TransitionMotion} from 'react-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VideoCover from 'react-video-cover';
 import ScrollAnimation from 'react-animate-on-scroll';
-
-
 
 
 let intervelll;
@@ -22,7 +20,7 @@ const Videostyle = {
     top: 0,
     left: 0,
     zIndex: -1,
-  };
+};
 
 
 class LandingPage extends Component {
@@ -32,32 +30,32 @@ class LandingPage extends Component {
 
         this.state = ({
             show: true,
-            codeText:{title:'', description:'', classname:''},
-            centerLogoClass:'',
+            codeText: {title: '', description: '', classname: ''},
+            centerLogoClass: '',
             centerlogoimageURL: "",
-            videoOptions: "/assets/images/code_video.mp4",
+            videoOptions: "/src/Assets/images/code_video.mp4",
             blurredBg: "",
             blurredClass: "zoomIn"
 
-        
+
         })
 
-        
+
     }
 
-    componentWillMount(){
+    componentWillMount() {
 
         this.setState({
             menu: 'false',
-            
+
         })
     }
 
     componentDidMount() {
 
-       
+
         // this.closeMenuAnimation();
-       // $('body').css('background', '#2c3343');
+        // $('body').css('background', '#2c3343');
         let interval = 1;
         let x;
         x = setInterval(() => {
@@ -68,15 +66,15 @@ class LandingPage extends Component {
             if (interval == 3) {
                 this.setState({
                     show: false,
-   
+
                 })
-                  
-                clearInterval(x);            
-              
+
+                clearInterval(x);
+
 
             }
         }, 600);
-      
+
         //map function from large values to small
         function map(num, in_min, in_max, out_min, out_max) {
             return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
@@ -95,7 +93,6 @@ class LandingPage extends Component {
         function calculateDistance(elem, mouseX, mouseY) {
             return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left + (elem.width() / 2)), 2) + Math.pow(mouseY - (elem.offset().top + (elem.height() / 2)), 2)));
         }
-
 
 
         $(document).mousemove(function (e) {
@@ -127,12 +124,11 @@ class LandingPage extends Component {
 
             if (distance < 550) {
                 $('#blurred, .videoCover').css({
-                    filter: "blur(" + (filterAfterMap) + "px)",                  
+                    filter: "blur(" + (filterAfterMap) + "px)",
                 });
 
-               
 
-               // console.log("inside blur mouse move");
+                // console.log("inside blur mouse move");
                 $('#gradient').fadeOut(1000);
                 $('.txt-rotate').css('color', '#2c3343');
 
@@ -220,104 +216,119 @@ class LandingPage extends Component {
         clearInterval(intervelll);
 
     }
- 
-    currentValue=(value)=>{
+
+    currentValue = (value) => {
 
         if (value.includes("code")) {
 
             $('#blurred').css("background-image", "");
-            
+
             this.setState({
-                codeText:{title:value, 
-                    description:"Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
-                    classname: 'codewalaText_description fade-in-top'},
-                    centerLogoClass:'slide-in-blurred-top',
-                    centerlogoimageURL:"url('/assets/images/logo.svg')",
-                    videoOptions: "/assets/images/code_video.mp4",
-                    blurredBg: "",
-                    blurredClass: "zoomIn"
+                codeText: {
+                    title: value,
+                    description: "Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
+                    classname: 'codewalaText_description fade-in-top'
+                },
+                centerLogoClass: 'slide-in-blurred-top',
+                centerlogoimageURL: "url('/src/Assets/images/logo.svg')",
+                videoOptions: "/src/Assets/images/code_video.mp4",
+                blurredBg: "",
+                blurredClass: "zoomIn"
             });
 
         } else if (value.includes("ux")) {
-           
+
             // $('#blurred').css("background-image", "").addClass('animated');
             this.setState({
-                codeText:{title:value, 
-                    description:"We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
-                    classname: 'codewalaText_description fade-in-top'},
-                    centerLogoClass:'slide-in-blurred-top',
-                    centerlogoimageURL:"url('/assets/images/logo_ux.svg')",
-                    videoOptions: "/assets/images/ux_video.mp4",
-                    blurredBg: "",
-                    blurredClass: "zoomIn",
+                codeText: {
+                    title: value,
+                    description: "We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
+                    classname: 'codewalaText_description fade-in-top'
+                },
+                centerLogoClass: 'slide-in-blurred-top',
+                centerlogoimageURL: "url('/src/Assets/images/logo_ux.svg')",
+                videoOptions: "/src/Assets/images/ux_video.mp4",
+                blurredBg: "",
+                blurredClass: "zoomIn",
             });
 
         } else if (value.includes("design")) {
-           
-            // $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)").addClass('animated');            
+
+            // $('#blurred').css("background-image", "url(//src/../Assets/images/img_4.jpg)").addClass('animated');
             this.setState({
-                codeText:{title:value,
-                description:"Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
-                classname: 'codewalaText_description fade-in-top'},
-                centerLogoClass:'slide-in-blurred-top',
-                centerlogoimageURL:"url('/assets/images/logo_design.svg')",
+                codeText: {
+                    title: value,
+                    description: "Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
+                    classname: 'codewalaText_description fade-in-top'
+                },
+                centerLogoClass: 'slide-in-blurred-top',
+                centerlogoimageURL: "url('/src/Assets/images/logo_design.svg')",
                 videoOptions: "",
-                blurredBg: "url(/../../../Assets/images/img_4.jpg)",
+                blurredBg: "url(//src/../Assets/images/img_4.jpg)",
                 blurredClass: "zoomIn",
-              
+
 
             });
-        
+
         } else if (value.includes("mobile")) {
-          
+
             $('#blurred').css("background-image", "");
-            this.setState({codeText:{title:value,
-                description:"if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
-                classname: 'codewalaText_description fade-in-top'},
-                centerLogoClass:'slide-in-blurred-top',
-                centerlogoimageURL:"url('/assets/images/logo_mobile.svg')",
-                videoOptions: "/assets/images/mobile_video.mp4",
+            this.setState({
+                codeText: {
+                    title: value,
+                    description: "if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
+                    classname: 'codewalaText_description fade-in-top'
+                },
+                centerLogoClass: 'slide-in-blurred-top',
+                centerlogoimageURL: "url('/src/Assets/images/logo_mobile.svg')",
+                videoOptions: "/src/Assets/images/mobile_video.mp4",
                 blurredBg: "",
                 blurredClass: "zoomIn",
-             });
-    
+            });
+
         } else if (value.includes("fun")) {
-           
-            $('#blurred').css("background-image", "url(/../../../Assets/images/img_1.jpg)").addClass('animated');            
-            
-            this.setState({codeText:{title:value,
-                description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
-                classname: 'codewalaText_description fade-in-top'},
-                centerLogoClass:'slide-in-blurred-top',
-                centerlogoimageURL:"url('/assets/images/logo_fun.svg')",
+
+            $('#blurred').css("background-image", "url(//src/../Assets/images/img_1.jpg)").addClass('animated');
+
+            this.setState({
+                codeText: {
+                    title: value,
+                    description: "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
+                    classname: 'codewalaText_description fade-in-top'
+                },
+                centerLogoClass: 'slide-in-blurred-top',
+                centerlogoimageURL: "url('/src/Assets/images/logo_fun.svg')",
                 videoOptions: "",
-                blurredBg: "url(/../../../Assets/images/img_1.jpg)",
+                blurredBg: "url(//src/../Assets/images/img_1.jpg)",
                 blurredClass: "zoomIn"
 
 
             });
-  
+
         }
         else if (value.includes("life")) {
             $('#blurred').css("background-image", "");
-            this.setState({codeText:{title:value,
-                description:"It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
-                classname: 'codewalaText_description fade-in-top'},
-                centerLogoClass:'slide-in-blurred-top',
-                centerlogoimageURL:"url('/assets/images/logo_fun.svg')",
-                videoOptions: "/assets/images/life_video.mp4",
-                blurredBg: "url(/../../../Assets/images/img_1.jpg)",
+            this.setState({
+                codeText: {
+                    title: value,
+                    description: "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
+                    classname: 'codewalaText_description fade-in-top'
+                },
+                centerLogoClass: 'slide-in-blurred-top',
+                centerlogoimageURL: "url('/src/Assets/images/logo_fun.svg')",
+                videoOptions: "/src/Assets/images/life_video.mp4",
+                blurredBg: "url(//src/../Assets/images/img_1.jpg)",
                 blurredClass: "zoomIn"
 
             });
-  
+
         }
 
 
         // console.log(value);
     }
 
- 
+
     render() {
         const Blurred = {
             filter: "blur(50px)",
@@ -341,9 +352,9 @@ class LandingPage extends Component {
             src: this.state.videoOptions,
             autoPlay: true,
             loop: true,
-           
 
-          };
+
+        };
 
         const centerlogo = {
 
@@ -362,101 +373,106 @@ class LandingPage extends Component {
             transition: "all 300ms linear",
 
 
-            
-
         }
 
         const centerlogoimage = {
-            // backgroundImage: "url('/assets/images/logo.png')",
+            // backgroundImage: "url('/src/Assets/images/logo.png')",
             backgroundImage: this.state.centerlogoimageURL
 
 
         }
 
-        const vidStyle= {
+        const vidStyle = {
             filter: "blur(20px)",
             transition: "all 300ms linear",
-            objectFit:"cover",
+            objectFit: "cover",
         }
 
 
-       // console.log(centerlogo);
-        return(
+        // console.log(centerlogo);
+        return (
 
 
+            <div className="animated fadeIn delay-1s">
+                <div class="scroll-downs-home" style={{zIndex: 100}}>
+                    <div class="mousey animated fadeInUp">
+                        <div class="scroller"></div>
+                    </div>
+                </div>
+                <div className="circle-container">
 
-        <div className="animated fadeIn delay-1s">
-        <div class="scroll-downs-home" style={{zIndex:100}}>
-  <div class="mousey animated fadeInUp">
-    <div class="scroller"></div>
-  </div>
-</div>
-<div className="circle-container">
-
-<div className="hollow-circle">
-</div>
-<div className="hollow-circle">
-</div>
-<div className="hollow-circle">
-</div>
-<div className="hollow-circle">
-</div>
-<div className="hollow-circle">
-</div>
-<div className="hollow-circle">
-</div>
-</div>
-<div className="gridOverlay">
-<div className="row">
-<div className="col-md-3 column_1 "><div className="animated fadeInLeft delay-1s columns_font"></div></div>
-<div className="col-md-3 column_2"><div className="animated fadeInLeft delay-1s columns_font"></div></div>
-<div className="col-md-3 column_3"><div className="animated fadeInLeft delay-1s columns_font"></div></div>
-<div className="col-md-3 column_4"><div className="animated fadeInLeft delay-1s columns_font"></div>
-
-
-</div>
-
-
-</div>
-</div>
-
+                    <div className="hollow-circle">
+                    </div>
+                    <div className="hollow-circle">
+                    </div>
+                    <div className="hollow-circle">
+                    </div>
+                    <div className="hollow-circle">
+                    </div>
+                    <div className="hollow-circle">
+                    </div>
+                    <div className="hollow-circle">
+                    </div>
+                </div>
+                <div className="gridOverlay">
+                    <div className="row">
+                        <div className="col-md-3 column_1 ">
+                            <div className="animated fadeInLeft delay-1s columns_font"></div>
+                        </div>
+                        <div className="col-md-3 column_2">
+                            <div className="animated fadeInLeft delay-1s columns_font"></div>
+                        </div>
+                        <div className="col-md-3 column_3">
+                            <div className="animated fadeInLeft delay-1s columns_font"></div>
+                        </div>
+                        <div className="col-md-3 column_4">
+                            <div className="animated fadeInLeft delay-1s columns_font"></div>
 
 
-       <Loading className="loading"
-          show={this.state.show}
-          color="#54d5cd"
-          showSpinner={false}
-        />
-        <div id="element"></div>
-        <div id="gradient"></div>
+                        </div>
 
-        <div style={Videostyle
-       
-    }>
-      <VideoCover className="videoCover"
-        videoOptions={videoOptions}
-      />
-    </div>
-        <div className="grain animated fadeIn"></div> 
 
-        <div id="blurred" className={this.state.blurredClass} style={Blurred}></div>
- 
-        <div className="row ontop">
-        <div className={this.state.codeText.classname} style={centerlogo}></div>
-        <i className="fa-fw select-all fas"></i>
-        <span className="txt-rotate animated fadeInUp" >
+                    </div>
+                </div>
+
+
+                <Loading className="loading"
+                         show={this.state.show}
+                         color="#54d5cd"
+                         showSpinner={false}
+                />
+                <div id="element"></div>
+                <div id="gradient"></div>
+
+                <div style={Videostyle
+
+                }>
+                    <VideoCover className="videoCover"
+                                videoOptions={videoOptions}
+                    />
+                </div>
+                <div className="grain animated fadeIn"></div>
+
+                <div id="blurred" className={this.state.blurredClass} style={Blurred}></div>
+
+                <div className="row ontop">
+                    <div className={this.state.codeText.classname} style={centerlogo}></div>
+                    <i className="fa-fw select-all fas"></i>
+                    <span className="txt-rotate animated fadeInUp">
          <span className="codewalatext">
          <strong>&lt;code</strong>wala/&gt; is 
-         <ReactRotatingText currentValue={this.currentValue} items={[ " code.", " mobile.", " design.", " ux.", " fun!", " life" ]} typingInterval={200}  deletingInterval={80} pause={7000} />
+         <ReactRotatingText currentValue={this.currentValue}
+                            items={[" code.", " mobile.", " design.", " ux.", " fun!", " life"]} typingInterval={200}
+                            deletingInterval={80} pause={7000}/>
          <br/>
          </span>    
      
         <div className={this.state.codeText.classname}>{this.state.codeText.description}</div>
-        </span> 
-        </div>
-    
+        </span>
+                </div>
 
-        </div>
+
+            </div>
 
 
         );

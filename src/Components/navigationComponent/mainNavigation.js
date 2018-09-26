@@ -440,7 +440,7 @@ class MainNavigation extends Component {
         }
 
         const logo_lines = {
-            backgroundImage: "url('/assets/images/logo_dab.svg')",
+            // backgroundImage: "url('/Assets/images/logo_dab.svg')",
             opacity:this.state.menuButton.menuButtonLogoOpacity,
             backgroundRepeat: "no-repeat",
             width: "100px",
@@ -451,12 +451,12 @@ class MainNavigation extends Component {
             backgroundSize: "45%",
             margin: "-1px 0px 0px 18px",
             // transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
-            backgroundImage: "url('/assets/images/lines.svg')",
+            backgroundImage: "url('/src/Assets/images/lines.svg')",
 
         }
 
         const logo_dab = {
-            backgroundImage: "url('/assets/images/logo_dab_guy.svg')",
+            // backgroundImage: "url('/Assets/images/logo_dab_guy.svg')",
             opacity:this.state.menuButton.menuButtonLogoOpacity,
             backgroundRepeat: "no-repeat",
             width: "100px",
@@ -467,7 +467,7 @@ class MainNavigation extends Component {
             backgroundSize: "55%",
             margin: "30px 0px 0px 20px",
            // transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
-            backgroundImage: "url('/assets/images/logo_dab_guy.svg')",
+            backgroundImage: "url('/src/Assets/images/logo_dab_guy.svg')",
 
         }
  
