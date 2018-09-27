@@ -27,6 +27,8 @@
     "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.3.1",
     "json-loader": "^0.5.7",
+    "lodash": "^4.17.11",
+    "raw-loader": "^0.5.1",
     "react": "^16.4.2",
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.4.2",

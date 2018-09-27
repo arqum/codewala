@@ -1,0 +1,52 @@
+[
+  {
+    "id": "code",
+    "label": "Code",
+    "description": "Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
+    "descriptionClass": "codewalaText_description fade-in-top",
+    "logoImgURL": "logo.svg",
+    "logoImgClass": "slide-in-blurred-top",
+    "isVideo": true,
+    "videoURL": "code_video.mp4"
+  },
+  {
+    "id": "ux",
+    "label": "UX",
+    "description": "We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
+    "descriptionClass": "codewalaText_description fade-in-top",
+    "logoImgURL": "logo_ux.svg",
+    "logoImgClass": "slide-in-blurred-top",
+    "isVideo": true,
+    "videoURL": "ux_video.mp4"
+  },
+  {
+    "id": "design",
+    "label": "Design",
+    "description": "Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
+    "descriptionClass": "codewalaText_description fade-in-top",
+    "logoImgURL": "logo_mobile.svg",
+    "logoImgClass": "slide-in-blurred-top",
+    "isVideo": true,
+    "videoURL": "mobile_video.mp4"
+  },
+  {
+    "id": "fun",
+    "label": "Fun",
+    "description": "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
+    "descriptionClass": "codewalaText_description fade-in-top",
+    "logoImgURL": "logo_fun.svg",
+    "logoImgClass": "slide-in-blurred-top",
+    "isVideo": false,
+    "backgroundImgURL":"img_1.jpg"
+  },
+  {
+    "id": "life",
+    "label": "Life",
+    "description": "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
+    "descriptionClass": "codewalaText_description fade-in-top",
+    "logoImgURL": "logo_fun.svg",
+    "logoImgClass": "slide-in-blurred-top",
+    "isVideo": true,
+    "videoURL": "life_video.mp4"
+  }
+]

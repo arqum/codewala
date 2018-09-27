@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
+import {find, findIndex} from 'lodash';
 import MainNavigation from "../navigationComponent/mainNavigation";
 import Cursor from "../cursorComponent/cursor";
+import Data from '../../API/LandingPageData/data.json';
 import Loading from 'react-loading-bar';
 import 'react-loading-bar/dist/index.css';
 import ReactRotatingText from '../rotatingTextComponent/reactRotatingText';
@@ -9,38 +11,30 @@ import {Motion, spring, TransitionMotion} from 'react-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VideoCover from 'react-video-cover';
 import ScrollAnimation from 'react-animate-on-scroll';
+import LandingDots from "../LandingDots";
+import GridOverlay from "../GridOverlay";
+import LandingPageCenterContent from "../LandingPageCenterContent";
+import Blurred from "../Blurred";
+import BackgroundCover from "../BackgroundCover";
 
 
 let intervelll;
-let period;
-const Videostyle = {
-    width: '100vw',
-    height: '100vh',
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    zIndex: -1,
-};
-
 
 class LandingPage extends Component {
 
-    constructor() {
-        super()
-
+    constructor(props) {
+        super(props);
+        const img = require(`../../Assets/images/${Data[0].logoImgURL}`);
+        const description = Data[0].description;
+        const backgroundCover = Data[0].isVideo ? require(`../../Assets/images/${Data[0].videoURL}`) : require(`../../Assets/images/${Data[0].backgroundImgURL}`);
+        const isVideo = Data[0].isVideo;
         this.state = ({
-            show: true,
-            codeText: {title: '', description: '', classname: ''},
-            centerLogoClass: '',
-            centerlogoimageURL: "",
-            videoOptions: "/src/Assets/images/code_video.mp4",
-            blurredBg: "",
-            blurredClass: "zoomIn"
-
-
+            centerImg: img,
+            description: description,
+            backgroundCover: backgroundCover,
+            isVideo: isVideo,
+            currentIndex: 0,
         })
-
-
     }
 
     componentWillMount() {
@@ -214,264 +208,63 @@ class LandingPage extends Component {
 
     componentWillUnmount() {
         clearInterval(intervelll);
-
     }
 
-    currentValue = (value) => {
-
-        if (value.includes("code")) {
-
-            $('#blurred').css("background-image", "");
-
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo.svg')",
-                videoOptions: "/src/Assets/images/code_video.mp4",
-                blurredBg: "",
-                blurredClass: "zoomIn"
-            });
-
-        } else if (value.includes("ux")) {
-
-            // $('#blurred').css("background-image", "").addClass('animated');
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo_ux.svg')",
-                videoOptions: "/src/Assets/images/ux_video.mp4",
-                blurredBg: "",
-                blurredClass: "zoomIn",
-            });
-
-        } else if (value.includes("design")) {
-
-            // $('#blurred').css("background-image", "url(//src/../Assets/images/img_4.jpg)").addClass('animated');
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo_design.svg')",
-                videoOptions: "",
-                blurredBg: "url(//src/../Assets/images/img_4.jpg)",
-                blurredClass: "zoomIn",
-
-
-            });
-
-        } else if (value.includes("mobile")) {
-
-            $('#blurred').css("background-image", "");
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo_mobile.svg')",
-                videoOptions: "/src/Assets/images/mobile_video.mp4",
-                blurredBg: "",
-                blurredClass: "zoomIn",
-            });
-
-        } else if (value.includes("fun")) {
-
-            $('#blurred').css("background-image", "url(//src/../Assets/images/img_1.jpg)").addClass('animated');
-
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo_fun.svg')",
-                videoOptions: "",
-                blurredBg: "url(//src/../Assets/images/img_1.jpg)",
-                blurredClass: "zoomIn"
-
-
-            });
-
-        }
-        else if (value.includes("life")) {
-            $('#blurred').css("background-image", "");
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo_fun.svg')",
-                videoOptions: "/src/Assets/images/life_video.mp4",
-                blurredBg: "url(//src/../Assets/images/img_1.jpg)",
-                blurredClass: "zoomIn"
-
-            });
-
-        }
-
-
-        // console.log(value);
+    itemsList() {
+        return Data.map(item => {
+            return item.id;
+        });
     }
 
+    getCurrentValue(value) {
+        const item = find(Data, x => (x.id === value));
+        const itemIndex = findIndex(Data, x => (x.id === value));
+        this.setState({
+            centerImg: require(`../../Assets/images/${item.logoImgURL}`),
+            description: item.description,
+            isVideo: item.isVideo,
+            backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
+        });
+    }
+
+    changeCurrentView(valueID) {
+        console.log('xxxx', valueID);
+        const item = find(Data, x => (x.id === valueID));
+        const itemIndex = findIndex(Data, x => (x.id === valueID));
+        this.setState({
+            currentIndex: itemIndex,
+            centerImg: require(`../../Assets/images/${item.logoImgURL}`),
+            description: item.description,
+            isVideo: item.isVideo,
+            backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
+        });
+    };
 
     render() {
-        const Blurred = {
-            filter: "blur(50px)",
-            backgroundImage: this.state.blurredBg,
-            backgroundRepeat: "no-repeat",
-            position: "fixed",
-            top: "0",
-            opacity: "1",
-            bottom: "0",
-            width: "100%",
-            zIndex: "-2",
-            height: "100%",
-            backgroundSize: "cover",
-            transform: "scale(1.2)",
-            transition: "all 300ms linear",
-
-        }
-
-
-        const videoOptions = {
-            src: this.state.videoOptions,
-            autoPlay: true,
-            loop: true,
-
-
-        };
-
-        const centerlogo = {
-
-            backgroundSize: "70%",
-            backgroundRepeat: "no-repeat",
-            width: "240px",
-            height: "250px",
-            position: "absolute",
-            left: "34%",
-            top: "50%",
-            opacity: "0",
-            marginLeft: "-150px",
-            marginTop: "-150px",
-            zIndex: "13",
-            backgroundImage: this.state.centerlogoimageURL,
-            transition: "all 300ms linear",
-
-
-        }
-
-        const centerlogoimage = {
-            // backgroundImage: "url('/src/Assets/images/logo.png')",
-            backgroundImage: this.state.centerlogoimageURL
-
-
-        }
-
-        const vidStyle = {
-            filter: "blur(20px)",
-            transition: "all 300ms linear",
-            objectFit: "cover",
-        }
-
-
-        // console.log(centerlogo);
+        const {centerImg, description, isVideo, backgroundCover, currentIndex} = this.state;
         return (
-
-
             <div className="animated fadeIn delay-1s">
-                <div class="scroll-downs-home" style={{zIndex: 100}}>
-                    <div class="mousey animated fadeInUp">
-                        <div class="scroller"></div>
+                <div className="scroll-downs-home" style={{zIndex: 100}}>
+                    <div className="mousey animated fadeInUp">
+                        <div className="scroller"/>
                     </div>
                 </div>
-                <div className="circle-container">
-
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                </div>
-                <div className="gridOverlay">
-                    <div className="row">
-                        <div className="col-md-3 column_1 ">
-                            <div className="animated fadeInLeft delay-1s columns_font"></div>
-                        </div>
-                        <div className="col-md-3 column_2">
-                            <div className="animated fadeInLeft delay-1s columns_font"></div>
-                        </div>
-                        <div className="col-md-3 column_3">
-                            <div className="animated fadeInLeft delay-1s columns_font"></div>
-                        </div>
-                        <div className="col-md-3 column_4">
-                            <div className="animated fadeInLeft delay-1s columns_font"></div>
-
-
-                        </div>
-
-
-                    </div>
-                </div>
-
-
+                <LandingDots items={this.itemsList()} onClick={this.changeCurrentView.bind(this)}/>
+                <GridOverlay numberOfColumns={3}/>
                 <Loading className="loading"
                          show={this.state.show}
                          color="#54d5cd"
                          showSpinner={false}
                 />
-                <div id="element"></div>
-                <div id="gradient"></div>
-
-                <div style={Videostyle
-
-                }>
-                    <VideoCover className="videoCover"
-                                videoOptions={videoOptions}
-                    />
-                </div>
-                <div className="grain animated fadeIn"></div>
-
-                <div id="blurred" className={this.state.blurredClass} style={Blurred}></div>
-
-                <div className="row ontop">
-                    <div className={this.state.codeText.classname} style={centerlogo}></div>
-                    <i className="fa-fw select-all fas"></i>
-                    <span className="txt-rotate animated fadeInUp">
-         <span className="codewalatext">
-         <strong>&lt;code</strong>wala/&gt; is 
-         <ReactRotatingText currentValue={this.currentValue}
-                            items={[" code.", " mobile.", " design.", " ux.", " fun!", " life"]} typingInterval={200}
-                            deletingInterval={80} pause={7000}/>
-         <br/>
-         </span>    
-     
-        <div className={this.state.codeText.classname}>{this.state.codeText.description}</div>
-        </span>
-                </div>
-
-
+                <div id="element"/>
+                <div id="gradient"/>
+                <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover}/>
+                <div className="grain animated fadeIn"/>
+                {/*<Blurred/>*/}
+                <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
+                                          items={this.itemsList()}
+                                          description={description}
+                                          centerImg={centerImg}/>
             </div>
 
 

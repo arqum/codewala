@@ -1,24 +1,26 @@
 // @flow
 import React from 'react';
+import styles from './styles.scss';
 
-type LandingDotsProps = {};
-const LandingDots = (props:LandingDotsProps)=>{
-    return(
-        <div className="circle-container">
+type LandingDotsProps = {
+    items: Array<string>,
+    onClick: (index: number) => void;
 
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                </div>
+};
+const LandingDots = (props: LandingDotsProps) => {
+    const {items, onClick} = props;
+    return (
+        <div className={styles.circles}>
+            {
+                items.map((item, index) => {
+                    return (<div key={index} className="hollow-circle" onClick={() => (onClick(item))}/>);
+                })
+            }
+        </div>
     );
-}
+};
+
+LandingDots.defaultProps = {
+    items: [],
+};
 export default LandingDots
