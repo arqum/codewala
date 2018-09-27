@@ -254,7 +254,7 @@ class LandingPage extends Component {
 
         } else if (value.includes("design")) {
 
-            // $('#blurred').css("background-image", "url(//src/../Assets/images/img_4.jpg)").addClass('animated');
+            // $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)").addClass('animated');            
             this.setState({
                 codeText: {
                     title: value,
@@ -264,7 +264,7 @@ class LandingPage extends Component {
                 centerLogoClass: 'slide-in-blurred-top',
                 centerlogoimageURL: "url('/src/Assets/images/logo_design.svg')",
                 videoOptions: "",
-                blurredBg: "url(//src/../Assets/images/img_4.jpg)",
+                blurredBg: "url(/src/Assets/images/img_4.jpg)",
                 blurredClass: "zoomIn",
 
 
@@ -288,7 +288,7 @@ class LandingPage extends Component {
 
         } else if (value.includes("fun")) {
 
-            $('#blurred').css("background-image", "url(//src/../Assets/images/img_1.jpg)").addClass('animated');
+            $('#blurred').css("background-image", "url(/src/Assets/images/img_1.jpg)").addClass('animated');
 
             this.setState({
                 codeText: {
@@ -299,7 +299,7 @@ class LandingPage extends Component {
                 centerLogoClass: 'slide-in-blurred-top',
                 centerlogoimageURL: "url('/src/Assets/images/logo_fun.svg')",
                 videoOptions: "",
-                blurredBg: "url(//src/../Assets/images/img_1.jpg)",
+                blurredBg: "url(/src/Assets/images/img_1.jpg)",
                 blurredClass: "zoomIn"
 
 
@@ -317,7 +317,7 @@ class LandingPage extends Component {
                 centerLogoClass: 'slide-in-blurred-top',
                 centerlogoimageURL: "url('/src/Assets/images/logo_fun.svg')",
                 videoOptions: "/src/Assets/images/life_video.mp4",
-                blurredBg: "url(//src/../Assets/images/img_1.jpg)",
+                blurredBg: "url(/src/Assets/images/img_1.jpg)",
                 blurredClass: "zoomIn"
 
             });
@@ -376,7 +376,7 @@ class LandingPage extends Component {
         }
 
         const centerlogoimage = {
-            // backgroundImage: "url('/src/Assets/images/logo.png')",
+            // backgroundImage: "url('/assets/images/logo.png')",
             backgroundImage: this.state.centerlogoimageURL
 
 
@@ -391,8 +391,6 @@ class LandingPage extends Component {
 
         // console.log(centerlogo);
         return (
-
-
             <div className="animated fadeIn delay-1s">
                 <div class="scroll-downs-home" style={{zIndex: 100}}>
                     <div class="mousey animated fadeInUp">
