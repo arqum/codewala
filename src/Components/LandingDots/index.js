@@ -13,11 +13,11 @@ type LandingDotsProps = {
 const LandingDots = (props: LandingDotsProps) => {
     const {items, onClick, index: Index} = props;
     const Data = require('../../API/LandingPageData/data.json');
-    const label = Data[Index].label;
     return (
         <div className={styles.circles}>
             {
                 items.map((item, index) => {
+                    const label = Data[index].label;
                     return (<div key={index} className={`hollow-circle ${index === Index?'lll':'llll'}`}
                                  onClick={() => (onClick(item))}>{label}</div>);
                 })
