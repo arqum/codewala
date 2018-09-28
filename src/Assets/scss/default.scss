@@ -1050,7 +1050,7 @@ opacity: 0.5;
 }
 .cw_img{
 
-  background: url("/assets/images/about_img.svg") no-repeat;
+  background: url("src/../../../Assets/images/about_img.svg") no-repeat;
   position: relative;
   background-size: 70%;
   background-position-x: center;
@@ -1303,20 +1303,12 @@ height: auto;
 //Noise 
 
 .grain {
-  position: relative;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column;
-  
+  position: absolute;
   height: 100vh;
-  opacity: 0.8;
-  width: 100vh;
-  
- // background: #2c3343;
-  color: #fff;
-  text-align: center;
+  opacity: .8;
+  bottom: 0px;
+  width: 100%;
+
   
   &::before {
       content: "";
