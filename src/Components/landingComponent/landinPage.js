@@ -28,13 +28,15 @@ class LandingPage extends Component {
         const description = Data[0].description;
         const backgroundCover = Data[0].isVideo ? require(`../../Assets/images/${Data[0].videoURL}`) : require(`../../Assets/images/${Data[0].backgroundImgURL}`);
         const isVideo = Data[0].isVideo;
+        const label = Data[0].label;
         this.state = ({
             centerImg: img,
             description: description,
             backgroundCover: backgroundCover,
             isVideo: isVideo,
             currentIndex: 0,
-        })
+            label: label
+        });
 
         this.coverTransitionFader = this.coverTransitionFader.bind(this);
     }
@@ -49,7 +51,7 @@ class LandingPage extends Component {
 
     componentDidMount() {
 
-     
+
         // this.closeMenuAnimation();
         // $('body').css('background', '#2c3343');
         let interval = 1;
@@ -215,14 +217,14 @@ class LandingPage extends Component {
     itemsList() {
         return Data.map(item => {
             return item.id;
-                });
+        });
     }
 
-    coverTransitionFader (){
+    coverTransitionFader() {
         console.log("transition fader");
-         
- 
-     }
+
+
+    }
 
     getCurrentValue(value) {
         const item = find(Data, x => (x.id === value));
@@ -237,7 +239,6 @@ class LandingPage extends Component {
     }
 
     changeCurrentView(valueID) {
-        console.log('xxxx', valueID);
         const item = find(Data, x => (x.id === valueID));
         const itemIndex = findIndex(Data, x => (x.id === valueID));
         this.setState({
@@ -245,12 +246,13 @@ class LandingPage extends Component {
             centerImg: require(`../../Assets/images/${item.logoImgURL}`),
             description: item.description,
             isVideo: item.isVideo,
+            label: item.label,
             backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
         });
     };
 
     render() {
-        const {centerImg, description, isVideo, backgroundCover, currentIndex} = this.state;
+        const {centerImg, description, isVideo, backgroundCover, currentIndex, label} = this.state;
         return (
             <div className="animated fadeIn delay-1s">
                 <div className="scroll-downs-home" style={{zIndex: 100}}>
@@ -259,7 +261,7 @@ class LandingPage extends Component {
                     </div>
                 </div>
 
-                <LandingDots items={this.itemsList()} onClick={this.changeCurrentView.bind(this)}/>
+                <LandingDots items={this.itemsList()} label={label} index={currentIndex} onClick={this.changeCurrentView.bind(this)}/>
                 <GridOverlay numberOfColumns={5}/>
                 <Loading className="loading"
                          show={this.state.show}
@@ -270,14 +272,14 @@ class LandingPage extends Component {
                 <div id="gradient"/>
                 <div className="transition-fader"></div>
 
-                <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover} />
+                <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover}/>
                 {/*<Blurred/>*/}
 
                 <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
                                           items={this.itemsList()}
                                           description={description}
                                           centerImg={centerImg}/>
-                <div className="grain animated fadeIn"></div> 
+                <div className="grain animated fadeIn"></div>
 
             </div>
 
