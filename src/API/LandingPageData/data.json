@@ -1,6 +1,6 @@
 [
   {
-    "id": "code",
+    "id": " code",
     "label": "Code",
     "description": "Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
     "descriptionClass": "codewalaText_description fade-in-top",
@@ -10,7 +10,7 @@
     "videoURL": "code_video.mp4"
   },
   {
-    "id": "ux",
+    "id": " ux",
     "label": "UX",
     "description": "We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
     "descriptionClass": "codewalaText_description fade-in-top",

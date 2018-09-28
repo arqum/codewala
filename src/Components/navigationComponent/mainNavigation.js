@@ -357,7 +357,7 @@ class MainNavigation extends Component {
         console.log(this.state, 'render');
         const style_menu_blue_div = {
 
-            position: "absolute",
+            position: "fixed",
             background: "#b5e6e3",
             height: "100%",
             width: "100%",
@@ -370,7 +370,7 @@ class MainNavigation extends Component {
         
         const style_menu_green_div = {
         
-            position: "absolute",
+            position: "fixed",
             background: "#deeec7",
             height: "100%",
             width: "100%",
@@ -382,7 +382,7 @@ class MainNavigation extends Component {
         }
         const style_menu_yellow_div = {
         
-            position: "absolute",
+            position: "fixed",
             background: "#fefabf",
             height: "100%",
             width: "100%",
@@ -395,7 +395,7 @@ class MainNavigation extends Component {
         
         const style_menu_div = {
         
-            position: "absolute",
+            position: "fixed",
             background: "white",
             height: "100%",
             width: "100%",
@@ -414,7 +414,7 @@ class MainNavigation extends Component {
         }
 
         const menu_button = {
-            position: "absolute",
+            position: "fixed",
             backgroundColor: this.state.menuButton.menuButtonColor,
             height: this.state.menuButton.menuButtonHeight,
             width: "80px",

@@ -11,6 +11,7 @@ const GridOverlay = (props: GridOverlayProps) => {
     const {numberOfColumns} = props;
     return (
         <div className="gridOverlay">
+
             <div className="row">
                 {
                     times(numberOfColumns, (index) => {

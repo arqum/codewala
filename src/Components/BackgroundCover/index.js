@@ -12,6 +12,7 @@ type BackgroundCoverProps = {
 const BackgroundCover = (props: BackgroundCoverProps) => {
     const {videoSource, imageSource, videoAutoPlay, videoLoop} = props;
     return (
+
         <div className={styles.cover} style={{backgroundImage: `url(${imageSource ? imageSource : ''})`}}>
             {
                 !imageSource &&
@@ -22,10 +23,13 @@ const BackgroundCover = (props: BackgroundCoverProps) => {
                                 loop: videoLoop
                             }}
                 />
+
             }
 
         </div>
+        
     );
+
 };
 
 BackgroundCover.defaultProps = {

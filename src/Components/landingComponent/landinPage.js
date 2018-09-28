@@ -249,8 +249,9 @@ class LandingPage extends Component {
                         <div className="scroller"/>
                     </div>
                 </div>
+
                 <LandingDots items={this.itemsList()} onClick={this.changeCurrentView.bind(this)}/>
-                <GridOverlay numberOfColumns={3}/>
+                <GridOverlay numberOfColumns={5}/>
                 <Loading className="loading"
                          show={this.state.show}
                          color="#54d5cd"
@@ -258,13 +259,16 @@ class LandingPage extends Component {
                 />
                 <div id="element"/>
                 <div id="gradient"/>
+
                 <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover}/>
-                <div className="grain animated fadeIn"/>
                 {/*<Blurred/>*/}
+
                 <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
                                           items={this.itemsList()}
                                           description={description}
                                           centerImg={centerImg}/>
+                <div className="grain animated fadeIn"></div> 
+
             </div>
 
 
