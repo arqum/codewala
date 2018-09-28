@@ -35,6 +35,8 @@ class LandingPage extends Component {
             isVideo: isVideo,
             currentIndex: 0,
         })
+
+        this.coverTransitionFader = this.coverTransitionFader.bind(this);
     }
 
     componentWillMount() {
@@ -47,7 +49,7 @@ class LandingPage extends Component {
 
     componentDidMount() {
 
-
+     
         // this.closeMenuAnimation();
         // $('body').css('background', '#2c3343');
         let interval = 1;
@@ -213,12 +215,19 @@ class LandingPage extends Component {
     itemsList() {
         return Data.map(item => {
             return item.id;
-        });
+                });
     }
+
+    coverTransitionFader (){
+        console.log("transition fader");
+         
+ 
+     }
 
     getCurrentValue(value) {
         const item = find(Data, x => (x.id === value));
         const itemIndex = findIndex(Data, x => (x.id === value));
+        this.coverTransitionFader();
         this.setState({
             centerImg: require(`../../Assets/images/${item.logoImgURL}`),
             description: item.description,
@@ -259,8 +268,9 @@ class LandingPage extends Component {
                 />
                 <div id="element"/>
                 <div id="gradient"/>
+                <div className="transition-fader"></div>
 
-                <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover}/>
+                <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover} />
                 {/*<Blurred/>*/}
 
                 <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}

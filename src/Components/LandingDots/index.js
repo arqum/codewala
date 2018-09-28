@@ -6,6 +6,7 @@ type LandingDotsProps = {
     items: Array<string>,
     onClick: (index: number) => void;
 
+
 };
 const LandingDots = (props: LandingDotsProps) => {
     const {items, onClick} = props;
