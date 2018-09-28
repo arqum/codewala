@@ -17,7 +17,7 @@ const LandingDots = (props: LandingDotsProps) => {
             {
                 items.map((item, index) => {
                     return (<div key={index} className={`hollow-circle ${index === Index?'lll':'llll'}`}
-                                 onClick={() => (onClick(item))}/>);
+                                 onClick={() => (onClick(item))}>{label}</div>);
                 })
             }
         </div>
