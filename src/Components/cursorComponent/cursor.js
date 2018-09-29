@@ -36,7 +36,18 @@ class Cursor extends Component {
 
         });
     });
-    $('.navlinks').mouseleave(function () {
+
+    $('.hollow-circle').hover(function () {
+        $('#cursor').css({
+            'width': '5px',
+            'height': "5px",
+            'background-color': "rgba(84, 213, 205, 0.4)",
+        });
+    });
+
+ 
+
+    $('.navlinks, .hollow-circle').mouseleave(function () {
         $('#cursor').css({
             'width': '20px',
             'height': "20px",

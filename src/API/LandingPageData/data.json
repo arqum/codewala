@@ -14,7 +14,7 @@
     "label": "MOBILE",
     "description": "We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
     "descriptionClass": "codewalaText_description fade-in-top",
-    "logoImgURL": "logo_mob.svg",
+    "logoImgURL": "logo_mobile.svg",
     "logoImgClass": "slide-in-blurred-top",
     "isVideo": true,
     "videoURL": "mobile_video.mp4"
@@ -34,10 +34,10 @@
     "label": "DESIGN",
     "description": "Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
     "descriptionClass": "codewalaText_description fade-in-top",
-    "logoImgURL": "logo_mobile.svg",
+    "logoImgURL": "logo_design.svg",
     "logoImgClass": "slide-in-blurred-top",
-    "isVideo": true,
-    "videoURL": "mobile_video.mp4"
+    "isVideo": false,
+    "backgroundImgURL":"img_4.jpg"
   },
   {
     "id": "fun",

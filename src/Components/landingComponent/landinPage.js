@@ -16,6 +16,8 @@ import GridOverlay from "../GridOverlay";
 import LandingPageCenterContent from "../LandingPageCenterContent";
 import Blurred from "../Blurred";
 import BackgroundCover from "../BackgroundCover";
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+
 
 
 let intervelll;
@@ -38,7 +40,6 @@ class LandingPage extends Component {
             label: label
         });
 
-        this.coverTransitionFader = this.coverTransitionFader.bind(this);
     }
 
     componentWillMount() {
@@ -49,8 +50,15 @@ class LandingPage extends Component {
         })
     }
 
+
+    componentWillUnmount(){
+        window.removeEventListener('scroll', this.handleScroll);
+
+
+    }
     componentDidMount() {
 
+        window.addEventListener('scroll', this.handleScroll);
 
         // this.closeMenuAnimation();
         // $('body').css('background', '#2c3343');
@@ -220,16 +228,32 @@ class LandingPage extends Component {
         });
     }
 
-    coverTransitionFader() {
-        console.log("transition fader");
+    handleScroll(){
+        var scrollPos = 0;
+        // adding scroll event
+        window.addEventListener('scroll', function(){
+          // detects new state and compares it with the new one
+          if ((document.body.getBoundingClientRect()).top > scrollPos){
+            document.getElementById('info-box').dataset.scrollDirection = 'UP';
+            console.log("scroll up");
 
+          }
+              
 
+            else{
+                document.getElementById('info-box').dataset.scrollDirection = 'DOWN';
+                // saves the new position for iteration.
+                scrollPos = (document.body.getBoundingClientRect()).top;
+                console.log("scroll down");
+
+            }
+                
+        });
     }
 
     getCurrentValue(value) {
         const item = find(Data, x => (x.id === value));
         const itemIndex = findIndex(Data, x => (x.id === value));
-        this.coverTransitionFader();
         this.setState({
             centerImg: require(`../../Assets/images/${item.logoImgURL}`),
             description: item.description,
@@ -254,7 +278,12 @@ class LandingPage extends Component {
     render() {
         const {centerImg, description, isVideo, backgroundCover, currentIndex, label} = this.state;
         return (
+           
             <div className="animated fadeIn delay-1s">
+             {/* <ReactScrollWheelHandler
+                  upHandler={() => console.log("scroll up")}
+                  downHandler={() => console.log("scroll down")}/> */}
+
                 <div className="scroll-downs-home" style={{zIndex: 100}}>
                     <div className="mousey animated fadeInUp">
                         <div className="scroller"/>
@@ -280,7 +309,7 @@ class LandingPage extends Component {
                                           description={description}
                                           centerImg={centerImg}/>
                 <div className="grain animated fadeIn"></div>
-
+                
             </div>
 
 
