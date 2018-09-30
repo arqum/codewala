@@ -52,13 +52,13 @@ class LandingPage extends Component {
 
 
     componentWillUnmount(){
-        window.removeEventListener('scroll', this.handleScroll);
+        // window.removeEventListener('scroll', this.handleScroll);
 
 
     }
     componentDidMount() {
 
-        window.addEventListener('scroll', this.handleScroll);
+        // window.addEventListener('scroll', this.handleScroll);
 
         // this.closeMenuAnimation();
         // $('body').css('background', '#2c3343');
@@ -129,7 +129,7 @@ class LandingPage extends Component {
             var filterStrength = filterAfterMap;
 
             if (distance < 550) {
-                $('#blurred, .videoCover').css({
+                $('.bgCover, .videoCover').css({
                     filter: "blur(" + (filterAfterMap) + "px)",
                 });
 
@@ -280,9 +280,10 @@ class LandingPage extends Component {
         return (
            
             <div className="animated fadeIn delay-1s">
-             {/* <ReactScrollWheelHandler
+
+             <ReactScrollWheelHandler
                   upHandler={() => console.log("scroll up")}
-                  downHandler={() => console.log("scroll down")}/> */}
+                  downHandler={() => console.log("scroll down")}/>
 
                 <div className="scroll-downs-home" style={{zIndex: 100}}>
                     <div className="mousey animated fadeInUp">
@@ -301,7 +302,7 @@ class LandingPage extends Component {
                 <div id="gradient"/>
                 <div className="transition-fader"></div>
 
-                <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover}/>
+                <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover} id="bgCover" />
                 {/*<Blurred/>*/}
 
                 <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}

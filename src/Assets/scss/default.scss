@@ -52,8 +52,8 @@
     height: 100%;
     font-family: Dosis-light;
     background: white;
-    // overflow-y:hidden;
-    // overflow-x: hidden;
+    overflow-y:hidden;
+    overflow-x: hidden;
   
   }
 
@@ -189,6 +189,12 @@
     transform: scale(1.1);
     transition: all 500ms cubic-bezier(0, 0, 0.58, 1);
     background-position: center center;
+  }
+
+  .bgImage {
+    
+    filter: blur(50px);
+    transition: all 500ms cubic-bezier(0, 0, 0.58, 1);
   }
   
   #gradient {

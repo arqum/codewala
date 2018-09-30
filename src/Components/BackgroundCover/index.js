@@ -13,7 +13,7 @@ const BackgroundCover = (props: BackgroundCoverProps) => {
     const {videoSource, imageSource, videoAutoPlay, videoLoop} = props;
     return (
         
-        <div className={styles.cover} style={{backgroundImage: `url(${imageSource ? imageSource : ''})`}}>
+        <div className={`bgImage ` + styles.cover} style={{backgroundImage: `url(${imageSource ? imageSource : ''})`}}>
             {
                 !imageSource &&
                 <VideoCover className={`videoCover`}
