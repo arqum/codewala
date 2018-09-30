@@ -18,6 +18,7 @@ const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
     const {centerImg, currentValue, items, typingInterval, deletingInterval, pause, description, startingIndex} = props;
     return (
         <div className="row ontop">
+
             <div className={`codewalaText_description slide-in-fwd-center ${styles.centerImg}`}
                  style={{backgroundImage: `url(${centerImg})`}}/>
             <i className="fa-fw select-all fas"/>
@@ -31,7 +32,9 @@ const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
                                         deletingInterval={deletingInterval} pause={pause}/>
                      <br/>
                  </span>
-            <div className={`codewalaText_description fade-in-top`}>{description}</div>
+
+            <div className={`codewalaText_description fade-in-top`}>{description}</div> 
+
             </span>
         </div>
     );

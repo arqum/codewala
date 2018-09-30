@@ -248,6 +248,23 @@ A complete digital solution provider. I have been doing this, I am here to demon
 </p>
 </ScrollAnimation>
 
+<ScrollAnimation animateIn='fadeInUp'>
+
+
+
+<div className="inner-upper-icons inner-upper-khaled">
+</div>
+
+<div className="inner-upper-icons inner-upper-talal">
+</div>
+
+<div className="inner-upper-thanks inner-upper-icons">
+...And a heartiest gratitude to my friends and Senseis, Khaled and Talal for helping me out with their awesome ninja skills! 
+</div>
+
+
+</ScrollAnimation>
+
 
 
 </div>

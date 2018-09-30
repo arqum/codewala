@@ -129,7 +129,7 @@ class LandingPage extends Component {
             var filterStrength = filterAfterMap;
 
             if (distance < 550) {
-                $('.bgCover, .videoCover').css({
+                $('.bgImage, .videoCover').css({
                     filter: "blur(" + (filterAfterMap) + "px)",
                 });
 
@@ -140,7 +140,7 @@ class LandingPage extends Component {
 
             } else {
 
-                $('#blurred').css({
+                $('.bgImage, .videoCover').css({
                     filter: "blur(" + (filterStrength) + "px)"
                     //  '-webkit-transform': 'scale(' + scaleAfterMap + ')'
                 });
