@@ -157,8 +157,15 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 <div className="inner-upper-icons-container">
 
 
-<div className={`inner-upper-icons inner-upper-desktop animated pulse `+ this.state.iconHoverClass} ></div>
+<div className={`inner-upper-icons inner-upper-desktop animated pulse `+ this.state.iconHoverClass} >
+<div className="inner-upper-icon-heading">
+WEB
+</div>
+</div>
 <div className="inner-upper-icons inner-upper-mobile">
+<div className="inner-upper-icon-heading">
+MOBILE
+</div>
 </div>
 </div>
 </div>
@@ -179,9 +186,15 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 <div className="col-md-3 col-sm-12 animated fadeInLeft delay-1s rightBorder">
 <div className="inner-upper-icons-container">
 <div className="inner-upper-icons inner-upper-creative">
+<div className="inner-upper-icon-heading">
+creative
+</div>
 </div>
 
 <div className="inner-upper-icons inner-upper-analysis">
+<div className="inner-upper-icon-heading">
+analysis
+</div>
 </div>
 
 </div>
@@ -248,7 +261,7 @@ A complete digital solution provider. I have been doing this, I am here to demon
 </p>
 </ScrollAnimation>
 
-<ScrollAnimation animateIn='fadeInUp'>
+<ScrollAnimation animateIn='fadeInUp' style={{position: "relative", top:"10%"}}>
 
 
 

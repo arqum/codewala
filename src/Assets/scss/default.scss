@@ -1275,6 +1275,7 @@ height: auto;
   overflow: hidden;
   top: 82%;
   border-radius: 100%;
+  
 }
 
 .inner-upper-talal {
@@ -1301,33 +1302,35 @@ height: auto;
   font-size: 0.9em;
   color: #2c3343;
   font-style: italic;
+  
 }
 
 .inner-upper-desktop {
-  background: url('src/../../../Assets/images/apps_icon.svg') no-repeat;
-  background-size: 40%;
-  width: 60%;
-  height: 14%;
-  left: 20%;
-  background-position-x: left;
-  overflow: hidden;
-}
-
-.inner-upper-desktop:hover {
-  background: url(/assets/images/apps_icon.svg) no-repeat;
+  background: url(../images/apps_icon.svg) no-repeat;
   background-size: 100%;
   width: 24%;
-  height: 14%;
+  height: 20%;
   left: 20%;
   background-position-x: left;
   overflow: hidden;
+  margin-bottom: 5%;
 }
+
+// .inner-upper-desktop:hover {
+//   background: url(/assets/images/apps_icon.svg) no-repeat;
+//   background-size: 100%;
+//   width: 24%;
+//   height: 14%;
+//   left: 20%;
+//   background-position-x: left;
+//   overflow: hidden;
+// }
 
 .inner-upper-mobile {
   background: url('src/../../../Assets/images/mob_icon.svg') no-repeat;
   background-size: 100%;
   width: 24%;
-  height: 14%;
+  height: 20%;
   left: 60%;
   background-position-x: right;
   overflow: hidden;
@@ -1339,7 +1342,7 @@ height: auto;
   background: url('src/../../../Assets/images/creative_icon.svg') no-repeat;
     background-size: 100%;
     width: 24%;
-    height: 14%;
+    height: 20%;
     left: 20%;
     background-position-x: left;
     overflow: hidden;
@@ -1351,7 +1354,7 @@ height: auto;
   background: url('src/../../../Assets/images/analysis_icon.svg') no-repeat;
   background-size: 100%;
   width: 24%;
-  height: 14%;
+  height: 20%;
   left: 60%;
   background-position-x: right;
   overflow: hidden;
@@ -1359,25 +1362,43 @@ height: auto;
 
 }
 
-
+.inner-upper-icon-heading {
+  bottom: 0;
+  text-align: center;
+  top: 70%;
+  font-family: dosis-medium;
+  font-size: 1em;
+  font-weight: 600;
+  position: relative;
+  text-transform: uppercase;
+  color: #b0b1b8;
+}
 
 
 .cw_txt_ph {
-  background-color: #eaf7f6;
+  background-color: #54d5cd;
   padding: 5% 3% 0% 3%;
-  opacity: 0;
+  height: 100vh;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  position: relative;
+  background-position: center bottom;
+  background-size: 100%;
 
 }
+
+
 
 .cw_img_ph{
-  background: url('/assets/images/ph_img.svg') no-repeat;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    background-size: 55%;
 
-}
+  background: url("src/../../../Assets/images/ph_img.svg") no-repeat;
+  position: relative;
+  background-size: 70%;
+  background-position: center center;
+  height: 50vh;
+  width: 48vh;
+  
+  }
 
 @media(min-width:320px) and (max-width:480px) {
   #centerlogo{
