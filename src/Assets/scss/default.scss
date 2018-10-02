@@ -215,13 +215,13 @@
     height: 20px;
    text-align: center;
    left: 0px;
-   background-color: rgba(84, 213, 205, 0.4);
+   background-color: rgba(84, 213, 205, 0.7);
 
     position: absolute;
     border-radius: 100px;
     background-blend-mode: lighten ;
     z-index: 100;
-    transition: all 400ms cubic-bezier(0, 0.87, 1, 0.645);
+    transition: all 200ms ease-in-out;
   }
   
   .lnr-menu,

@@ -281,9 +281,9 @@ class LandingPage extends Component {
            
             <div className="animated fadeIn delay-1s">
 
-             <ReactScrollWheelHandler
+             {/* <ReactScrollWheelHandler
                   upHandler={() => console.log("scroll up")}
-                  downHandler={() => console.log("scroll down")}/>
+                  downHandler={() => console.log("scroll down")}/> */}
 
                 <div className="scroll-downs-home" style={{zIndex: 100}}>
                     <div className="mousey animated fadeInUp">

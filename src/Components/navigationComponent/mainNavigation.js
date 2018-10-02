@@ -140,6 +140,12 @@ class MainNavigation extends Component {
 
             }
         }, 500);
+        $('#cursor').css({
+            'width': '60px',
+            'height': "60px",
+            'background-color': "rgba(213, 84, 84, 0.7)",
+
+        });
         } else if(this.state.menu.menuOpen == 'opened') {
 
             // console.log("Menu is now closed");
@@ -179,14 +185,12 @@ class MainNavigation extends Component {
                 'visibility': 'hidden'
             });
        
+
             $('#cursor').css({
                 'width': '60px',
                 'height': "60px",
-                'background-color': "rgba(84, 213, 205, 0.4)",
-    
-    
-    
-    
+                'background-color': "rgba(213, 84, 84, 0.7)",
+
             });
 
         }
@@ -250,7 +254,7 @@ class MainNavigation extends Component {
             $('#cursor').css({
                 'width': '60px',
                 'height': "60px",
-                'background-color': "rgba(213, 84, 84, 0.4)",
+                'background-color': "rgba(213, 84, 84, 0.7)",
 
             });
             // $('.lnr-menu').toggleClass('lnr-menu lnr-cross');
@@ -313,7 +317,7 @@ class MainNavigation extends Component {
         $('#cursor').css({
             'width': '20px',
             'height': "20px",
-            'background-color': "rgba(84, 213, 205, 0.4)",
+            'background-color': "rgba(84, 213, 205, 0.7)",
 
         });
 
@@ -334,7 +338,7 @@ class MainNavigation extends Component {
         $('#cursor').css({
             'width': '20px',
             'height': "20px",
-            'background-color': "rgba(84, 213, 205, 0.4)",
+            'background-color': "rgba(84, 213, 205, 0.7)",
 
         });
 
