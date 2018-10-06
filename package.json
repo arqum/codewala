@@ -33,6 +33,7 @@
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.4.2",
     "react-loading-bar": "0.0.7",
+    "react-lottie": "^1.2.3",
     "react-motion": "^0.5.2",
     "react-redux": "^5.0.7",
     "react-rotating-text": "^1.2.1",

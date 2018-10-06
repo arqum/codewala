@@ -7,6 +7,12 @@ import Cursor from "../cursorComponent/cursor";
 import Loading from 'react-loading-bar';
 import 'react-loading-bar/dist/index.css';
 import ScrollAnimation from 'react-animate-on-scroll';
+import *  as animationData from './../../Assets/animations/philosophy_animation.json';
+import *  as animationDataBrain from './../../Assets/animations/brain.json';
+import GridOverlay from "../GridOverlay";
+
+
+import Lottie from 'react-lottie';
 
 
 let intervelll;
@@ -119,7 +125,23 @@ componentWillMount(){
    
 
     render() {
+        const defaultOptions = {
+            loop: true,
+            autoplay: true, 
+            animationData: animationData,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice'
+            }
+          };
 
+          const defaultOptionsBrain = {
+            loop: true,
+            autoplay: true, 
+            animationData: animationDataBrain,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice'
+            }
+          };
        
             return (
                 <div className="animated fadeIn delay-1s" id="container_fade" onWheel={this.handleScroll}>
@@ -138,14 +160,53 @@ componentWillMount(){
 
 </div>
 
-<div className="col-md-3 col-sm-12 leftBorder  rightBorder  animated fadeInRight delay-1s" id="" style={{overflow: "hidden"}}>
+<div className="col-md-6 col-sm-12 leftBorder  rightBorder  animated fadeInDown" id="" style={{overflow: "hidden", height:"100vh"}}>
+<h1 className="inner-h1 animated bounceInDown delay-1s">
+Codewala<span className="inner-h1-span">
+Philosophy
+</span>
+</h1>
 
-<div className="inner-upper-icons-container">
+<p className="inner-paragraph-upper animated fadeIn delay-1s  ">
+Codewala is a one man endevour to provide small and medium businesses a premium digital presense. It is also an effort to demonstrate my capabilities and the services I can offer. I envision a world where code means something and design appeals to the senses.</p>
 
-
-<div className={`inner-upper-icons inner-upper-desktop animated pulse `+ this.state.iconHoverClass} ></div>
-<div className="inner-upper-icons inner-upper-mobile">
+<div className="inner-upper-icons-container" style={{marginTop:"12%"}}>
+<div className="brain-gridOverlay">
+<div className="row">
+<div className="col-md-2">
 </div>
+<div className="col-md-2">
+</div>
+<div className="col-md-2">
+</div>
+<div className="col-md-2">
+</div>
+<div className="col-md-2">
+</div>
+<div className="col-md-2">
+</div>
+</div>
+<div className="row">
+<div className="col-md-2">
+</div>
+<div className="col-md-2">
+</div>
+<div className="col-md-2">
+</div>
+<div className="col-md-2">
+</div>
+<div className="col-md-2">
+</div>
+<div className="col-md-2">
+</div>
+</div>
+
+</div>
+<Lottie options={defaultOptionsBrain}
+              height={"60%"}
+              width={"60%"}
+              isStopped={this.state.isStopped}
+              isPaused={this.state.isPaused}/>
 </div>
 </div>
 
@@ -163,24 +224,6 @@ componentWillMount(){
 </ScrollAnimation>
 
 <div className="col-md-3 col-sm-12 row-pattern-faded animated top-10 fadeInLeft delay-1s rightBorder">
-<h1 className="inner-h1 animated bounceInDown delay-1s">
-Codewala<span className="inner-h1-span">
-Philosophy
-</span>
-</h1>
-
-<p className="inner-paragraph-upper animated fadeIn delay-1s  ">
-Codewala is a one man endevour to provide small and medium businesses a premium digital presense. It is also an effort to demonstrate my capabilities and the services I can offer. I envision a world where code means something and design appeals to the senses.</p>
-<div className="inner-upper-icons-container">
-<div className="inner-upper-icons inner-upper-creative">
-</div>
-
-<div className="inner-upper-icons inner-upper-analysis">
-</div>
-
-</div>
-
-
 
 </div>
 <div className=" row-pattern col-md-3 col-sm-12 animated fadeIn delay-1s"></div>
@@ -193,7 +236,13 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 
 <div className="leftBorder col-md-3 col-sm-12 rightBorder">
 <ScrollAnimation animateIn='fadeIn'>
-<div className="cw_img_ph" ref="bottom"></div>
+<div className="cw_img_ph" ref="bottom">
+<Lottie options={defaultOptions}
+              height={"100%"}
+              width={"100%"}
+              isStopped={this.state.isStopped}
+              isPaused={this.state.isPaused}/></div>
+
 </ScrollAnimation>
 
 <ScrollAnimation animateIn='fadeInRight'>

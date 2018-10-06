@@ -10,7 +10,8 @@ import {Motion, spring, TransitionMotion } from 'react-motion';
 import scrollToComponent from 'react-scroll-to-component';
 import ScrollAnimation from 'react-animate-on-scroll';
 import ReactRotatingText from '../rotatingTextComponent/reactRotatingText'; 
-
+import *  as animationData from './../../Assets/animations/about_animation.json';
+import Lottie from 'react-lottie';
 
 
 
@@ -30,7 +31,9 @@ class AboutPage extends Component {
             iconHoverClass: '',
             lastScrollPos: 0,
             changedPos: undefined,
-            down: true
+            down: true,
+            isStopped: false,
+            isPaused: false
         })
         this.handleIconHover = this.handleIconHover.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
@@ -126,11 +129,23 @@ componentWillMount(){
    
 
     render() {
-
+     
+       
+          const defaultOptions = {
+            loop: true,
+            autoplay: true, 
+            animationData: animationData,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice'
+            }
+          };
        
             return (
                 <div className="animated fadeIn delay-1s" id="container_fade" onWheel={this.handleScroll}>
 
+
+     
+  
 
  <Loading className="loading"
     show={this.state.show}
@@ -249,7 +264,13 @@ So, People of the brave new world, why can't we try to loosen up a bit and do wh
 
 <div className="col-md-3 col-sm-12 rightBorder">
 <ScrollAnimation animateIn='fadeIn'>
-<div className="cw_img" ref="bottom"></div>
+<div className="cw_img" ref="bottom">
+
+<Lottie options={defaultOptions}
+              height={"100%"}
+              width={"100%"}
+              isStopped={this.state.isStopped}
+              isPaused={this.state.isPaused}/></div>
 </ScrollAnimation>
 
 <ScrollAnimation animateIn='fadeInRight'>
