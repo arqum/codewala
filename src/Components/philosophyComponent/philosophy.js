@@ -156,7 +156,7 @@ componentWillMount(){
 
 
 <div className="row" ref="top">
-<div className="col-md-3 col-sm-12 animated row-pattern fadeInLeft delay-1s" style={{overflow: "hidden"}}>
+<div className="col-md-3 col-sm-12 animated row-pattern fadeIn delay-1s" style={{overflow: "hidden"}}>
 
 </div>
 
@@ -177,24 +177,58 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 </div>
 <div className="col-md-2">
 </div>
+
+<ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutUp' duration={3}>
+<div className="col-md-2">
+<div className="brain-overlays">
+<span className="brain-overlays-bold-span">2- Conscious</span><span className="brain-overlays-span">Incompetence</span>
+</div>
+</div>
+</ScrollAnimation>
+
+
 <div className="col-md-2">
 </div>
 <div className="col-md-2">
 </div>
+
+<ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutUp' duration={4}>
 <div className="col-md-2">
+<div className="brain-overlays" style={{top:"100px", left:"10%"}}>
+<span className="brain-overlays-bold-span">3- Conscious</span><span className="brain-overlays-span">Competence</span>
 </div>
-<div className="col-md-2">
 </div>
+</ScrollAnimation>
+
+
 </div>
 <div className="row">
+
+<div className="col-md-2">
+
+</div>
+
+
+<ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutUp' duration={2}>
+<div className="col-md-2">
+<div className="brain-overlays">
+<span className="brain-overlays-bold-span">1- Unconsious</span><span className="brain-overlays-span">Incompetence</span>
+</div>
+</div>
+</ScrollAnimation>
+
+
 <div className="col-md-2">
 </div>
-<div className="col-md-2">
+
+<ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutUp' duration={5}>
+<div className="col-md-2" style={{top:"64%"}}>
+<div className="brain-overlays" style={{bottom:"20%"}}>
+<span className="brain-overlays-bold-span">4- Unconscious</span><span className="brain-overlays-span">Competence</span>
 </div>
-<div className="col-md-2">
 </div>
-<div className="col-md-2">
-</div>
+</ScrollAnimation>
+
 <div className="col-md-2">
 </div>
 <div className="col-md-2">
@@ -223,7 +257,7 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 </div>
 </ScrollAnimation>
 
-<div className="col-md-3 col-sm-12 row-pattern-faded animated top-10 fadeInLeft delay-1s rightBorder">
+<div className="col-md-3 col-sm-12 row-pattern animated top-10 fadeIn delay-1s rightBorder">
 
 </div>
 <div className=" row-pattern col-md-3 col-sm-12 animated fadeIn delay-1s"></div>
