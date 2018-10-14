@@ -26,7 +26,7 @@ class LandingPage extends Component {
 
     constructor(props) {
         super(props);
-        const img = require(`../../Assets/images/${Data[0].logoImgURL}`);
+        const img = require(`../../Assets/animations/${Data[0].logoImgURL}`);
         const description = Data[0].description;
         const backgroundCover = Data[0].isVideo ? require(`../../Assets/images/${Data[0].videoURL}`) : require(`../../Assets/images/${Data[0].backgroundImgURL}`);
         const isVideo = Data[0].isVideo;
@@ -255,7 +255,7 @@ class LandingPage extends Component {
         const item = find(Data, x => (x.id === value));
         const itemIndex = findIndex(Data, x => (x.id === value));
         this.setState({
-            centerImg: require(`../../Assets/images/${item.logoImgURL}`),
+            centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
             description: item.description,
             isVideo: item.isVideo,
             backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
@@ -267,7 +267,7 @@ class LandingPage extends Component {
         const itemIndex = findIndex(Data, x => (x.id === valueID));
         this.setState({
             currentIndex: itemIndex,
-            centerImg: require(`../../Assets/images/${item.logoImgURL}`),
+            centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
             description: item.description,
             isVideo: item.isVideo,
             label: item.label,

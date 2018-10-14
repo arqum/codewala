@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactRotatingText from "../rotatingTextComponent/reactRotatingText";
 import styles from './styles.scss';
+import Lottie from 'react-lottie';
 
 type LandingPageCenterContentProps = {
     startingIndex: number,
@@ -16,12 +17,27 @@ type LandingPageCenterContentProps = {
 };
 const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
     const {centerImg, currentValue, items, typingInterval, deletingInterval, pause, description, startingIndex} = props;
+    console.log(centerImg);
     return (
         <div className="row ontop">
 
 
-            <div className={`slide-in-fwd-center ${styles.centerImg}`}
-                 style={{backgroundImage: `url(${centerImg})`}}/>
+            <div style={{zIndex:"20"}}>
+
+                 <Lottie options={{
+                     loop: true,
+                     autoplay: true, 
+                     animationData: centerImg,
+                     rendererSettings: {
+                       preserveAspectRatio: 'xMidYMid slice'
+                     }
+                 }}
+              height={"100%"}
+              width={"100%"}
+              isStopped={false}
+              isPaused={false}/>
+            </div>
+
             <i className="fa-fw select-all fas"/>
             <span className="txt-rotate animated fadeInUp">
                  <span className="codewalatext">
