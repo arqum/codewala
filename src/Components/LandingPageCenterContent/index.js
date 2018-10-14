@@ -15,6 +15,20 @@ type LandingPageCenterContentProps = {
     centerImg: any,
 
 };
+
+const style = {
+    backgroundSize: "30%",
+    backgroundRepeat: "no-repeat",
+    width: "160px",
+    height: "auto",
+    position: "absolute",
+    left: "34%",
+    top: "50%",
+    marginLeft: "-150px",
+    marginTop: "-150px",
+    zIndex: "20",
+   
+}
 const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
     const {centerImg, currentValue, items, typingInterval, deletingInterval, pause, description, startingIndex} = props;
     console.log(centerImg);
@@ -22,7 +36,7 @@ const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
         <div className="row ontop">
 
 
-            <div style={{zIndex:"20"}}>
+            <div>
 
                  <Lottie options={{
                      loop: true,
@@ -32,8 +46,9 @@ const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
                        preserveAspectRatio: 'xMidYMid slice'
                      }
                  }}
-              height={"100%"}
-              width={"100%"}
+            //   height={"240px"}
+            //   width={"250px"}
+              style={style}
               isStopped={false}
               isPaused={false}/>
             </div>
