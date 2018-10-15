@@ -1532,6 +1532,12 @@ height: auto;
   transition: all 500ms cubic-bezier(0, 0.87, 1, 0.645);
 
 }
+.circles-label-selected::before{
+
+  content: "\219D";
+  margin-right: 5px;
+}
+
 
 .circles-label{
   left: 12px;
@@ -1542,6 +1548,7 @@ height: auto;
   bottom: 6px;
   color: rgba(255, 255, 255, 0.5);
   transition: all 500ms cubic-bezier(0, 0.87, 1, 0.645);
+  letter-spacing: 2px;
 }
 
 .circles-label-hidden{
@@ -1568,6 +1575,7 @@ height: auto;
   color: rgba(255, 255, 255, 0.5);
   transition: all 500ms cubic-bezier(0, 0.87, 1, 0.645);
 }
+
 
 .circles-label:hover{
   left: 16px;
