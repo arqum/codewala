@@ -17,7 +17,6 @@ const LandingDots = (props: LandingDotsProps) => {
 
     return (
       
-
         <div className={styles.circles}>
             {
                 items.map((item, index) => {

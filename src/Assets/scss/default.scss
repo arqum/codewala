@@ -1534,10 +1534,16 @@ height: auto;
 }
 .circles-label-selected::before{
 
-  content: "\219D";
+  content: "\21E2";
   margin-right: 5px;
 }
 
+.landing-dots-area{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+}
 
 .circles-label{
   left: 12px;
@@ -1548,7 +1554,7 @@ height: auto;
   bottom: 6px;
   color: rgba(255, 255, 255, 0.5);
   transition: all 500ms cubic-bezier(0, 0.87, 1, 0.645);
-  letter-spacing: 2px;
+  letter-spacing: 1.3px;
 }
 
 .circles-label-hidden{
