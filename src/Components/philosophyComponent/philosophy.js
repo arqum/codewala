@@ -35,6 +35,7 @@ class PhilosophyPage extends Component {
         this.handleScroll = this.handleScroll.bind(this);
 
 
+
         
     }
 
@@ -82,6 +83,10 @@ componentWillMount(){
 
     }
 
+    UnconsciousIncompetenceHover (){
+        console.log("inside first hover");
+    }
+
     currentValue=(value)=>{
 
         if (value.includes("code")) {
@@ -121,7 +126,7 @@ componentWillMount(){
         // }
     }
 
-
+  
    
 
     render() {
@@ -204,17 +209,16 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 </div>
 <div className="row">
 
-<div className="col-md-2">
-
-</div>
+<div className="col-md-2"></div>
 
 
 <ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutUp' duration={2}>
 <div className="col-md-2">
-<div className="brain-overlays">
+<div className="brain-overlays"  >
 <span className="brain-overlays-bold-span">1- Unconsious</span><span className="brain-overlays-span">Incompetence</span>
 </div>
 </div>
+
 </ScrollAnimation>
 
 
@@ -260,7 +264,6 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 <div className="col-md-3 col-sm-12 row-pattern animated top-10 fadeIn delay-1s rightBorder">
 
 </div>
-<div className=" row-pattern col-md-3 col-sm-12 animated fadeIn delay-1s"></div>
 
 </div>
 <div className="row" ref="bottom">
@@ -281,7 +284,7 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 
 <ScrollAnimation animateIn='fadeInRight'>
 
-<p className="inner-para-highlight" style={{backgroundColor:"#54d5cd4a"}}>
+<p className="inner-para-highlight" style={{backgroundColor:"rgba(228, 222, 30, 0.17)"}}>
 So, I offer my services. From writing code to designing logos.
  Analyzing business problems to architecting information. Identifying psychological biases, their implications and human emotions and decision making.
 A complete digital solution provider. I have been doing this, I am here to demonstrate that we can do it all and do it good!

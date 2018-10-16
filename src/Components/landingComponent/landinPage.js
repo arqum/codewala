@@ -17,10 +17,22 @@ import LandingPageCenterContent from "../LandingPageCenterContent";
 import Blurred from "../Blurred";
 import BackgroundCover from "../BackgroundCover";
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+import scrollDetector from '../ScrollDetector/scrollDetector';
+
+
 
 
 
 let intervelll;
+const parentDivStyle = {
+    height: '2000px'
+  };
+  
+  const overlayStyle = {
+    position: 'fixed',
+    background: 'LightSkyBlue',
+    bottom: '50px',
+  };
 
 class LandingPage extends Component {
 
@@ -37,8 +49,12 @@ class LandingPage extends Component {
             backgroundCover: backgroundCover,
             isVideo: isVideo,
             currentIndex: 0,
-            label: label
+            label: label,
+            direction:'',
+      lastScrollPos:0
         });
+        this.handleScroll = this.handleScroll.bind(this);
+
 
     }
 
@@ -228,27 +244,23 @@ class LandingPage extends Component {
         });
     }
 
-    handleScroll(){
-        var scrollPos = 0;
-        // adding scroll event
-        window.addEventListener('scroll', function(){
-          // detects new state and compares it with the new one
-          if ((document.body.getBoundingClientRect()).top > scrollPos){
-            document.getElementById('info-box').dataset.scrollDirection = 'UP';
-            console.log("scroll up");
+    handleScroll(event) {
+        console.log(this.state.direction);
 
-          }
-              
+        if(this.state.lastScrollPos > event.currentTarget.scrollTop) {
+          this.setState({
+            direction:'top',
+            lastScrollPos:event.currentTarget.scrollTop
+          });
+          console.log(this.state.direction);
+        } else if(this.state.lastScrollPos < event.currentTarget.scrollTop) {
+          this.setState({
+            direction:'bottom',
+            lastScrollPos:event.currentTarget.scrollTop
+          });
+          console.log(this.state.direction);
 
-            else{
-                document.getElementById('info-box').dataset.scrollDirection = 'DOWN';
-                // saves the new position for iteration.
-                scrollPos = (document.body.getBoundingClientRect()).top;
-                console.log("scroll down");
-
-            }
-                
-        });
+        }
     }
 
     getCurrentValue(value) {
@@ -276,14 +288,17 @@ class LandingPage extends Component {
     };
 
     render() {
+        const { isScrolling, isScrollingDown, isScrollingUp } = this.props;
+
         const {centerImg, description, isVideo, backgroundCover, currentIndex, label} = this.state;
         return (
            
             <div className="animated fadeIn delay-1s">
 
-             {/* <ReactScrollWheelHandler
+         
+                  {/* <ReactScrollWheelHandler
                   upHandler={() => console.log("scroll up")}
-                  downHandler={() => console.log("scroll down")}/> */}
+                  downHandler={() => console.log("scroll down")}/>  */}
 
                 <div className="scroll-downs-home" style={{zIndex: 100}}>
                     <div className="mousey animated fadeInUp">
