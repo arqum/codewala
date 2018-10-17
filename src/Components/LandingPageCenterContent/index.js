@@ -4,6 +4,8 @@ import ReactRotatingText from "../rotatingTextComponent/reactRotatingText";
 import styles from './styles.scss';
 import Lottie from 'react-lottie';
 
+
+
 type LandingPageCenterContentProps = {
     startingIndex: number,
     currentValue: (value: string) => void,
@@ -36,7 +38,11 @@ const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
         <div className="row ontop">
 
 
+
+    
+
             <div>
+           
 
                  <Lottie options={{
                      loop: true,
@@ -52,6 +58,7 @@ const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
               isStopped={false}
               isPaused={false}/>
             </div>
+            
 
             <i className="fa-fw select-all fas"/>
             <span className="txt-rotate animated fadeInUp">
@@ -69,8 +76,8 @@ const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
 
             </span>
 
-
         </div>
+       
     );
 };
 

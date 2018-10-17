@@ -12,6 +12,7 @@ import *  as animationDataBrain from './../../Assets/animations/brain.json';
 import GridOverlay from "../GridOverlay";
 
 
+
 import Lottie from 'react-lottie';
 
 
@@ -267,13 +268,12 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 
 </div>
 <div className="row" ref="bottom">
-<div className="col-md-3 col-sm-12 row-pattern animated fadeInLeft delay-1s" >
-</div>
 
+<div className="leftBorder col-md-6 col-sm-12 rightBorder">
 
-<div className="leftBorder col-md-3 col-sm-12 rightBorder">
 <ScrollAnimation animateIn='fadeIn'>
-<div className="cw_img_ph" ref="bottom">
+<div className="cw_img_ph" ref="bottom row-pattern-faded">
+
 <Lottie options={defaultOptions}
               height={"100%"}
               width={"100%"}
@@ -282,20 +282,11 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 
 </ScrollAnimation>
 
-<ScrollAnimation animateIn='fadeInRight'>
-
-<p className="inner-para-highlight" style={{backgroundColor:"rgba(228, 222, 30, 0.17)"}}>
-So, I offer my services. From writing code to designing logos.
- Analyzing business problems to architecting information. Identifying psychological biases, their implications and human emotions and decision making.
-A complete digital solution provider. I have been doing this, I am here to demonstrate that we can do it all and do it good!
-</p>
-</ScrollAnimation>
-
 </div>
 
 
 
-<div className="col-md-3 col-sm-12 rightBorder nopadding">
+<div className="col-md-6 col-sm-12 rightBorder nopadding">
 
 <ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutDown' duration={1}>
 <div className="cw_txt_ph" id="ab_gradient" >
@@ -330,9 +321,7 @@ So, People of the brave new world, why can't we try to loosen up a bit and do wh
 
 
 
-<div className="col-md-3 col-sm-12 animated fadeIn delay-1s rightBorder row-pattern">
 
-</div>
 
 </div>
 

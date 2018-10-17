@@ -557,22 +557,21 @@ class MainNavigation extends Component {
   </div>
   <div className="col-md-6 col-lg-6 nav-social-section">
   <div className="row row-pattern" style={{paddingTop:"88%"}}>
+
   <div className="col-md-4 col-lg-4 navlinks">
-  <div className="social-icons facebook">
-  
+  <div className="social-icons facebook"></div>
   </div>
-  </div>
+
   <div className="col-md-4 col-lg-4">
   <div className="social-icons twitter navlinks">
-  
   </div>
   </div>
+
   <div className="col-md-4 col-lg-4">
   <div className="social-icons linkedIn navlinks">
+  </div>
+  </div>
 
-  
-  </div>
-  </div>
   </div>
   </div>
   </div>

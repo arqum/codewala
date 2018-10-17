@@ -18,6 +18,8 @@ import Blurred from "../Blurred";
 import BackgroundCover from "../BackgroundCover";
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 import scrollDetector from '../ScrollDetector/scrollDetector';
+import Animated from 'react-animated-transitions';
+import 'animate.css';
 
 
 
@@ -319,8 +321,8 @@ class LandingPage extends Component {
 
                 <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover} id="bgCover" />
                 {/*<Blurred/>*/}
-
-                <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
+      
+                  <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
                                           items={this.itemsList()}
                                           description={description}
                                           centerImg={centerImg}/>

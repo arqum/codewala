@@ -30,7 +30,7 @@
     "videoURL": "ux_video.mp4"
   },
   {
-    "id": "design",
+    "id": " design",
     "label": "DESIGN",
     "description": "Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
     "descriptionClass": "codewalaText_description fade-in-top",
@@ -40,7 +40,7 @@
     "backgroundImgURL":"img_4.jpg"
   },
   {
-    "id": "fun",
+    "id": " fun",
     "label": "FUN",
     "description": "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
     "descriptionClass": "codewalaText_description fade-in-top",
@@ -50,7 +50,7 @@
     "backgroundImgURL":"img_1.jpg"
   },
   {
-    "id": "life",
+    "id": " life",
     "label": "LIFE",
     "description": "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
     "descriptionClass": "codewalaText_description fade-in-top",
