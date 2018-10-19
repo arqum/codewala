@@ -3,6 +3,10 @@ import React from 'react';
 import ReactRotatingText from "../rotatingTextComponent/reactRotatingText";
 import styles from './styles.scss';
 import Lottie from 'react-lottie';
+import { easeIn } from '@popmotion/easing';
+import { CSSTransition} from "react-transition-group";
+
+
 
 
 
@@ -15,6 +19,7 @@ type LandingPageCenterContentProps = {
     deletingInterval: number,
     pause: number,
     centerImg: any,
+    inProp: boolean
 
 };
 
@@ -31,34 +36,69 @@ const style = {
     zIndex: "20",
    
 }
+
+
+
 const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
-    const {centerImg, currentValue, items, typingInterval, deletingInterval, pause, description, startingIndex} = props;
+    const {centerImg, currentValue, items, typingInterval, deletingInterval, pause, description, startingIndex, inProp} = props;
     console.log(centerImg);
     return (
         <div className="row ontop">
 
+            <CSSTransition
+              in={inProp}
+              timeout={300}
+             classNames="img"
+              unmountOnExit
+              onExited={() => {
+                this.setState({
+                  showValidationButton: true,
+                });
+              }}
+            >
+              {state => (
+                <h1>
+                  Your name rocks!
+                  <CSSTransition
+                    in={state === 'entered'}
+                    timeout={300}
+                    classNames="star"
+                    unmountOnExit
+                  >
+                    <div className="star">⭐</div>
+                  </CSSTransition>
+                </h1>
+              )}
+            </CSSTransition>
 
 
-    
 
-            <div>
-           
 
-                 <Lottie options={{
+
+
+
+
+
+
+
+
+
+        
+
+    <Lottie options={{
                      loop: true,
                      autoplay: true, 
                      animationData: centerImg,
                      rendererSettings: {
-                       preserveAspectRatio: 'xMidYMid slice'
+                     preserveAspectRatio: 'xMidYMid slice'
                      }
-                 }}
-            //   height={"240px"}
-            //   width={"250px"}
-              style={style}
-              isStopped={false}
-              isPaused={false}/>
-            </div>
-            
+                   
+                    }}
+                    style={style}
+                    isStopped={false}
+                    isPaused={false}
+                    className="centerImg"/>
+             
 
             <i className="fa-fw select-all fas"/>
             <span className="txt-rotate animated fadeInUp">
@@ -72,12 +112,11 @@ const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
                      <br/>
                  </span>
 
-            <div className={`codewalaText_description fade-in-top`}>{description}</div> 
+            <div className={`codewalaText_description animated fadeIn`}>{description}</div> 
+
 
             </span>
-
-        </div>
-       
+            </div>
     );
 };
 

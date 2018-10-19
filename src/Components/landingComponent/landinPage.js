@@ -20,6 +20,9 @@ import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 import scrollDetector from '../ScrollDetector/scrollDetector';
 import Animated from 'react-animated-transitions';
 import 'animate.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
+import { CSSTransition } from 'react-transition-group';
+import './styles.scss';
 
 
 
@@ -45,6 +48,7 @@ class LandingPage extends Component {
         const backgroundCover = Data[0].isVideo ? require(`../../Assets/images/${Data[0].videoURL}`) : require(`../../Assets/images/${Data[0].backgroundImgURL}`);
         const isVideo = Data[0].isVideo;
         const label = Data[0].label;
+
         this.state = ({
             centerImg: img,
             description: description,
@@ -53,9 +57,11 @@ class LandingPage extends Component {
             currentIndex: 0,
             label: label,
             direction:'',
-      lastScrollPos:0
+            lastScrollPos:0,
         });
+
         this.handleScroll = this.handleScroll.bind(this);
+        this.toggleAppear = this.toggleAppear.bind(this);
 
 
     }
@@ -75,6 +81,9 @@ class LandingPage extends Component {
 
     }
     componentDidMount() {
+        setInterval(() => {
+            this.setState({ isVisible: !this.state.isVisible });
+          }, 1000);
 
         // window.addEventListener('scroll', this.handleScroll);
 
@@ -276,9 +285,17 @@ class LandingPage extends Component {
         });
     }
 
+    toggleAppear = ()=> {
+        console.log("toggle appear");
+        
+
+    }
+
     changeCurrentView(valueID) {
         const item = find(Data, x => (x.id === valueID));
         const itemIndex = findIndex(Data, x => (x.id === valueID));
+
+        this.toggleAppear();
         this.setState({
             currentIndex: itemIndex,
             centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
@@ -291,12 +308,10 @@ class LandingPage extends Component {
 
     render() {
         const { isScrolling, isScrollingDown, isScrollingUp } = this.props;
-
         const {centerImg, description, isVideo, backgroundCover, currentIndex, label} = this.state;
         return (
            
             <div className="animated fadeIn delay-1s">
-
          
                   {/* <ReactScrollWheelHandler
                   upHandler={() => console.log("scroll up")}
@@ -320,12 +335,13 @@ class LandingPage extends Component {
                 <div className="transition-fader"></div>
 
                 <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover} id="bgCover" />
-                {/*<Blurred/>*/}
-      
-                  <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
-                                          items={this.itemsList()}
-                                          description={description}
-                                          centerImg={centerImg}/>
+
+         
+
+                   <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
+                    items={this.itemsList()}
+                    description={description}
+                    centerImg={centerImg} inProp={false}/>
                 <div className="grain animated fadeIn"></div>
                 
             </div>
