@@ -55,30 +55,11 @@ componentWillMount(){
 }
 
     componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll, { passive: true })
-
-
-
-
-
-        // this.closeMenuAnimation();
-               let interval = 1;
-       let x;
-       x = setInterval(() => {
+        window.addEventListener('scroll', this.handleScroll, { passive: true });
            this.setState({
                show: true
            })
-           interval += 1;
-           if (interval == 3) {
-               this.setState({
-                   show: false
-  
-               })
-                 
-               clearInterval(x);            
-
-           }
-       },600);
+    
     }
 
     componentWillUnmount() {
@@ -147,7 +128,7 @@ componentWillMount(){
      
   
 
- <Loading className="loading"
+ <Loading
     show={this.state.show}
     color="#54d5cd"
     showSpinner={false}

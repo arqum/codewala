@@ -1506,6 +1506,12 @@ height: auto;
   transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
 
 }
+
+.ontop-initial {
+  z-index: 2000 !important;
+  transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
+  margin-top: 50%;
+}
 .centerLogoTransition{
   transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
 

@@ -18,15 +18,17 @@
   transition: all 100ms linear;
 }
 
-
-.img-enter {
+.img-appear {
+  filter: blur(5px);
   opacity: 0.01;
-  transform: scale(0.9) translateY(50%);
+}
+.img-enter {
+  filter: blur(5px);
+  opacity: 1;
 }
 .img-enter-active {
-  opacity: 1;
-  transform: scale(1) translateY(0%);
   transition: all 300ms ease-out;
+  filter:blur(0px)
 }
 .img-exit {
   opacity: 1;

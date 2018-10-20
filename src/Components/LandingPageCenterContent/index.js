@@ -37,6 +37,19 @@ const style = {
    
 }
 
+const ontop =  {
+  
+  Zindex: "2000 !important",
+  transition: "all 200ms cubic-bezier(0, 0, 0.58, 1)"
+
+}
+
+const initial = {
+  Zindex: "2000 !important",
+  transition: "all 200ms cubic-bezier(0, 0, 0.58, 1)",
+  marginTop: "70%"
+}
+
 
 
 const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
@@ -44,46 +57,6 @@ const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
     console.log(centerImg);
     return (
         <div className="row ontop">
-
-            <CSSTransition
-              in={inProp}
-              timeout={300}
-             classNames="img"
-              unmountOnExit
-              onExited={() => {
-                this.setState({
-                  showValidationButton: true,
-                });
-              }}
-            >
-              {state => (
-                <h1>
-                  Your name rocks!
-                  <CSSTransition
-                    in={state === 'entered'}
-                    timeout={300}
-                    classNames="star"
-                    unmountOnExit
-                  >
-                    <div className="star">⭐</div>
-                  </CSSTransition>
-                </h1>
-              )}
-            </CSSTransition>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
 
     <Lottie options={{
                      loop: true,

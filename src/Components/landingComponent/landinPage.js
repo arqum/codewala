@@ -23,6 +23,9 @@ import 'animate.css';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import { CSSTransition } from 'react-transition-group';
 import './styles.scss';
+import anime from 'animejs'
+
+
 
 
 
@@ -58,6 +61,7 @@ class LandingPage extends Component {
             label: label,
             direction:'',
             lastScrollPos:0,
+            show: true
         });
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -89,24 +93,24 @@ class LandingPage extends Component {
 
         // this.closeMenuAnimation();
         // $('body').css('background', '#2c3343');
-        let interval = 1;
-        let x;
-        x = setInterval(() => {
-            this.setState({
-                show: true
-            })
-            interval += 1;
-            if (interval == 3) {
-                this.setState({
-                    show: false,
+        // let interval = 1;
+        // let x;
+        // x = setInterval(() => {
+        //     this.setState({
+        //         show: true
+        //     })
+        //     interval += 1;
+        //     if (interval == 3) {
+        //         this.setState({
+        //             show: false,
 
-                })
+        //         })
 
-                clearInterval(x);
+        //         clearInterval(x);
 
 
-            }
-        }, 600);
+        //     }
+        // }, 600);
 
         //map function from large values to small
         function map(num, in_min, in_max, out_min, out_max) {
@@ -312,7 +316,11 @@ class LandingPage extends Component {
         return (
            
             <div className="animated fadeIn delay-1s">
-         
+           <Loading className="loading"
+                         show={this.state.show}
+                         color="#54d5cd"
+                         showSpinner={false}
+                />
                   {/* <ReactScrollWheelHandler
                   upHandler={() => console.log("scroll up")}
                   downHandler={() => console.log("scroll down")}/>  */}
@@ -325,23 +333,19 @@ class LandingPage extends Component {
 
                 <LandingDots items={this.itemsList()} label={label} index={currentIndex} onClick={this.changeCurrentView.bind(this)}/>
                 <GridOverlay numberOfColumns={5}/>
-                <Loading className="loading"
-                         show={this.state.show}
-                         color="#54d5cd"
-                         showSpinner={false}
-                />
+              
                 <div id="element"/>
                 <div id="gradient"/>
                 <div className="transition-fader"></div>
 
                 <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover} id="bgCover" />
-
+    
          
 
                    <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
                     items={this.itemsList()}
                     description={description}
-                    centerImg={centerImg} inProp={false}/>
+                    centerImg={centerImg} inProp={true}/>
                 <div className="grain animated fadeIn"></div>
                 
             </div>
