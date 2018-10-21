@@ -23,7 +23,7 @@ import 'animate.css';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import { CSSTransition } from 'react-transition-group';
 import './styles.scss';
-import anime from 'animejs'
+
 
 
 
@@ -61,7 +61,8 @@ class LandingPage extends Component {
             label: label,
             direction:'',
             lastScrollPos:0,
-            show: true
+            show: true,
+            centerContent: true
         });
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -279,12 +280,14 @@ class LandingPage extends Component {
     }
 
     getCurrentValue(value) {
+        this.setState({centerContent:false})
         const item = find(Data, x => (x.id === value));
         const itemIndex = findIndex(Data, x => (x.id === value));
         this.setState({
             centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
             description: item.description,
             isVideo: item.isVideo,
+            centerContent: true,
             backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
         });
     }
@@ -306,6 +309,7 @@ class LandingPage extends Component {
             description: item.description,
             isVideo: item.isVideo,
             label: item.label,
+            centerContent: true,
             backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
         });
     };
@@ -345,7 +349,7 @@ class LandingPage extends Component {
                    <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
                     items={this.itemsList()}
                     description={description}
-                    centerImg={centerImg} inProp={true}/>
+                    centerImg={centerImg} centerContent={this.state.centerContent}/>
                 <div className="grain animated fadeIn"></div>
                 
             </div>

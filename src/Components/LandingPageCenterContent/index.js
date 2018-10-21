@@ -1,9 +1,8 @@
 // @flow
-import React from 'react';
+import React, {Component} from 'react';
 import ReactRotatingText from "../rotatingTextComponent/reactRotatingText";
 import styles from './styles.scss';
 import Lottie from 'react-lottie';
-import { easeIn } from '@popmotion/easing';
 import { CSSTransition} from "react-transition-group";
 
 
@@ -19,7 +18,7 @@ type LandingPageCenterContentProps = {
     deletingInterval: number,
     pause: number,
     centerImg: any,
-    inProp: boolean
+    centerContent: boolean
 
 };
 
@@ -52,10 +51,28 @@ const initial = {
 
 
 
-const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
-    const {centerImg, currentValue, items, typingInterval, deletingInterval, pause, description, startingIndex, inProp} = props;
+class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
+    static defaultProps={
+        typingInterval: 200,
+        deletingInterval: 80,
+        pause: 7000
+    }
+    constructor(props){
+        super(props);
+    }
+    render(){
+    const {centerImg, currentValue, items, typingInterval, deletingInterval, pause, description, startingIndex, centerContent} = this.props;
     console.log(centerImg);
     return (
+        <CSSTransition
+        in={centerContent}
+        timeout={500}
+        classNames="centerImg"
+        unmountOnExit={true}    
+        appear={true}
+        exit={true}    
+        >
+
         <div className="row ontop">
 
     <Lottie options={{
@@ -90,12 +107,8 @@ const LandingPageCenterContent = (props: LandingPageCenterContentProps) => {
 
             </span>
             </div>
+            </CSSTransition>
     );
-};
-
-LandingPageCenterContent.defaultProps = {
-    typingInterval: 200,
-    deletingInterval: 80,
-    pause: 7000
+                }
 };
 export default LandingPageCenterContent
