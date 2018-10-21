@@ -456,60 +456,83 @@
   }
 
 
+//logo animations
+
+.logoImg-appear {
+  opacity: 0;
+  transform: translateY(5px);
+   filter: blur(3px);
+}
+
+.logoImg-appear.logoImg-appear-active {
+  opacity: 1;
+    transform: translateY(0px);
+     filter: blur(0px);
+    transition: all 1000ms ease-in;
+}
+
+  .logoImg-enter {
+    opacity: 1;
+    transform: translateY(5px);
+    filter: blur(3px);
+  }
+  
+  .logoImg-enter.logoImg-enter-active {
+    opacity: 1;
+    transform: translateY(0px);
+     filter: blur(0px);
+    transition: all 1000ms ease-in;
+  }
+  
+  .logoImg-exit {
+    opacity: 1;
+    transform: translateY(0px);
+     filter: blur(0px);
+    
+  }
+  
+  .logoImg-exit.logoImg-exit-active {
+    opacity: 0.01;
+    transform: translateY(-5px);
+     filter: blur(0px);
+    transition: all 1000ms ease-in;
+  }
+  .logoImg-exit.logoImg-exit-done {
+    opacity: 0.01;
+  }
 
 
-//Animations for react css transitions
-.centerImg-appear {
+//description animations
+.logoDescription-appear {
   opacity: 0.01;
-  transform: scale(1.5) translateY(50%);
+}
+
+.logoDescription-appear.logoDescription-appear-active {
+  opacity: 1;
+    transform: translateY(10px);
+     filter: blur(0px);
+    transition: all 1000ms ease-in;
+}
+.logoDescription-enter {
+  opacity: 0.01;
   filter: blur(3px);
 }
-.centerImg-active-appear {
+
+.logoDescription-enter.logoDescription-enter-active {
   opacity: 1;
-  transform: scale(1) translateY(0%);
-  transition: all 800ms ease-in;
   filter: blur(0px);
-
+  transition: all 1000ms ease-in;
 }
-  .centerImg-enter {
-    opacity: 0.01;
-    transform: translateX(10%);
-    filter: blur(3px);
-    transition: all 800ms ease-in;
 
-  }
-  .centerImg-active-enter {
-    opacity: 1;
-    filter: blur(3px);
-    transform: translateX(0%);
-    transition: all 800ms ease-in;
- 
+.logoDescription-leave {
+  opacity: 1;
+}
 
-  }
-  .centerImg-done-enter {
-    opacity: 1;
-    filter: blur(0px);
-    transform: scale(1) translateX(0%);
-    transition: all 800ms ease-in;
-  
+.logoDescription-leave.logoDescription-leave-active {
+  opacity: 0.01;
+  transition: opacity 1000ms ease-in;
+}
 
-  }
-  
-  .centerImg-exit {
-    opacity: 0;
-    transform: scale(1) translateY(0%);
-  }
-  .centerImg-active-exit {
-    opacity: 0.01;
-    transform: scale(0.9) translateY(50%);
-    transition: all 300ms ease-out;
-  }
-  .centerImg-done-exit {
-    opacity: 0;
-    filter: blur(3px);
-    transform: scale(1) translateX(0%);
-    transition: all 800ms ease-out;
-  }
 
   .centerImg {
     -webkit-background-size: 70%;
@@ -524,12 +547,12 @@
     margin-left: -150px;
     margin-top: -150px;
     z-index: 20;
-    -webkit-transition: all 100ms linear;
-    -moz-transition: all 100ms linear;
-    -ms-transition: all 100ms linear;
-    -o-transition: all 100ms linear;
-    transition: all 100ms linear;
+
   }
+
+
+
+
 
   @keyframes line-animation {
     0% {

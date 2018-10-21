@@ -63,19 +63,21 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
     render(){
     const {centerImg, currentValue, items, typingInterval, deletingInterval, pause, description, startingIndex, centerContent} = this.props;
     console.log(centerImg);
+
     return (
-        <CSSTransition
-        in={centerContent}
-        timeout={500}
-        classNames="centerImg"
-        unmountOnExit={true}    
-        appear={true}
-        exit={true}    
-        >
+      
+      
 
         <div className="row ontop">
-
-    <Lottie options={{
+          <div>
+          <CSSTransition
+              in={centerContent}
+              timeout={1000}
+              classNames="logoImg"  
+              unmountOnExit
+              appear={true}
+              >
+          <Lottie options={{
                      loop: true,
                      autoplay: true, 
                      animationData: centerImg,
@@ -88,10 +90,12 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
                     isStopped={false}
                     isPaused={false}
                     className="centerImg"/>
-             
 
-            <i className="fa-fw select-all fas"/>
-            <span className="txt-rotate animated fadeInUp">
+          </CSSTransition>
+          </div>
+              
+            <span className="txt-rotate">
+
                  <span className="codewalatext">
                      <strong>&lt;code</strong>wala/&gt; is
                      <ReactRotatingText currentValue={currentValue}
@@ -101,14 +105,29 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
                                         deletingInterval={deletingInterval} pause={pause}/>
                      <br/>
                  </span>
+               
 
+            <CSSTransition
+                  in={centerContent}
+                  transitionEnterTimeout={1000}
+                  transitionLeaveTimeout={300}
+                  classNames="logoDescription"
+                  unmountOnExit={true}    
+                  exit={true}    
+                  appear
+                  >
             <div className={`codewalaText_description animated fadeIn`}>{description}</div> 
 
-
-            </span>
-            </div>
             </CSSTransition>
+
+        </span>
+      </div>
+            
+           
+           
+           
     );
-                }
+             
+  }
 };
 export default LandingPageCenterContent
