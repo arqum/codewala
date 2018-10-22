@@ -72,8 +72,8 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
           <div>
           <CSSTransition
               in={centerContent}
-              timeout={1000}
-              classNames="logoImg"  
+              timeout={500}
+              classNames="message"  
               unmountOnExit
               appear={true}
               >

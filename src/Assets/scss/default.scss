@@ -456,8 +456,36 @@
   }
 
 
-//logo animations
 
+
+
+//logo animations
+.message-enter {
+  opacity: 0.01;
+  filter: blur(1px);
+  transform: scale(0.9) translateY(5%);
+}
+.message-enter-active {
+  opacity: 1;
+  filter: blur(3px);
+  //transform: scale(1) translateY(0%);
+}
+.message-enter-done {
+  opacity: 1;
+  filter: blur(0px);
+  //transform: scale(1) translateY(0%);
+  transition: all 300ms ease-in;
+}
+.message-exit {
+  opacity: 1;
+}
+.message-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+
+//
 .logoImg-appear {
   opacity: 0;
   transform: translateY(5px);
