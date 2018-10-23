@@ -43,7 +43,7 @@ const parentDivStyle = {
   };
 
 class LandingPage extends Component {
-
+    clickTimer=undefined;
     constructor(props) {
         super(props);
         const img = require(`../../Assets/animations/${Data[0].logoImgURL}`);
@@ -62,11 +62,10 @@ class LandingPage extends Component {
             direction:'',
             lastScrollPos:0,
             show: true,
-            centerContent: true
+            centerContent: false
         });
 
         this.handleScroll = this.handleScroll.bind(this);
-        this.toggleAppear = this.toggleAppear.bind(this);
 
 
     }
@@ -283,40 +282,41 @@ class LandingPage extends Component {
         this.setState({centerContent:false})
         const item = find(Data, x => (x.id === value));
         const itemIndex = findIndex(Data, x => (x.id === value));
-        this.setState({
-            centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
-            description: item.description,
-            isVideo: item.isVideo,
-            centerContent: true,
-            backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
-        });
+        setTimeout(()=>{            
+            this.setState({
+                centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
+                description: item.description,
+                isVideo: item.isVideo,
+                centerContent: true,
+                backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
+            });
+        }, 1600);
     }
 
-    toggleAppear = ()=> {
-        console.log("toggle appear");
-        
-
-    }
-
-    changeCurrentView(valueID) {
+  
+    changeCurrentView(valueID) {        
+       
+        this.setState({centerContent:false})
         const item = find(Data, x => (x.id === valueID));
         const itemIndex = findIndex(Data, x => (x.id === valueID));
 
-        this.toggleAppear();
-        this.setState({
-            currentIndex: itemIndex,
-            centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
-            description: item.description,
-            isVideo: item.isVideo,
-            label: item.label,
-            centerContent: true,
-            backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
-        });
+        clickTimer = setTimeout(()=>{
+            this.setState({
+                currentIndex: itemIndex,
+                centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
+                description: item.description,
+                isVideo: item.isVideo,
+                label: item.label,
+                centerContent: true,
+                backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
+            });
+        }, 1600)
+        
     };
 
     render() {
         const { isScrolling, isScrollingDown, isScrollingUp } = this.props;
-        const {centerImg, description, isVideo, backgroundCover, currentIndex, label} = this.state;
+        const {centerImg, description, isVideo, backgroundCover, currentIndex, label, centerContent} = this.state;
         return (
            
             <div className="animated fadeIn delay-1s">
@@ -342,14 +342,14 @@ class LandingPage extends Component {
                 <div id="gradient"/>
                 <div className="transition-fader"></div>
 
-                <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover} centerContent={this.state.centerContent} id="bgCover" />
+                <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover} centerContent={centerContent} id="bgCover" />
     
          
 
                    <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
                     items={this.itemsList()}
                     description={description}
-                    centerImg={centerImg} centerContent={this.state.centerContent}/>
+                    centerImg={centerImg} centerContent={centerContent}/>
                 <div className="grain animated fadeIn"></div>
                 
             </div>

@@ -16,8 +16,12 @@ const BackgroundCover = (props: BackgroundCoverProps) => {
     return (
         <CSSTransition
         in={centerContent}
-        timeout={1400}
+        timeout={2000}
         classNames="bg"  
+        enter={true}
+        appear={true}
+        exit={true}
+        unmountOnExit={true}
         >
         <div className={`bgImage ` + styles.cover} style={{backgroundImage: `url(${imageSource ? imageSource : ''})`}}>
             {
@@ -40,7 +44,9 @@ const BackgroundCover = (props: BackgroundCoverProps) => {
         
 BackgroundCover.defaultProps = {
     videoAutoPlay: true,
-    videoLoop: true
+    videoLoop: true,
+    centerContent:false
+
 };
 
 export default BackgroundCover

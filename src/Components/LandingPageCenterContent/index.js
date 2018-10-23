@@ -59,6 +59,10 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
     }
     constructor(props){
         super(props);
+        this.state = ({
+          
+            centerContent: null
+        });
     }
     render(){
     const {centerImg, currentValue, items, typingInterval, deletingInterval, pause, description, startingIndex, centerContent} = this.props;
@@ -73,9 +77,19 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
           <CSSTransition
               in={centerContent}
               timeout={1000}
-              classNames="centerLogo"  
-              unmountOnExit
+              classNames={{
+                appear: 'cntrLogo-appear',
+                appearActive: 'cntrLogo-active-appear',
+                enter: 'cntrLogo-enter',
+                enterActive: 'cntrLogo-active-enter',
+                enterDone: 'cntrLogo-done-enter',
+                exit: 'cntrLogo-exit',
+                exitActive: 'cntrLogo-active-exit',
+                exitDone: 'cntrLogo-done-exit'
+               }}           
+              unmountOnExit={true}
               appear={true}
+              exit={true}
               >
           <Lottie options={{
                      loop: true,
