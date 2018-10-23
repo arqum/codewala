@@ -59,6 +59,28 @@ componentWillMount(){
            this.setState({
                show: true
            })
+
+           // Initial state
+var scrollPos = 0;
+// adding scroll event
+window.addEventListener('scroll', function(){
+  // detects new state and compares it with the new one
+  if ((document.body.getBoundingClientRect()).top > scrollPos){
+    console.log("scrolling up");
+
+    document.getElementById('info-box').dataset.scrollDirection = 'UP';
+
+  }
+         
+	else{
+        document.getElementById('info-box').dataset.scrollDirection = 'DOWN';
+        console.log("scrolling down");
+
+    }
+		
+	// saves the new position for iteration.
+	scrollPos = (document.body.getBoundingClientRect()).top;
+});
     
     }
 
@@ -171,8 +193,15 @@ MOBILE
 <div class="scroll-downs " onClick={()=> { scrollToComponent(this.refs.bottom, {
                 offset: 0,
                 align: 'top',
+                ease: 'inQuad',
+                duration: 1000
+            })}}
+            onWheelCapture={()=> { scrollToComponent(this.refs.bottom, {
+                offset: 0,
+                align: 'top',
                 duration: 600
-            })}}>
+            })}}
+            >
   <div class="mousey animated fadeInUp">
     <div class="scroller"></div>
   </div>
@@ -285,7 +314,6 @@ A complete digital solution provider. I have been doing this, I am here to demon
 </div>
 
 <div className="col-md-3 col-sm-12 animated fadeIn delay-1s rightBorder row-pattern">
-
 </div>
 
 </div>

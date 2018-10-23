@@ -290,7 +290,7 @@ class LandingPage extends Component {
                 centerContent: true,
                 backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
             });
-        }, 1600);
+        }, 2000);
     }
 
   
@@ -310,7 +310,7 @@ class LandingPage extends Component {
                 centerContent: true,
                 backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
             });
-        }, 1600)
+        }, 2000)
         
     };
 

@@ -52,7 +52,7 @@
   {
     "id": " life",
     "label": "LIFE",
-    "description": "But I always liked side-paths, little dark back-alleys behind the main road- there one finds adventures and surprises, and precious metal in the dirt. ― Fyodor Dostoyevsky, The Brothers Karamazov",
+    "description": "\"But I always liked side-paths, little dark back-alleys behind the main road- there one finds adventures and surprises, and precious metal in the dirt.\" \n ― Fyodor Dostoyevsky, The Brothers Karamazov",
     "descriptionClass": "codewalaText_description fade-in-top",
     "logoImgURL": "logo_design_animation.json",
     "logoImgClass": "slide-in-blurred-top",

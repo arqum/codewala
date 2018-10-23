@@ -76,7 +76,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
           <div>
           <CSSTransition
               in={centerContent}
-              timeout={1000}
+              timeout={1800}
               classNames={{
                 appear: 'cntrLogo-appear',
                 appearActive: 'cntrLogo-active-appear',
@@ -124,9 +124,19 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
             <CSSTransition
                   in={centerContent}
                   timeout={1600}
-                  classNames="centerText"
-                  unmountOnExit
-                  appear={true}    
+                  classNames={{
+                    appear: 'centerText-appear',
+                    appearActive: 'centerText-active-appear',
+                    enter: 'centerText-enter',
+                    enterActive: 'centerText-active-enter',
+                    enterDone: 'centerText-done-enter',
+                    exit: 'centerText-exit',
+                    exitActive: 'centerText-active-exit',
+                    exitDone: 'centerText-done-exit'
+                   }}        
+                   unmountOnExit={true}
+                   appear={true}
+                   exit={true}
                   >
             <div className={`codewalaText_description animated fadeIn`}>{description}</div> 
 

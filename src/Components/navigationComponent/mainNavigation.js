@@ -494,6 +494,8 @@ class MainNavigation extends Component {
   <div style={logo_dab} className={this.state.menuButton.menuButtonDabLogoClass}></div>
 
 
+
+
   
  
    <div id="menu-button-text" style={menu_button_txt} className="animate fadeInDown faster">
@@ -502,6 +504,8 @@ class MainNavigation extends Component {
    </div>
  
   </div>
+
+    {/* <div style={menu_button} className="animated fadeInDown"  onClick={this.menuButtonClick} onMouseEnter={this.menuButtonHover} onMouseLeave={this.menuButtonLeave}></div> */}
  
 
 
@@ -533,7 +537,7 @@ class MainNavigation extends Component {
      </li>
      <li>
          <span className="nav-items">05</span>
-             <NavLink className="navlinks" to="/hire" activeClassName="selected" onClick={this.navButtonClick}>Hire Us!</NavLink>
+             <NavLink className="navlinks" to="/hire" activeClassName="selected" onClick={this.navButtonClick}>Hire Me!</NavLink>
      </li>
 </ul>
   </div>
