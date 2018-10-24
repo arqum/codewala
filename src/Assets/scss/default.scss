@@ -1817,7 +1817,13 @@ height: auto;
 
 }
 
-
+.landingBigText {
+  
+  position: fixed;
+  font-size: 35vw;
+  color: #f8f9fa1f;
+  transform: rotate(45deg);
+}
 //mouse scroll animation
 
 .scroll-downs {
