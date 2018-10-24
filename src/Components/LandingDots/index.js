@@ -1,6 +1,8 @@
 // @flow
-import React from 'react';
+import React,{Component} from 'react';
 import styles from './styles.scss';
+
+
 
 type LandingDotsProps = {
     items: Array<string>,
@@ -10,11 +12,17 @@ type LandingDotsProps = {
 
 
 };
-const LandingDots = (props: LandingDotsProps) => {
-    const {items, onClick, index: Index} = props;
-    const Data = require('../../API/LandingPageData/data.json');
-    
 
+
+
+class LandingDots extends Component<LandingDotsProps>{
+
+    state={show:false, hoverIndex:undefined}
+    
+    render(){
+    const {items, onClick, index: Index} = this.props;
+    const Data = require('../../API/LandingPageData/data.json');
+    const {show, hoverIndex}=this.state;
     return (
       
         <div className={styles.circles}>
@@ -24,11 +32,11 @@ const LandingDots = (props: LandingDotsProps) => {
                     return (
                     <div>
                          
-                                <div key={index} className={`hollow-circle ${index === Index?'hollow-circle-selected':'hollow-circle'}`}
-                                 onClick={() => (onClick(item))}>
-                                  <div className={`circles-label ${index === Index? 'circles-label-selected':'circles-label-hidden '}`}>{label}</div> 
+                                <div key={index} className={`hollow-circle ${index === Index?'hollow-circle-selected':'hollow-circle'}`} onClick={() => (onClick(item))} onMouseEnter={()=>(this.setState({show:true, hoverIndex:index}))} onMouseLeave={()=>(this.setState({show:false, hoverIndex:undefined}))}>
 
-                                 </div>
+                                  <div className={`circles-label ${index === Index || (show && hoverIndex=== index)? 'circles-label-selected':'circles-label-hidden '}`}>{label}</div> 
+
+                                </div>
                         
                     </div>
                    );
@@ -36,6 +44,7 @@ const LandingDots = (props: LandingDotsProps) => {
             }
         </div>
     );
+        }
 };
 
 LandingDots.defaultProps = {

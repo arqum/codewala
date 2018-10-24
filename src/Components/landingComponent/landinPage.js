@@ -43,7 +43,7 @@ const parentDivStyle = {
   };
 
 class LandingPage extends Component {
-    clickTimer=undefined;
+    clickTimer;
     constructor(props) {
         super(props);
         const img = require(`../../Assets/animations/${Data[0].logoImgURL}`);
@@ -314,6 +314,10 @@ class LandingPage extends Component {
         
     };
 
+    dotsHover(value){
+        console.log("value of the dot hovered " +value);
+    }
+
     render() {
         const { isScrolling, isScrollingDown, isScrollingUp } = this.props;
         const {centerImg, description, isVideo, backgroundCover, currentIndex, label, centerContent} = this.state;
@@ -338,7 +342,7 @@ class LandingPage extends Component {
                 <LandingDots items={this.itemsList()} label={label} index={currentIndex} onClick={this.changeCurrentView.bind(this)}/>
                 <GridOverlay numberOfColumns={6}/>
               
-                <div id="element"/>
+                <div id="element" onmo/>
                 <div id="gradient"/>
                 <div className="transition-fader"></div>
 

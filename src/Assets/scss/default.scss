@@ -1800,7 +1800,8 @@ height: auto;
     animation: nav-links-blur 0.2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
-    cursor: none;
+    cursor: pointer;
+
 }
 
 .circles-label-selected{
@@ -1812,6 +1813,7 @@ height: auto;
   bottom: 6px;
   color: #2c3343;
   transition: all 200ms cubic-bezier(0, 0.87, 1, 0.645);
+  cursor: pointer;
 
 }
 
