@@ -1804,17 +1804,132 @@ height: auto;
 
 }
 
+// .circles-label-selected{
+//   left: 12px;
+//   position: relative;
+//   display: inline;
+//   float: left;
+//   font-size: 0.7em;
+//   bottom: 6px;
+//   color: #2c3343;
+//   transition: all 200ms cubic-bezier(0, 0.87, 1, 0.645);
+//   cursor: pointer;
+
+// }
+
 .circles-label-selected{
-  left: 12px;
-  position: relative;
-  display: inline;
-  float: left;
-  font-size: 0.7em;
-  bottom: 6px;
+
+  left: 12px; 
+  float: right;
+  font-size: .7em;
   color: #2c3343;
-  transition: all 200ms cubic-bezier(0, 0.87, 1, 0.645);
+  transition: all .2s cubic-bezier(0,.87,1,.645);
   cursor: pointer;
 
+}
+
+
+.hovicon {
+  display: inline-block;
+  font-size: 45px;
+  line-height: 90px;
+  cursor: pointer;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+  color: #fff;
+}
+
+.hovicon-selected {
+  display: inline-block;
+  font-size: 45px;
+  line-height: 90px;
+  cursor: pointer;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+  background-color: #252c3e;
+}
+
+
+
+.hovicon.effect-5 {
+  box-shadow: 0 0 0 1px #fff;
+  overflow: hidden; 
+  background-color: white;
+  -webkit-transition: background .3s,color .3s,box-shadow .3s;
+  -moz-transition: background .3s,color .3s,box-shadow .3s;
+  transition: background .3s,color .3s,box-shadow .3s;
+}
+
+.hovicon.effect-5-selected {
+  box-shadow: 0 0 0 1px #252c3e;
+  overflow: hidden; 
+  background-color: #252c3e;
+  -webkit-transition: background .3s,color .3s,box-shadow .3s;
+  -moz-transition: background .3s,color .3s,box-shadow .3s;
+  transition: background .3s,color .3s,box-shadow .3s;
+}
+
+.hovicon.effect-5:after {
+  display: none;
+}
+.hovicon.effect-5:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #702fa8;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3);
+}
+.hovicon.effect-5:hover i {
+  color: #702fa8;
+}
+.hovicon.effect-5.sub-a:hover:before {
+  -webkit-animation: toRightFromLeft 0.3s forwards;
+  -moz-animation: toRightFromLeft 0.3s forwards;
+  animation: toRightFromLeft 0.3s forwards;
+}
+@-webkit-keyframes toRightFromLeft {
+  49% {
+      -webkit-transform: translate(100%);
+  }
+  50% {
+      opacity: 0;
+      -webkit-transform: translate(-100%);
+  }
+  51% {
+      opacity: 1;
+  }
+}
+@-moz-keyframes toRightFromLeft {
+  49% {
+      -moz-transform: translate(100%);
+  }
+  50% {
+      opacity: 0;
+      -moz-transform: translate(-100%);
+  }
+  51% {
+      opacity: 1;
+  }
+}
+@keyframes toRightFromLeft {
+  49% {
+      transform: translate(100%);
+  }
+  50% {
+      opacity: 0;
+      transform: translate(-100%);
+  }
+  51% {
+      opacity: 1;
+  }
 }
 
 .landingBigText {
