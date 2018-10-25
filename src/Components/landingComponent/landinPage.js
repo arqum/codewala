@@ -314,10 +314,6 @@ class LandingPage extends Component {
         
     };
 
-    dotsHover(value){
-        console.log("value of the dot hovered " +value);
-    }
-
     render() {
         const { isScrolling, isScrollingDown, isScrollingUp } = this.props;
         const {centerImg, description, isVideo, backgroundCover, currentIndex, label, centerContent} = this.state;
@@ -340,9 +336,9 @@ class LandingPage extends Component {
                 </div>
 
                 <LandingDots items={this.itemsList()} label={label} index={currentIndex} onClick={this.changeCurrentView.bind(this)}/>
-                <GridOverlay numberOfColumns={6}/>
+                <GridOverlay numberOfColumns={7}/>
               
-                <div id="element" onmo/>
+                <div id="element"/>
                 <div id="gradient"/>
                 <div className="transition-fader"></div>
 

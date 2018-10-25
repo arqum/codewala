@@ -27,8 +27,12 @@
     src: url('./../fonts/OpenSans-Regular.ttf');
     font-weight: 700;
   }
+  @font-face {
+    font-family: railwaydots;
+    src: url('./../fonts/RalewayDots-Regular.ttf');
+    font-weight: 200;
+  }
   
-
     html {
       overflow: scroll;
       overflow-x: hidden;
@@ -389,7 +393,8 @@
   .codewalaText_description {
     width: 65%;
     font-size: 1.2em;
-    font-weight: 400;
+    font-family: oswald-extralight;
+    letter-spacing: 1.2;
     z-index: 13;
   //  background: #2c33432e;
     line-height: 1.2;
@@ -1748,26 +1753,66 @@ height: auto;
   background: red;
 }
 
-.circles-label{
-  left: 12px;
-  position: relative;
-  display: inline;
+.dots-label {
   float: left;
-  font-size: 0.7em;
-  bottom: 6px;
-  color: rgba(255, 255, 255, 0.5);
-  transition: all 500ms cubic-bezier(0, 0.87, 1, 0.645);
-  letter-spacing: 1.3px;
+    position: absolute;
+    left: 0px;
+    top: 3px;
+    letter-spacing: .1em;
+    font-size: .8em;
+    transition: all 200ms cubic-bezier(0, 0.87, 1, 0.645);
 }
 
-.circles-label-hidden{
-  left: 0px;
-  position: relative;
-  display: inline;
+.dots-label-selected {
   float: left;
-  font-size: 0.7em;
-  opacity: 0;
-  bottom: 6px;
+    position: absolute;
+    left: 0px;
+    top: 6px;
+    letter-spacing: .1em;
+    font-size: .8em;
+    transition: all 200ms cubic-bezier(0, 0.87, 1, 0.645);
+
+}
+
+
+.dots-label::before{
+
+  content: "\21E2";
+  margin-right: 5px;
+}
+
+
+.dots-label-hidden {
+  float: left;
+    position: absolute;
+    left: 0px;
+    top: 6px;
+    letter-spacing: .1em;
+    font-size: .8em;
+    transition: all 200ms cubic-bezier(0, 0.87, 1, 0.645);
+    visibility: hidden
+}
+
+// .dots-label:hover {
+//   float: left;
+//     position: absolute;
+//     left: 16px;
+//     top: 6px;
+//     letter-spacing: .1em;
+//     visibility: hidden;
+//     filter: blur(0px); 
+//     cursor: pointer;
+//     text-decoration: none;
+//     animation: nav-links-blur 0.2s;
+//     animation-timing-function: ease-in-out;
+//     animation-fill-mode: forwards;
+//     cursor: pointer;
+// }
+
+
+
+.circles-label-hidden{
+    float: right;
   color: rgba(255, 255, 255, 0.5);
   transition: all 500ms cubic-bezier(0, 0.87, 1, 0.645);
   visibility: hidden;
@@ -1819,12 +1864,9 @@ height: auto;
 
 .circles-label-selected{
 
-  left: 12px; 
-  float: right;
-  font-size: .7em;
-  color: #2c3343;
-  transition: all .2s cubic-bezier(0,.87,1,.645);
-  cursor: pointer;
+  element.style {
+    float: right;
+}
 
 }
 
@@ -1886,6 +1928,9 @@ height: auto;
   background: rgba(255, 255, 255, 1);
   color: #702fa8;
   box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3);
+  -webkit-transition: background .3s,color .3s,box-shadow .3s;
+  -moz-transition: background .3s,color .3s,box-shadow .3s;
+  transition: background .3s,color .3s,box-shadow .3s;
 }
 .hovicon.effect-5:hover i {
   color: #702fa8;
@@ -1933,11 +1978,12 @@ height: auto;
 }
 
 .landingBigText {
-  
+
   position: fixed;
   font-size: 35vw;
   color: #f8f9fa1f;
   transform: rotate(45deg);
+  font-family: oswald-bold;
 }
 //mouse scroll animation
 
@@ -1956,7 +2002,7 @@ height: auto;
 .scroll-downs-home {
   position: absolute;
   top: 66%;
-  right: 20%;
+  right: 14%;
   bottom: 0;
   margin: auto;
   width: 38px;

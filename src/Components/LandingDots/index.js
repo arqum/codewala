@@ -30,20 +30,24 @@ class LandingDots extends Component<LandingDotsProps>{
                 items.map((item, index) => {
                     const label = Data[index].label;
                     return (
-                    <div>
+                    <div className='row'>
 {/*                          
                                 <div key={index} className={`hollow-circle ${index === Index?'hollow-circle-selected':'hollow-circle'}`} onClick={() => (onClick(item))} onMouseEnter={()=>(this.setState({show:true, hoverIndex:index}))} onMouseLeave={()=>(this.setState({show:false, hoverIndex:undefined}))}>
 
                                   <div className={`circles-label ${index === Index || (show && hoverIndex=== index)? 'circles-label-selected':'circles-label-hidden '}`}>{label}</div> 
 
                                 </div> */}
-                        <div class={`hovicon effect-5 sub-a ${index === Index?'hovicon-selected effect-5-selected':'hovicon effect-5 sub-a'}`} onClick={() => (onClick(item))} onMouseEnter={()=>(this.setState({show:true, hoverIndex:index}))} onMouseLeave={()=>(this.setState({show:false, hoverIndex:undefined}))} >
-                        </div>
-                        {/* <div className={`circles-label ${index === Index || (show && hoverIndex=== index)? 'circles-label-selected':'circles-label-hidden '}`}>{label}</div>  */}
 
-                        {/* <div class="hovicon effect-5 sub-a" ></div> */}
+                                <div className="col">
+                                    <div class={`hovicon effect-5 sub-a ${index === Index?'hovicon-selected effect-5-selected':'hovicon effect-5 sub-a'}`} onClick={() => (onClick(item))} onMouseEnter={()=>(this.setState({show:true, hoverIndex:index}))} onMouseLeave={()=>(this.setState({show:false, hoverIndex:undefined}))} > </div>
+                                </div>
+
+                                <div className="col">
+                                    <div className={`dots-label ${index === Index || (show && hoverIndex=== index)? 'dots-label-selected':'dots-label-hidden '}`}>{label}</div> 
+                                </div>
 
                     </div>
+
                    );
                 })
             }
