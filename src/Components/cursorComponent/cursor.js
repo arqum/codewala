@@ -94,8 +94,8 @@ class Cursor extends Component {
 
     $('.navlinks, .hollow-circle').mouseleave(function () {
         $('#cursor').css({
-            'width': '20px',
-            'height': "20px",
+            'width': '10px',
+            'height': "10px",
             'background-color': "rgba(84, 213, 205, 0.7)",
 
 

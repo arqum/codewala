@@ -315,8 +315,8 @@ class MainNavigation extends Component {
 
         //make cursor small again
         $('#cursor').css({
-            'width': '20px',
-            'height': "20px",
+            'width': '10px',
+            'height': "10px",
             'background-color': "rgba(84, 213, 205, 0.7)",
 
         });
@@ -336,8 +336,8 @@ class MainNavigation extends Component {
 
         //make cursor small again
         $('#cursor').css({
-            'width': '20px',
-            'height': "20px",
+            'width': '10px',
+            'height': "10px",
             'background-color': "rgba(84, 213, 205, 0.7)",
 
         });

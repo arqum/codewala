@@ -55,7 +55,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
     static defaultProps={
         typingInterval: 200,
         deletingInterval: 80,
-        pause: 7000
+        pause: 10000
     }
     constructor(props){
         super(props);

@@ -24,7 +24,7 @@ class PhilosophyPage extends Component {
         super()
 
         this.state = ({
-            show: true,
+            show: false,
             fader:true,
             menu: '',
             iconHoverClass: '',
