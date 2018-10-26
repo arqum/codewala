@@ -159,7 +159,7 @@ class LandingPage extends Component {
             var filterAfterMap = map(distance, 100, windowWidth, 2, 50);
             var filterStrength = filterAfterMap;
 
-            if (distance < 550) {
+            if (distance < 600) {
                 $('.bgImage, .videoCover').css({
                     filter: "blur(" + (filterAfterMap) + "px)",
                 });

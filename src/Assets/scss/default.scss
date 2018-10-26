@@ -82,8 +82,10 @@
     background: white;
     overflow-y:hidden;
     overflow-x: hidden;
+    cursor: url("./../images/cursor_arrow.png"), pointer;
+}
   
-  }
+  
 
   .custom_container,
   .App {
@@ -301,8 +303,8 @@
   
   #element {
     background: transparent;
-    height: 30%;
-    left: 40%;
+    height: 25%;
+    left: 38%;
     margin: -25px 0 0 -25px;
     position: absolute;
     top: 40%;
@@ -387,9 +389,9 @@
   
   .txt-rotate {
     position: absolute;
-    left: 43.5%;
+   // left: 43.5%;
     top: 50%;
-    margin-left: -150px;
+    padding-left: 2%;;
     margin-top: -150px;
     z-index: 13;
     color: white;
@@ -415,12 +417,11 @@
   }
 
   .codewalaText_description {
-    width: 65%;
+    width: 100vh;
+    padding-right: 46%;
     font-size: 1em;
     font-family: Open-sans-regular;
     z-index: 13;
-  //  background: #2c33432e;
-    line-height: 1.3;
 
   }
 

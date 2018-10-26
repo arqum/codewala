@@ -27,8 +27,8 @@ const style = {
     backgroundRepeat: "no-repeat",
     width: "160px",
     height: "auto",
-    position: "absolute",
-    left: "34%",
+    position: "fixed",
+    left: "42%",
     top: "50%",
     marginLeft: "-150px",
     marginTop: "-150px",
@@ -73,7 +73,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
       
 
         <div className="row ontop">
-          <div>
+          <div className="col-md-5">
           <CSSTransition
               in={centerContent}
               timeout={1800}
@@ -107,7 +107,8 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
 
           </CSSTransition>
           </div>
-              
+          <div className="col-md-7">
+
             <span className="txt-rotate">
 
                  <span className="codewalatext">
@@ -144,7 +145,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
 
         </span>
       </div>
-            
+      </div>   
            
            
            
