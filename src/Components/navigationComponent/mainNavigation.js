@@ -433,15 +433,18 @@ class MainNavigation extends Component {
         const menu_button_txt = {
 
             color: this.state.menuButton.menuButtonTextColor,
-            fontSize: "20px",
+            fontSize: "15px",
             textAlign: "center",
             position: "absolute",
             top: this.state.menuButton.menuButtonTextTop,
             left: "15px",
             alignContent: "center",
             zIndex: "23",
+            letterSpacing: ".1vh",
+            fontFamily: "krub-bold"
            // transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
         }
+
 
         const logo_lines = {
             // backgroundImage: "url('/Assets/images/logo_dab.svg')",

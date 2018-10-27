@@ -25,11 +25,11 @@ type LandingPageCenterContentProps = {
 const style = {
     backgroundSize: "30%",
     backgroundRepeat: "no-repeat",
-    width: "160px",
+    width: "180px",
     height: "auto",
-    position: "fixed",
-    left: "42%",
-    top: "50%",
+    position: "absolute",
+    right: "-16%",
+    top: "47%",
     marginLeft: "-150px",
     marginTop: "-150px",
     zIndex: "20",
@@ -73,7 +73,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
       
 
         <div className="row ontop">
-          <div className="col-md-5">
+          <div className="col-md-4">
           <CSSTransition
               in={centerContent}
               timeout={1800}
@@ -107,12 +107,14 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
 
           </CSSTransition>
           </div>
-          <div className="col-md-7">
+          <div className="col-md-8">
 
             <span className="txt-rotate">
 
                  <span className="codewalatext">
-                     <strong>&lt;code</strong>wala/&gt; is
+                     <strong>&lt;code</strong>wala/&gt;
+                     <br/> is
+                     <br/>
                      <ReactRotatingText currentValue={currentValue}
                                         startingIndex={startingIndex}
                                         items={items}
