@@ -23,6 +23,8 @@ import 'animate.css';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 import { CSSTransition } from 'react-transition-group';
 import './styles.scss';
+import WheelReact from 'wheel-react';
+
 
 
 
@@ -62,8 +64,35 @@ class LandingPage extends Component {
             direction:'',
             lastScrollPos:0,
             show: true,
-            centerContent: false
+            centerContent: false,
+            content: 'Move your mouse mouse wheel or trackpad or try to scroll here!'
+
         });
+        
+        WheelReact.config({
+            left: () => {
+              this.setState({
+                content: 'left direction detected.'
+              });
+            },
+            right: () => {
+              this.setState({
+                content: 'right direction detected.'
+              });
+            },
+            up: () => {
+                console.log("wheel Down");
+              this.setState({
+                content: 'up direction detected.'
+              });
+            },
+            down: () => {
+                console.log("wheel up");
+              this.setState({
+                content: 'down direction detected.'
+              });
+            }
+          });
 
         this.handleScroll = this.handleScroll.bind(this);
 
@@ -76,7 +105,11 @@ class LandingPage extends Component {
             menu: 'false',
 
         })
+        WheelReact.clearTimeout();
+
     }
+
+
 
 
     componentWillUnmount(){
@@ -315,16 +348,23 @@ class LandingPage extends Component {
     };
 
     render() {
+        let styl = {
+            height: '400px',
+            fontSize: '34px',
+            textAlign: 'center'
+          };
         const { isScrolling, isScrollingDown, isScrollingUp } = this.props;
         const {centerImg, description, isVideo, backgroundCover, currentIndex, label, centerContent} = this.state;
         return (
            
-            <div className="animated fadeIn delay-1s">
+            <div className="animated fadeIn delay-1s" {...WheelReact.events} tabIndex="1">
            <Loading className="loading"
                          show={this.state.show}
                          color="#54d5cd"
                          showSpinner={false}
                 />
+                
+     
                   {/* <ReactScrollWheelHandler
                   upHandler={() => console.log("scroll up")}
                   downHandler={() => console.log("scroll down")}/>  */}
