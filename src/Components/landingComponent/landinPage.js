@@ -68,7 +68,7 @@ class LandingPage extends Component {
             content: 'Move your mouse mouse wheel or trackpad or try to scroll here!'
 
         });
-        
+
         WheelReact.config({
             left: () => {
               this.setState({
@@ -83,19 +83,21 @@ class LandingPage extends Component {
             up: () => {
                 console.log("wheel Down");
               this.setState({
-                content: 'up direction detected.'
+                content: 'Down direction detected.',
+                currentIndex: this.state.currentIndex+1
               });
+              this.changeCurrentView(currentIndex);
             },
             down: () => {
                 console.log("wheel up");
-              this.setState({
-                content: 'down direction detected.'
-              });
-            }
-          });
 
-        this.handleScroll = this.handleScroll.bind(this);
-
+                this.setState({
+                    content: 'Up direction detected.',
+                    currentIndex: this.state.currentIndex-1
+                  });
+                  this.changeCurrentView(currentIndex);
+                }
+                });
 
     }
 
@@ -292,24 +294,6 @@ class LandingPage extends Component {
         });
     }
 
-    handleScroll(event) {
-        console.log(this.state.direction);
-
-        if(this.state.lastScrollPos > event.currentTarget.scrollTop) {
-          this.setState({
-            direction:'top',
-            lastScrollPos:event.currentTarget.scrollTop
-          });
-          console.log(this.state.direction);
-        } else if(this.state.lastScrollPos < event.currentTarget.scrollTop) {
-          this.setState({
-            direction:'bottom',
-            lastScrollPos:event.currentTarget.scrollTop
-          });
-          console.log(this.state.direction);
-
-        }
-    }
 
     getCurrentValue(value) {
         this.setState({centerContent:false})
@@ -332,7 +316,7 @@ class LandingPage extends Component {
         this.setState({centerContent:false})
         const item = find(Data, x => (x.id === valueID));
         const itemIndex = findIndex(Data, x => (x.id === valueID));
-
+        console.log("from wheel down");
         clickTimer = setTimeout(()=>{
             this.setState({
                 currentIndex: itemIndex,

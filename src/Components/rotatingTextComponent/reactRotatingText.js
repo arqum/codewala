@@ -153,7 +153,7 @@ ReactRotatingText.defaultProps = {
     emptyPause: 1000,
     eraseMode: 'erase',
     items: ['first', 'second', 'third'],
-    pause: 1500,
+    pause: 10000,
     typingInterval: 50,
 };
 
