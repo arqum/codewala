@@ -16,7 +16,7 @@ const GridOverlay = (props: GridOverlayProps) => {
                 {
                     times(numberOfColumns, (index) => {
                         return (
-                            <div className={`col ${index % 2 === 0 ? styles.colStyleDark : styles.colStylelight}`}>
+                            <div className={`animated SlideInLeft delay-2s col ${index % 2 === 0 ? styles.colStyleDark : styles.colStylelight}`}>
                                 <div className="animated fadeInLeft delay-1s columns_font"/>
                             </div>
                         )

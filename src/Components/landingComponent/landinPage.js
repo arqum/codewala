@@ -377,7 +377,7 @@ class LandingPage extends Component {
 
                 <LandingDots items={this.itemsList()} label={label} index={currentIndex} onClick={this.changeCurrentView.bind(this)}/>
                {/* <div className="homeLargeText">{label}</div> */}
-                <GridOverlay numberOfColumns={7}/>
+                <GridOverlay numberOfColumns={9}/>
               
                 <div id="element"/>
                 <div id="gradient"/>

@@ -39,12 +39,14 @@ class LandingDots extends Component<LandingDotsProps>{
                                 </div> */}
 
                                 <div className="col">
-                                    <div class={`hovicon effect-5 sub-a ${index === Index?'hovicon-selected effect-5-selected':'hovicon effect-5 sub-a'}`} onClick={() => (onClick(item))} onMouseEnter={()=>(this.setState({show:true, hoverIndex:index}))} onMouseLeave={()=>(this.setState({show:false, hoverIndex:undefined}))} > </div>
+                                    <div class={`hovicon effect-5 sub-a animated fadeInDown ${index === Index?'hovicon-selected effect-5-selected':'hovicon effect-5 sub-a'}`} onClick={() => (onClick(item))} onMouseEnter={()=>(this.setState({show:true, hoverIndex:index}))} onMouseLeave={()=>(this.setState({show:false, hoverIndex:undefined}))} > </div>
                                 </div>
 
                                 <div className="col">
-                                    <div className={`dots-label ${index === Index || (show && hoverIndex=== index)? 'dots-label-selected':'dots-label-hidden '}`}>{label}</div> 
+                                    <div className={`dots-label animated fadeInDown ${index === Index || (show && hoverIndex=== index)? 'dots-label-selected':'dots-label-hidden '}`}>{label}</div> 
                                 </div>
+
+
 
                     </div>
 
