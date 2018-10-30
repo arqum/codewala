@@ -82,20 +82,11 @@ class LandingPage extends Component {
             },
             up: () => {
                 console.log("wheel Down");
-              this.setState({
-                content: 'Down direction detected.',
-                currentIndex: this.state.currentIndex+1
-              });
-              this.changeCurrentView(currentIndex);
+                this.changeCurrentView(Data[this.state.currentIndex+1].id);
             },
             down: () => {
                 console.log("wheel up");
-
-                this.setState({
-                    content: 'Up direction detected.',
-                    currentIndex: this.state.currentIndex-1
-                  });
-                  this.changeCurrentView(currentIndex);
+                this.changeCurrentView(Data[this.state.currentIndex-1].id);               
                 }
                 });
 
@@ -317,6 +308,7 @@ class LandingPage extends Component {
         const item = find(Data, x => (x.id === valueID));
         const itemIndex = findIndex(Data, x => (x.id === valueID));
         console.log("from wheel down");
+        this.getCurrentValue(valueID);
         clickTimer = setTimeout(()=>{
             this.setState({
                 currentIndex: itemIndex,
