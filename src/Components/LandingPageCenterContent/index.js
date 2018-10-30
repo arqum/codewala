@@ -54,7 +54,7 @@ const initial = {
 class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
     static defaultProps={
         typingInterval: 200,
-        deletingInterval: 80,
+        deletingInterval: 40,
         pause: 10000
     }
     constructor(props){

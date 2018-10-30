@@ -82,7 +82,7 @@ class LandingPage extends Component {
             },
             up: () => {
                 console.log("wheel Down");
-                this.changeCurrentView(Data[this.state.currentIndex+1].id);
+                this.getCurrentValue(Data[this.state.currentIndex+1].id);
             },
             down: () => {
                 console.log("wheel up");
@@ -287,15 +287,18 @@ class LandingPage extends Component {
 
 
     getCurrentValue(value) {
+        console.log("current index value" + value);
         this.setState({centerContent:false})
         const item = find(Data, x => (x.id === value));
         const itemIndex = findIndex(Data, x => (x.id === value));
         setTimeout(()=>{            
             this.setState({
+                currentIndex: itemIndex,
                 centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
                 description: item.description,
                 isVideo: item.isVideo,
                 centerContent: true,
+                label: item.label,
                 backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
             });
         }, 2000);
@@ -310,15 +313,15 @@ class LandingPage extends Component {
         console.log("from wheel down");
         this.getCurrentValue(valueID);
         clickTimer = setTimeout(()=>{
-            this.setState({
-                currentIndex: itemIndex,
-                centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
-                description: item.description,
-                isVideo: item.isVideo,
-                label: item.label,
-                centerContent: true,
-                backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
-            });
+            // this.setState({
+            //     currentIndex: itemIndex,
+            //     centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
+            //     description: item.description,
+            //     isVideo: item.isVideo,
+            //     label: item.label,
+            //     centerContent: true,
+            //     backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
+            // });
         }, 2000)
         
     };
@@ -351,7 +354,7 @@ class LandingPage extends Component {
                     </div>
                 </div>
 
-                <LandingDots items={this.itemsList()} label={label} index={currentIndex} onClick={this.changeCurrentView.bind(this)}/>
+                <LandingDots items={this.itemsList()} label={label} index={currentIndex} onClick={this.getCurrentValue.bind(this)}/>
                {/* <div className="homeLargeText">{label}</div> */}
                 <GridOverlay numberOfColumns={9}/>
               
@@ -366,7 +369,8 @@ class LandingPage extends Component {
                    <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
                     items={this.itemsList()}
                     description={description}
-                    centerImg={centerImg} centerContent={centerContent}/>
+                    centerImg={centerImg} centerContent={centerContent}
+                    Nxt={true}/>
                 <div className="grain animated fadeIn"></div>
                 
             </div>

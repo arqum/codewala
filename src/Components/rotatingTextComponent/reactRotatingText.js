@@ -9,12 +9,13 @@ class ReactRotatingText extends React.Component {
             index: props.startingIndex,
             output: '',
             substrLength: 0,
+            nxt: false
         };
         this.timeouts = [];
     }
 
     componentDidMount() {
-        this._animate.bind(this)();   // begin the animation loop
+       this._animate.bind(this)();   // begin the animation loop
     }
 
     componentWillUnmount() {
@@ -83,13 +84,13 @@ class ReactRotatingText extends React.Component {
                 output: text,
                 substrLength: 0,
             });
-            callback();
+          callback();
         }
     };
 
     _animate() {
         const {index} = this.state;
-        const {items, pause, emptyPause, eraseMode} = this.props;
+        const {items, pause, emptyPause, eraseMode, nxt} = this.props;
         const type = this._type;
         const erase = this._erase;
         const overwrite = this._overwrite;
@@ -122,7 +123,7 @@ class ReactRotatingText extends React.Component {
             typingInterval,
             ...other
         } = this.props;
-
+        console.log("this is the pause value from rotating text" +pause);
         return (
             <span style={{color}} {...other}>
         {this.state.output}
@@ -142,7 +143,9 @@ ReactRotatingText.propTypes = {
     items: PropTypes.array,
     pause: PropTypes.number,
     typingInterval: PropTypes.number,
-    currentValue: PropTypes.callback
+    currentValue: PropTypes.callback,
+   // nxt: propTypes.bool,
+
 };
 
 ReactRotatingText.defaultProps = {
@@ -155,6 +158,7 @@ ReactRotatingText.defaultProps = {
     items: ['first', 'second', 'third'],
     pause: 10000,
     typingInterval: 50,
+    nxt: false
 };
 
 export default ReactRotatingText;
