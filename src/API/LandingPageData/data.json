@@ -1,0 +1,62 @@
+[
+  {
+    "id": " code",
+    "label": "CODE",
+    "description": "Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
+    "descriptionClass": "codewalaText_description fade-in-top",
+    "logoImgURL": "logo_main_animation.json",
+    "logoImgClass": "slide-in-blurred-top",
+    "isVideo": true,
+    "videoURL": "code_video.mp4"
+  },
+  {
+    "id": " mobile",
+    "label": "MOBILE",
+    "description": "If there could a website, then thou might not but hast an app for't as well",
+    "descriptionClass": "codewalaText_description fade-in-top",
+    "logoImgURL": "logo_mob_animation.json",
+    "logoImgClass": "slide-in-blurred-top",
+    "isVideo": true,
+    "videoURL": "mobile_video.mp4"
+  },
+  {
+    "id": " ux",
+    "label": "UX",
+    "description": "I don't merely make it work, I like to extend the magic with applications that connect on a human level. And for that, my process includes ideating every possible facet, emotion, persuassion, usability. I consider psychological biases, human decision making process and its drives. It's a science and I know it!",
+    "descriptionClass": "codewalaText_description fade-in-top",
+    "logoImgURL": "logo_ux_animation.json",
+    "logoImgClass": "slide-in-blurred-top",
+    "isVideo": true,
+    "videoURL": "ux_video.mp4"
+  },
+  {
+    "id": " design",
+    "label": "DESIGN",
+    "description": "Applications with exquisite designs are perceived to work immaculately as well. I  spend my time in a land where Art and Science meet. It's a small and relatively unknown place, but I have found it.",
+    "descriptionClass": "codewalaText_description fade-in-top",
+    "logoImgURL": "logo_design_animation.json",
+    "logoImgClass": "slide-in-blurred-top",
+    "isVideo": false,
+    "backgroundImgURL":"img_4.jpg"
+  },
+  {
+    "id": " fun",
+    "label": "FUN",
+    "description": "It's not worth it if it ain't fun. I believe in co-creation. I don't shove ideas with a take-it-or-leave-it approach, I like to chase the dream. Your dream.",
+    "descriptionClass": "codewalaText_description fade-in-top",
+    "logoImgURL": "logo_fun_animation.json",
+    "logoImgClass": "slide-in-blurred-top",
+    "isVideo": false,
+    "backgroundImgURL":"img_1.jpg"
+  },
+  {
+    "id": " life",
+    "label": "LIFE",
+    "description": "\"But I always liked side-paths, little dark back-alleys behind the main road- there one finds adventures and surprises, and precious metal in the dirt.\" \n ― Fyodor Dostoyevsky, The Brothers Karamazov",
+    "descriptionClass": "codewalaText_description fade-in-top",
+    "logoImgURL": "logo_design_animation.json",
+    "logoImgClass": "slide-in-blurred-top",
+    "isVideo": true,
+    "videoURL": "life_video.mp4"
+  }
+]

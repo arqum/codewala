@@ -140,6 +140,12 @@ class MainNavigation extends Component {
 
             }
         }, 500);
+        $('#cursor').css({
+            'width': '60px',
+            'height': "60px",
+            'background-color': "rgba(213, 84, 84, 0.7)",
+
+        });
         } else if(this.state.menu.menuOpen == 'opened') {
 
             // console.log("Menu is now closed");
@@ -179,14 +185,12 @@ class MainNavigation extends Component {
                 'visibility': 'hidden'
             });
        
+
             $('#cursor').css({
                 'width': '60px',
                 'height': "60px",
-                'background-color': "rgba(84, 213, 205, 0.4)",
-    
-    
-    
-    
+                'background-color': "rgba(213, 84, 84, 0.7)",
+
             });
 
         }
@@ -250,7 +254,7 @@ class MainNavigation extends Component {
             $('#cursor').css({
                 'width': '60px',
                 'height': "60px",
-                'background-color': "rgba(213, 84, 84, 0.4)",
+                'background-color': "rgba(213, 84, 84, 0.7)",
 
             });
             // $('.lnr-menu').toggleClass('lnr-menu lnr-cross');
@@ -311,9 +315,9 @@ class MainNavigation extends Component {
 
         //make cursor small again
         $('#cursor').css({
-            'width': '20px',
-            'height': "20px",
-            'background-color': "rgba(84, 213, 205, 0.4)",
+            'width': '10px',
+            'height': "10px",
+            'background-color': "rgba(84, 213, 205, 0.7)",
 
         });
 
@@ -332,9 +336,9 @@ class MainNavigation extends Component {
 
         //make cursor small again
         $('#cursor').css({
-            'width': '20px',
-            'height': "20px",
-            'background-color': "rgba(84, 213, 205, 0.4)",
+            'width': '10px',
+            'height': "10px",
+            'background-color': "rgba(84, 213, 205, 0.7)",
 
         });
 
@@ -357,7 +361,7 @@ class MainNavigation extends Component {
         console.log(this.state, 'render');
         const style_menu_blue_div = {
 
-            position: "absolute",
+            position: "fixed",
             background: "#b5e6e3",
             height: "100%",
             width: "100%",
@@ -370,7 +374,7 @@ class MainNavigation extends Component {
         
         const style_menu_green_div = {
         
-            position: "absolute",
+            position: "fixed",
             background: "#deeec7",
             height: "100%",
             width: "100%",
@@ -382,7 +386,7 @@ class MainNavigation extends Component {
         }
         const style_menu_yellow_div = {
         
-            position: "absolute",
+            position: "fixed",
             background: "#fefabf",
             height: "100%",
             width: "100%",
@@ -395,7 +399,7 @@ class MainNavigation extends Component {
         
         const style_menu_div = {
         
-            position: "absolute",
+            position: "fixed",
             background: "white",
             height: "100%",
             width: "100%",
@@ -414,7 +418,7 @@ class MainNavigation extends Component {
         }
 
         const menu_button = {
-            position: "absolute",
+            position: "fixed",
             backgroundColor: this.state.menuButton.menuButtonColor,
             height: this.state.menuButton.menuButtonHeight,
             width: "80px",
@@ -429,15 +433,18 @@ class MainNavigation extends Component {
         const menu_button_txt = {
 
             color: this.state.menuButton.menuButtonTextColor,
-            fontSize: "20px",
+            fontSize: "15px",
             textAlign: "center",
             position: "absolute",
             top: this.state.menuButton.menuButtonTextTop,
             left: "15px",
             alignContent: "center",
             zIndex: "23",
+            letterSpacing: ".1vh",
+            fontFamily: "krub-bold"
            // transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
         }
+
 
         const logo_lines = {
             // backgroundImage: "url('/Assets/images/logo_dab.svg')",
@@ -490,6 +497,8 @@ class MainNavigation extends Component {
   <div style={logo_dab} className={this.state.menuButton.menuButtonDabLogoClass}></div>
 
 
+
+
   
  
    <div id="menu-button-text" style={menu_button_txt} className="animate fadeInDown faster">
@@ -498,6 +507,8 @@ class MainNavigation extends Component {
    </div>
  
   </div>
+
+    {/* <div style={menu_button} className="animated fadeInDown"  onClick={this.menuButtonClick} onMouseEnter={this.menuButtonHover} onMouseLeave={this.menuButtonLeave}></div> */}
  
 
 
@@ -529,7 +540,7 @@ class MainNavigation extends Component {
      </li>
      <li>
          <span className="nav-items">05</span>
-             <NavLink className="navlinks" to="/hire" activeClassName="selected" onClick={this.navButtonClick}>Hire Us!</NavLink>
+             <NavLink className="navlinks" to="/hire" activeClassName="selected" onClick={this.navButtonClick}>Hire Me!</NavLink>
      </li>
 </ul>
   </div>
@@ -553,22 +564,21 @@ class MainNavigation extends Component {
   </div>
   <div className="col-md-6 col-lg-6 nav-social-section">
   <div className="row row-pattern" style={{paddingTop:"88%"}}>
+
   <div className="col-md-4 col-lg-4 navlinks">
-  <div className="social-icons facebook">
-  
+  <div className="social-icons facebook"></div>
   </div>
-  </div>
+
   <div className="col-md-4 col-lg-4">
   <div className="social-icons twitter navlinks">
-  
   </div>
   </div>
+
   <div className="col-md-4 col-lg-4">
   <div className="social-icons linkedIn navlinks">
+  </div>
+  </div>
 
-  
-  </div>
-  </div>
   </div>
   </div>
   </div>

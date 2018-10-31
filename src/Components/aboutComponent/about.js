@@ -10,7 +10,8 @@ import {Motion, spring, TransitionMotion } from 'react-motion';
 import scrollToComponent from 'react-scroll-to-component';
 import ScrollAnimation from 'react-animate-on-scroll';
 import ReactRotatingText from '../rotatingTextComponent/reactRotatingText'; 
-
+import *  as animationData from './../../Assets/animations/about_animation.json';
+import Lottie from 'react-lottie';
 
 
 
@@ -30,7 +31,9 @@ class AboutPage extends Component {
             iconHoverClass: '',
             lastScrollPos: 0,
             changedPos: undefined,
-            down: true
+            down: true,
+            isStopped: false,
+            isPaused: false
         })
         this.handleIconHover = this.handleIconHover.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
@@ -52,30 +55,33 @@ componentWillMount(){
 }
 
     componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll, { passive: true })
-
-
-
-
-
-        // this.closeMenuAnimation();
-               let interval = 1;
-       let x;
-       x = setInterval(() => {
+        window.addEventListener('scroll', this.handleScroll, { passive: true });
            this.setState({
                show: true
            })
-           interval += 1;
-           if (interval == 3) {
-               this.setState({
-                   show: false
-  
-               })
-                 
-               clearInterval(x);            
 
-           }
-       },600);
+           // Initial state
+var scrollPos = 0;
+// adding scroll event
+window.addEventListener('scroll', function(){
+  // detects new state and compares it with the new one
+  if ((document.body.getBoundingClientRect()).top > scrollPos){
+    console.log("scrolling up");
+
+    document.getElementById('info-box').dataset.scrollDirection = 'UP';
+
+  }
+         
+	else{
+        document.getElementById('info-box').dataset.scrollDirection = 'DOWN';
+        console.log("scrolling down");
+
+    }
+		
+	// saves the new position for iteration.
+	scrollPos = (document.body.getBoundingClientRect()).top;
+});
+    
     }
 
     componentWillUnmount() {
@@ -126,13 +132,25 @@ componentWillMount(){
    
 
     render() {
-
+     
+       
+          const defaultOptions = {
+            loop: true,
+            autoplay: true, 
+            animationData: animationData,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice'
+            }
+          };
        
             return (
                 <div className="animated fadeIn delay-1s" id="container_fade" onWheel={this.handleScroll}>
 
 
- <Loading className="loading"
+     
+  
+
+ <Loading
     show={this.state.show}
     color="#54d5cd"
     showSpinner={false}
@@ -157,8 +175,15 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 <div className="inner-upper-icons-container">
 
 
-<div className={`inner-upper-icons inner-upper-desktop animated pulse `+ this.state.iconHoverClass} ></div>
+<div className={`inner-upper-icons inner-upper-desktop animated pulse `+ this.state.iconHoverClass} >
+<div className="inner-upper-icon-heading">
+WEB
+</div>
+</div>
 <div className="inner-upper-icons inner-upper-mobile">
+<div className="inner-upper-icon-heading">
+MOBILE
+</div>
 </div>
 </div>
 </div>
@@ -168,8 +193,15 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 <div class="scroll-downs " onClick={()=> { scrollToComponent(this.refs.bottom, {
                 offset: 0,
                 align: 'top',
+                ease: 'inQuad',
+                duration: 1000
+            })}}
+            onWheelCapture={()=> { scrollToComponent(this.refs.bottom, {
+                offset: 0,
+                align: 'top',
                 duration: 600
-            })}}>
+            })}}
+            >
   <div class="mousey animated fadeInUp">
     <div class="scroller"></div>
   </div>
@@ -179,9 +211,15 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 <div className="col-md-3 col-sm-12 animated fadeInLeft delay-1s rightBorder">
 <div className="inner-upper-icons-container">
 <div className="inner-upper-icons inner-upper-creative">
+<div className="inner-upper-icon-heading">
+creative
+</div>
 </div>
 
 <div className="inner-upper-icons inner-upper-analysis">
+<div className="inner-upper-icon-heading">
+analysis
+</div>
 </div>
 
 </div>
@@ -236,7 +274,13 @@ So, People of the brave new world, why can't we try to loosen up a bit and do wh
 
 <div className="col-md-3 col-sm-12 rightBorder">
 <ScrollAnimation animateIn='fadeIn'>
-<div className="cw_img" ref="bottom"></div>
+<div className="cw_img" ref="bottom">
+
+<Lottie options={defaultOptions}
+              height={"100%"}
+              width={"100%"}
+              isStopped={this.state.isStopped}
+              isPaused={this.state.isPaused}/></div>
 </ScrollAnimation>
 
 <ScrollAnimation animateIn='fadeInRight'>
@@ -248,12 +292,28 @@ A complete digital solution provider. I have been doing this, I am here to demon
 </p>
 </ScrollAnimation>
 
+<ScrollAnimation animateIn='fadeInUp' style={{position: "relative", top:"10%"}}>
+
+
+
+<div className="inner-upper-icons inner-upper-khaled">
+</div>
+
+<div className="inner-upper-icons inner-upper-talal">
+</div>
+
+<div className="inner-upper-thanks inner-upper-icons">
+...And a heartiest gratitude to my friends and Senseis, Khaled and Talal for helping me out with their awesome ninja skills! 
+</div>
+
+
+</ScrollAnimation>
+
 
 
 </div>
 
 <div className="col-md-3 col-sm-12 animated fadeIn delay-1s rightBorder row-pattern">
-
 </div>
 
 </div>

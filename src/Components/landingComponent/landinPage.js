@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
+import {find, findIndex} from 'lodash';
 import MainNavigation from "../navigationComponent/mainNavigation";
 import Cursor from "../cursorComponent/cursor";
+import Data from '../../API/LandingPageData/data.json';
 import Loading from 'react-loading-bar';
 import 'react-loading-bar/dist/index.css';
 import ReactRotatingText from '../rotatingTextComponent/reactRotatingText';
@@ -9,37 +11,84 @@ import {Motion, spring, TransitionMotion} from 'react-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VideoCover from 'react-video-cover';
 import ScrollAnimation from 'react-animate-on-scroll';
+import LandingDots from "../LandingDots";
+import GridOverlay from "../GridOverlay";
+import LandingPageCenterContent from "../LandingPageCenterContent";
+import Blurred from "../Blurred";
+import BackgroundCover from "../BackgroundCover";
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+import scrollDetector from '../ScrollDetector/scrollDetector';
+import Animated from 'react-animated-transitions';
+import 'animate.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
+import { CSSTransition } from 'react-transition-group';
+import './styles.scss';
+import WheelReact from 'wheel-react';
+
+
+
+
+
+
+
 
 
 let intervelll;
-let period;
-const Videostyle = {
-    width: '100vw',
-    height: '100vh',
+const parentDivStyle = {
+    height: '2000px'
+  };
+  
+  const overlayStyle = {
     position: 'fixed',
-    top: 0,
-    left: 0,
-    zIndex: -1,
-};
-
+    background: 'LightSkyBlue',
+    bottom: '50px',
+  };
 
 class LandingPage extends Component {
-
-    constructor() {
-        super()
+    clickTimer;
+    constructor(props) {
+        super(props);
+        const img = require(`../../Assets/animations/${Data[0].logoImgURL}`);
+        const description = Data[0].description;
+        const backgroundCover = Data[0].isVideo ? require(`../../Assets/images/${Data[0].videoURL}`) : require(`../../Assets/images/${Data[0].backgroundImgURL}`);
+        const isVideo = Data[0].isVideo;
+        const label = Data[0].label;
 
         this.state = ({
+            centerImg: img,
+            description: description,
+            backgroundCover: backgroundCover,
+            isVideo: isVideo,
+            currentIndex: 0,
+            label: label,
+            direction:'',
+            lastScrollPos:0,
             show: true,
-            codeText: {title: '', description: '', classname: ''},
-            centerLogoClass: '',
-            centerlogoimageURL: "",
-            videoOptions: "/src/Assets/images/code_video.mp4",
-            blurredBg: "",
-            blurredClass: "zoomIn"
+            centerContent: false,
+            content: 'Move your mouse mouse wheel or trackpad or try to scroll here!'
 
+        });
 
-        })
-
+        WheelReact.config({
+            left: () => {
+              this.setState({
+                content: 'left direction detected.'
+              });
+            },
+            right: () => {
+              this.setState({
+                content: 'right direction detected.'
+              });
+            },
+            up: () => {
+                console.log("wheel Down");
+                this.getCurrentValue(Data[this.state.currentIndex+1].id);
+            },
+            down: () => {
+                console.log("wheel up");
+                this.changeCurrentView(Data[this.state.currentIndex-1].id);               
+                }
+                });
 
     }
 
@@ -49,31 +98,45 @@ class LandingPage extends Component {
             menu: 'false',
 
         })
+        WheelReact.clearTimeout();
+
     }
 
-    componentDidMount() {
 
+
+
+    componentWillUnmount(){
+        // window.removeEventListener('scroll', this.handleScroll);
+
+
+    }
+    componentDidMount() {
+        setInterval(() => {
+            this.setState({ isVisible: !this.state.isVisible });
+          }, 1000);
+
+        // window.addEventListener('scroll', this.handleScroll);
 
         // this.closeMenuAnimation();
         // $('body').css('background', '#2c3343');
-        let interval = 1;
-        let x;
-        x = setInterval(() => {
-            this.setState({
-                show: true
-            })
-            interval += 1;
-            if (interval == 3) {
-                this.setState({
-                    show: false,
+        // let interval = 1;
+        // let x;
+        // x = setInterval(() => {
+        //     this.setState({
+        //         show: true
+        //     })
+        //     interval += 1;
+        //     if (interval == 3) {
+        //         this.setState({
+        //             show: false,
 
-                })
+        //         })
 
-                clearInterval(x);
+        //         clearInterval(x);
 
 
-            }
-        }, 600);
+        //     }
+        // }, 600);
 
         //map function from large values to small
         function map(num, in_min, in_max, out_min, out_max) {
@@ -122,8 +185,8 @@ class LandingPage extends Component {
             var filterAfterMap = map(distance, 100, windowWidth, 2, 50);
             var filterStrength = filterAfterMap;
 
-            if (distance < 550) {
-                $('#blurred, .videoCover').css({
+            if (distance < 600) {
+                $('.bgImage, .videoCover').css({
                     filter: "blur(" + (filterAfterMap) + "px)",
                 });
 
@@ -134,7 +197,7 @@ class LandingPage extends Component {
 
             } else {
 
-                $('#blurred').css({
+                $('.bgImage, .videoCover').css({
                     filter: "blur(" + (filterStrength) + "px)"
                     //  '-webkit-transform': 'scale(' + scaleAfterMap + ')'
                 });
@@ -214,262 +277,102 @@ class LandingPage extends Component {
 
     componentWillUnmount() {
         clearInterval(intervelll);
-
     }
 
-    currentValue = (value) => {
-
-        if (value.includes("code")) {
-
-            $('#blurred').css("background-image", "");
-
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo.svg')",
-                videoOptions: "/src/Assets/images/code_video.mp4",
-                blurredBg: "",
-                blurredClass: "zoomIn"
-            });
-
-        } else if (value.includes("ux")) {
-
-            // $('#blurred').css("background-image", "").addClass('animated');
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "We don't merely make it work, we like to extend the magic. Applications that connect on a human level. And for that, our process includes ideating every possible facet, emotions, persuassion, usability. We consider psychological biases, human decision making process and its drives. It's a science and we know it!",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo_ux.svg')",
-                videoOptions: "/src/Assets/images/ux_video.mp4",
-                blurredBg: "",
-                blurredClass: "zoomIn",
-            });
-
-        } else if (value.includes("design")) {
-
-            // $('#blurred').css("background-image", "url(/../../../Assets/images/img_4.jpg)").addClass('animated');            
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "Applications with exquisite designs are perceived to work immaculately as well. We spend our time in a land where Art and Science meet. It's a small unknown place, but we have found it.",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo_design.svg')",
-                videoOptions: "",
-                blurredBg: "url(/src/Assets/images/img_4.jpg)",
-                blurredClass: "zoomIn",
-
-
-            });
-
-        } else if (value.includes("mobile")) {
-
-            $('#blurred').css("background-image", "");
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "if it be true there is a Website on the web of the world which is wide, there shouldst beest an App as well.",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo_mobile.svg')",
-                videoOptions: "/src/Assets/images/mobile_video.mp4",
-                blurredBg: "",
-                blurredClass: "zoomIn",
-            });
-
-        } else if (value.includes("fun")) {
-
-            $('#blurred').css("background-image", "url(/src/Assets/images/img_1.jpg)").addClass('animated');
-
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo_fun.svg')",
-                videoOptions: "",
-                blurredBg: "url(/src/Assets/images/img_1.jpg)",
-                blurredClass: "zoomIn"
-
-
-            });
-
-        }
-        else if (value.includes("life")) {
-            $('#blurred').css("background-image", "");
-            this.setState({
-                codeText: {
-                    title: value,
-                    description: "It's not worth it if it ain't fun. We believe in co-creation. We don't shove ideas with a take-it-or-leave-it approach, we like to chase a dream. Your dream.",
-                    classname: 'codewalaText_description fade-in-top'
-                },
-                centerLogoClass: 'slide-in-blurred-top',
-                centerlogoimageURL: "url('/src/Assets/images/logo_fun.svg')",
-                videoOptions: "/src/Assets/images/life_video.mp4",
-                blurredBg: "url(/src/Assets/images/img_1.jpg)",
-                blurredClass: "zoomIn"
-
-            });
-
-        }
-
-
-        // console.log(value);
+    itemsList() {
+        return Data.map(item => {
+            return item.id;
+        });
     }
 
+
+    getCurrentValue(value) {
+        console.log("current index value" + value);
+        this.setState({centerContent:false})
+        const item = find(Data, x => (x.id === value));
+        const itemIndex = findIndex(Data, x => (x.id === value));
+        setTimeout(()=>{            
+            this.setState({
+                currentIndex: itemIndex,
+                centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
+                description: item.description,
+                isVideo: item.isVideo,
+                centerContent: true,
+                label: item.label,
+                backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
+            });
+        }, 2000);
+    }
+
+  
+    changeCurrentView(valueID) {        
+       
+        this.setState({centerContent:false})
+        const item = find(Data, x => (x.id === valueID));
+        const itemIndex = findIndex(Data, x => (x.id === valueID));
+        console.log("from wheel down");
+        this.getCurrentValue(valueID);
+        clickTimer = setTimeout(()=>{
+            // this.setState({
+            //     currentIndex: itemIndex,
+            //     centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
+            //     description: item.description,
+            //     isVideo: item.isVideo,
+            //     label: item.label,
+            //     centerContent: true,
+            //     backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
+            // });
+        }, 2000)
+        
+    };
 
     render() {
-        const Blurred = {
-            filter: "blur(50px)",
-            backgroundImage: this.state.blurredBg,
-            backgroundRepeat: "no-repeat",
-            position: "fixed",
-            top: "0",
-            opacity: "1",
-            bottom: "0",
-            width: "100%",
-            zIndex: "-2",
-            height: "100%",
-            backgroundSize: "cover",
-            transform: "scale(1.2)",
-            transition: "all 300ms linear",
-
-        }
-
-
-        const videoOptions = {
-            src: this.state.videoOptions,
-            autoPlay: true,
-            loop: true,
-
-
-        };
-
-        const centerlogo = {
-
-            backgroundSize: "70%",
-            backgroundRepeat: "no-repeat",
-            width: "240px",
-            height: "250px",
-            position: "absolute",
-            left: "34%",
-            top: "50%",
-            opacity: "0",
-            marginLeft: "-150px",
-            marginTop: "-150px",
-            zIndex: "13",
-            backgroundImage: this.state.centerlogoimageURL,
-            transition: "all 300ms linear",
-
-
-        }
-
-        const centerlogoimage = {
-            // backgroundImage: "url('/assets/images/logo.png')",
-            backgroundImage: this.state.centerlogoimageURL
-
-
-        }
-
-        const vidStyle = {
-            filter: "blur(20px)",
-            transition: "all 300ms linear",
-            objectFit: "cover",
-        }
-
-
-        // console.log(centerlogo);
+        let styl = {
+            height: '400px',
+            fontSize: '34px',
+            textAlign: 'center'
+          };
+        const { isScrolling, isScrollingDown, isScrollingUp } = this.props;
+        const {centerImg, description, isVideo, backgroundCover, currentIndex, label, centerContent} = this.state;
         return (
-            <div className="animated fadeIn delay-1s">
-                <div class="scroll-downs-home" style={{zIndex: 100}}>
-                    <div class="mousey animated fadeInUp">
-                        <div class="scroller"></div>
-                    </div>
-                </div>
-                <div className="circle-container">
-
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                    <div className="hollow-circle">
-                    </div>
-                </div>
-                <div className="gridOverlay">
-                    <div className="row">
-                        <div className="col-md-3 column_1 ">
-                            <div className="animated fadeInLeft delay-1s columns_font"></div>
-                        </div>
-                        <div className="col-md-3 column_2">
-                            <div className="animated fadeInLeft delay-1s columns_font"></div>
-                        </div>
-                        <div className="col-md-3 column_3">
-                            <div className="animated fadeInLeft delay-1s columns_font"></div>
-                        </div>
-                        <div className="col-md-3 column_4">
-                            <div className="animated fadeInLeft delay-1s columns_font"></div>
-
-
-                        </div>
-
-
-                    </div>
-                </div>
-
-
-                <Loading className="loading"
+           
+            <div className="animated fadeIn delay-1s" {...WheelReact.events} tabIndex="1">
+           <Loading className="loading"
                          show={this.state.show}
                          color="#54d5cd"
                          showSpinner={false}
                 />
-                <div id="element"></div>
-                <div id="gradient"></div>
-
-                <div style={Videostyle
-
-                }>
-                    <VideoCover className="videoCover"
-                                videoOptions={videoOptions}
-                    />
-                </div>
-                <div className="grain animated fadeIn"></div>
-
-                <div id="blurred" className={this.state.blurredClass} style={Blurred}></div>
-
-                <div className="row ontop">
-                    <div className={this.state.codeText.classname} style={centerlogo}></div>
-                    <i className="fa-fw select-all fas"></i>
-                    <span className="txt-rotate animated fadeInUp">
-         <span className="codewalatext">
-         <strong>&lt;code</strong>wala/&gt; is 
-         <ReactRotatingText currentValue={this.currentValue}
-                            items={[" code.", " mobile.", " design.", " ux.", " fun!", " life"]} typingInterval={200}
-                            deletingInterval={80} pause={7000}/>
-         <br/>
-         </span>    
+                
      
-        <div className={this.state.codeText.classname}>{this.state.codeText.description}</div>
-        </span>
+                  {/* <ReactScrollWheelHandler
+                  upHandler={() => console.log("scroll up")}
+                  downHandler={() => console.log("scroll down")}/>  */}
+
+                <div className="scroll-downs-home" style={{zIndex: 100}}>
+                    <div className="mousey animated fadeInUp">
+                        <div className="scroller"/>
+                    </div>
                 </div>
 
+                <LandingDots items={this.itemsList()} label={label} index={currentIndex} onClick={this.getCurrentValue.bind(this)}/>
+               {/* <div className="homeLargeText">{label}</div> */}
+                <GridOverlay numberOfColumns={9}/>
+              
+                <div id="element"/>
+                <div id="gradient"/>
+                <div className="transition-fader"></div>
 
+                <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover} centerContent={centerContent} id="bgCover" />
+    
+         
+
+                   <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
+                    items={this.itemsList()}
+                    description={description}
+                    centerImg={centerImg} centerContent={centerContent}
+                    Nxt={true}/>
+                <div className="grain animated fadeIn"></div>
+                
             </div>
 
 
