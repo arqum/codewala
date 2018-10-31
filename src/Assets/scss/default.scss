@@ -1842,7 +1842,7 @@ height: auto;
 
 .dots-label::before{
 
-  content: "\21E2";
+  content: "\2014";
   margin-right: 5px;
 }
 
@@ -1948,7 +1948,7 @@ height: auto;
   position: relative;
   text-decoration: none;
   z-index: 1;
-  color: #fff;
+  color: #252c3e;
 }
 
 .hovicon-selected {
@@ -1969,41 +1969,42 @@ height: auto;
 
 
 .hovicon.effect-5 {
-  box-shadow: 0 0 0 1px #fff;
+  box-shadow: 0 0 0 1px #252c3e;
   overflow: hidden; 
-  background-color: white;
-  -webkit-transition: background .3s,color .3s,box-shadow .3s;
-  -moz-transition: background .3s,color .3s,box-shadow .3s;
-  transition: background .3s,color .3s,box-shadow .3s;
+  background-color: #252c3e;
+  -webkit-transition: background .4s,color .4s,box-shadow .4s;
+  -moz-transition: background .4s,color .4s,box-shadow .4s;
+  transition: background .4s,color .4s,box-shadow .4s;
 }
 
 .hovicon.effect-5-selected {
   box-shadow: 0 0 0 1px #252c3e;
   overflow: hidden; 
   background-color: #252c3e;
-  -webkit-transition: background .3s,color .3s,box-shadow .3s;
-  -moz-transition: background .3s,color .3s,box-shadow .3s;
-  transition: background .3s,color .3s,box-shadow .3s;
+  box-shadow: 0 0 0 5px rgba(37, 44, 62, 0.3);
+  -webkit-transition: background .4s,color .4s,box-shadow .4s;
+  -moz-transition: background .4s,color .4s,box-shadow .4s;
+  transition: background .4s,color .4s,box-shadow .4s;
 }
 
 .hovicon.effect-5:after {
   display: none;
 }
 .hovicon.effect-5:hover {
-  background: rgba(255, 255, 255, 1);
+  background: rgba(37, 44, 62, 1);
   color: #702fa8;
-  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3);
-  -webkit-transition: background .3s,color .3s,box-shadow .3s;
-  -moz-transition: background .3s,color .3s,box-shadow .3s;
-  transition: background .3s,color .3s,box-shadow .3s;
+  box-shadow: 0 0 0 5px rgba(37, 44, 62, 0.3);
+  -webkit-transition: background .4s,color .4ss,box-shadow .4s;
+  -moz-transition: background .4s,color .4s,box-shadow .4s;
+  transition: background .4s,color .4s,box-shadow .4s;
 }
 .hovicon.effect-5:hover i {
   color: #702fa8;
 }
 .hovicon.effect-5.sub-a:hover:before {
-  -webkit-animation: toRightFromLeft 0.3s forwards;
-  -moz-animation: toRightFromLeft 0.3s forwards;
-  animation: toRightFromLeft 0.3s forwards;
+  -webkit-animation: toRightFromLeft 0.4s forwards;
+  -moz-animation: toRightFromLeft 0.4s forwards;
+  animation: toRightFromLeft 0.4s forwards;
 }
 @-webkit-keyframes toRightFromLeft {
   49% {
