@@ -8,7 +8,7 @@ type Props={
 const Text_Cursor = (props: Props)=>{
   const {string} = props;
     return(
-        <span style={{fontSize:'10rem'}}>
+        <span>
             {string}
             <span className={styles["react-rotating-text-cursor"]}>|</span>
         </span>

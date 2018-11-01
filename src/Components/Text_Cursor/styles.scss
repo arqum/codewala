@@ -1,12 +1,10 @@
-.cursorColor {
-  color: red;
+.text {
+  font-size:1rem;
 }
-
 //React Rotating Text
 
 .react-rotating-text-cursor {
   animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s infinite;
-  font-size: 10rem;
 }
 
 @-moz-keyframes blinking-cursor {

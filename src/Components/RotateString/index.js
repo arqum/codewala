@@ -28,13 +28,18 @@ class RotateString extends Component<RotateString> {
 
     componentDidMount() {
         const {stringToRotate} = this.props;
-        this._loopCharForward(stringToRotate)
+        setTimeout(()=>{
+            this._loopCharForward(stringToRotate)
+        }, 2000);
+
     }
 
     componentWillReceiveProps(nextProps) {
         const {stringToRotate} = this.props;
         const {stringToRotate: nextStringToRotate} = nextProps;
         if (stringToRotate !== nextStringToRotate) {
+            clearInterval(this.charEraseInterval);
+            clearInterval(this.charLoopingInterval);
             this._loopCharErase(this.state.charToRotate).then(()=>{
                 this._loopCharForward(nextStringToRotate);
             });

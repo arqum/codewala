@@ -4,6 +4,7 @@ import ReactRotatingText from "../rotatingTextComponent/reactRotatingText";
 import styles from './styles.scss';
 import Lottie from 'react-lottie';
 import { CSSTransition} from "react-transition-group";
+import RotateString from "../RotateString";
 
 
 
@@ -115,6 +116,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
                      <strong>&lt;code</strong>wala/&gt;
                      <br/> is
                      <br/>
+                     <RotateString stringToRotate={this.props.label}/>
                      {/*<ReactRotatingText currentValue={currentValue}*/}
                                         {/*startingIndex={startingIndex}*/}
                                         {/*items={items}*/}
