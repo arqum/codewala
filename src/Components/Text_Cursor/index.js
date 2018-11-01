@@ -8,9 +8,9 @@ type Props={
 const Text_Cursor = (props: Props)=>{
   const {string} = props;
     return(
-        <span>
+        <span style={{fontSize:'10rem'}}>
             {string}
-            <span className={styles.cursorColor}>|</span>
+            <span className={styles["react-rotating-text-cursor"]}>|</span>
         </span>
     )
 };

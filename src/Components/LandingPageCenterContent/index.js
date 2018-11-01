@@ -115,11 +115,11 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
                      <strong>&lt;code</strong>wala/&gt;
                      <br/> is
                      <br/>
-                     <ReactRotatingText currentValue={currentValue}
-                                        startingIndex={startingIndex}
-                                        items={items}
-                                        typingInterval={typingInterval}
-                                        deletingInterval={deletingInterval} pause={pause}/>
+                     {/*<ReactRotatingText currentValue={currentValue}*/}
+                                        {/*startingIndex={startingIndex}*/}
+                                        {/*items={items}*/}
+                                        {/*typingInterval={typingInterval}*/}
+                                        {/*deletingInterval={deletingInterval} pause={pause}/>*/}
                      <br/>
                  </span>
                

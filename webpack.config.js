@@ -118,7 +118,7 @@ module.exports = {
         filename: '[name].js',
         publicPath: '/'
     },
-    devtool: devtool,
+    devtool: "eval",
     watch: true,
     module: {
         rules: rules

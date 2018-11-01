@@ -20,10 +20,11 @@ import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 import scrollDetector from '../ScrollDetector/scrollDetector';
 import Animated from 'react-animated-transitions';
 import 'animate.css';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { CSSTransition } from 'react-transition-group';
 import './styles.scss';
 import WheelReact from 'wheel-react';
+import RotateString from "../RotateString";
 
 
 
@@ -37,7 +38,7 @@ let intervelll;
 const parentDivStyle = {
     height: '2000px'
   };
-  
+
   const overlayStyle = {
     position: 'fixed',
     background: 'LightSkyBlue',
@@ -86,7 +87,7 @@ class LandingPage extends Component {
             },
             down: () => {
                 console.log("wheel up");
-                this.changeCurrentView(Data[this.state.currentIndex-1].id);               
+                this.getCurrentValue(Data[this.state.currentIndex-1].id);
                 }
                 });
 
@@ -291,7 +292,8 @@ class LandingPage extends Component {
         this.setState({centerContent:false})
         const item = find(Data, x => (x.id === value));
         const itemIndex = findIndex(Data, x => (x.id === value));
-        setTimeout(()=>{            
+        this.setState({label:item.label});
+        setTimeout(()=>{
             this.setState({
                 currentIndex: itemIndex,
                 centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
@@ -304,26 +306,26 @@ class LandingPage extends Component {
         }, 2000);
     }
 
-  
-    changeCurrentView(valueID) {        
-       
+
+    changeCurrentView(valueID) {
+
         this.setState({centerContent:false})
         const item = find(Data, x => (x.id === valueID));
         const itemIndex = findIndex(Data, x => (x.id === valueID));
         console.log("from wheel down");
         this.getCurrentValue(valueID);
-        clickTimer = setTimeout(()=>{
-            // this.setState({
-            //     currentIndex: itemIndex,
-            //     centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
-            //     description: item.description,
-            //     isVideo: item.isVideo,
-            //     label: item.label,
-            //     centerContent: true,
-            //     backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
-            // });
-        }, 2000)
-        
+        // clickTimer = setTimeout(()=>{
+        //     // this.setState({
+        //     //     currentIndex: itemIndex,
+        //     //     centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
+        //     //     description: item.description,
+        //     //     isVideo: item.isVideo,
+        //     //     label: item.label,
+        //     //     centerContent: true,
+        //     //     backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
+        //     // });
+        // }, 2000)
+
     };
 
     render() {
@@ -335,15 +337,15 @@ class LandingPage extends Component {
         const { isScrolling, isScrollingDown, isScrollingUp } = this.props;
         const {centerImg, description, isVideo, backgroundCover, currentIndex, label, centerContent} = this.state;
         return (
-           
+
             <div className="animated fadeIn delay-1s" {...WheelReact.events} tabIndex="1">
            <Loading className="loading"
                          show={this.state.show}
                          color="#54d5cd"
                          showSpinner={false}
                 />
-                
-     
+
+
                   {/* <ReactScrollWheelHandler
                   upHandler={() => console.log("scroll up")}
                   downHandler={() => console.log("scroll down")}/>  */}
@@ -357,14 +359,16 @@ class LandingPage extends Component {
                 <LandingDots items={this.itemsList()} label={label} index={currentIndex} onClick={this.getCurrentValue.bind(this)}/>
                {/* <div className="homeLargeText">{label}</div> */}
                 <GridOverlay numberOfColumns={9}/>
-              
+
                 <div id="element"/>
                 <div id="gradient"/>
                 <div className="transition-fader"></div>
 
+                <RotateString stringToRotate={this.state.label}/>
+
                 <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover} centerContent={centerContent} id="bgCover" />
-    
-         
+
+
 
                    <LandingPageCenterContent currentValue={this.getCurrentValue.bind(this)} startingIndex={currentIndex}
                     items={this.itemsList()}
@@ -372,7 +376,7 @@ class LandingPage extends Component {
                     centerImg={centerImg} centerContent={centerContent}
                     Nxt={true}/>
                 <div className="grain animated fadeIn"></div>
-                
+
             </div>
 
 
