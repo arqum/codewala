@@ -56,7 +56,7 @@ class RotateString extends Component<RotateString> {
                 this.setState({charToRotate: this.state.charToRotate + char.shift()})
             }
 
-        }, 200);
+        }, 400);
     }
 
     _loopCharErase(text) {
@@ -71,7 +71,7 @@ class RotateString extends Component<RotateString> {
                     const resultString = char.join('');
                     this.setState({charToRotate: resultString});
                 }
-            }, 50);
+            }, 200);
         });
 
     }

@@ -59,7 +59,7 @@ class LandingPage extends Component {
             direction: '',
             lastScrollPos: 0,
             show: true,
-            centerContent: false,
+            centerContent: true,
             content: 'Move your mouse mouse wheel or trackpad or try to scroll here!'
 
         });
@@ -296,7 +296,7 @@ class LandingPage extends Component {
                 label: item.label,
                 backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
             });
-        }, 2000);
+        }, 1500);
     }
 
 

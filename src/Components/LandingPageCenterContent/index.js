@@ -77,7 +77,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
           <div className="col-md-4">
           <CSSTransition
               in={centerContent}
-              timeout={1800}
+              timeout={1200}
               classNames={{
                 appear: 'cntrLogo-appear',
                 appearActive: 'cntrLogo-active-appear',
@@ -128,7 +128,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
 
             <CSSTransition
                   in={centerContent}
-                  timeout={1600}
+                  timeout={1200}
                   classNames={{
                     appear: 'centerText-appear',
                     appearActive: 'centerText-active-appear',

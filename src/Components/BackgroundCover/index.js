@@ -16,7 +16,7 @@ const BackgroundCover = (props: BackgroundCoverProps) => {
     return (
         <CSSTransition
         in={centerContent}
-        timeout={3000}
+        timeout={1500}
         classNames="bg"  
         enter={true}
         appear={true}
