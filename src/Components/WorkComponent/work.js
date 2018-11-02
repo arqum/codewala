@@ -17,11 +17,31 @@ class WorkPage extends Component {
         super()
         this.state = ({
             isStopped: false,
-            isPaused: false
+            isPaused: false,
+            show: true
         })
     }
 
     componentDidMount(){
+        let interval = 1;
+        let x;
+        x = setInterval(() => {
+            this.setState({
+                show: true
+            })
+            interval += 1;
+            if (interval == 3) {
+                this.setState({
+                    show: false,
+
+                })
+
+                clearInterval(x);
+
+
+            }
+        }, 600);
+
 
     }
 
@@ -37,11 +57,21 @@ class WorkPage extends Component {
        
         return(
             <div>
+ {/* <Loading className="loading"
+                         show={this.state.show}
+                         color="#54d5cd"
+                         showSpinner={false}
+                /> */}
 
-            
+<Loading
+  show={true}
+  color="red"
+  change={false}
+  showSpinner={true}
+/>            
             <div className="row animated fadeInDown work-top">
                
-                 <div className="col-md-8 col-sm-12 top-5 animated fadeInDown delay-1s" id="">
+                 <div className="col-md-6 offset-2 col-sm-12 top-5 animated fadeInDown delay-1s" id="">
                     <h1 className="inner-h1 animated bounceInDown delay-1s">
                     About<span className="inner-h1-span">
                     Codewala
@@ -63,12 +93,68 @@ class WorkPage extends Component {
                  </div>
                 </div>
 
-                <div className="row">
                 
+                <div className="row work-filters"></div>
+
+                <div className="row work-thumbs-row">
+
+                <div className="col-md-2 offset-2"  style={{padding:"0px"}}>
+
+                <div className="work-thumb"></div>
+
+                </div>
+
+                 <div className="col-md-2" style={{padding:"0px"}}>
+
+                <div className="work-thumb"></div>
+
+                </div>
+
+                 <div className="col-md-2" style={{padding:"0px"}}>
+
+                <div className="work-thumb"></div>
+
+                </div>
+
+                 <div className="col-md-2" style={{padding:"0px"}}>
+
+                <div className="work-thumb"></div>
+
                 </div>
 
             </div>
 
+
+                            <div className="row work-thumbs-row">
+
+                    <div className="col-md-2 offset-2"  style={{padding:"0px"}}>
+
+                    <div className="work-thumb"></div>
+
+                    </div>
+
+                    <div className="col-md-2" style={{padding:"0px"}}>
+
+                    <div className="work-thumb"></div>
+
+                    </div>
+
+                    <div className="col-md-2" style={{padding:"0px"}}>
+
+                    <div className="work-thumb"></div>
+
+                    </div>
+
+                    <div className="col-md-2" style={{padding:"0px"}}>
+
+                    <div className="work-thumb"></div>
+
+                    </div>
+
+                    </div>
+
+
+ </div>
 
 
         );

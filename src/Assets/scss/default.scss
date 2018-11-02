@@ -363,9 +363,25 @@
     // animation: center-logo-blur .2s;
   }
 
+  
+  .centerBrackets {
+    font-size: 16em;
+    font-family: krub-extraLight !important;
+    color: white;
+
+  }
+
+  .centerBracketsOverlay{
+    position: fixed;
+    width: 100%;
+  }
+
+
   .centerLogoTransition {
 
   }
+
+
 
   .landingCenter-entered {
   opacity: 0;
@@ -2256,4 +2272,30 @@ height: auto;
   background: #fafafa;
   width: 100%;
   height: 42vh;
+}
+
+.work-filters {
+  height: 10vh;
+}
+
+.work-thumbs-row {
+  height: 30vh;
+}
+.work-thumb{
+  background-image:url('../images/img_2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0.5px;
+  height: 30vh;
+  padding: 0px !important;
+}
+
+.work-thumb::after{
+  background: linear-gradient(rgba(212,204,117,0.6), rgba(116,188,187,0.6));; /* W3C */
+position: absolute;
+height: 100%;
+width: 100%;
+top: 0;
+left: 0;
+content: "";
 }

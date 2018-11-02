@@ -105,32 +105,25 @@ class LandingPage extends Component {
     }
 
     componentDidMount() {
-        setInterval(() => {
-            this.setState({isVisible: !this.state.isVisible});
-        }, 1000);
 
-        // window.addEventListener('scroll', this.handleScroll);
+        let interval = 1;
+        let x;
+        x = setInterval(() => {
+            this.setState({
+                show: true
+            })
+            interval += 1;
+            if (interval == 3) {
+                this.setState({
+                    show: false,
 
-        // this.closeMenuAnimation();
-        // $('body').css('background', '#2c3343');
-        // let interval = 1;
-        // let x;
-        // x = setInterval(() => {
-        //     this.setState({
-        //         show: true
-        //     })
-        //     interval += 1;
-        //     if (interval == 3) {
-        //         this.setState({
-        //             show: false,
+                })
 
-        //         })
-
-        //         clearInterval(x);
+                clearInterval(x);
 
 
-        //     }
-        // }, 600);
+            }
+        }, 600);
 
         //map function from large values to small
         function map(num, in_min, in_max, out_min, out_max) {
@@ -339,6 +332,18 @@ class LandingPage extends Component {
                 />
 
 
+                 {/* <div className="row centerBracketsOverlay">
+
+                    <div className="col-md-6 centerBrackets">
+                   [
+                    </div>
+
+                    <div className="col-md-6 centerBrackets">
+                   ]
+                    </div> 
+
+                </div> */}
+            
                 {/* <ReactScrollWheelHandler
                   upHandler={() => console.log("scroll up")}
                   downHandler={() => console.log("scroll down")}/>  */}
