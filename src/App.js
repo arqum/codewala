@@ -14,6 +14,8 @@ import AboutPage from './Components/aboutComponent/about';
 import ErrorPage from './Components/ErrorComponent/errorPage';
 import PhilosophyPage from './Components/philosophyComponent/philosophy';
 import HirePage from './Components/hireComponent/hire';
+import WorkPage from './Components/WorkComponent/work';
+
 
 
 
@@ -32,6 +34,7 @@ class App extends Component {
      <Switch>
      <Route path="/" component={LandingPage} exact />
      <Route path="/about" component={AboutPage} />
+     <Route path="/work" component={WorkPage} />
      <Route path="/philosophy" component={PhilosophyPage} />
      <Route path="/hire" component={HirePage} />
      <Route component={ErrorPage} /> 

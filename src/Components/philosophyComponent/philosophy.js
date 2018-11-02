@@ -162,11 +162,11 @@ componentWillMount(){
 
 
 <div className="row" ref="top">
-<div className="col-md-3 col-sm-12 animated row-pattern fadeIn delay-1s" style={{overflow: "hidden"}}>
+<div className="col-md-2 col-sm-12 animated row-pattern fadeIn delay-1s" style={{overflow: "hidden"}}>
 
 </div>
 
-<div className="col-md-6 col-sm-12 leftBorder  rightBorder  animated fadeInDown" id="" style={{overflow: "hidden", height:"100vh"}}>
+<div className="col-md-8 col-sm-12 leftBorder  rightBorder  animated fadeInDown" id="" style={{overflow: "hidden", height:"100vh"}}>
 <h1 className="inner-h1 animated bounceInDown delay-1s">
 Codewala<span className="inner-h1-span">
 Philosophy
@@ -195,16 +195,19 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 
 <div className="col-md-2">
 </div>
-<div className="col-md-2">
-</div>
 
 <ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutUp' duration={4}>
+
 <div className="col-md-2">
 <div className="brain-overlays" style={{top:"100px", left:"10%"}}>
 <span className="brain-overlays-bold-span">3- Conscious</span><span className="brain-overlays-span">Competence</span>
 </div>
 </div>
 </ScrollAnimation>
+
+<div className="col-md-2">
+
+</div>
 
 
 </div>
@@ -242,8 +245,8 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 
 </div>
 <Lottie options={defaultOptionsBrain}
-              height={"60%"}
-              width={"60%"}
+              height={"50%"}
+              width={"50%"}
               isStopped={this.state.isStopped}
               isPaused={this.state.isPaused}/>
 </div>
@@ -262,7 +265,7 @@ Codewala is a one man endevour to provide small and medium businesses a premium 
 </div>
 </ScrollAnimation>
 
-<div className="col-md-3 col-sm-12 row-pattern animated top-10 fadeIn delay-1s rightBorder">
+<div className="col-md-2 col-sm-12 row-pattern animated top-10 fadeIn delay-1s rightBorder">
 
 </div>
 

@@ -159,11 +159,11 @@ window.addEventListener('scroll', function(){
 
 
 <div className="row" ref="top">
-<div className="col-md-3 col-sm-12 animated row-pattern fadeInLeft delay-1s" style={{overflow: "hidden"}}>
+<div className="col-md-2 col-sm-12 animated row-pattern fadeInLeft delay-1s" style={{overflow: "hidden"}}>
 
 </div>
 
-<div className="col-md-3 col-sm-12 leftBorder row-pattern-faded rightBorder top-10 animated fadeInRight delay-1s" id="" style={{overflow: "hidden"}}>
+<div className="col-md-4 col-sm-12 leftBorder rightBorder top-10 animated fadeInRight delay-1s" id="" style={{overflow: "hidden"}}>
 <h1 className="inner-h1 animated bounceInDown delay-1s">
 About<span className="inner-h1-span">
 Codewala
@@ -208,7 +208,7 @@ MOBILE
 </div>
 </ScrollAnimation>
 
-<div className="col-md-3 col-sm-12 animated fadeInLeft delay-1s rightBorder">
+<div className="col-md-4 col-sm-12 animated fadeInLeft delay-1s rightBorder">
 <div className="inner-upper-icons-container">
 <div className="inner-upper-icons inner-upper-creative">
 <div className="inner-upper-icon-heading">
@@ -227,15 +227,15 @@ analysis
 
 
 </div>
-<div className=" row-pattern col-md-3 col-sm-12 animated fadeIn delay-1s"></div>
+<div className=" row-pattern col-md-2 col-sm-12 animated fadeIn delay-1s"></div>
 
 </div>
 <div className="row" ref="bottom">
-<div className="col-md-3 col-sm-12 row-pattern animated fadeInLeft delay-1s" >
+<div className="col-md-2 col-sm-12 row-pattern animated fadeInLeft delay-1s" >
 </div>
 
 
-<div className="leftBorder col-md-3 col-sm-12 nopadding rightBorder">
+<div className="leftBorder col-md-4 col-sm-12 nopadding rightBorder">
 
 <ScrollAnimation animateIn='fadeInUp' animateOut='fadeOutDown' duration={1}>
 <div className="cw_txt" id="ab_gradient" >
@@ -272,15 +272,15 @@ So, People of the brave new world, why can't we try to loosen up a bit and do wh
 
 
 
-<div className="col-md-3 col-sm-12 rightBorder">
+<div className="col-md-4 col-sm-12 rightBorder" style={{padding:"2%"}}>
 <ScrollAnimation animateIn='fadeIn'>
-<div className="cw_img" ref="bottom">
+
 
 <Lottie options={defaultOptions}
-              height={"100%"}
-              width={"100%"}
+              height={"60%"}
+              width={"60%"}
               isStopped={this.state.isStopped}
-              isPaused={this.state.isPaused}/></div>
+              isPaused={this.state.isPaused}/>
 </ScrollAnimation>
 
 <ScrollAnimation animateIn='fadeInRight'>
@@ -313,7 +313,7 @@ A complete digital solution provider. I have been doing this, I am here to demon
 
 </div>
 
-<div className="col-md-3 col-sm-12 animated fadeIn delay-1s rightBorder row-pattern">
+<div className="col-md-2 col-sm-12 animated fadeIn delay-1s rightBorder row-pattern">
 </div>
 
 </div>
