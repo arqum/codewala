@@ -29,7 +29,7 @@ const style = {
     width: "180px",
     height: "auto",
     position: "absolute",
-    right: "-16%",
+    right: "-26.7%",
     top: "47%",
     marginLeft: "-150px",
     marginTop: "-150px",

@@ -125,6 +125,7 @@ class LandingPage extends Component {
             }
         }, 600);
 
+
         //map function from large values to small
         function map(num, in_min, in_max, out_min, out_max) {
             return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
@@ -300,17 +301,7 @@ class LandingPage extends Component {
         const itemIndex = findIndex(Data, x => (x.id === valueID));
         console.log("from wheel down");
         this.getCurrentValue(valueID);
-        // clickTimer = setTimeout(()=>{
-        //     // this.setState({
-        //     //     currentIndex: itemIndex,
-        //     //     centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
-        //     //     description: item.description,
-        //     //     isVideo: item.isVideo,
-        //     //     label: item.label,
-        //     //     centerContent: true,
-        //     //     backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
-        //     // });
-        // }, 2000)
+
 
     };
 
@@ -343,10 +334,7 @@ class LandingPage extends Component {
                     </div> 
 
                 </div> */}
-            
-                {/* <ReactScrollWheelHandler
-                  upHandler={() => console.log("scroll up")}
-                  downHandler={() => console.log("scroll down")}/>  */}
+        
 
                 <div className="scroll-downs-home" style={{zIndex: 100}}>
                     <div className="mousey animated fadeInUp">
@@ -374,6 +362,7 @@ class LandingPage extends Component {
                                           centerImg={centerImg} centerContent={centerContent}
                                           Nxt={true}/>
                 <div className="grain animated fadeIn"></div>
+                {/* <div className="landing-bottom-strip"></div> */}
 
             </div>
 

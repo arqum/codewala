@@ -82,7 +82,7 @@ class WorkPage extends Component {
                     Codewala is a one man endevour to provide small and medium businesses a premium digital presense. It is also an effort to demonstrate my capabilities and the services I can offer. I envision a world where code means something and design appeals to the senses.</p>
                  </div>
 
-                 <div className="col-md-4 animated fadeInRight delay-2s">
+                 <div className="col-md-4 animated fadeIn delay-2s">
 
                  <Lottie options={defaultOptions}
               height={"95%"}
@@ -100,25 +100,33 @@ class WorkPage extends Component {
 
                 <div className="col-md-2 offset-2"  style={{padding:"0px"}}>
 
-                <div className="work-thumb"></div>
+                <div className="work-thumb"><span className="thumb-title">
+                    logos
+                    </span></div>
 
                 </div>
 
                  <div className="col-md-2" style={{padding:"0px"}}>
 
-                <div className="work-thumb"></div>
+                <div className="work-thumb"><span className="thumb-title">
+                    prototypes
+                    </span></div>
 
                 </div>
 
                  <div className="col-md-2" style={{padding:"0px"}}>
 
-                <div className="work-thumb"></div>
+                <div className="work-thumb"><span className="thumb-title">
+                    websites
+                    </span></div>
 
                 </div>
 
                  <div className="col-md-2" style={{padding:"0px"}}>
 
-                <div className="work-thumb"></div>
+                <div className="work-thumb"><span className="thumb-title">
+                    apps
+                    </span></div>
 
                 </div>
 
