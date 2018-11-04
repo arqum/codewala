@@ -442,7 +442,7 @@
   .txt-rotate {
     position: absolute;
     top: 47%;
-    padding-left: 15.3%;
+    padding-left: 3%;
     margin-top: -150px;
     z-index: 15;
     color: #fff;
@@ -1700,44 +1700,44 @@ height: auto;
   margin-top:25%;
   }
 
-@media(min-width:320px) and (max-width:480px) {
-  #centerlogo{
-    top:40%;
-  }
+// @media(min-width:320px) and (max-width:480px) {
+//   #centerlogo{
+//     top:40%;
+//   }
 
-  .txt-rotate {
-    left:44%;
-    top:calc(40% + 220px);
-    text-align: center;
-  }
+//   .txt-rotate {
+//     left:44%;
+//     top:calc(40% + 220px);
+//     text-align: center;
+//   }
 
-  .codewalaText_description{
-    width: 100%;
-  }
-} 
+//   .codewalaText_description{
+//     width: 100%;
+//   }
+// } 
 
-.about-rotator-style {
-  font-size: inherit;
-  font-family: inherit;
-  color: inherit;
-  font-style: bold;
-}
+// .about-rotator-style {
+//   font-size: inherit;
+//   font-family: inherit;
+//   color: inherit;
+//   font-style: bold;
+// }
 
-.ontop {
-  z-index: 2000 !important;
-  transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
+// .ontop {
+//   z-index: 2000 !important;
+//   transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
 
-}
+// }
 
-.ontop-initial {
-  z-index: 2000 !important;
-  transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
-  margin-top: 50%;
-}
-.centerLogoTransition{
-  transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
+// .ontop-initial {
+//   z-index: 2000 !important;
+//   transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
+//   margin-top: 50%;
+// }
+// .centerLogoTransition{
+//   transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
 
-}
+// }
 
 
 //Noise 

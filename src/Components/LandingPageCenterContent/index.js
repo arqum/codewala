@@ -28,14 +28,14 @@ const style = {
     backgroundRepeat: "no-repeat",
     width: "180px",
     height: "auto",
-    position: "absolute",
-    right: "-26.7%",
-    top: "47%",
-    marginLeft: "-150px",
-    marginTop: "-150px",
+    position: "relative",
+    top: "30%",
     zIndex: "20",
+    alignSelf: "baseline",
+    margin: "0px 0px 0px auto"
    
 }
+
 
 const ontop =  {
   
@@ -73,8 +73,8 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
       
       
 
-        <div className="row ontop">
-          <div className="col-md-4">
+        <div className="row ontop" style={{display: "flex"}}>
+          <div className="col-md-5 col-sm-12" style={{padding:"0px"}}>
           <CSSTransition
               in={centerContent}
               timeout={1200}
@@ -108,7 +108,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
 
           </CSSTransition>
           </div>
-          <div className="col-md-8">
+          <div className="col-md-7 col-sm-12">
 
             <span className="txt-rotate">
 
