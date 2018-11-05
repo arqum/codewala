@@ -105,26 +105,32 @@ class LandingPage extends Component {
     }
 
     componentDidMount() {
+        setInterval(() => {
+            this.setState({isVisible: !this.state.isVisible});
+        }, 1000);
 
-        let interval = 1;
-        let x;
-        x = setInterval(() => {
-            this.setState({
-                show: true
-            })
-            interval += 1;
-            if (interval == 3) {
-                this.setState({
-                    show: false,
+        // window.addEventListener('scroll', this.handleScroll);
 
-                })
+        // this.closeMenuAnimation();
+        // $('body').css('background', '#2c3343');
+        // let interval = 1;
+        // let x;
+        // x = setInterval(() => {
+        //     this.setState({
+        //         show: true
+        //     })
+        //     interval += 1;
+        //     if (interval == 3) {
+        //         this.setState({
+        //             show: false,
 
-                clearInterval(x);
+        //         })
+
+        //         clearInterval(x);
 
 
-            }
-        }, 600);
-
+        //     }
+        // }, 600);
 
         //map function from large values to small
         function map(num, in_min, in_max, out_min, out_max) {
@@ -181,7 +187,7 @@ class LandingPage extends Component {
 
                 // console.log("inside blur mouse move");
                 $('#gradient').fadeOut(1000);
-                $('.txt-rotate').css('color', '#2c3343');
+               $('.txt-rotate').css('color', '#2c3343');
 
             } else {
 
@@ -301,7 +307,17 @@ class LandingPage extends Component {
         const itemIndex = findIndex(Data, x => (x.id === valueID));
         console.log("from wheel down");
         this.getCurrentValue(valueID);
-
+        // clickTimer = setTimeout(()=>{
+        //     // this.setState({
+        //     //     currentIndex: itemIndex,
+        //     //     centerImg: require(`../../Assets/animations/${item.logoImgURL}`),
+        //     //     description: item.description,
+        //     //     isVideo: item.isVideo,
+        //     //     label: item.label,
+        //     //     centerContent: true,
+        //     //     backgroundCover: item.isVideo ? require(`../../Assets/images/${item.videoURL}`) : require(`../../Assets/images/${item.backgroundImgURL}`)
+        //     // });
+        // }, 2000)
 
     };
 
@@ -323,18 +339,9 @@ class LandingPage extends Component {
                 />
 
 
-                 {/* <div className="row centerBracketsOverlay">
-
-                    <div className="col-md-6 centerBrackets">
-                   [
-                    </div>
-
-                    <div className="col-md-6 centerBrackets">
-                   ]
-                    </div> 
-
-                </div> */}
-        
+                {/* <ReactScrollWheelHandler
+                  upHandler={() => console.log("scroll up")}
+                  downHandler={() => console.log("scroll down")}/>  */}
 
                 <div className="scroll-downs-home" style={{zIndex: 100}}>
                     <div className="mousey animated fadeInUp">
@@ -345,7 +352,7 @@ class LandingPage extends Component {
                 <LandingDots items={this.itemsList()} label={label} index={currentIndex}
                              onClick={this.getCurrentValue.bind(this)}/>
                 {/* <div className="homeLargeText">{label}</div> */}
-                <GridOverlay numberOfColumns={7}/>
+                <GridOverlay numberOfColumns={9}/>
 
                 <div id="element"/>
                 <div id="gradient"/>
@@ -362,7 +369,6 @@ class LandingPage extends Component {
                                           centerImg={centerImg} centerContent={centerContent}
                                           Nxt={true}/>
                 <div className="grain animated fadeIn"></div>
-                {/* <div className="landing-bottom-strip"></div> */}
 
             </div>
 

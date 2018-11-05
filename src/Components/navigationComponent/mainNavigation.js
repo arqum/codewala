@@ -441,8 +441,8 @@ class MainNavigation extends Component {
             alignContent: "center",
             zIndex: "23",
             letterSpacing: ".1vh",
-            fontFamily: "krub-bold !important",
-            transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
+            fontFamily: "krub-bold !important"
+           // transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
         }
 
 

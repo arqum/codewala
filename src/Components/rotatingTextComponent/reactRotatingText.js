@@ -123,7 +123,6 @@ class ReactRotatingText extends React.Component {
             typingInterval,
             ...other
         } = this.props;
-        console.log("this is the pause value from rotating text" +pause);
         return (
             <span style={{color}} {...other}>
         {this.state.output}
