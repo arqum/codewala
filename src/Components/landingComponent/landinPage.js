@@ -187,7 +187,9 @@ class LandingPage extends Component {
 
                 // console.log("inside blur mouse move");
                 $('#gradient').fadeOut(1000);
-               $('.txt-rotate').css('color', '#2c3343');
+               $('.txt-rotate').css({'color': '#2c3343',
+               'text-shadow': '1px 1px 1px rgba(67,67,67,0.49)'
+            });
 
             } else {
 
@@ -197,7 +199,9 @@ class LandingPage extends Component {
                 });
                 // $('.grain').css ('opacity', filterAfterMapGrain);
                 $('#gradient').fadeIn(1000);
-                $('.txt-rotate').css('color', '#ffff');
+                $('.txt-rotate').css({'color': '#ffff',
+                'text-shadow': '1px 1px 1px rgba(44, 51, 67, 0.17)'
+            });
 
 
             }
@@ -352,7 +356,7 @@ class LandingPage extends Component {
                 <LandingDots items={this.itemsList()} label={label} index={currentIndex}
                              onClick={this.getCurrentValue.bind(this)}/>
                 {/* <div className="homeLargeText">{label}</div> */}
-                <GridOverlay numberOfColumns={9}/>
+                <GridOverlay numberOfColumns={7}/>
 
                 <div id="element"/>
                 <div id="gradient"/>

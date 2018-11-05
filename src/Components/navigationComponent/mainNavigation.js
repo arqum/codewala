@@ -508,6 +508,10 @@ class MainNavigation extends Component {
  
   </div>
 
+  <div className="logo-home">
+  
+  </div>
+
     {/* <div style={menu_button} className="animated fadeInDown"  onClick={this.menuButtonClick} onMouseEnter={this.menuButtonHover} onMouseLeave={this.menuButtonLeave}></div> */}
  
 
