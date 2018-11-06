@@ -9,3 +9,26 @@
   background-color: rgba(44, 51, 67, 0.18);
   padding: 0;
 }
+
+.landingDecor {
+  width: 4px;
+  height: 25px;
+  position: absolute;
+  background: #ffffff;
+  top: 15%;
+  z-index: 5000;
+}
+
+.landingDecor2 {
+  width: 4px;
+  height: 25px;
+  position: absolute;
+  background: #ffffff;
+  top: 75%;
+  z-index: 5000;
+}
+
+.landingDecorNone {
+ display: none;
+
+}

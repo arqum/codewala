@@ -10,6 +10,9 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import *  as animationData from './../../Assets/animations/philosophy_animation.json';
 import *  as animationDataBrain from './../../Assets/animations/brain.json';
 import GridOverlay from "../GridOverlay";
+import WheelReact from 'wheel-react';
+import scrollToComponent from 'react-scroll-to-component';
+
 
 
 
@@ -32,9 +35,36 @@ class PhilosophyPage extends Component {
             changedPos: undefined,
             down: true
         })
-        this.handleIconHover = this.handleIconHover.bind(this);
-        this.handleScroll = this.handleScroll.bind(this);
 
+        WheelReact.config({
+            left: () => {
+                this.setState({
+                    content: 'left direction detected.'
+                });
+            },
+            right: () => {
+                this.setState({
+                    content: 'right direction detected.'
+                });
+            },
+            up: () => {
+                console.log("wheel Down");
+                scrollToComponent(this.refs.bottom, {
+                    offset: 0,
+                    align: 'top',
+                    ease: 'inCirc',
+                    duration: 1000
+                });
+            },
+            down: () => {
+                console.log("wheel up");
+                scrollToComponent(this.refs.top, {
+                    offset: 0,
+                    align: 'top',
+                    ease: 'inCirc',
+                    duration: 1000
+                });            }
+        });
 
 
         
@@ -42,7 +72,7 @@ class PhilosophyPage extends Component {
 
 
 componentWillMount(){
-
+    WheelReact.clearTimeout();
     this.setState({
         menu: 'false'
         
@@ -104,29 +134,6 @@ componentWillMount(){
         console.log("inside icon hover " +this.state.iconHoverClass);
     }
 
-    handleScroll(event) {
-        let newOffset = 0;
-        // if (window.pageYOffset > 10){
-            // scrollToComponent(this.refs.bottom, {
-            //     offset: 0,
-            //     align: 'top',
-            //     duration: 3000
-            // });
-        //     newOffset = 100;
-        // } 
-        // else if (newOffset == 100){
-
-        //     scrollToComponent(this.refs.top, {
-        //         offset: 0,
-        //         align: 'top',
-        //         duration: 1500
-        //     });
-
-        //     newOffset = 0;
-
-        // }
-    }
-
   
    
 
@@ -150,7 +157,7 @@ componentWillMount(){
           };
        
             return (
-                <div className="animated fadeIn delay-1s" id="container_fade" onWheel={this.handleScroll}>
+                <div className="animated fadeIn delay-1s" id="container_fade"  {...WheelReact.events} tabIndex="1">
 
 
  <Loading className="loading"

@@ -26,16 +26,27 @@ type LandingPageCenterContentProps = {
 const style = {
     backgroundSize: "30%",
     backgroundRepeat: "no-repeat",
-    width: "180px",
+    width: "20.6%",
     height: "auto",
     position: "relative",
-    top: "30%",
+    top: "32%",
     zIndex: "20",
     alignSelf: "baseline",
     margin: "0px 0px 0px auto"
    
 }
 
+// width: 12%;
+//     height: auto;
+//     overflow: hidden;
+//     margin: 0px 0px 0px auto;
+//     outline: none;
+//     background-size: 30%;
+//     background-repeat: no-repeat;
+//     position: relative;
+//     top: 32%;
+//     z-index: 20;
+//     align-self: baseline;
 
 const ontop =  {
   
@@ -74,7 +85,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
       
 
         <div className="row ontop" style={{display: "flex"}}>
-          <div className="col-md-5 col-sm-12" style={{padding:"0px"}}>
+          <div className="col-md-5 col-sm-12" style={{padding:"0px", maxWidth:"41.666667% !important"}}>
           <CSSTransition
               in={centerContent}
               timeout={1200}
@@ -107,6 +118,8 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
                     className="centerImg"/>
 
           </CSSTransition>
+
+      
           </div>
           <div className="col-md-7 col-sm-12">
 
@@ -124,9 +137,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
                                         {/*deletingInterval={deletingInterval} pause={pause}/>*/}
                      <br/>
                  </span>
-               
-
-            <CSSTransition
+                 <CSSTransition
                   in={centerContent}
                   timeout={1200}
                   classNames={{
@@ -146,6 +157,9 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
             <div className={`codewalaText_description animated fadeIn`}>{description}</div> 
 
             </CSSTransition>
+               
+
+           
 
         </span>
       </div>

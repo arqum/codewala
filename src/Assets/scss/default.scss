@@ -823,7 +823,7 @@
     z-index: 5000;
     background-size: 100%;
     transition: all .2s cubic-bezier(0,.87,1,.645);
-    transform: scale(1.2);
+    transform: scale(1.05);
     cursor: pointer;
 
   }
@@ -2395,6 +2395,30 @@ transition: all 200ms cubic-bezier(0, 0.87, 1, 0.645);
   width: 100%;
   background: #2c3343;
   position: absolute;
-  height: 5vh;
-  bottom: 0%;
+  height: 2vh;
+  z-index: 5000;
+  bottom: 0;
+}
+
+.landing-bottom-strip-text {
+  color: #fff;
+  font-family: krub-light!important;
+  letter-spacing: .1em;
+  font-size: .6em;
+  left: 1%;
+  position: relative;
+  padding: 3px;
+  
+}
+
+
+
+.landing-decor {
+  width: 4px;
+  height: 20px;
+  position: absolute;
+  background: #ffffff;
+  left: 28%;
+  top: 25%;
+
 }

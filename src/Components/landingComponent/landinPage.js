@@ -341,11 +341,9 @@ class LandingPage extends Component {
                          color="#54d5cd"
                          showSpinner={false}
                 />
-
-
-                {/* <ReactScrollWheelHandler
-                  upHandler={() => console.log("scroll up")}
-                  downHandler={() => console.log("scroll down")}/>  */}
+                 {/* <div className="landing-bottom-strip">
+                    <div className="landing-bottom-strip-text">  <strong>&lt;code</strong>wala/&gt;</div>
+                </div> */}
 
                 <div className="scroll-downs-home" style={{zIndex: 100}}>
                     <div className="mousey animated fadeInUp">
@@ -356,11 +354,12 @@ class LandingPage extends Component {
                 <LandingDots items={this.itemsList()} label={label} index={currentIndex}
                              onClick={this.getCurrentValue.bind(this)}/>
                 {/* <div className="homeLargeText">{label}</div> */}
-                <GridOverlay numberOfColumns={7}/>
+                <GridOverlay numberOfColumns={6}/>
 
                 <div id="element"/>
                 <div id="gradient"/>
                 <div className="transition-fader"></div>
+                {/* <div className="landing-decor"></div> */}
 
                 <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover}
                                  centerContent={centerContent} id="bgCover"/>
@@ -373,7 +372,7 @@ class LandingPage extends Component {
                                           centerImg={centerImg} centerContent={centerContent}
                                           Nxt={true}/>
                 <div className="grain animated fadeIn"></div>
-
+               
             </div>
 
 
