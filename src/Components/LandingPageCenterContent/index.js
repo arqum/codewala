@@ -137,7 +137,9 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
                                         {/*deletingInterval={deletingInterval} pause={pause}/>*/}
                      <br/>
                  </span>
-                 <CSSTransition
+        </span>
+      </div>
+      <CSSTransition
                   in={centerContent}
                   timeout={1200}
                   classNames={{
@@ -157,12 +159,6 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
             <div className={`codewalaText_description animated fadeIn`}>{description}</div> 
 
             </CSSTransition>
-               
-
-           
-
-        </span>
-      </div>
       </div>   
            
            
