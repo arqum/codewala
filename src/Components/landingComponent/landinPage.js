@@ -190,11 +190,11 @@ class LandingPage extends Component {
                $('.txt-rotate').css({'color': '#2c3343',
                'text-shadow': '1px 1px 1px rgba(67,67,67,0.49)'});
 
-               $('.codewalaText_description').css({
-                'background':'#fffffffa',
-                'color': "#2c3343"
+            //    $('.codewalaText_description').css({
+            //     'background':'#fffffffa',
+            //     'color': "#2c3343"
 
-               })
+            //    })
 
             } else {
 
@@ -207,11 +207,11 @@ class LandingPage extends Component {
                 $('.txt-rotate').css({'color': '#ffff',
                 'text-shadow': '1px 1px 1px rgba(44, 51, 67, 0.17)'});
 
-                $('.codewalaText_description').css({
-                    'background':'#2c3343',
-                    'color': "white"
+                // $('.codewalaText_description').css({
+                //     'background':'#2c3343',
+                //     'color': "white"
     
-                   })
+                //    });
 
 
             }

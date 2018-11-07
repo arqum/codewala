@@ -36,17 +36,7 @@ const style = {
    
 }
 
-// width: 12%;
-//     height: auto;
-//     overflow: hidden;
-//     margin: 0px 0px 0px auto;
-//     outline: none;
-//     background-size: 30%;
-//     background-repeat: no-repeat;
-//     position: relative;
-//     top: 32%;
-//     z-index: 20;
-//     align-self: baseline;
+
 
 const ontop =  {
   
@@ -156,7 +146,9 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
                    appear={true}
                    exit={true}
                   >
-            <div className={`codewalaText_description animated fadeIn`}>{description}</div> 
+                  <div className="col-md-4 offset-4 codewala-desc-container ">
+                     <div className={`codewalaText_description animated fadeIn`}>{description}</div> 
+                  </div>
 
             </CSSTransition>
       </div>   

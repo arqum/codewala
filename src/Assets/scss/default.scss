@@ -473,21 +473,25 @@
   }
 
   .codewalaText_description {
-    width: 65vh;
+    width: 100%;
     padding: 5px;
     display: inline;
+    border-top: #f8f9fa thin dotted;
+    border-bottom: #f8f9fa thin dotted;
     position: absolute;
     top: 68%;
     line-height: 1.6vw;
-    left: 32.8%;
     font-family: railway-regular!important;
     z-index: 13;
-    text-shadow: 1px 1px 1px rgba(44,51,67,.17);
-    background: #fffffffa;
-    color:#2c3343;
+    /* background: #2c33431c; */
+    color: #2c3343;
     transition: all .2s cubic-bezier(0,0,.58,1);
+  }
 
-
+  .codewala-desc-container {
+    position: absolute;
+    top: 67%;
+    z-index: 15;
   }
 
 
