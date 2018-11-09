@@ -26,10 +26,11 @@ type LandingPageCenterContentProps = {
 const style = {
     backgroundSize: "30%",
     backgroundRepeat: "no-repeat",
-    width: "20.6%",
+    width: "15%",
+    padding:"3px",
     height: "auto",
     position: "relative",
-    top: "32%",
+    top: "22%",
     zIndex: "20",
     alignSelf: "baseline",
     margin: "0px 0px 0px auto"
@@ -75,7 +76,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
       
 
         <div className="row ontop" style={{display: "flex"}}>
-          <div className="col-md-5 col-sm-12" style={{padding:"0px", maxWidth:"41.666667% !important"}}>
+          <div className="col-md-6 col-sm-12" style={{padding:"0px", maxWidth:"41.666667% !important"}}>
           <CSSTransition
               in={centerContent}
               timeout={1200}
@@ -111,7 +112,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
 
       
           </div>
-          <div className="col-md-7 col-sm-12">
+          <div className="col-md-6 col-sm-12">
 
             <span className="txt-rotate">
 
@@ -120,11 +121,6 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
                      <br/> is
                      <br/>
                      <RotateString stringToRotate={this.props.label}/>
-                     {/*<ReactRotatingText currentValue={currentValue}*/}
-                                        {/*startingIndex={startingIndex}*/}
-                                        {/*items={items}*/}
-                                        {/*typingInterval={typingInterval}*/}
-                                        {/*deletingInterval={deletingInterval} pause={pause}/>*/}
                      <br/>
                  </span>
         </span>
@@ -146,7 +142,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
                    appear={true}
                    exit={true}
                   >
-                  <div className="col-md-4 offset-4 codewala-desc-container ">
+                  <div className="col-md-6 offset-3 codewala-desc-container ">
                      <div className={`codewalaText_description animated fadeIn`}>{description}</div> 
                   </div>
 

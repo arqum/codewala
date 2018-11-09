@@ -1,7 +1,7 @@
 [
   {
     "id": " code",
-    "label": "CODE",
+    "label": "code",
     "description": "Over 10 years of experience in writing beautiful code that always works! Reliable code is hard to come by isn't it?",
     "descriptionClass": "codewalaText_description fade-in-top",
     "logoImgURL": "logo_main_animation.json",
@@ -11,7 +11,7 @@
   },
   {
     "id": " mobile",
-    "label": "MOBILE",
+    "label": "mobile",
     "description": "If there could a website, then thou might not but hast an app for't as well",
     "descriptionClass": "codewalaText_description fade-in-top",
     "logoImgURL": "logo_mob_animation.json",
@@ -21,8 +21,8 @@
   },
   {
     "id": " ux",
-    "label": "UX",
-    "description": "I don't merely make it work, I like to extend the magic with applications that connect on a human level. And for that, my process includes ideating every possible facet, emotion, persuassion, usability. I consider psychological biases, human decision making process and its drives. It's a science and I know it!",
+    "label": "ux",
+    "description": "I don't merely make it work, I like to extend the magic with applications that connect on a human level. I consider psychological biases, human decision making process and its drives. It's a science and I know it!",
     "descriptionClass": "codewalaText_description fade-in-top",
     "logoImgURL": "logo_ux_animation.json",
     "logoImgClass": "slide-in-blurred-top",
@@ -31,7 +31,7 @@
   },
   {
     "id": " design",
-    "label": "DESIGN",
+    "label": "design",
     "description": "Applications with exquisite designs are perceived to work immaculately as well. I  spend my time in a land where Art and Science meet. It's a small and relatively unknown place, but I have found it.",
     "descriptionClass": "codewalaText_description fade-in-top",
     "logoImgURL": "logo_design_animation.json",
@@ -41,7 +41,7 @@
   },
   {
     "id": " fun",
-    "label": "FUN",
+    "label": "fun",
     "description": "It's not worth it if it ain't fun. I believe in co-creation. I don't shove ideas with a take-it-or-leave-it approach, I like to chase the dream. Your dream.",
     "descriptionClass": "codewalaText_description fade-in-top",
     "logoImgURL": "logo_fun_animation.json",
@@ -51,7 +51,7 @@
   },
   {
     "id": " life",
-    "label": "LIFE",
+    "label": "life",
     "description": "\"But I always liked side-paths, little dark back-alleys behind the main road- there one finds adventures and surprises, and precious metal in the dirt.\" \n ― Fyodor Dostoyevsky, The Brothers Karamazov",
     "descriptionClass": "codewalaText_description fade-in-top",
     "logoImgURL": "logo_design_animation.json",

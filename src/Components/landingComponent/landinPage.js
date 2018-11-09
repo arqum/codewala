@@ -364,13 +364,11 @@ class LandingPage extends Component {
                 <LandingDots items={this.itemsList()} label={label} index={currentIndex}
                              onClick={this.getCurrentValue.bind(this)}/>
                 {/* <div className="homeLargeText">{label}</div> */}
-                <GridOverlay numberOfColumns={6}/>
+                <GridOverlay numberOfColumns={8}/>
 
                 <div id="element"/>
                 <div id="gradient"/>
                 <div className="transition-fader"></div>
-                {/* <div className="landing-decor"></div> */}
-
                 <BackgroundCover videoSource={isVideo && backgroundCover} imageSource={!isVideo && backgroundCover}
                                  centerContent={centerContent} id="bgCover"/>
 

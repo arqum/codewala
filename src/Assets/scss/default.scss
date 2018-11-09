@@ -441,8 +441,7 @@
   
   .txt-rotate {
     position: absolute;
-    top: 47%;
-    padding-left: 3%;
+    top: 46%;
     margin-top: -150px;
     z-index: 15;
     color: #fff;
@@ -455,8 +454,8 @@
   }
   
   .codewalatext {
-    font-size: 3.8vw;
-    line-height: 3.8vw;
+    font-size: 1.9vw;
+    line-height: 1.8vw;
     z-index: 13;
     text-shadow: 1px 1px 1px rgba(44,51,67,.17);
     transition: all .2s cubic-bezier(0,0,.58,1);
@@ -474,24 +473,24 @@
 
   .codewalaText_description {
     width: 100%;
-    padding: 5px;
     display: inline;
-    border-top: #f8f9fa thin dotted;
-    border-bottom: #f8f9fa thin dotted;
+    text-align: justify;
     position: absolute;
     top: 68%;
-    line-height: 1.6vw;
-    font-family: railway-regular!important;
+    font-family: railway-bold!important;
     z-index: 13;
-    /* background: #2c33431c; */
-    color: #2c3343;
+    font-size: 1.8vw;
+    background: -webkit-linear-gradient(#2c3343,#394154);
     transition: all .2s cubic-bezier(0,0,.58,1);
-  }
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
   .codewala-desc-container {
     position: absolute;
-    top: 67%;
+    top: 54%;
     z-index: 15;
+
   }
 
 
@@ -2161,7 +2160,7 @@ height: auto;
 .scroll-downs-home {
   position: absolute;
   top: 66%;
-  right: 22%;
+  right: 8%;
   bottom: 0;
   margin: auto;
   width: 38px;
@@ -2420,8 +2419,6 @@ transition: all 200ms cubic-bezier(0, 0.87, 1, 0.645);
   
 }
 
-
-
 .landing-decor {
   width: 4px;
   height: 20px;
@@ -2430,4 +2427,14 @@ transition: all 200ms cubic-bezier(0, 0.87, 1, 0.645);
   left: 28%;
   top: 25%;
 
+}
+
+.landing-home-square {
+  color: rgb(255, 255, 255);
+    text-shadow: rgba(44, 51, 67, 0.17) 1px 1px 1px;
+    border: 7px solid rgba(255, 255, 255, 0.57);
+    padding: 4%;
+    position: absolute;
+    width: 30%;
+    height: 30%;
 }
