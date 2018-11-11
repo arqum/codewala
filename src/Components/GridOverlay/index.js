@@ -19,7 +19,7 @@ const GridOverlay = (props: GridOverlayProps) => {
                         return (
                             <div className={`animated SlideInLeft delay-2s col ${index % 2 === 0 ? styles.colStyleDark : styles.colStylelight}`}>
                                 <div className={`${index % 2 !== 0 ? styles.landingDecorNone : styles.landingDecor}`}/>
-                                <div className={`${index % 2 !== 0 ? styles.landingDecorNone : styles.landingDecor2}`}/>
+                                                                <div className={`${index % 2 !== 0 ? styles.landingDecorNone : styles.landingDecor2}`}/>
 
                             </div>
                         

@@ -26,11 +26,11 @@ type LandingPageCenterContentProps = {
 const style = {
     backgroundSize: "30%",
     backgroundRepeat: "no-repeat",
-    width: "15%",
+    width: "16%",
     padding:"3px",
     height: "auto",
     position: "relative",
-    top: "22%",
+    top: "20%",
     zIndex: "20",
     alignSelf: "baseline",
     margin: "0px 0px 0px auto"
@@ -67,6 +67,9 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
             centerContent: null
         });
     }
+
+
+
     render(){
     const {centerImg, currentValue, items, typingInterval, deletingInterval, pause, description, startingIndex, centerContent} = this.props;
     console.log(centerImg);
@@ -113,7 +116,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
       
           </div>
           <div className="col-md-6 col-sm-12">
-
+          {/* <div className="landing-home-square"></div> */}
             <span className="txt-rotate">
 
                  <span className="codewalatext">
