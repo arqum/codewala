@@ -1749,44 +1749,50 @@ height: auto;
   margin-top:25%;
   }
 
-// @media(min-width:320px) and (max-width:480px) {
-//   #centerlogo{
-//     top:40%;
-//   }
+@media(min-width:320px) and (max-width:768px) {
+  #centerlogo{
+    top:40%;
+  }
 
-//   .txt-rotate {
-//     left:44%;
-//     top:calc(40% + 220px);
-//     text-align: center;
-//   }
+    .txt-rotate {
+      z-index: 15;
+      color: #fff;
+      transition: all .5s ease-in-out;
+      background-position: 0;
+      text-shadow: 1px 1px 1px rgba(44,51,67,.17);
+      transition: all .2s cubic-bezier(0,0,.58,1);
+      text-align: center;
+  }
 
-//   .codewalaText_description{
-//     width: 100%;
-//   }
-// } 
+  .codewalaText_description{
+    display: none
+  }
+  .codewalatext {
+    font-size: 3em;
+    line-height: 1em;
+    z-index: 13;
+    text-shadow: 1px 1px 1px rgba(44,51,67,.17);
+    transition: all .2s cubic-bezier(0,0,.58,1);
+} 
 
-// .about-rotator-style {
-//   font-size: inherit;
-//   font-family: inherit;
-//   color: inherit;
-//   font-style: bold;
-// }
+.about-rotator-style {
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  font-style: bold;
+}
+.scroll-downs-home{
+  display: none
+}
+.styles-circles {
+  position: absolute;
+  top: 79%;
+  right: 17%;
+  height: 20px;
+  left: 50%;
+}
+}
 
-// .ontop {
-//   z-index: 2000 !important;
-//   transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
-
-// }
-
-// .ontop-initial {
-//   z-index: 2000 !important;
-//   transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
-//   margin-top: 50%;
-// }
-// .centerLogoTransition{
-//   transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
-
-// }
 
 
 //Noise 
@@ -2160,7 +2166,7 @@ height: auto;
 .scroll-downs-home {
   position: absolute;
   top: 66%;
-  right: 8%;
+  right: 20%;
   bottom: 0;
   margin: auto;
   width: 38px;

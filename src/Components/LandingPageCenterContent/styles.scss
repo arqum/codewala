@@ -1,16 +1,27 @@
 .centerImg {
-  -webkit-background-size: 70%;
-  background-size: 70%;
+  background-size: 30%;
   background-repeat: no-repeat;
-  width: 240px;
-  height: 250px;
-  position: absolute;
-  left: 34%;
-  top: 50%;
-  opacity: 0;
-  margin-left: -150px;
-  margin-top: -150px;
+  width: 16%;
+  padding:3px;
+  height: auto;
+  position: relative;
+  top: 20%;
   z-index: 20;
+  align-self: baseline;
+  margin: 0px 0px 0px auto;
 
+}
+
+.centerLogo {
+  background-size: 30%;
+  background-repeat: no-repeat;
+  width: 16%;
+  padding:3px;
+  height: auto;
+  position: relative;
+  top: 20%;
+  z-index: 20;
+  align-self: baseline;
+  margin: 0px 0px 0px auto;
 }
 
