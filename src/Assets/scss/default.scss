@@ -821,20 +821,20 @@
 
   }
 
-  .logo-home:hover{
-    background: url('src/../../../Assets/images/logo_head_home.png') no-repeat;
-    position: fixed;
-    right: 20px;
-    top: 10px;
-    width: 120px;
-    height: 120px;
-    z-index: 5000;
-    background-size: 100%;
-    transition: all .2s cubic-bezier(0,.87,1,.645);
-    transform: scale(1.05);
-    cursor: pointer;
+  // .logo-home:hover{
+  //   background: url('src/../../../Assets/images/logo_head_home.png') no-repeat;
+  //   position: fixed;
+  //   right: 20px;
+  //   top: 10px;
+  //   width: 120px;
+  //   height: 120px;
+  //   z-index: 5000;
+  //   background-size: 100%;
+  //   transition: all .2s cubic-bezier(0,.87,1,.645);
+  //   transform: scale(1.05);
+  //   cursor: pointer;
 
-  }
+  // }
 
   #menu-button {
     position: absolute;

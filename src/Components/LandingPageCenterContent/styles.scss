@@ -1,16 +1,3 @@
-.centerImg {
-  background-size: 30%;
-  background-repeat: no-repeat;
-  width: 16%;
-  padding:3px;
-  height: auto;
-  position: relative;
-  top: 20%;
-  z-index: 20;
-  align-self: baseline;
-  margin: 0px 0px 0px auto;
-
-}
 
 .centerLogo {
   background-size: 30%;
@@ -25,3 +12,19 @@
   margin: 0px 0px 0px auto;
 }
 
+@media(min-width:320px) and (max-width:768px) {
+  
+  .centerLogo {
+    background-size: 30%;
+    background-repeat: no-repeat;
+    width: 30%;
+    padding:3px;
+    height: auto;
+    position: relative;
+    top: 20%;
+    z-index: 20;
+    align-self: baseline;
+    margin: 0px 0px 0px auto;
+  }
+  
+}
