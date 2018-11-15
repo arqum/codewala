@@ -441,7 +441,7 @@ class MainNavigation extends Component {
             alignContent: "center",
             zIndex: "23",
             letterSpacing: ".1vh",
-            fontFamily: "krub-bold !important"
+            fontFamily: "krub-bold !important",
            // transition: "all 500ms cubic-bezier(0.420, 0.000, 1.000, 1.000)",
         }
 
@@ -508,7 +508,7 @@ class MainNavigation extends Component {
  
   </div>
 
-             <NavLink to="/" exact ><div className="logo-home">dsd</div></NavLink>
+    <div className="logo-home"></div>
 
     
  

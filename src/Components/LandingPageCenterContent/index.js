@@ -38,6 +38,20 @@ const style = {
    
 }
 
+const style_small = {
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+    width: "30%",
+    padding:"3px",
+    height: "auto",
+    position: "relative",
+    top: "20%",
+    left:"30",
+    zIndex: "20",
+    alignSelf: "baseline",
+   
+}
+
 
 
 const ontop =  {
@@ -73,7 +87,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
 
     render(){
     const {centerImg, currentValue, items, typingInterval, deletingInterval, pause, description, startingIndex, centerContent} = this.props;
-    console.log(centerImg);
+    console.log("innder width", window.innerWidth);
 
     return (
       
@@ -107,7 +121,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
                      }
                    
                     }}
-                    style={style}
+                    style={window.innerWidth<=768? style_small:style}
                     isStopped={false}
                     isPaused={false}
                     className="centerImg"/>
