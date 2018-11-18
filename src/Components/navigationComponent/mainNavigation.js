@@ -524,7 +524,7 @@ class MainNavigation extends Component {
 
   <div id="menu-nav" className={`animated ` +this.state.menu.menu_div} style={style_menu_div}>
   <div className="row">
-  <div className="col-md-6 col-lg-6">
+  <div className="col-md-6 col-lg-6 rightBorder">
   <ul style={nav_links}>
      <li>
          <span className="nav-items">01</span>
@@ -550,44 +550,54 @@ class MainNavigation extends Component {
   </ul>
   </div>
  
-  <div className="col-md-6 col-lg-6 nav-social-section " >
-  <div className="row">
-  <div className="col-md-6 col-lg-6 " style={{bottom:"0px"}}>
-  <div  className="logoheadSection">
-  
-  <h4 className="small-text">
-      Want to ask us something? Email us now at 
-  </h4><br/>
-  <div className="links-2">
-  <span className="lnr lnr-envelope icons-dark"></span>
-  inquiries@codewala.co
-<div className={`animated menu-logo-head ` +this.state.menu.logoHeadClass}>
-</div>
-  </div>
+  {/* <div className="col-md-6 nav-social-section " > */}
+  {/* <div className="row"> */}
+  <div className="col-md-3 rightBorder" style={{bottom:"0px"}}>
+    <div  className="logoheadSection">
+    
+    <h4 className="small-text">
+        Want to ask us something? Email us now at 
+    </h4><br/>
+        <div className="links-2">
+        <span className="lnr lnr-envelope icons-dark"></span>
+        inquiries@codewala.co
+            <div className={`animated menu-logo-head ` +this.state.menu.logoHeadClass}>
+            </div>
+        </div>
+    </div>
   </div>
 
+  <div className="col-md-3 row-pattern" style={{display:"flex"}}>
+  <div className="social-icons facebook"></div>
+  <div className="social-icons twitter navlinks"></div>
+  <div className="social-icons linkedIn navlinks"></div>
   </div>
-  <div className="col-md-6 col-lg-6 nav-social-section">
+
+
+
+
+  {/* <div className="col-md-6 col-sm-12 nav-social-section" id="menu-social">
   <div className="row row-pattern" style={{paddingTop:"88%"}}>
 
-  <div className="col-md-4 col-lg-4 navlinks">
+  <div className="col-md-4 navlinks">
   <div className="social-icons facebook"></div>
   </div>
 
-  <div className="col-md-4 col-lg-4">
+  <div className="col-md-4">
   <div className="social-icons twitter navlinks">
   </div>
   </div>
 
-  <div className="col-md-4 col-lg-4">
+  <div className="col-md-4">
   <div className="social-icons linkedIn navlinks">
   </div>
   </div>
 
   </div>
-  </div>
-  </div>
-  </div>
+  </div> */}
+
+  {/* </div> */}
+  {/* </div> */}
   </div>
   
 </div>

@@ -143,19 +143,16 @@ componentWillMount(){
 
                 <p className="inner-paragraph-upper animated fadeIn delay-1s  ">
                 Codewala is a one man endevour to provide small and medium businesses a premium digital presense. It is also an effort to demonstrate my capabilities and the services I can offer. I envision a world where code means something and design appeals to the senses.</p>
-                <div className="inner-upper-icons-container">
 
-
-                <div className={`inner-upper-icons inner-upper-desktop animated pulse `+ this.state.iconHoverClass} >
-                <div className="inner-upper-icon-heading">
-                WEB
-                </div>
-                </div>
-                <div className="inner-upper-icons inner-upper-mobile">
-                <div className="inner-upper-icon-heading">
-                MOBILE
-                </div>
-                </div>
+                 <div className={`inner-upper-icons inner-upper-desktop animated pulse `+ this.state.iconHoverClass} >
+                    <div className="inner-upper-icon-heading">
+                    WEB
+                    </div>
+                    </div>
+                    <div className="inner-upper-icons inner-upper-mobile">
+                    <div className="inner-upper-icon-heading">
+                    MOBILE
+                    </div>
                 </div>
         </div>
 
@@ -180,24 +177,21 @@ componentWillMount(){
             </ScrollAnimation>
 
             <div className="col-md-4 col-sm-12 animated fadeInLeft delay-1s rightBorder">
-            <div className="inner-upper-icons-container">
-            <div className="inner-upper-icons inner-upper-creative">
-            <div className="inner-upper-icon-heading">
-            creative
-            </div>
-            </div>
 
-            <div className="inner-upper-icons inner-upper-analysis">
-            <div className="inner-upper-icon-heading">
-            analysis
-            </div>
-            </div>
+                <div className="inner-upper-icons inner-upper-creative">
+                    <div className="inner-upper-icon-heading">
+                    creative
+                    </div>
+                    </div>
 
-            </div>
-
-
+                    <div className="inner-upper-icons inner-upper-analysis">
+                    <div className="inner-upper-icon-heading">
+                    analysis
+                    </div>
+                    </div>
 
             </div>
+
             <div className=" row-pattern col-md-2 col-sm-12 animated fadeIn delay-1s"></div>
 
             </div>

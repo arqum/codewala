@@ -41,11 +41,11 @@ const style = {
 const style_small = {
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
-    width: "30%",
+    width: "22%",
     padding:"3px",
     height: "auto",
     position: "relative",
-    top: "20%",
+    top: "30%",
     left:"30",
     zIndex: "20",
     alignSelf: "baseline",
@@ -130,7 +130,7 @@ class LandingPageCenterContent extends Component<LandingPageCenterContentProps>{
 
       
           </div>
-          <div className="col-md-6 col-sm-12">
+          <div className={window.innerWidth<=768?"col-sm-12 text-center ": "col-md-6 col-sm-12" }>
           {/* <div className="landing-home-square"></div> */}
             <span className="txt-rotate">
 
